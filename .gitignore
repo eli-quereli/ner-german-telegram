@@ -6,7 +6,7 @@ data/
 
 
 #### Config ###
-src/config/db.py
+src/config/db_credentials.py
 
 
 ### JupyterNotebooks ###
