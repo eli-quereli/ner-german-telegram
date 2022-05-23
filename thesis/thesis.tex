@@ -1,0 +1,110 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage[printonlyused,withpage]{acronym}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+\usepackage[style=authoryear, backend=biber]{biblatex}
+\addbibresource{thesis.bib}
+\DeclareNameAlias{sortname}{family-given}
+\nocite{*}
+
+\linespread{1.5}
+
+\definecolor{htw}{RGB}{118,185,0}
+\begin{document}
+\singlespacing
+
+\title{
+\date{}
+\vspace*{-50mm} 
+{\includegraphics{HTW_Logo_rgb}}\\
+
+\vspace{1.2cm}
+\hrulefill 
+\vspace{0.5cm}
+\textcolor{htw}{
+{\textbf{\Large \\ Building a State-of-the-Art \\ Deep Learning German-Language Information Extraction System}}}\\
+\hrulefill 
+\vspace{0.5cm}
+
+{\large Master Thesis}
+
+\vspace{1.2cm}
+
+{\large M.Sc. Project Management and Data Science}\\
+{\large Faculty 3}\\
+
+
+\vspace{5mm}
+
+{\normalsize by}\\
+
+{\large Florian Dewes}\\
+
+\vspace{20mm} 
+
+
+\begin{minipage}[b]{\textwidth}
+
+    \centering
+        \normalsize
+    Berlin, August 29, 2022\\
+    \vspace{1cm}
+
+    \large 1\textsuperscript{st} Supervisor: Prof. Dr. Tilo Wendler\\
+
+    \large 2\textsuperscript{nd} Supervisor: Prof. Dr. Bertil Haack\\
+\end{minipage}
+\vspace{-100mm}
+}
+
+\maketitle
+
+\pagenumbering{roman} 
+\onehalfspacing
+\input{chapters/00_abstract}
+
+\chapter*{Dedication}
+To Dietmar and Friederike
+
+\singlespacing
+
+\tableofcontents
+
+\listoffigures
+\listoftables
+
+\input{chapters/00_acronyms}
+
+\cleardoublepage\pagenumbering{arabic}
+
+\onehalfspacing
+
+\input{chapters/01_introduction}
+
+\input{chapters/02_theory}
+
+\input{chapters/03_implementation}
+
+\input{chapters/04_conclusion}
+
+\printbibliography
+
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\appendix
+\input{chapters/00_appendix}
+\input{chapters/00_statutory_declaration}
+
+
+
+\end{document}
+
