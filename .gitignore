@@ -5,6 +5,10 @@
 data/
 
 
+#### Config ###
+src/config/db.py
+
+
 ### JupyterNotebooks ###
 # gitignore template for Jupyter Notebooks
 # website: http://jupyter.org/
