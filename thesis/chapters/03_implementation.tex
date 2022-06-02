@@ -1,9 +1,36 @@
 \chapter{Implementation}
 \label{cha:implementation}
-\section{Datasets}
-\subsection{GermEval 2014 NER Shared Task: German Named Entity Recognition}
-\section{Named Entity Recognition}
-\subsection{SpaCy}
-\subsection{Huggingface Transformers}
-\section{Sentiment Analysis}
+\section{Data}
+\subsection{Existing German-language datasets for NER}
+\subsection{Domain-specific data}
+Telegram channel `Demotermine': 52.900 subscribers by the beginning of June 2022, 
+
+long channel name: `Demo-Termine & Kontakte, Gleichgesinnte treffen - Demokalender, Spaziergänge, Mahnwachen, Meditation *Rücktritt Bundesregierung!'
+
+channel-info: ``🔊 Wir Demokraten wollen miteinander in Kontakt bleiben @DemotermineChat und uns im Bedarfsfall möglichst schnell austauschen, Beweise in Wort, Bild und Ton sichern, damit sie nicht unterschlagen werden können @LivestreamsFuerDich!
+@Terminverteiler_Bot'
+
+#TODO insert histplot to show development of message numbers
+
+date range: 2018-10-05 bis 2021-12-19
+
+total number of messages (wo duplicates): 27.627 messages
+
+German-language: 23.940 
+
+Sample size: 378 out of 23940 confidence level 95%, confidence interval 5%
+
+text length: min 100 (~lower quartile), max 350 (~upper quartile)
+
+-> remaining: 
+
+
+\section{Models}
+- spacy
+- hugging face
+\section{Pipeline}
+\section{Evaluation metrics}
+\subsection{Accuracy}
+\subsection{Performance}
+\section{Translation approach?}
 \section{Summarization}

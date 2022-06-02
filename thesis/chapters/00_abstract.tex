@@ -1,8 +1,9 @@
 \chapter*{Abstract}
+This thesis implements Named Entity Recognition (\acro{NER}) in German-language text data dissemninated via the messenger service Telegram, with a focus on the mobilization for protests against measures to counteract the COVID-19 in Germany. 
 
-This thesis aims to point out the possibilities of current deep learning text information extraction systems that process German language texts.
-In recent years, advances in the field of natural language processing have made tremendous progress. 
-Similar to the advances in the field of computer vision, modern language models nowadays are able to solve problems which would have been unthinkable ten years ago.
-This paper demonstrates the current possibilities to extract information from text data that have emerged over recent years.
+This work explores the potentials and limitations of two existing German-language models for NER, namely \textit{spacy} and \textit{hugging face}, for the recognition of the entity types \textsc{PERSON}, \textsc{LOCATION}, \textsc{ORGANIZATION}, \textsc{DATE} and \textsc{TIME} for this specific domain and data. Furthermore, the recognition of an additional custom entity type \textsc{ACTION} will be explored. 
 
-Of particular interest is the pipeline that receives unstructured text as input, transforms the unstructured data into a machine-readable format, and then applies various techniques to extract useful information such as dates or named entities. Furthermore, to make sense out of the extracted information, these recognized entities have to be further processed, in order to make sense of them, e.g. disambiguation and linking. It takes into account the peculiarities of the needed German-language models as well as specific problems one encounters with German written text. 
+Additionally, I will explore the potentials of Machine Translation (MT) for the improvement of German-language NER models. 
+- conspiracy theories, targeting of politicians
+
+This thesis contributes to the task of German-language NER in general by applying it to a specific domain and data type, namely text data from messenger services. Furthermore, its aim is to provide a low-resource tool for both researchers and civil society for monitoring and analyzing large amount of text data from social media/messengers. 

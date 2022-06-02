@@ -2,24 +2,48 @@
 \label{cha:introduction}
 \section{Background}
 
-Recent years have seen tremendous improvements in the development of computer language models. Speech recognition and virtual assistants such as Apple's \textit{Siri}, which can be found in the company's iPhones and Smart Watches, or Amazon's \textit{Alexa}, present in products such as \textit{Echo} and \textit{Dot}, can react to human speech input with unprecedented accuracy. This trend to make  physical input devices such as keyboards, mouses or even touchscreens obsolete is likely going to gain traction and the past decade can probably be interpreted as the starting sign for further developments in this field. In the future, more and more products and services will be accessible and controllable via spoken languages only. These developments can already be observed in the automotive sector, home entertainment industries, and many more.
+The outbreak of the COVID-19 pandemic lead to an increased spread of misinformation and conspiracy theories evolving around e.g. the origin of the virus, but also about the intentions of the responsible authorities putting into effect countermeasures to prevent the further spread of the virus such as e.g. lockdowns, the mandatory use of face masks or testing, and last but not least COVID-19 vaccinations. 
+ 
+The rise of conspiracy theories has often been accompanied by antisemitism, racism, but also hateful targeting of politicians. 
 
-In order for these assistant systems to function, it is needed to translate spoken human language into structures which computers can understand.  In order to do so, these systems translate the waveforms of the spoken text into the smallest units of sound, called \textit{phonemes}. These phonemes are then combined into the corresponding words in text form and finally composed into a text representation of the spoken sentence or command. This text representation is the starting point for current machine learning algorithms to process orders such as \textit{"Hey Siri, set a ten minute timer!"} or \textit{"Hey Alexa, what events are in my calendar tomorrow?"}
+\begin{itemize}
 
-Another domain that has seen a dramatic rise of practical Natural Language application are chatbots. Almost all large companies offer automated chat systems on their webpages. Most of them are in place to offer some kind of advice for selecting the right product for customers.  However, some companies are already taking the next step: Amazon for example even lets chatbots gather most of the data needed for return or service requests and only then forward customers to a human in order to finish the service.
+\item racism: especially Asian community made responsible for spreading the virus
+\item antisemitism: Jews identified as culprits behind the pandemic, using it as a means to obtain world dominance
+\item politicians: complicit with those who benefit from pandemic; following a secret plan; restriction of civil rights
 
-The trend of all these developments is clear: As NLP systems are getting better and better, they will also do more and more tasks that until this day needed the skill of humans in any way. In the future, however, even more and more of these tasks are likely to be automated by language understanding systems. This development underlines the importance of NLP systems in the present and its importance on future economic processes cannot be valued enough. This is especially true because also other domains rely on NLP as a core functionality: Not only assistants and chatbots need NLP features, but also spam classification, search engines and translation systems rely on NLP in order to work properly.
+\item anti-COVID-19 measures were accompanied by protests against them 
+\item freedom of speech, criticizing the government are valuable and essential components of a democratic society
+\item but: often hateful tendencies and developments, both online and offline 
+\item entanglement of digital and real world
+\item hate does not stay in the internet, also has real effects
+\item examples: ... Karl Lauterbach, Kretschmer, Demo vor Haus von Politikerin, Entführung Gesundheitsminister in Schweiz
+
+\item spread of misinformation, conspiracy theories: social media and messengers
+\item not only information, also mobilization
+\item special targets: politicians, but also minority groups, e.g. persons identified as Jewish
+\item journalists uncover networks, raise attention for dangerous potential of these political networks, movements
+\item authorities react only slowly
+\item amount of text data make it hard for reserachers, NGOs to monitor development and mobilization strategies
+
+\end{itemize}
 
 \section{Objective}
 
-This thesis is going to explore the state-of-the-art techniques which are available for extracting information from German texts. When considering the former quoted question above, it is necessary to think about what types of information are represented there. For human beings, this is quite easy to accomplish, whereas this is not the case for computers and their machine learning algorithms. In the given example above, it is quite important to recognize that the user wants to set a timer (start the timer app on a phone or smart watch) and extract the information that "ten minute" is a representation of a certain time period. Furthermore, the given information ("timer" and "ten minutes") have to be connected in a meaningful way in order to make sense and be able to be executed by the device.
+\begin{itemize}
+\item low-resource approach of NER in German-language Telegram messages
+\item extration of entities particularly relevant for mobilization / monitoring of potential targeting: PERSON, ORGANIZATION; DATE; TIME; LOCATION; ACTION as custom type
+\item explore potentials and limitations of existing models
+\item explore potentials of translation approach
+\item provide a low-resource tool for NGOs and researchersm make available as API; Project teledash
+\end{itemize}
 
 \section{Thesis Structure}
-
-This thesis demonstrates the current state of extracting information from German language texts using deep learning techniques. In order to do so, the second chapter provides the theoretical background of the applied techniques. A short introduction to the vast field of natural language processing (NLP) is followed by an explanation of \textit{word embeddings}, which is the basis of all modern text representations in the digital domain, and transforms the unstructured appearance of texts into a structured, mathematical form which can be processed by machine learning algorithms. The next section discusses the theory of \textit{transformer networks}, which represent the state of the art approach to text processing in the deep learning domain: prominent language models like \ac{BERT}, GPT2 and GPT3 are based on this network architecture and led to a mind-blowing advancement when compared to older techniques of automated text processing. The last part of the theoretical part of this paper will deal with approaches to \textit{information extraction}. Therefore, we will discuss what information can be extracted form human language: namely, we will focus on \textit{named entitiy recognition} \ac{NER}, \textit{sentiment analysis} and \textit{text summarization}. A last section of this chapter will deal with the peculiarities of the German language and what to look out for when using machine learning to extract information from German texts. 
-
-Chapter three practically demonstrates the current state of deep learning information extraction from German language texts. In order to do so, 
-
+\begin{itemize}
+\item Theory
+\item Implementation
+\item Conclusion and Discussion
+\end{itemize}
 
 
 
