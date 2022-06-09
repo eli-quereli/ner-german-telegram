@@ -7,6 +7,7 @@ data/
 
 #### Config ###
 src/config/db_credentials.py
+src/config/deepl_credentials.py
 
 
 ### JupyterNotebooks ###
