@@ -1,9 +1,12 @@
 \chapter*{Abstract}
 This thesis implements Named Entity Recognition (\acro{NER}) in German-language text data dissemninated via the messenger service Telegram, with a focus on the mobilization for protests against measures to counteract the COVID-19 in Germany. 
 
-This work explores the potentials and limitations of two existing German-language models for NER, namely \textit{spacy} and \textit{hugging face}, for the recognition of the entity types \textsc{PERSON}, \textsc{LOCATION}, \textsc{ORGANIZATION}, \textsc{DATE} and \textsc{TIME} for this specific domain and data. Furthermore, the recognition of an additional custom entity type \textsc{ACTION} will be explored. 
+This work explores the potentials and limitations of two existing German-language models for NER, namely \textit{spacy} and \textit{hugging face}, for the recognition of the entity types \textsc{PERSON}, \textsc{LOCATION}, and \textsc{ORGANIZATION}.
 
-Additionally, I will explore the potentials of Machine Translation (MT) for the improvement of German-language NER models. 
-- conspiracy theories, targeting of politicians
+Furthermore, it makes use of the ctparse module to extract text parts containing \textsc{DATE} and \textsc{TIME} information. 
+% Furthermore, the recognition of an additional custom entity type \textsc{ACTION} will be explored. 
+
+% Additionally, I will explore the potentials of Machine Translation (MT) for the improvement of German-language NER models. 
+% conspiracy theories, targeting of politicians
 
 This thesis contributes to the task of German-language NER in general by applying it to a specific domain and data type, namely text data from messenger services. Furthermore, its aim is to provide a low-resource tool for both researchers and civil society for monitoring and analyzing large amount of text data from social media/messengers. 
