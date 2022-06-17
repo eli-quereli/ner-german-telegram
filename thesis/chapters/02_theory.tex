@@ -1,12 +1,135 @@
 \chapter{Theory}
 \label{cha:theory}
-\section{Natural Language Processing}
+
+The first part of this chapter places Named Entity Recognition in its larger context of Information Extraction (IE) technology, and 
+provides a basic definition of of NER. Furthermore it briefly describes the historical evolvement of NER, and discusses the challenges related to this task, both in general and with regard to the peculiarities of German language. 
+
+The second part elaborates different approaches for NER, from rule-based methods over statistical machine-learning based approaches to neural networks including transformer models, and discusses their respective limitations and potentials. %TODO ausformulieren
+
+
+\section{Information Extraction}
+Named Entity Recognition is a task from the field of Information Extraction (IE). IE aims at extracting factual information from unstructured or semistructured natural language texts. (cf. Zong et al. 2021, 227)
+
+The extracted parts of information can be entities, attributes related to those entities, relationships between entities, or events. The kinds of texts information is extracted from may be news texts from the web, social media posts, customer reviews, academic literature, and others. The aim of IE is to generate structured output from this unstructured or semistructured text data. Typical tasks of IE are named entity recognition, entity disambiguation, relation extraction, and event extraction (Zong et al. 2021)
+
+
+The origin of IE dates back to the late 1970s. 
+
+- MUC
+- CoNLL
+
+
+Common applications of information extraction are for example news tracking, counter-terrorism, business and financial intelligence, the processing of biomedical data or scientific libraries. IE can also be utilized for applications building on entity-oriented search, for question-answering systems, or the task of text segmentation. (Aggarwal 2018)
+
+IE technology can be classified via the domain aspect (limited vs. open domain), the type of extracted information (entity recognition, relation extraction, event extraction), and implementation methods (rule-based, statistical learning-based, or deep learning-based). (Zong et al. 2021, 229)
+
+\section{Named Entity Recognition}
+
 \subsection{Definition}
+
+Named entity recognition is the task of identifying named entities like person, location, organization, drug, time, clinical procedure, biological protein, etc. in text. It is often used as the first step in question answering, information retrieval, co-reference resolution, topic modeling, etc (Yadav and Bethard 2019) and is a “key component in NLP systems for question answering, information retrieval, relation extraction, etc.” (Yadav and Bethard 2019)
+
+NER is a fundamental task in natural language processing. It aims at identifying entities belonging to specified categories in text. The respective entities can mainly be represented by the following categories: 
+
+\begin{itemize}
+\item PERSON
+\item LOCATION
+\item ORGANIZATION
+\item TIME
+\item DATE
+\item CURRENCY/QUANTITY number, PERCENTAGE
+\end{itemize}
+
+While time, date, currency/quantity number, and percentage are commonly recognized via regular expressions, person, location, and organization pose larger challenges. Thus most of NER research focusses mainly on these entity types. (Zong et al. 2021, 229)
+
+NER can be divided into two subtasks:
+\begin{itemize}
+\item entity detection = detect whether a word string in a given text is an entity
+\item entitiy classification = judge the specified category of the detected entities
+ (Zong et al. 2021, 229)
+\end{itemize}
+
+\cite{aggarwal_machine_2018}
 \subsection{Historical evolvement}
+
+first NER task: by Grishman and Sundheim (1996) in the Sixth Message Understanding Conference
+since then numerous NER tasks ((Tjong Kim Sang and De Meulder, 2003; Tjong Kim Sang, 2002; Piskorski et al., 2017; Segura Bedmar et al., 2013; Bossy et al., 2013; Uzuner et al., 2011)  (Yadav and Bethard 2019)
+
+
 \subsection{Challenges for NER}
-\section{NER approaches}
-\subsection{Rule-based}
+- ambiguity
+- abbreviations
+- new entities evolving
+- capitalization
+- social media: messy texts, typos, codes
+- mixed language texts
+- domain adaptation
+
+\section{Overview of NER approaches}
+
+Early NER systems were based on handcrafted rules, lexicons, orthographic features and ontologies. 
+followed by NER systems based on feature-engineering and machine learning (Nadeau and Sekine, 2007)
+Starting with Collobert et al. (2011), neural network NER systems with minimal feature engineering have become popular
+are appealing because they typically do not require domain specific resources like lexicons or ontologies, and are thus poised to be more domain independent
+Various neural architectures have been proposed, mostly based on some form of recurrent neural networks (RNN) over characters, sub-words and/or word embeddings. (Yadav and Bethard 2019)
+
+
+\subsection{Rule-based approaches}
+
+Each token in the text is converted into a set of features. These features are typically helpful properties of the token or their context for entity extraction. e.g. starts with capital letter
+help in defining various patterns on the left-hand side of the rule
+contextual pattern on the left-hand side of the rule is a combination of conditions corresponding to the features associated with a sequence of tokens
+a rule is fired if a sequence of tokens in the text matches this pattern
+action on the right-hand side could correspond to labeling that sequence as a named entity (Aggarwal 2018)
+
+
+\subsection{Knowledge-based approaches}
+Knowledge-based NER systems do not require annotated training data as they rely on lexicon resources and domain specific knowledge. These work well when the lexicon is exhaustive, but fail for entity classes not represented in the lexicon
+Precision is generally high for knowledge-based NER systems because of the lexicons, but recall is often low due to domain and language-specific rules and incomplete dictionaries
+Another drawback of knowledge based NER systems is the need of domain experts for constructing and maintaining the knowledge resources.  (Yadav and Bethard 2019)
+
+
 \subsection{Machine-learning based}
+
+Feature-engineered supervised systems
+Supervised machine learning models learn to make predictions by training on example inputs and their expected outputs, and can be used to replace human curated rules. 
+Common ML systems for NER: 
+Hidden Markov Models (HMM)
+Maximum Entropy 
+Support Vector Machines (SVM)
+Conditional Random Fields (CRF)
+decision trees   (Yadav and Bethard 2019)
+
+
 \subsection{Neural Networks}
+
+NER systems have been studied and developed widely for decades
+ but accurate systems using deep neural networks (NN) have only been introduced in the last few years (Yadav and Bethard 2019)
+ 
+ Feature-inferring neural network systems
+Collobert and Weston (2008) proposed one of the first neural network architectures for NER, with feature vectors constructed from orthographic features (e.g., capitalization of the first character), dictionaries and lexicons.
+Later work replaced these manually constructed feature vectors with word embeddings (Collobert et al., 2011), which are representations of words in n-dimensional space, typically learned over large collections of unlabeled data through an unsupervised process such as the skip-gram model (Mikolov et al., 2013).
+Studies have shown the importance of such pre-trained word embeddings for neural network based NER systems (Habibi et al., 2017), and similarly for pre-trained character embeddings in character-based languages like Chinese
+Modern neural architectures for NER can be broadly classified into categories depending upon their representation of the words in a sentence. For example, representations may be based on words, characters, other sub-word units or any combination of these  (Yadav and Bethard 2019)
+
+\subsection{NER Datasets}
+NER datasets
+first shared task on NER (Grishman and Sundheim, 1996)
+CoNLL 2002 (Tjong Kim Sang, 2002) and CoNLL 2003 (Tjong Kim Sang and De Meulder, 2003) were created from newswire articles in four different languages (Spanish, Dutch, English, and German) and focused on 4 entities - PER (person), LOC (location), ORG (organization) and MISC (miscellaneous including all other types of entities).
+NER shared tasks have also been organized for a variety of other languages; German (Benikova et al., 2014)
+named entity types vary widely by source of dataset and language
+Benikova et al. (2014)’s data, which is based on German wikipedia and online news, has named entity types similar to that of CoNLL 2002 and 2003: PERson, ORGanization, LOCation and OTHer
+NER tasks have also been organized on social media data, e.g., Twitter, where the performance of classic NER systems degrades due to issues like variability in orthography and presence of grammatically incomplete sentences (Baldwin et al., 2015)
+Entity types on Twitter are also more variable (person, company, facility, band, sportsteam, movie, TV show, etc.) as they are based on user behavior on Twitter
+Though most named entity annotations are flat, some datasets include more complex structures; e.g. nested entities  (Yadav and Bethard 2019)
+
+\subsection{Tagging scheme and entity types}
+B-I-O tagging scheme 
+
+\subsection{Evaluation metrics}
+precision
+recall
+F1
+
 \subsection{Summarization}
 
