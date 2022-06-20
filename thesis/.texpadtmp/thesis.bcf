@@ -2346,8 +2346,10 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="0" nocite="1">*</bcf:citekey>
+    <bcf:citekey order="1">vajjala_practical_2020</bcf:citekey>
     <bcf:citekey order="2">aggarwal_machine_2018</bcf:citekey>
-    <bcf:citekey order="3">aggarwal_machine_2018</bcf:citekey>
+    <bcf:citekey order="3">vajjala_practical_2020</bcf:citekey>
+    <bcf:citekey order="4">aggarwal_machine_2018</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

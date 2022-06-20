@@ -1,6 +1,7 @@
 \documentclass[12pt]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{adjustbox}
 \graphicspath{ {images/} }
 \usepackage{xcolor}
 \usepackage{float}
@@ -11,7 +12,7 @@
 \pagestyle{fancy}
 
 \usepackage[nottoc,notlot,notlof]{tocbibind}
-\usepackage[style=authoryear, backend=biber]{biblatex}
+\usepackage[style=authoryear, backend=bibtex]{biblatex}
 \addbibresource{thesis.bib}
 \DeclareNameAlias{sortname}{family-given}
 \nocite{*}
@@ -73,7 +74,6 @@
 \input{chapters/00_abstract}
 
 \chapter*{Dedication}
-
 
 \singlespacing
 

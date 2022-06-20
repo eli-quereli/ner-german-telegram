@@ -1,0 +1,77 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{}%
+\contentsline {section}{\numberline {1.1}Background}{1}{}%
+\contentsline {section}{\numberline {1.2}Objective}{6}{}%
+\contentsline {section}{\numberline {1.3}Thesis Structure}{7}{}%
+\contentsline {chapter}{\numberline {2}Theory}{8}{}%
+\contentsline {section}{\numberline {2.1}Natural Language Processing}{8}{}%
+\contentsline {subsection}{\numberline {2.1.1}Challenges for NLP}{9}{}%
+\contentsline {paragraph}{}{9}{}%
+\contentsline {paragraph}{}{9}{}%
+\contentsline {paragraph}{}{9}{}%
+\contentsline {paragraph}{}{10}{}%
+\contentsline {paragraph}{}{10}{}%
+\contentsline {section}{\numberline {2.2}Information Extraction}{10}{}%
+\contentsline {subsection}{\numberline {2.2.1}Definition}{10}{}%
+\contentsline {subsection}{\numberline {2.2.2}Historical evolvement}{11}{}%
+\contentsline {subsection}{\numberline {2.2.3}Classification and application of IE}{12}{}%
+\contentsline {section}{\numberline {2.3}Named Entity Recognition}{12}{}%
+\contentsline {subsection}{\numberline {2.3.1}Definition}{12}{}%
+\contentsline {subsection}{\numberline {2.3.2}Historical evolvement}{14}{}%
+\contentsline {paragraph}{MUC}{14}{}%
+\contentsline {paragraph}{CoNLL 2002 and 2003}{14}{}%
+\contentsline {subsection}{\numberline {2.3.3}Challenges for NER}{15}{}%
+\contentsline {subsubsection}{Challenges for NER in social media texts}{15}{}%
+\contentsline {subsection}{\numberline {2.3.4}Existing German-language datasets for NER}{16}{}%
+\contentsline {subsection}{\numberline {2.3.5}Tagging scheme and entity types}{17}{}%
+\contentsline {subsection}{\numberline {2.3.6}Evaluation of NER systems}{18}{}%
+\contentsline {subsubsection}{Extrinsic evaluation}{18}{}%
+\contentsline {subsubsection}{Intrinsic evaluation}{18}{}%
+\contentsline {paragraph}{Precision}{18}{}%
+\contentsline {paragraph}{Recall}{18}{}%
+\contentsline {paragraph}{F1}{18}{}%
+\contentsline {section}{\numberline {2.4}Different NER approaches}{18}{}%
+\contentsline {subsection}{\numberline {2.4.1}Rule-based approaches}{19}{}%
+\contentsline {subsection}{\numberline {2.4.2}Knowledge-based approaches}{20}{}%
+\contentsline {subsection}{\numberline {2.4.3}Machine-learning based approaches}{20}{}%
+\contentsline {subsubsection}{Feature-engineered supervised systems}{21}{}%
+\contentsline {paragraph}{Support Vector Machines}{21}{}%
+\contentsline {paragraph}{Hidden Markov Model}{22}{}%
+\contentsline {paragraph}{Conditional Random Field}{22}{}%
+\contentsline {subsubsection}{Unsupervised / bootstrapped approaches}{22}{}%
+\contentsline {subsection}{\numberline {2.4.4}Deep-learning based approaches / Neural Networks}{23}{}%
+\contentsline {paragraph}{Recurrent neural networks}{24}{}%
+\contentsline {paragraph}{Long short-term memory}{24}{}%
+\contentsline {paragraph}{Convolutional neural networks}{24}{}%
+\contentsline {paragraph}{Transformers}{24}{}%
+\contentsline {subparagraph}{Transfer learning for downstream tasks with transformers}{25}{}%
+\contentsline {subsection}{\numberline {2.4.5}Summarization}{25}{}%
+\contentsline {chapter}{\numberline {3}Implementation}{26}{}%
+\contentsline {section}{\numberline {3.1}Exploration of existing solutions}{26}{}%
+\contentsline {section}{\numberline {3.2}Data}{26}{}%
+\contentsline {subsection}{\numberline {3.2.1}Domain-specific data}{26}{}%
+\contentsline {subsection}{\numberline {3.2.2}data cleaning}{29}{}%
+\contentsline {subsection}{\numberline {3.2.3}text cleaning}{29}{}%
+\contentsline {subsection}{\numberline {3.2.4}sample selection}{30}{}%
+\contentsline {section}{\numberline {3.3}Annotation scheme}{31}{}%
+\contentsline {section}{\numberline {3.4}Annotated dataset}{32}{}%
+\contentsline {section}{\numberline {3.5}Additional resources}{32}{}%
+\contentsline {subsection}{\numberline {3.5.1}GermEval 2014 NER task dataset}{32}{}%
+\contentsline {subsection}{\numberline {3.5.2}DFKI Smartdata corpus}{32}{}%
+\contentsline {subsection}{\numberline {3.5.3}XTREME dataset}{32}{}%
+\contentsline {section}{\numberline {3.6}Models}{32}{}%
+\contentsline {section}{\numberline {3.7}Pipeline}{33}{}%
+\contentsline {section}{\numberline {3.8}Translation approach}{33}{}%
+\contentsline {section}{\numberline {3.9}Evaluation}{33}{}%
+\contentsline {subsection}{\numberline {3.9.1}Evaluation metrics}{33}{}%
+\contentsline {subsection}{\numberline {3.9.2}Performance evaluation}{33}{}%
+\contentsline {section}{\numberline {3.10}Summarization}{33}{}%
+\contentsline {chapter}{\numberline {4}Results}{34}{}%
+\contentsline {section}{\numberline {4.1}Spacy}{34}{}%
+\contentsline {section}{\numberline {4.2}Hugging Face}{34}{}%
+\contentsline {section}{\numberline {4.3}Translation approach}{34}{}%
+\contentsline {section}{\numberline {4.4}Summarization}{34}{}%
+\contentsline {chapter}{\numberline {5}Conclusion}{35}{}%
+\contentsline {section}{\numberline {5.1}Summarization}{35}{}%
+\contentsline {subsection}{\numberline {5.1.1}subsection}{35}{}%
+\contentsline {section}{\numberline {5.2}Discussion}{35}{}%
+\contentsline {chapter}{Bibliography}{38}{}%

@@ -69,6 +69,61 @@
       \verb http://link.springer.com/10.1007/978-3-319-73531-3
       \endverb
     \endentry
+    \entry{vajjala_practical_2020}{book}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=77d0a89d3aaafe8c646daa561b087a04}{%
+           family={Vajjala},
+           familyi={V\bibinitperiod},
+           given={Sowmya},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4821e125a4b52d47cff6d7db5e3bccea}{%
+           family={Majumder},
+           familyi={M\bibinitperiod},
+           given={Bodhisattwa},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=92ab507529a213bb57119fea9b2dd298}{%
+           family={Gupta},
+           familyi={G\bibinitperiod},
+           given={Anju},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9f1c864d4f86d4b2cb2c15e7632bbfa9}{%
+           family={Surana},
+           familyi={S\bibinitperiod},
+           given={Harshit},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Sebastopol, CA}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{9c7b884d283e909c89a45a8c26c97ef4}
+      \strng{fullhash}{805fc5e90a7b447b8ed5599d049f9c2f}
+      \strng{bibnamehash}{9c7b884d283e909c89a45a8c26c97ef4}
+      \strng{authorbibnamehash}{9c7b884d283e909c89a45a8c26c97ef4}
+      \strng{authornamehash}{9c7b884d283e909c89a45a8c26c97ef4}
+      \strng{authorfullhash}{805fc5e90a7b447b8ed5599d049f9c2f}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{"Many books and courses tackle natural language processing (NLP) problems with toy use cases and well-defined datasets. But if you want to build, iterate, and scale NLP systems in a business setting and tailor them for particular industry verticals, this is your guide. Software engineers and data scientists will learn how to navigate the maze of options available at each step of the journey. Through the course of the book, authors Sowmya Vajjala, Bodhisattwa Majumder, Anuj Gupta, and Harshit Surana will guide you through the process of building real-world NLP solutions embedded in larger product setups. You'll learn how to adapt your solutions for different industry verticals such as healthcare, social media, and retail."--}
+      \field{edition}{First edition}
+      \field{isbn}{978-1-4920-5405-4}
+      \field{note}{OCLC: on1125266646}
+      \field{shorttitle}{Practical natural language processing}
+      \field{title}{Practical natural language processing: a comprehensive guide to building real-world {NLP} systems}
+      \field{year}{2020}
+      \true{nocite}
+      \keyw{Application software,Development,Machine learning,Natural language processing (Computer science),Text data mining}
+    \endentry
     \entry{yadav_survey_2019}{report}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=b18b8138c18d67cd891ea7ea77c5d664}{%

@@ -1,36 +1,214 @@
 \chapter{Implementation}
 \label{cha:implementation}
+
+
+\section{Exploration of existing solutions}
+
+- spacy
+- Flair
+
+- German
+- translated to English
+
+explorative evaluation
+
+
+
 \section{Data}
-\subsection{Existing German-language datasets for NER}
+\label{sec:data}
+
+
 \subsection{Domain-specific data}
 Telegram channel `Demotermine': 52.900 subscribers by the beginning of June 2022, 
 
-long channel name: `Demo-Termine & Kontakte, Gleichgesinnte treffen - Demokalender, Spaziergänge, Mahnwachen, Meditation *Rücktritt Bundesregierung!'
+long channel name: `Demo-Termine \& Kontakte, Gleichgesinnte treffen - Demokalender, Spaziergänge, Mahnwachen, Meditation *Rücktritt Bundesregierung!'
 
-channel-info: ``🔊 Wir Demokraten wollen miteinander in Kontakt bleiben @DemotermineChat und uns im Bedarfsfall möglichst schnell austauschen, Beweise in Wort, Bild und Ton sichern, damit sie nicht unterschlagen werden können @LivestreamsFuerDich!
-@Terminverteiler_Bot'
+channel-info: ``Wir Demokraten wollen miteinander in Kontakt bleiben @DemotermineChat und uns im Bedarfsfall möglichst schnell austauschen, Beweise in Wort, Bild und Ton sichern, damit sie nicht unterschlagen werden können @LivestreamsFuerDich! @Terminverteiler\_Bot'
 
-#TODO insert histplot to show development of message numbers
 
-date range: 2018-10-05 bis 2021-12-19
+after removal of duplicates and NaN text: 
 
-total number of messages (wo duplicates): 27.627 messages
+date range: 2018-11-03 bis 2021-12-19
 
-German-language: 23.911 
 
-Sample size: xx out of 23.911 confidence level 95%, confidence interval 5%
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/message_count.png}
 
-text length: min 100 (~lower quartile), max 350 (~upper quartile)
+language: predominantly German (22803, ca. 83.064986\%), followed by English (3.823, 13.926126\%), French, Italian, Dutch (less than 1\%)
 
--> remaining: 
+
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/languages.png}
+
+
+qualitative exploration of data: 
+
+- origin of channel?
+
+early messages (before pandemic): 
+
+
+- AfD, anti-immigration, Kandel, Gelbwesten
+- racist and antisemitic
+- against `mass immigration'
+- focus on violence by immigrants
+- lying press
+- remembrance of German victims in WWII (`Bombenopfer'), self-victimization
+- pegida
+- landwirte gegen die politik der grünen
+- Julian Assange
+- against compulsary vaccinations (not COVID), Robert F. Kennedy jr.
+- GEGEN REPRESSION UND GROSSEN AUSTAUSCH
+- gegen USA (zB Ramstein airbase, drohnen, militärtransporte durch DE)
+- Dresden Gedenken, Rheinwiesenlager
+
+``2019-09-01 11:01:38
+Wir sehen uns auf der Straße ! Demos sind die ideale Gelegenheit , seinen Unmut gegen die herrschende Politik , die kein Interesse mehr am Volk hat ( zum Ausdruck zu bringen . Hier lernt man vor allem Gleichgesinnte kennen , kann sich untereinander austauschen . Das Ziel bleibt , die Rechtsstaatlichkeit in der Bananenrepublik wiederherzustellen . Dazu gehört , dass in diesem Kanal keine Propaganda von Klima-Nazis ( Buntfaschisten und steuerfinanzierten Gefährdern der freiheitlich-demokratischen Grundordnung ( z.B. geteilt wird . Natürlich lehnen unsere Demoteilnehmer Nazi-Methoden der Terror-SA-Nachfolgeorganisation Antifa entschieden ab wie die durch Zwangsgebühren erpresste faschistische Propaganda von ARD und ZDF des Beitragsservice . Geteilt werden hier auch Demoankündigungen gegen die von Faschisten installierten Atomwaffen und durchgeführten Drohnenkriege von deutschem Boden aus . Grundsätzlich ist jede Form der Zionisierung , die die durch Migration massiv verstärkte Islamisierung zur Folge hat , abzulehnen . Hilfe an Hungernde hat grundsätzlich Vorrang gegenüber der faschistischen Deportation von wohlgenährten , jungen Männern nach und später vielleicht wieder Auschwitz . Menschen , die in Küstennähe ins Wasser gefallen sind , sind grundsätzlich zu retten und dort wieder an das nächste sichere Ufer an Land zu bringen , um ihr Leben und das von Nachahmern faschistischer Ideologien zu retten . Unsere Teilnehmer stehen zum Menschen- nach Artikel 5 im Grundgesetz . für das 5G-Netz und die des Regenwaldes zugunsten faschistischer , weltherrschaftlicher Ziele sind ebenso abzulehnen wie der faschistische Lobbyismus zum Impfzwang . Überall da , wo die feige , vermummte Antifa sein müsste , statt Faschisten die Rosetten zu lecken , sind wir da ! Soziale Ausgrenzung , Verbreitung von Hass und Hetze gegen Andersdenkende durch Stasi-Nazi-Faschisten nach Gleichmacher-Gleichschaltungs-Gleichschritt-Hitler-Vorbild liegt uns ebenso fern wie die Anwendung von Gewalt zugunsten der Diener des Faschismus in Parteien , Kirchen , Gewerkschaften , Stiftungen und EU-Reichs-Propagandamedien ARD und ZDF , die vor allem die stark wachsende Verarmung der Bevölkerung im reichen Fascho-Deutschland zur Folge hat , wogegen sich die auch Aktivisten wenden . Bei den Demos wollen wir überall und flächendeckend vor allem den Druck gegenüber der herrschenden Kaste aufbauen , den Menschen , die sich noch in der Wohlfühlblase und im Arschkriechermodus befinden zeigen , dass wir dennoch da sind ! Zu uns passende Demos bitte mitteilen . Bildet Fahrgemeinschaften , denn zusammen sind wir stark . Vernetzt euch , trefft einander . Das geht nirgendwo besser als auf der Straße . Dort erfährt man auch von weiteren ( geschlossenen ) und außerhalb der Demos .''
+
+%TODO insert histplot to show development of message numbers
+
+
+
+\subsection{data cleaning}
+
+
+- total number of rows: 31430
+- removal of duplicate texts
+- removal of rows not containing text
+
+total number of messages (wo NaN / duplicates): 27.627 messages
+
+\subsection{text cleaning} 
+
+some general and some Telegram- / channel-specific cleaning and preprocessing steps
+- removal of user mentions
+might refer to named entities, e.g. telegram channels run by / named after persons
+- but: explorations of models showed that this confuses models; also: mentions can easily be extracted from text via regex via the \@ at the beginning, and are unambiguous, 100\% accuracy can be achieved using regular expressions
+
+- removal of urls: might contain strings containing named entities, confuse models
+- removal of sensitive information (bank account details in the form of IBANs), be able to make labeled data publicly available
+- normalization of unicode strings
+- removal of emojis
+- keep umlauts (German language)
+- removal of footer texts ('Raus auf die Straßen')
+- keep capitalization (relevant to identify common and proper nouns in German)
+- split up compound hashtags
+- tokenization, spacy tokenizer (german md model)
+- all tokens, not only text were kept (date, time consisting of numbers and punctuation, needed for the purpose of this NER application)
+- removal of duplicate whitespaces after joining tokens back together 
+- removal of rows not containing values for cleaned text 
+- 22.803 messages remaining 
+
+\subsection{sample selection}
+- language detection with python package langdetect
+%TODO clean up notebook incl imports
+
+- selected only German-language messages, German-language: 22.803
+- selected only messages > 100 characters including whitespaces (lower quartile: 83 chars)
+- 14.605 remaining
+
+$$ 25\% 75 $$
+$$ 50\% 135 $$
+$$ 75\% 317 $$
+
+- identify similar messages via Levenshtein Distance
+- treshold: >= 0.8 similarity
+
+- select random sample of 20\% of remaining 11.978 messages - 2.395 messages for annotation remaining
+
+%TODO before training: remove footer 'Raus auf die Straße' from cleaned_text
+
+\section{Annotation scheme}
+
+Based on \cite{benikova-etal-2014-nosta} and spacy
+
+and on: %TODO https://github.com/DFKI-NLP/smartdata-corpus/blob/master/SmartData_Corpus_Annotation_Guidelines_Feb_2018_v1.0.pdf
+
+
+for the sake of simplicity: no nested entities, no derived entities 
+
+Only full noun phrases are considered as named entities. Pronouns and all other phrases can be ignored. 
+
+Names are denominators for a single unique object in the real world.
+
+A named entity is a “real-world object” that’s assigned a name – for example, a person, a country, a product or a book title. (spacy) 
+
+- NEs can consist of more than one token
+- Phrases only partly containing names (deutschlandweit), or adjectives referring to entities (euklidisch) can be ignored 
+
+combined NEs, e.g. Wien-Demo -> tagged separately if possible, otherwise tagged as the dominant entity type (here Demo), to avoid nested entities
+
+
+hier wird klar wie der shift von protest forms is: Achtung Demonstration wird Abgesagt ! Wir haben als Orga Team beschlossen , das wir keine Demos mehr anmelden werden ! Wir sagen klar Nein zu den Auflagen die uns vorgegeben werden . Deshalb , neuer Termin , wir fahren nach Plauen ! Lasst uns die Freie Sachsen und den Bürgermeisterkandidaten Thomas Kaden unterstützen ! 11062021 Raus auf die Straße
+
+
+\begin{table}[]
+\caption{Annotation scheme: Entity types}
+\label{tab:entity_types}
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lll}
+
+\hline
+\multicolumn{1}{|l|}{\textbf{Entity type}} & \multicolumn{1}{l|}{\textbf{Description}} & \multicolumn{1}{l|}{\textbf{Examples}} \\ 
+
+\hline
+\multicolumn{1}{|l|}{PERSON} & \multicolumn{1}{l|}{Named person or family, 
+including artist names, names of fictional characters, etc.} & \multicolumn{1}{l|}{} \\ 
+
+\hline
+
+\multicolumn{1}{|l|}{LOCATION} & \multicolumn{1}{l|}{Countries, cities, states'; continents, districts, regions, streets and squares; shopping centers, parking lots, restaurants, 'Non-GPE locations, mountain ranges, bodies of water'; landmarks} & \multicolumn{1}{l|}{} \\ 
+\hline
+
+\multicolumn{1}{|l|}{ORGANIZATION} & \multicolumn{1}{l|}{Companies, agencies, institutions, newspapers, tv/radio channels, other media platforms; political parties; non-governmental organizations; political groups such as Querdenken or Antifa etc.} & \multicolumn{1}{l|}{} \\ 
+
+\hline
+
+\multicolumn{1}{|l|}{DATE} & \multicolumn{1}{l|}{Absolute or relative dates} & \multicolumn{1}{l|}{23.09.2022} \\ 
+\hline
+
+\multicolumn{1}{|l|}{TIME} & \multicolumn{1}{l|}{Specific times of day, time codes, periods of time; etc. } & \multicolumn{1}{l|}{13:10} \\ 
+
+\hline
+
+\multicolumn{1}{|l|}{ACTION} & \multicolumn{1}{l|}{Specific action or event mentioned in a text, e.g. demonstrations, pickets, motorcade; (protest) walks; etc. - must not be unique entity, plural allowed} & \multicolumn{1}{l|}{} \\ 
+
+\hline
+
+\multicolumn{1}{|l|}{OTHER} & \multicolumn{1}{l|}{Other entities, e.g. religions,  nationalities, products, works of art, political spectres} & \multicolumn{1}{l|}{} \\ 
+
+\hline
+
+\end{tabular}
+\end{adjustbox}
+
+\end{table}
+
+labelstudio 
+
+IOB encoding: each word either begins, is inside, or is outside of a named entity
+
+hashtags encoding events via location and date, e.g. \#b20200809 or \#le1311 are not to be annotated, should be extracted via regex and treated separately; unsure if they are NEs? 
+
+\section{Annotated dataset}
+descriptive statistics
+access / licensing?
+
+\section{Additional resources}
+
+\subsection{GermEval 2014 NER task dataset}
+
+\subsection{DFKI Smartdata corpus}
+the DFKI SmartData Corpus is released as CC-BY 4.0.
+
+\subsection{XTREME dataset}
 
 
 \section{Models}
 - spacy
 - hugging face
 \section{Pipeline}
-\section{Evaluation metrics}
-\subsection{Accuracy}
-\subsection{Performance}
-\section{Translation approach?}
+\section{Translation approach}
+\section{Evaluation}
+\subsection{Evaluation metrics}
+\subsection{Performance evaluation}
 \section{Summarization}

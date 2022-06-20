@@ -1,121 +1,187 @@
 \chapter{Theory}
 \label{cha:theory}
 
-The first part of this chapter places Named Entity Recognition in its larger context of Information Extraction (IE) technology, and 
-provides a basic definition of of NER. Furthermore it briefly describes the historical evolvement of NER, and discusses the challenges related to this task, both in general and with regard to the peculiarities of German language. 
+The first part of this chapter places Named Entity Recognition in its larger context of Natural Language Processing (NLP) in general, and of Information Extraction (IE) as a specific NLP task in particular. It provides a basic definition of of NER, lines out its historical evolvement, and discusses the challenges related to this task, both in general and with regard to the peculiarities of German language and to text data from social media. 
 
-The second part elaborates different approaches for NER, from rule-based methods over statistical machine-learning based approaches to neural networks including transformer models, and discusses their respective limitations and potentials. %TODO ausformulieren
+The second part elaborates different approaches for NER, from heuristics-/rule-based methods over machine learning-based to deep learning-based approaches, discussing the respective limitations and potentials. %TODO ausformulieren/überarbeiten
+
+
+\section{Natural Language Processing}
+
+The field of Natural Language Processing combines approaches from computer science, linguistics, and artificial intelligence. Its main focus is to build systems and computational techniques for the automated processing and analysis of human language (cf. \cite[xvii]{vajjala_practical_2020}).
+Since its evolvement in the 1950s, NLP has been primarily an area of interest for academic research, but lately, it is being used more and more for real-world tasks and business applications. (cf. \cite[xvii]{vajjala_practical_2020})
+
+Core NLP applications comprise the use for email platforms (e.g. for spam filters), voice-based assistants, modern search engines, and machine translation services. (cf. \cite[5]{vajjala_practical_2020}). Furthermore, NLP is used for analyzing web and social media data (e.g. customer reviews), for spelling and grammar correction tools, and for different domains such as health care or finance. (cf. \cite[5-6]{vajjala_practical_2020}).
+
+Typical NLP tasks are for example language modeling, text classification, text summarization, information extraction, information retrieval, machine translation, or topic modeling (cf. \cite[6-7]{vajjala_practical_2020}).
+
+
+\subsection{Challenges for NLP}
+Since NLP processes data representing human language, it is confronted with several challenges which stem from the characteristics of human language:
+\paragraph{}
+\textbf{Ambiguity}, understood as uncertainty or inexactness of meaning, is inherent to most human languages: Words or phrases can have multiple meanings, and usually it requires knowledge of the context in which they appear to resolve this ambiguity. (cf. \cite[12-13]{vajjala_practical_2020})
+%TODO examples
+
+\paragraph{}
+\textbf{Common knowledge} is often an essential part in a conversation between humans: Facts are assumed to be known and thus not expressed explicitly in statements. Humans constantly use common knowledge to understand language. One of the challenges for NLP is how to encode this common knowledge for computational approaches (cf. \cite[13-14]{vajjala_practical_2020}).
+
+\paragraph{}
+\textbf{Creativity} is another feature inherent to human language: Even though language is constituted via and essentially shaped by rules, it is far from being exclusively rule-driven. Rather, language is creative; characterized by various styles, genres, and dialects. One important challenge for NLP is thus to enable machines to adequately handle this creativity. (cf. \cite[14]{vajjala_practical_2020})
+	Moreover, language changes and evolves over time, in interaction with social and cultural processes, as well as with the development of communication technology. NLP applications developed using data from the past might thus not fit well for data consisting of newly evolving manifestations of human language.  
+	
+\paragraph{}
+\textbf{Diversity across languages}
+According to the database \textit{Ethnologue}, there are currently over 7.000 languages actively spoken worldwide (cf. \cite{ethnologue_how_2022}). Even though some of these languages share the same family and thus have some similarities, a direct mapping between two languages is not possible which makes it hard to apply an NLP solution from one language to another. Building language-agnostic solutions is a very complex matter, while building separate solutions for each language is labor- and time-intensive (cf. \cite[14]{vajjala_practical_2020}).
+
+\paragraph{}
+\textbf{Imbalanced resources for different languages} is yet another challenge for NLP, both in terms of research efforts and data. In fact, most NLP technologies are still designed for English or European languages (cf. \cite{singh_natural_2008}). For these so-called high-resource languages, a large number of datasets and libraries exists while low-resource languages are usually significantly "less studied, resource scarce, less computerized" (\cite{magueresse_low-resource_2020}). This imbalance is also reflected in the existing NER datasets (see section ~\ref{sec:data}).
+
+
+%TODO multilingual models - nicht language agnostic, sondern mehrere sprachen kombiniert, also auch separate solutions combined
+%https://nlpcloud.com/multilingual-nlp-how-to-perform-nlp-in-non-english-languages.html
 
 
 \section{Information Extraction}
-Named Entity Recognition is a task from the field of Information Extraction (IE). IE aims at extracting factual information from unstructured or semistructured natural language texts. (cf. Zong et al. 2021, 227)
+\subsection{Definition}
+Information Extraction (IE) is one of the several NLP tasks mentioned above. The aim of IE is to extract information from unstructured or semistructured natural language texts (cf. \cite[227]{zong_information_2021}).
 
-The extracted parts of information can be entities, attributes related to those entities, relationships between entities, or events. The kinds of texts information is extracted from may be news texts from the web, social media posts, customer reviews, academic literature, and others. The aim of IE is to generate structured output from this unstructured or semistructured text data. Typical tasks of IE are named entity recognition, entity disambiguation, relation extraction, and event extraction (Zong et al. 2021)
+`Information' can refer to different things, depending on the domain and purpose of the task: The extracted instances can be (named) entities such as people, locations, places, or organizations, but also important events occuring in texts (cf. \cite[161]{vajjala_practical_2020}). Sometimes the focus is on temporal information such as time and date, or on domain-specific entities, e.g. biomedical instances such as genes, proteins, or viruses, etc. in biomedical data. 
 
+The extracted parts can also be attributes related to those entities, or relationships between entities. 
+The kinds of texts information is extracted from may be news texts from the web, social media posts, customer reviews, academic literature, and others. The aim of IE is to generate structured output from this unstructured or semistructured text data. 
+Typical tasks of IE are named entity recognition, entity disambiguation, relation extraction, and event extraction (cf. (\cite[227]{zong_information_2021})
 
-The origin of IE dates back to the late 1970s. 
+\subsection{Historical evolvement}
+The origins of IE dates back to the late 1970s, and its development was further accelerated in the late 1980s, when the US government financed activities to evaluate IE technology. Organized by the \textit{Defense Advanced Research Projects Agency} (DARPA), the first \textit{Message Understanding Conference} (MUC-1) took place in 1987. The conference provided standard datasets for international researchers to compete on.
+The MUC evaluation was held seven times between 1987 and 1997. The tasks included NER, coreference resolution, relation extraction, and slot filling, and mainly focused on text data from limited domains such as naval military intelligence, terrorist attacks, or aircraft crashes (cf. \cite[228]{zong_information_2021}).
 
-- MUC
-- CoNLL
+By the end of the 1990s, the MUC was replaced by the \textit{Automatic Content Extraction} (ACE) meeting which put its focus on extracting more fine-grained entities, as well as entity relations, and events. There was also a shift in the data to broader news data covering political and international events. 
 
+In 2009, ACE became a subtask of the \textit{Text Analysis Conference Knowledge Base Population} (TAC KBP). This shifted the focus in data to open domain data (mainly from webpages), and the focus of tasks to entity attribute extraction and entity linking. Both MUC and ACE contributed to the development of several standard test datasets for the evaluation and development of IE approaches. (cf. \cite[229]{zong_information_2021}). 
 
-Common applications of information extraction are for example news tracking, counter-terrorism, business and financial intelligence, the processing of biomedical data or scientific libraries. IE can also be utilized for applications building on entity-oriented search, for question-answering systems, or the task of text segmentation. (Aggarwal 2018)
+Regarding NER, another important event series was the \textit{Conference on Computational Natural Language Learning} (CoNLL), which launched language-independent NER tasks in 2002 and 2003 (cf. \cite[229]{zong_information_2021}). 
 
-IE technology can be classified via the domain aspect (limited vs. open domain), the type of extracted information (entity recognition, relation extraction, event extraction), and implementation methods (rule-based, statistical learning-based, or deep learning-based). (Zong et al. 2021, 229)
+\subsection{Classification and application of IE}
+IE technology can be classified via the domain aspect (limited vs. open domain), the type of extracted information (entity recognition, relation extraction, event extraction), and implementation methods (rule-based, machine learning-based, and deep learning-based approaches) (cf. \cite[229]{zong_information_2021}).
+
+Common examples of IE applications are news tracking, counter-terrorism, business and financial intelligence, the processing of biomedical data or scientific libraries. IE can also be utilized for applications building on entity-oriented search, for question-answering systems, or the task of text segmentation (cf. \cite{aggarwal_machine_2018}).
 
 \section{Named Entity Recognition}
 
 \subsection{Definition}
-
-Named entity recognition is the task of identifying named entities like person, location, organization, drug, time, clinical procedure, biological protein, etc. in text. It is often used as the first step in question answering, information retrieval, co-reference resolution, topic modeling, etc (Yadav and Bethard 2019) and is a “key component in NLP systems for question answering, information retrieval, relation extraction, etc.” (Yadav and Bethard 2019)
-
-NER is a fundamental task in natural language processing. It aims at identifying entities belonging to specified categories in text. The respective entities can mainly be represented by the following categories: 
+Named entity recognition is a subtask of IE. NER addresses the task of identifying named entities like person, location, organization, drug, time, clinical procedure, biological protein, etc. in text. It is often used as the first step in question answering, information retrieval, co-reference resolution, topic modeling, etc. (cf. \cite{yadav_survey_2019}). NER is thus a fundamental task in NLP. The entities which are to be identified can mainly be represented by the following categories: 
 
 \begin{itemize}
 \item PERSON
 \item LOCATION
 \item ORGANIZATION
+\item MISC/OTH
 \item TIME
 \item DATE
-\item CURRENCY/QUANTITY number, PERCENTAGE
+\item CURRENCY/QUANTITY, PERCENTAGE
 \end{itemize}
 
-While time, date, currency/quantity number, and percentage are commonly recognized via regular expressions, person, location, and organization pose larger challenges. Thus most of NER research focusses mainly on these entity types. (Zong et al. 2021, 229)
+TIME; DATE, CURRENCY/QUANTITY, PERCENTAGE:
+`Although these types of entities are not really named entities, they can still be useful in some applications.' (\cite[386]{aggarwal_machine_2018}
 
-NER can be divided into two subtasks:
-\begin{itemize}
-\item entity detection = detect whether a word string in a given text is an entity
-\item entitiy classification = judge the specified category of the detected entities
- (Zong et al. 2021, 229)
-\end{itemize}
+While TIME, DATE, CURRENCY/QUANTITY, and PERCENTAGE can commonly be identified via regular expressions, instances of PERSON, LOCATION, ORGANIZATION, and MISC/OTH (miscellaneous/other entities) usually do not follow a consistent pattern and thus pose larger challenges for NER, which is why most of NER research focusses mainly on these entity types (cf. \cite[229]{zong_information_2021}).
 
-\cite{aggarwal_machine_2018}
+NER can be divided into the following two subtasks: \textbf{1. Entity detection} to detect whether a given string in a text document is an entity, including the detection of the entity's boundaries; and \textbf{2. entity classification} to assign a specific category to the detected entity (cf. \cite[229]{zong_information_2021})
+
 \subsection{Historical evolvement}
 
+\paragraph{MUC}
 first NER task: by Grishman and Sundheim (1996) in the Sixth Message Understanding Conference
-since then numerous NER tasks ((Tjong Kim Sang and De Meulder, 2003; Tjong Kim Sang, 2002; Piskorski et al., 2017; Segura Bedmar et al., 2013; Bossy et al., 2013; Uzuner et al., 2011)  (Yadav and Bethard 2019)
 
+`The first goal was to identify, from the component technologies being developed for information extraction ,
+functions which would be of practical use, would be largely domain independent, and could in the near ter m
+be performed automatically with high accuracy . To meet this goal the committee developed the "name d
+entity" task, which basically involves identifying the names of all the people, organizations, and geographi c
+locations in a text.
+The final task specification, which also involved time, currency, and percentage expressions, used SGM L
+markup to identify the names in a text . Figure 4 shows a sample sentence with named entity annotations .
+The tag ENAMEX ("entity name expression") is used for both people and organization names ; the tag NUMEX
+("numeric expression") is used for currency and percentages.' 
+
+\paragraph{CoNLL 2002 and 2003}
+language-independent NER task, Spanish and Dutch (2002), English and German (2003)
+
+language independent: language is not known in advance
+
+(cf. \cite{tjong-kim-sang-2002-introduction})
+(cf. \cite{tjong_kim_sang_introduction_2003}
+
+language-independent NER tasks, datasets were created from newswire articles in four different languages (Spanish, Dutch, English, and German) and focused on 4 entities - PER (person), LOC (location), ORG (organization) and MISC (miscellaneous including all other types of entities).
+
+German (Benikova et al., 2014)
+Benikova et al. (2014)’s data, which is based on German wikipedia and online news, has named entity types similar to that of CoNLL 2002 and 2003: PERson, ORGanization, LOCation and OTHer.
+
+NER tasks have also been organized on social media data, e.g., Twitter, where the performance of classic NER systems degrades due to issues like variability in orthography and presence of grammatically incomplete sentences (Baldwin et al., 2015). Entity types on Twitter are also more variable (person, company, facility, band, sportsteam, movie, TV show, etc.) as they are based on user behavior on Twitter. \cite{yadav_survey_2019}
 
 \subsection{Challenges for NER}
+
+In general, and specifically for German language, and for social media text data
+
 - ambiguity
+`there is significant ambiguity in defining a named entity by using a sequence of words.' \cite[386]{aggarwal_machine_2018}
+
+`Clearly, the context in which a particular term is used is crucial in making a clear judgement about the type of entity at hand.' \cite[387]{aggarwal_machine_2018}
+
+- social media: often shorter texts, not enough context
+
 - abbreviations
+`of abbreviations in a contextual setting often leads to the same entity name referring to multiple instances.' \cite[387]{aggarwal_machine_2018}
+
+e.g. U.S., USA, United States of America
+
 - new entities evolving
-- capitalization
-- social media: messy texts, typos, codes
-- mixed language texts
+`the set of known entities is not constant, but it evolves over time. For some types of entities like locations, the names of entities evolve slowly, whereas for others like people and organizations, the incompleteness problem is very significant.' \cite[386]{aggarwal_machine_2018}
+
+
+- capitalization: used differently across languages; English: indicates proper names and is thus a helpful feature to recognized named entities
+- German: not only proper names, but all nouns are capitalized
+- adjevtices derived from NEs are not capitalized (e.g. englisch)
+
+
+
+
+
+
+\subsubsection{Challenges for NER in social media texts}
+
 - domain adaptation
+existing general NER datasets mostly from newspaper articles; special domains, such as biomedicine require the provision of domain-specific datasets; to the best of my knowledge no specific datasets from social media for NER; 
 
-\section{Overview of NER approaches}
+Existing approaches for named entity recognition suffer from data sparsity problems when conducted on short and informal texts, especially user-generated social media content. 
 
-Early NER systems were based on handcrafted rules, lexicons, orthographic features and ontologies. 
-followed by NER systems based on feature-engineering and machine learning (Nadeau and Sekine, 2007)
-Starting with Collobert et al. (2011), neural network NER systems with minimal feature engineering have become popular
-are appealing because they typically do not require domain specific resources like lexicons or ontologies, and are thus poised to be more domain independent
-Various neural architectures have been proposed, mostly based on some form of recurrent neural networks (RNN) over characters, sub-words and/or word embeddings. (Yadav and Bethard 2019)
+performance of standard NLP tools trained on news corpora is severely degraded for e.g. tweets \cite{ritter_2011}
 
+user-generated social media content: noisy and informal nature \cite{ritter_2011}
 
-\subsection{Rule-based approaches}
+texts are often shorter and thus lack sufficient context to determine an entity's type \cite{ritter_2011}
 
-Each token in the text is converted into a set of features. These features are typically helpful properties of the token or their context for entity extraction. e.g. starts with capital letter
-help in defining various patterns on the left-hand side of the rule
-contextual pattern on the left-hand side of the rule is a combination of conditions corresponding to the features associated with a sequence of tokens
-a rule is fired if a sequence of tokens in the text matches this pattern
-action on the right-hand side could correspond to labeling that sequence as a named entity (Aggarwal 2018)
+- social media: noisy data (e.g. typos) 
+
+- contain more OOV words (out of vocabulary) than e.g. news articles, mostly due to misspellings but also platform specific codes such as hashtags, lexical variations eg hashtags \cite{ritter_2011}
 
 
-\subsection{Knowledge-based approaches}
-Knowledge-based NER systems do not require annotated training data as they rely on lexicon resources and domain specific knowledge. These work well when the lexicon is exhaustive, but fail for entity classes not represented in the lexicon
-Precision is generally high for knowledge-based NER systems because of the lexicons, but recall is often low due to domain and language-specific rules and incomplete dictionaries
-Another drawback of knowledge based NER systems is the need of domain experts for constructing and maintaining the knowledge resources.  (Yadav and Bethard 2019)
 
+- unreliable capitalization, wide variety of capitalization styles, eg. sometimes only lowercase also in German texts , or sometimes all caps \cite{ritter_2011}
 
-\subsection{Machine-learning based}
+- news-trained NER seem to rely heavily on capitalization \cite{ritter_2011}
 
-Feature-engineered supervised systems
-Supervised machine learning models learn to make predictions by training on example inputs and their expected outputs, and can be used to replace human curated rules. 
-Common ML systems for NER: 
-Hidden Markov Models (HMM)
-Maximum Entropy 
-Support Vector Machines (SVM)
-Conditional Random Fields (CRF)
-decision trees   (Yadav and Bethard 2019)
+- social media: often mixed language texts
 
+- social media: shorter, more informal, more use of abbreviations, platform / subculture specific codes
 
-\subsection{Neural Networks}
-
-NER systems have been studied and developed widely for decades
- but accurate systems using deep neural networks (NN) have only been introduced in the last few years (Yadav and Bethard 2019)
+\subsection{Existing German-language datasets for NER}
  
- Feature-inferring neural network systems
-Collobert and Weston (2008) proposed one of the first neural network architectures for NER, with feature vectors constructed from orthographic features (e.g., capitalization of the first character), dictionaries and lexicons.
-Later work replaced these manually constructed feature vectors with word embeddings (Collobert et al., 2011), which are representations of words in n-dimensional space, typically learned over large collections of unlabeled data through an unsupervised process such as the skip-gram model (Mikolov et al., 2013).
-Studies have shown the importance of such pre-trained word embeddings for neural network based NER systems (Habibi et al., 2017), and similarly for pre-trained character embeddings in character-based languages like Chinese
-Modern neural architectures for NER can be broadly classified into categories depending upon their representation of the words in a sentence. For example, representations may be based on words, characters, other sub-word units or any combination of these  (Yadav and Bethard 2019)
-
-\subsection{NER Datasets}
 NER datasets
 first shared task on NER (Grishman and Sundheim, 1996)
 CoNLL 2002 (Tjong Kim Sang, 2002) and CoNLL 2003 (Tjong Kim Sang and De Meulder, 2003) were created from newswire articles in four different languages (Spanish, Dutch, English, and German) and focused on 4 entities - PER (person), LOC (location), ORG (organization) and MISC (miscellaneous including all other types of entities).
+
+CoNLL 2003: licensing not clear, website not available; also: annotated by non-natve speakers, said to be somewhat inconsistent (cf. benikova 2014)
+
 NER shared tasks have also been organized for a variety of other languages; German (Benikova et al., 2014)
 named entity types vary widely by source of dataset and language
 Benikova et al. (2014)’s data, which is based on German wikipedia and online news, has named entity types similar to that of CoNLL 2002 and 2003: PERson, ORGanization, LOCation and OTHer
@@ -126,10 +192,203 @@ Though most named entity annotations are flat, some datasets include more comple
 \subsection{Tagging scheme and entity types}
 B-I-O tagging scheme 
 
-\subsection{Evaluation metrics}
-precision
-recall
-F1
+- Researchers usually regard this task of supervised NER as a sequence labeling problem. The sequence labeling model first needs to determine the label set and the language granularity for labeling. BIO is a widely used label set in which “B” denotes the beginning of an entity, “I” indicates the middle or end of an entity, and “O” denotes the outside of any entity. \cite[231]{zong_information_2021}
+
+For person, location, and organization names seven tags can be employed: PER-B, PER-I, LOC-B, LOC-I, ORG-B, ORG-1, and O. Among them, PER, LOC, and ORG denote person, location, and organization names, respectively. PER-B indicates the starting point of a person name, and PERI represents the middle or end part of a person name. LOC-B, LOC-I, ORG-B, and ORG-I have similar meanings.\cite[231-232]{zong_information_2021}
+
+Words and characters are usually the basic language units for label annotation.\cite[232]{zong_information_2021}
+
+
+\subsection{Evaluation of NER systems}
+
+\subsubsection{Extrinsic evaluation}
+
+\subsubsection{Intrinsic evaluation}
+
+`A named entity is correct only if it is an exact match of the corresponding entity in the data file.' \cite{tjong-kim-sang-2002-introduction}
+
+\paragraph{Precision}
+
+`Precision is the percentage of named entities found by the learning system that are correct.' \cite{tjong-kim-sang-2002-introduction}
+
+
+\paragraph{Recall}
+
+`Recall is the percentage of named entities present in the corpus that are found by the system.' \cite{tjong-kim-sang-2002-introduction}
+
+\paragraph{F1}
+
+`The performance in this task is measured with $ F_{\beta = 1}  $ rate which is equal to: $$ \frac {({\beta^2}+1)*precision*recall} {({\beta^2}*precision+recall)}$$ with ${\beta=1}$.
+ 
+\section{Different NER approaches}
+
+
+Early NER systems were based on handcrafted rules, lexicons, orthographic features and ontologies. 
+followed by NER systems based on feature-engineering and machine learning (Nadeau and Sekine, 2007)
+Starting with Collobert et al. (2011), neural network NER systems with minimal feature engineering have become popular
+are appealing because they typically do not require domain specific resources like lexicons or ontologies, and are thus poised to be more domain independent.
+Various neural architectures have been proposed, mostly based on some form of recurrent neural networks (RNN) over characters, sub-words and/or word embeddings. \cite{yadav_survey_2019}
+
+\subsection{Rule-based approaches}
+
+
+Since both the internal structure and external context of person, location, and organization names have certain rules to follow, early research on NER mostly focused on rule-based methods, among which regular expression is commonly used. Compared to location and organization names, person names are much easier to identify for many languages (e.g., English, Chinese, and Japanese). For example, in English, person names usually begin with capital letters and follow some kind of titles such as Mr. , Dr.,orProf.. Therefore, a regular expression title [capitalizedtoken+] can be designed to recognize such person names efficiently.\cite[230]{zong_information_2021}
+
+- Nevertheless, even with a large-scale database of person, location, and organization names, rule-based NER methods still face many challenges. On the one hand, a phrase in different contexts may lead to different types of entities. \cite[231]{zong_information_2021}
+
+- common words may also be a type of entity\cite[231]{zong_information_2021}
+e.g. Bill 
+
+- Furthermore, many entities are frequently abbreviated in the text. For example, United States of America is usually written as USA. This abbreviation can cause ambiguity in many cases. \cite[231]{zong_information_2021}
+- More importantly, new named entities, especially for person and organization names, are constantly emerging, and the consistency becomes less reliable. These problems mean that rule-based methods enhanced with entity databases are difficult to handle and cannot obtain high recognition accuracy. Furthermore, the rulebased approach also faces the problem of system maintenance, as it requires the constant modification or addition of new rules that may conflict with existing ones. Therefore, the development of a NER model using an automatic learning framework is desirable. \cite[231]{zong_information_2021}
+
+
+Each token in the text is converted into a set of features. These features are typically helpful properties of the token or their context for entity extraction. e.g. starts with capital letter
+help in defining various patterns on the left-hand side of the rule
+contextual pattern on the left-hand side of the rule is a combination of conditions corresponding to the features associated with a sequence of tokens
+a rule is fired if a sequence of tokens in the text matches this pattern
+action on the right-hand side could correspond to labeling that sequence as a named entity \cite{aggarwal_machine_2018}
+
+
+\subsection{Knowledge-based approaches}
+Knowledge-based NER systems do not require annotated training data as they rely on lexicon resources and domain specific knowledge. These work well when the lexicon is exhaustive, but fail for entity classes not represented in the lexicon
+Precision is generally high for knowledge-based NER systems because of the lexicons, but recall is often low due to domain and language-specific rules and incomplete dictionaries
+Another drawback of knowledge based NER systems is the need of domain experts for constructing and maintaining the knowledge resources.  \cite{yadav_survey_2019}
+
+\subsection{Machine-learning based approaches}
+
+Machine learning: 
+"deals with the development of algorithms that can learn to perform tasks automatically based on a large number of examples, without requiring handcrafted rules."
+(cf. \cite[14]{vajjala_practical_2020})
+
+
+goal of ML: `learn' to perform tasks based on examples (training data) without explicit instruction
+typically done by creating a numeric representation (features) of the training data and using this representation to learn the patterns in those examples
+(cf. \cite[15]{vajjala_practical_2020})
+
+ML algorithms can be grouped in three paradigms: supervised learning, unsupervised learning, reinforcement learning
+
+supervised: learn the mapping function from input to output given a large number of examples in the form of input-output pairs
+input-output pairs = training data
+output = labels, or ground truth
+example: spam classification
+
+supervised learning requires large number of labeled data
+(cf. \cite[15]{vajjala_practical_2020})
+
+
+\subsubsection{Feature-engineered supervised systems}
+
+Given a collection of text data, suppose all person, location, and organization entities are manually labeled, as shown in the examples below. Supervised NER systems attempt to design machine learning methods that learn automatic prediction models based on these correctly labeled training data.\cite[231]{zong_information_2021}
+
+- Researchers usually regard this task of supervised NER as a sequence labeling problem. 
+
+Supervised machine learning models learn to make predictions by training on example inputs and their expected outputs, and can be used to replace human curated rules. 
+Common ML systems for NER: 
+Hidden Markov Models (HMM)
+Maximum Entropy 
+Support Vector Machines (SVM)
+Conditional Random Fields (CRF)
+decision trees \cite{yadav_survey_2019}
+
+
+\paragraph{Support Vector Machines}
+- goal of any classification task: learn a decision boundary that acts as a separation between different categories of text 
+- decision boundary can be linear or nonlinear (e.g. a circle)
+- SVM: can learn linear and nonlinear
+- SVM learns an optimal decision boundary so that the distance between points across classes is at its maximum
+\cite[20]{vajjala_practical_2020}
+
+
+\paragraph{Hidden Markov Model}
+HMM is a statistical model that assumes there is an underlying, observable process with hidden states that generates the data, ie we can only observe the data once it is generated
+- an HMM then tries to model the hidden states from this data
+- e.g. POS tagging: we assume that text is generated according to an underlying grammar, which is hidden underneath the text
+- hidden states are parts of speech that inherently define the structure of the sentence following the language grammar, but we only observe the words that are governed by these latent states
+- HMM also make the Markow assumption: each hidden state is dependent on the previous state(s)
+- human language is sequential which means that the current word depends on what occured before
+- this makes HMM a powerful tool for modeling textual data \cite[21-22]{vajjala_practical_2020}
+
+\paragraph{Conditional Random Field}
+- another algorithm used for sequential data
+- performs a classification task on each element in the sequence
+- takes the sequential input and the context of tags into consideration \cite[22]{vajjala_practical_2020}
+
+
+\subsubsection{Unsupervised / bootstrapped approaches}
+Unsupervised learning: aim to find hidden patterns in given input data without any reference to output
+works with large collection of unlabeled data
+example: topic modeling, identity latent topics in large collection of texts
+(cf. \cite[15]{vajjala_practical_2020})
+
+common in real-world NLP: semi-supervised; small labeled dataset, large unlabeled dataset; learn from both sets
+(cf. \cite[16]{vajjala_practical_2020})
+
+reinforcement learning: absence of larger data colletions, trial and error principle, improvement via feedback (punishment or reward)
+(cf. \cite[16]{vajjala_practical_2020})
+
+
+Some of the earliest systems required very minimal training data. 
+- labeled seeds, and 7 features including orthography (e.g., capitalization), context of the entity, words contained within named entities, etc.
+- shallow syntactic knowledge and inverse document frequency (IDF)
+- uses seeds to discover text having potential named entities, detects noun phrases and filters any with low IDF values, and feeds the filtered list to a classifier \cite{yadav_survey_2019}
+ 
+
+
+\subsection{Deep-learning based approaches / Neural Networks}
+
+Deep learning: 
+"branch of machine learning that is based on artificial neural network architectures." (cf. \cite[14]{vajjala_practical_2020})
+
+NER systems have been studied and developed widely for decades
+ but accurate systems using deep neural networks (NN) have only been introduced in the last few years (Yadav and Bethard 2019)
+ 
+ Feature-inferring neural network systems
+Collobert and Weston (2008) proposed one of the first neural network architectures for NER, with feature vectors constructed from orthographic features (e.g., capitalization of the first character), dictionaries and lexicons.\cite{yadav_survey_2019}
+
+Later work replaced these manually constructed feature vectors with word embeddings (Collobert et al., 2011), which are representations of words in n-dimensional space, typically learned over large collections of unlabeled data through an unsupervised process such as the skip-gram model (Mikolov et al., 2013).
+Studies have shown the importance of such pre-trained word embeddings for neural network based NER systems (Habibi et al., 2017), and similarly for pre-trained character embeddings in character-based languages like Chinese
+Modern neural architectures for NER can be broadly classified into categories depending upon their representation of the words in a sentence. For example, representations may be based on words, characters, other sub-word units or any combination of these  \cite{yadav_survey_2019}
+
+\paragraph{Recurrent neural networks}
+
+- language is inherently sequential
+- thus, a model which can progressively read an input text from one end to another can be very useful for language understanding 
+- RNNs are designed to keep such a sequential processing and learning in mind
+- have neural units that are capable of remembering what they have processed so far 
+- memory is temporal, information is stored and updated with every step as the RNN reads the next word as input  \cite[23]{vajjala_practical_2020}
+
+\paragraph{Long short-term memory}
+- RNNs cannot remember longer contexts
+- do not perform well when input text is long
+- LSTM = solve this issue
+- concept: forget irrelevant context, only remember relevant context for task at hand
+- relieves the load of having to remember a lot of context for long inputs\cite[23]{vajjala_practical_2020}
+
+
+\paragraph{Convolutional neural networks}
+- used heavily in computer vision tasks (e.g. image classification)
+- also used for NLP
+- each word in a sentence is represented as a word vector, all word vectors of sentence have the same size
+- resulting matrix representing the sentence can now be treated similar to an image by the CNN
+- advantage: CNN can look at a group of words together using a context window
+- CNN uses a collection of convolution and pooling layers to achieve a condensed representation of the text which is then fed as input to a fully connected layer to learn some NLP tasks like text classification \cite[24]{vajjala_practical_2020}
+
+\paragraph{Transformers}
+- latest entry in the league of deep learning models for NLP
+- have achieved state of the art in almost all major NLP tasks in recent years
+- model the textual context but not in a sequential manner 
+- given a word in the input, it prefers to look at all the words around it (known as self-attention) and represent each word with respect to its context
+- e.g. bank different meaning depending on context (financial institute, furniture)
+- transformers can model such context and hence have been used heavily in NLP tasks due to this higher representation capacity as compared to other deep networks \cite[25-26]{vajjala_practical_2020}
+
+\subparagraph{Transfer learning for downstream tasks with transformers}
+- large transformers used for smaller downstream tasks via transfer learning
+- transfer learning = technique where the knowledge gained while solving one problem is applied to a different but related problem
+- transformers: pre-training (training of very large transformer models, unsupervised) to predict a part of a sentence given the rest of the content so it can encode the high-level nuances of the language in it
+- models are trained on more than 40GB of textual data, scraped from the whole internet
+- this model is then fine-tuned on NLP downstream tasks, e.g. NER \cite[26]{vajjala_practical_2020}
+ 
 
 \subsection{Summarization}
 
