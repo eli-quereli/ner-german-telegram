@@ -62,6 +62,87 @@
     \field{urlyear}{2022}
   \endentry
 
+  \entry{baldwin_shared_2015}{inproceedings}{}
+    \name{author}{6}{}{%
+      {{hash=BT}{%
+         family={Baldwin},
+         familyi={B\bibinitperiod},
+         given={Timothy},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=dMMC}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Marneffe},
+         familyi={M\bibinitperiod},
+         given={Marie\bibnamedelima Catherine},
+         giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=HB}{%
+         family={Han},
+         familyi={H\bibinitperiod},
+         given={Bo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KYB}{%
+         family={Kim},
+         familyi={K\bibinitperiod},
+         given={Young-Bum},
+         giveni={Y\bibinithyphendelim B\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Ritter},
+         familyi={R\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=XW}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Wei},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{BT+1}
+    \strng{fullhash}{BTMMCdHBKYBRAXW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Proceedings of the {Workshop} on {Noisy} {User}-generated
+  {Text}}
+    \verb{doi}
+    \verb 10.18653/v1/W15-4319
+    \endverb
+    \field{pages}{126\bibrangedash 135}
+    \field{shorttitle}{Shared {Tasks} of the 2015 {Workshop} on {Noisy}
+  {User}-generated {Text}}
+    \field{title}{Shared {Tasks} of the 2015 {Workshop} on {Noisy}
+  {User}-generated {Text}: {Twitter} {Lexical} {Normalization} and {Named}
+  {Entity} {Recognition}}
+    \verb{url}
+    \verb https://aclanthology.org/W15-4319
+    \endverb
+    \list{location}{1}{%
+      {Beijing, China}%
+    }
+    \verb{file}
+    \verb Full Text PDF:/Users/elisabeth/Zotero/storage/AWHKFUM9/Baldwin et al.
+    \verb  - 2015 - Shared Tasks of the 2015 Workshop on Noisy User-ge.pdf:appl
+    \verb ication/pdf
+    \endverb
+    \field{month}{07}
+    \field{year}{2015}
+    \field{urlday}{16}
+    \field{urlmonth}{05}
+    \field{urlyear}{2022}
+  \endentry
+
   \entry{benikova-etal-2014-nosta}{inproceedings}{}
     \name{author}{3}{}{%
       {{hash=BD}{%
@@ -126,6 +207,235 @@
     \field{year}{2014}
   \endentry
 
+  \entry{benikova2014germeval}{article}{}
+    \name{author}{4}{}{%
+      {{hash=BD}{%
+         family={Benikova},
+         familyi={B\bibinitperiod},
+         given={Darina},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BC}{%
+         family={Biemann},
+         familyi={B\bibinitperiod},
+         given={Chris},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kisselew},
+         familyi={K\bibinitperiod},
+         given={Max},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=PS}{%
+         family={Pad{\'o}},
+         familyi={P\bibinitperiod},
+         given={Sebastian},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BD+1}
+    \strng{fullhash}{BDBCKMPS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{pages}{104\bibrangedash 112}
+    \field{title}{Germeval 2014 named entity recognition: Companion paper}
+    \field{journaltitle}{Proceedings of the KONVENS GermEval Shared Task on
+  Named Entity Recognition, Hildesheim, Germany}
+    \field{year}{2014}
+  \endentry
+
+  \entry{chinchor_nancy_message_2003}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=CN}{%
+         family={Chinchor},
+         familyi={C\bibinitperiod},
+         given={Nancy},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Sundheim},
+         familyi={S\bibinitperiod},
+         given={Beth},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Linguistic Data Consortium}%
+    }
+    \strng{namehash}{CNSB1}
+    \strng{fullhash}{CNSB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2003}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{abstract}{%
+  {\textless}h3{\textgreater}Introduction{\textless}/h3{\textgreater}{\textless}br{\textgreater}
+  {\textless}p{\textgreater}Message Understanding Conference (MUC) 6 was
+  produced by Linguistic Data Consortium (LDC) catalog number LDC2003T13 and
+  ISBN 1-58563-239-2.{\textless}/p{\textgreater}{\textless}br{\textgreater}
+  {\textless}p{\textgreater}In the 1990s, the MUC evaluations funded the
+  development of metrics and statistical algorithms to support government
+  evaluations of emerging information extraction technologies. Additional
+  information from NIST can be found at {\textless}a
+  href="http://www.itl.nist.gov/iaui/894.02/related\_projects/muc"
+  rel="nofollow"{\textgreater}http://www.itl.nist.gov/iaui/894.02/related\_projects/muc{\textless}/a{\textgreater}.{\textless}/p{\textgreater}{\textless}br{\textgreater}
+  {\textless}h3{\textgreater}Data{\textless}/h3{\textgreater}{\textless}br{\textgreater}
+  {\textless}p{\textgreater}This corpus contains the 318 annotated Wall Street
+  Journal articles, the scoring software and the corresponding documentation
+  used in the MUC6 evaluation. Both the {\textless}a
+  href="http://catalog.ldc.upenn.edu/LDC96T10" rel="nofollow"{\textgreater}MUC
+  6 Additional News Text{\textless}/a{\textgreater} and the MUC 6 corpus are
+  necessary in order to replicate the evaluation. All the materials are
+  published as received from the corpus creators, without any quality control
+  being done at the LDC (the only difference is that the files have been
+  uncompressed).{\textless}/p{\textgreater}{\textless}br{\textgreater}
+  {\textless}h3{\textgreater}Samples{\textless}/h3{\textgreater}{\textless}br{\textgreater}
+  {\textless}p{\textgreater}Please view this {\textless}a
+  href="desc/addenda/LDC2003T13.txt"{\textgreater}text
+  sample{\textless}/a{\textgreater}.{\textless}/p{\textgreater}{\textless}br{\textgreater}
+  {\textless}h3{\textgreater}Updates{\textless}/h3{\textgreater}{\textless}br{\textgreater}
+  {\textless}p{\textgreater}August 20th, 2003: What was formerly published as
+  MUC VI Text Collection ({\textless}a
+  href="http://catalog.ldc.upenn.edu/LDC96T10"
+  rel="nofollow"{\textgreater}LDC1996T10{\textless}/a{\textgreater}) was
+  renamed as MUC 6 Additional News Text, because LDC96T10 consists only of
+  additional training
+  materials.{\textless}/p{\textgreater}{\textless}/br{\textgreater} Portions ©
+  1986-1994 Dow Jones \& Company, Inc.
+  {\textless}br{\textgreater}{\textless}br{\textgreater}RESTRICTED RIGHTS
+  LEGEND: INFORMATION FROM THE WALL STREET JOURNAL AND/OR THE DOW JONES NEWS
+  SERVICE CONTAINED HEREIN IS THE PROPERTY OF DOW JONES \& COMPANY, INC. AND IS
+  PROTECTED BY COPYRIGHT. USE, DUPLICATION OR DISCLOSURE BY YOU IS SUBJECT TO
+  THE RESTRICTIONS SET FORTH IN THE USER AGREEMENT DELIVERED TO YOU BY THE
+  LINGUISTIC DATA CONSORTIUM OF THE UNIVERSITY OF PENNSYLVANIA. COPYRIGHT
+  1986-1994 DOW JONES \& COMPANY, INC. ALL RIGHTS RESERVED.%
+    }
+    \verb{doi}
+    \verb 10.35111/WBCC-Y063
+    \endverb
+    \field{note}{Artwork Size: 10240 KB Pages: 10240 KB Type: dataset}
+    \field{title}{Message {Understanding} {Conference} ({MUC}) 6}
+    \verb{url}
+    \verb https://catalog.ldc.upenn.edu/LDC2003T13
+    \endverb
+    \field{month}{08}
+    \field{year}{2003}
+    \field{urlday}{27}
+    \field{urlmonth}{06}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{derczynski_analysis_2015}{article}{}
+    \name{author}{8}{}{%
+      {{hash=DL}{%
+         family={Derczynski},
+         familyi={D\bibinitperiod},
+         given={Leon},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=MD}{%
+         family={Maynard},
+         familyi={M\bibinitperiod},
+         given={Diana},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=RG}{%
+         family={Rizzo},
+         familyi={R\bibinitperiod},
+         given={Giuseppe},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=vEM}{%
+         prefix={van},
+         prefixi={v\bibinitperiod},
+         family={Erp},
+         familyi={E\bibinitperiod},
+         given={Marieke},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=GG}{%
+         family={Gorrell},
+         familyi={G\bibinitperiod},
+         given={Genevieve},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=TR}{%
+         family={Troncy},
+         familyi={T\bibinitperiod},
+         given={Raphaël},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=PJ}{%
+         family={Petrak},
+         familyi={P\bibinitperiod},
+         given={Johann},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BK}{%
+         family={Bontcheva},
+         familyi={B\bibinitperiod},
+         given={Kalina},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \strng{namehash}{DL+1}
+    \strng{fullhash}{DLMDRGEMvGGTRPJBK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{abstract}{%
+    Applying natural language processing for mining and intelligent information
+  access to tweets (a form of microblog) is a challenging, emerging research
+  area. Unlike carefully authored news text and other longer content, tweets
+  pose a number of new challenges, due to their short, noisy,
+  context-dependent, and dynamic nature. Information extraction from tweets is
+  typically performed in a pipeline, comprising consecutive stages of language
+  identiﬁcation, tokenisation, part-of-speech tagging, named entity
+  recognition and entity disambiguation (e.g. with respect to DBpedia). In this
+  work, we describe a new Twitter entity disambiguation dataset, and conduct an
+  empirical analysis of named entity recognition and disambiguation,
+  investigating how robust a number of state-of-the-art systems are on such
+  noisy texts, what the main sources of error are, and which problems should be
+  further investigated to improve the state of the art.%
+    }
+    \verb{doi}
+    \verb 10.1016/j.ipm.2014.10.006
+    \endverb
+    \field{issn}{03064573}
+    \field{number}{2}
+    \field{pages}{32\bibrangedash 49}
+    \field{title}{Analysis of named entity recognition and linking for tweets}
+    \verb{url}
+    \verb https://linkinghub.elsevier.com/retrieve/pii/S0306457314001034
+    \endverb
+    \field{volume}{51}
+    \verb{file}
+    \verb Derczynski et al. - 2015 - Analysis of named entity recognition and l
+    \verb inking f.pdf:/Users/elisabeth/Zotero/storage/3TYW52AI/Derczynski et a
+    \verb l. - 2015 - Analysis of named entity recognition and linking f.pdf:ap
+    \verb plication/pdf
+    \endverb
+    \field{journaltitle}{Information Processing \& Management}
+    \field{month}{03}
+    \field{year}{2015}
+    \field{urlday}{27}
+    \field{urlmonth}{06}
+    \field{urlyear}{2022}
+  \endentry
+
   \entry{ethnologue_how_2022}{misc}{}
     \name{author}{1}{}{%
       {{hash=E}{%
@@ -160,6 +470,48 @@
     \field{month}{05}
     \field{year}{2022}
     \field{urlday}{19}
+    \field{urlmonth}{06}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{grishman_message_1996}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=GR}{%
+         family={Grishman},
+         familyi={G\bibinitperiod},
+         given={Ralph},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Sundheim},
+         familyi={S\bibinitperiod},
+         given={Beth},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GRSB1}
+    \strng{fullhash}{GRSB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{labelyear}{1996}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{booktitle}{{COLING} 1996 {Volume} 1: {The} 16th {International}
+  {Conference} on {Computational} {Linguistics}}
+    \field{shorttitle}{Message {Understanding} {Conference}- 6}
+    \field{title}{Message {Understanding} {Conference}- 6: {A} {Brief}
+  {History}}
+    \verb{url}
+    \verb https://aclanthology.org/C96-1079
+    \endverb
+    \verb{file}
+    \verb Full Text PDF:/Users/elisabeth/Zotero/storage/LNHX7ICV/Grishman and S
+    \verb undheim - 1996 - Message Understanding Conference- 6 A Brief Histo.pd
+    \verb f:application/pdf
+    \endverb
+    \field{year}{1996}
+    \field{urlday}{27}
     \field{urlmonth}{06}
     \field{urlyear}{2022}
   \endentry

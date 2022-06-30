@@ -4,74 +4,76 @@
 \contentsline {section}{\numberline {1.3}Thesis Structure}{7}{}%
 \contentsline {chapter}{\numberline {2}Theory}{8}{}%
 \contentsline {section}{\numberline {2.1}Natural Language Processing}{8}{}%
-\contentsline {subsection}{\numberline {2.1.1}Challenges for NLP}{9}{}%
-\contentsline {paragraph}{}{9}{}%
+\contentsline {subsection}{\numberline {2.1.1}What is Natural Language Processing?}{8}{}%
+\contentsline {subsection}{\numberline {2.1.2}Challenges for NLP}{9}{}%
 \contentsline {paragraph}{}{9}{}%
 \contentsline {paragraph}{}{9}{}%
 \contentsline {paragraph}{}{10}{}%
 \contentsline {paragraph}{}{10}{}%
-\contentsline {section}{\numberline {2.2}Information Extraction}{10}{}%
-\contentsline {subsection}{\numberline {2.2.1}Definition}{10}{}%
+\contentsline {paragraph}{}{10}{}%
+\contentsline {section}{\numberline {2.2}Information Extraction}{11}{}%
+\contentsline {subsection}{\numberline {2.2.1}What is Information Extraction?}{11}{}%
 \contentsline {subsection}{\numberline {2.2.2}Historical evolvement}{11}{}%
 \contentsline {subsection}{\numberline {2.2.3}Classification and application of IE}{12}{}%
-\contentsline {section}{\numberline {2.3}Named Entity Recognition}{12}{}%
-\contentsline {subsection}{\numberline {2.3.1}Definition}{12}{}%
-\contentsline {subsection}{\numberline {2.3.2}Historical evolvement}{14}{}%
-\contentsline {paragraph}{MUC}{14}{}%
+\contentsline {section}{\numberline {2.3}Named Entity Recognition}{13}{}%
+\contentsline {subsection}{\numberline {2.3.1}What is Named Entity Recognition?}{13}{}%
+\contentsline {subsection}{\numberline {2.3.2}And how did it evolve?}{14}{}%
+\contentsline {paragraph}{MUC-6}{14}{}%
 \contentsline {paragraph}{CoNLL 2002 and 2003}{14}{}%
-\contentsline {subsection}{\numberline {2.3.3}Challenges for NER}{15}{}%
-\contentsline {subsubsection}{Challenges for NER in social media texts}{15}{}%
-\contentsline {subsection}{\numberline {2.3.4}Existing German-language datasets for NER}{16}{}%
-\contentsline {subsection}{\numberline {2.3.5}Tagging scheme and entity types}{17}{}%
-\contentsline {subsection}{\numberline {2.3.6}Evaluation of NER systems}{18}{}%
-\contentsline {subsubsection}{Extrinsic evaluation}{18}{}%
-\contentsline {subsubsection}{Intrinsic evaluation}{18}{}%
-\contentsline {paragraph}{Precision}{18}{}%
-\contentsline {paragraph}{Recall}{18}{}%
-\contentsline {paragraph}{F1}{18}{}%
-\contentsline {section}{\numberline {2.4}Different NER approaches}{18}{}%
-\contentsline {subsection}{\numberline {2.4.1}Rule-based approaches}{19}{}%
-\contentsline {subsection}{\numberline {2.4.2}Knowledge-based approaches}{20}{}%
-\contentsline {subsection}{\numberline {2.4.3}Machine-learning based approaches}{20}{}%
-\contentsline {subsubsection}{Feature-engineered supervised systems}{21}{}%
-\contentsline {paragraph}{Support Vector Machines}{21}{}%
-\contentsline {paragraph}{Hidden Markov Model}{22}{}%
-\contentsline {paragraph}{Conditional Random Field}{22}{}%
-\contentsline {subsubsection}{Unsupervised / bootstrapped approaches}{22}{}%
-\contentsline {subsection}{\numberline {2.4.4}Deep-learning based approaches / Neural Networks}{23}{}%
-\contentsline {paragraph}{Recurrent neural networks}{24}{}%
-\contentsline {paragraph}{Long short-term memory}{24}{}%
-\contentsline {paragraph}{Convolutional neural networks}{24}{}%
-\contentsline {paragraph}{Transformers}{24}{}%
-\contentsline {subparagraph}{Transfer learning for downstream tasks with transformers}{25}{}%
-\contentsline {subsection}{\numberline {2.4.5}Summarization}{25}{}%
-\contentsline {chapter}{\numberline {3}Implementation}{26}{}%
-\contentsline {section}{\numberline {3.1}Exploration of existing solutions}{26}{}%
-\contentsline {section}{\numberline {3.2}Data}{26}{}%
-\contentsline {subsection}{\numberline {3.2.1}Domain-specific data}{26}{}%
-\contentsline {subsection}{\numberline {3.2.2}data cleaning}{29}{}%
-\contentsline {subsection}{\numberline {3.2.3}text cleaning}{29}{}%
-\contentsline {subsection}{\numberline {3.2.4}sample selection}{30}{}%
-\contentsline {section}{\numberline {3.3}Annotation scheme}{31}{}%
-\contentsline {section}{\numberline {3.4}Annotated dataset}{32}{}%
-\contentsline {section}{\numberline {3.5}Additional resources}{32}{}%
-\contentsline {subsection}{\numberline {3.5.1}GermEval 2014 NER task dataset}{32}{}%
-\contentsline {subsection}{\numberline {3.5.2}DFKI Smartdata corpus}{32}{}%
-\contentsline {subsection}{\numberline {3.5.3}XTREME dataset}{32}{}%
-\contentsline {section}{\numberline {3.6}Models}{32}{}%
-\contentsline {section}{\numberline {3.7}Pipeline}{33}{}%
-\contentsline {section}{\numberline {3.8}Translation approach}{33}{}%
-\contentsline {section}{\numberline {3.9}Evaluation}{33}{}%
-\contentsline {subsection}{\numberline {3.9.1}Evaluation metrics}{33}{}%
-\contentsline {subsection}{\numberline {3.9.2}Performance evaluation}{33}{}%
-\contentsline {section}{\numberline {3.10}Summarization}{33}{}%
-\contentsline {chapter}{\numberline {4}Results}{34}{}%
-\contentsline {section}{\numberline {4.1}Spacy}{34}{}%
-\contentsline {section}{\numberline {4.2}Hugging Face}{34}{}%
-\contentsline {section}{\numberline {4.3}Translation approach}{34}{}%
-\contentsline {section}{\numberline {4.4}Summarization}{34}{}%
-\contentsline {chapter}{\numberline {5}Conclusion}{35}{}%
-\contentsline {section}{\numberline {5.1}Summarization}{35}{}%
-\contentsline {subsection}{\numberline {5.1.1}subsection}{35}{}%
-\contentsline {section}{\numberline {5.2}Discussion}{35}{}%
-\contentsline {chapter}{Bibliography}{38}{}%
+\contentsline {paragraph}{GermEval 2014}{15}{}%
+\contentsline {paragraph}{NER tasks for social media data}{16}{}%
+\contentsline {subsection}{\numberline {2.3.3}What makes NER challenging?}{17}{}%
+\contentsline {subsection}{\numberline {2.3.4}Making sense of noise: Specific challenges for NER in social media texts}{18}{}%
+\contentsline {subsection}{\numberline {2.3.5}An overview of existing German-language datasets for NER}{21}{}%
+\contentsline {subsection}{\numberline {2.3.6}Tagging scheme and entity types}{22}{}%
+\contentsline {subsection}{\numberline {2.3.7}Evaluation of NER systems}{22}{}%
+\contentsline {subsubsection}{Extrinsic evaluation}{22}{}%
+\contentsline {subsubsection}{Intrinsic evaluation}{22}{}%
+\contentsline {paragraph}{Precision}{23}{}%
+\contentsline {paragraph}{Recall}{23}{}%
+\contentsline {paragraph}{F1}{23}{}%
+\contentsline {section}{\numberline {2.4}Different NER approaches}{23}{}%
+\contentsline {subsection}{\numberline {2.4.1}Rule-based approaches}{23}{}%
+\contentsline {subsection}{\numberline {2.4.2}Knowledge-based approaches}{25}{}%
+\contentsline {subsection}{\numberline {2.4.3}Machine-learning based approaches}{25}{}%
+\contentsline {subsubsection}{Feature-engineered supervised systems}{25}{}%
+\contentsline {paragraph}{Support Vector Machines}{26}{}%
+\contentsline {paragraph}{Hidden Markov Model}{26}{}%
+\contentsline {paragraph}{Conditional Random Field}{27}{}%
+\contentsline {subsubsection}{Unsupervised / bootstrapped approaches}{27}{}%
+\contentsline {subsection}{\numberline {2.4.4}Deep-learning based approaches / Neural Networks}{27}{}%
+\contentsline {paragraph}{Recurrent neural networks}{28}{}%
+\contentsline {paragraph}{Long short-term memory}{28}{}%
+\contentsline {paragraph}{Convolutional neural networks}{29}{}%
+\contentsline {paragraph}{Transformers}{29}{}%
+\contentsline {subparagraph}{Transfer learning for downstream tasks with transformers}{29}{}%
+\contentsline {subsection}{\numberline {2.4.5}Summarization}{30}{}%
+\contentsline {chapter}{\numberline {3}Implementation}{31}{}%
+\contentsline {section}{\numberline {3.1}Exploration of existing solutions}{31}{}%
+\contentsline {section}{\numberline {3.2}Data}{31}{}%
+\contentsline {subsection}{\numberline {3.2.1}Domain-specific data}{31}{}%
+\contentsline {subsection}{\numberline {3.2.2}data cleaning}{34}{}%
+\contentsline {subsection}{\numberline {3.2.3}text cleaning}{34}{}%
+\contentsline {subsection}{\numberline {3.2.4}sample selection}{35}{}%
+\contentsline {section}{\numberline {3.3}Annotation scheme}{36}{}%
+\contentsline {section}{\numberline {3.4}Annotated dataset}{37}{}%
+\contentsline {section}{\numberline {3.5}Additional resources}{37}{}%
+\contentsline {subsection}{\numberline {3.5.1}GermEval 2014 NER task dataset}{37}{}%
+\contentsline {subsection}{\numberline {3.5.2}DFKI Smartdata corpus}{37}{}%
+\contentsline {subsection}{\numberline {3.5.3}XTREME dataset}{37}{}%
+\contentsline {section}{\numberline {3.6}Models}{37}{}%
+\contentsline {section}{\numberline {3.7}Pipeline}{38}{}%
+\contentsline {section}{\numberline {3.8}Translation approach}{38}{}%
+\contentsline {section}{\numberline {3.9}Evaluation}{38}{}%
+\contentsline {subsection}{\numberline {3.9.1}Evaluation metrics}{38}{}%
+\contentsline {subsection}{\numberline {3.9.2}Performance evaluation}{38}{}%
+\contentsline {section}{\numberline {3.10}Summarization}{38}{}%
+\contentsline {chapter}{\numberline {4}Results}{39}{}%
+\contentsline {section}{\numberline {4.1}Spacy}{39}{}%
+\contentsline {section}{\numberline {4.2}Hugging Face}{39}{}%
+\contentsline {section}{\numberline {4.3}Translation approach}{39}{}%
+\contentsline {section}{\numberline {4.4}Summarization}{39}{}%
+\contentsline {chapter}{\numberline {5}Conclusion}{40}{}%
+\contentsline {section}{\numberline {5.1}Summarization}{40}{}%
+\contentsline {section}{\numberline {5.2}Discussion}{40}{}%
+\contentsline {chapter}{Bibliography}{43}{}%
