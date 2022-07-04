@@ -118,10 +118,10 @@ $$ 75\% 317 $$
 
 \section{Annotation scheme}
 
+%TODO quick summary, rest in appendix
+
 Based on \cite{benikova-etal-2014-nosta} and spacy
-
 and on: %TODO https://github.com/DFKI-NLP/smartdata-corpus/blob/master/SmartData_Corpus_Annotation_Guidelines_Feb_2018_v1.0.pdf
-
 
 for the sake of simplicity: no nested entities, no derived entities 
 
@@ -136,8 +136,7 @@ A named entity is a “real-world object” that’s assigned a name – for exa
 
 combined NEs, e.g. Wien-Demo -> tagged separately if possible, otherwise tagged as the dominant entity type (here Demo), to avoid nested entities
 
-
-hier wird klar wie der shift von protest forms is: Achtung Demonstration wird Abgesagt ! Wir haben als Orga Team beschlossen , das wir keine Demos mehr anmelden werden ! Wir sagen klar Nein zu den Auflagen die uns vorgegeben werden . Deshalb , neuer Termin , wir fahren nach Plauen ! Lasst uns die Freie Sachsen und den Bürgermeisterkandidaten Thomas Kaden unterstützen ! 11062021 Raus auf die Straße
+%hier wird klar wie der shift von protest forms is: Achtung Demonstration wird Abgesagt ! Wir haben als Orga Team beschlossen , das wir keine Demos mehr anmelden werden ! Wir sagen klar Nein zu den Auflagen die uns vorgegeben werden . Deshalb , neuer Termin , wir fahren nach Plauen ! Lasst uns die Freie Sachsen und den Bürgermeisterkandidaten Thomas Kaden unterstützen ! 11062021 Raus auf die Straße
 
 
 \begin{table}[]
@@ -188,6 +187,9 @@ labelstudio
 IOB encoding: each word either begins, is inside, or is outside of a named entity
 
 hashtags encoding events via location and date, e.g. \#b20200809 or \#le1311 are not to be annotated, should be extracted via regex and treated separately; unsure if they are NEs? 
+
+
+
 
 \section{Annotated dataset}
 descriptive statistics

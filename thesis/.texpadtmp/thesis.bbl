@@ -332,6 +332,79 @@
     \field{urlyear}{2022}
   \endentry
 
+  \entry{collobert_natural_2011}{article}{}
+    \name{author}{6}{}{%
+      {{hash=CR}{%
+         family={Collobert},
+         familyi={C\bibinitperiod},
+         given={Ronan},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=WJ}{%
+         family={Weston},
+         familyi={W\bibinitperiod},
+         given={Jason},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BL}{%
+         family={Bottou},
+         familyi={B\bibinitperiod},
+         given={Leon},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Karlen},
+         familyi={K\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KK}{%
+         family={Kavukcuoglu},
+         familyi={K\bibinitperiod},
+         given={Koray},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=KP}{%
+         family={Kuksa},
+         familyi={K\bibinitperiod},
+         given={Pavel},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \strng{namehash}{CR+1}
+    \strng{fullhash}{CRWJBLKMKKKP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2011}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{abstract}{%
+    We propose a uniﬁed neural network architecture and learning algorithm
+  that can be applied to various natural language processing tasks including
+  part-of-speech tagging, chunking, named entity recognition, and semantic role
+  labeling. This versatility is achieved by trying to avoid task-speciﬁc
+  engineering and therefore disregarding a lot of prior knowledge. Instead of
+  exploiting man-made input features carefully optimized for each task, our
+  system learns internal representations on the basis of vast amounts of mostly
+  unlabeled training data. This work is then used as a basis for building a
+  freely available tagging system with good performance and minimal
+  computational requirements.%
+    }
+    \field{pages}{45}
+    \field{title}{Natural {Language} {Processing} ({Almost}) from {Scratch}}
+    \verb{file}
+    \verb Collobert et al. - Natural Language Processing (Almost) from Scratch.
+    \verb pdf:/Users/elisabeth/Zotero/storage/WASVWVIR/Collobert et al. - Natur
+    \verb al Language Processing (Almost) from Scratch.pdf:application/pdf
+    \endverb
+    \field{journaltitle}{NATURAL LANGUAGE PROCESSING}
+    \field{year}{2011}
+  \endentry
+
   \entry{derczynski_analysis_2015}{article}{}
     \name{author}{8}{}{%
       {{hash=DL}{%
@@ -516,6 +589,37 @@
     \field{urlyear}{2022}
   \endentry
 
+  \entry{jurafsky_2021}{book}{}
+    \name{author}{2}{}{%
+      {{hash=JD}{%
+         family={Jurafsky},
+         familyi={J\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MJH}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={James\bibnamedelima H.},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JDMJH1}
+    \strng{fullhash}{JDMJH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{title}{Speech and Language Processing. An Introduction to Natural
+  Language Processing, Computational Linguistics, and Speech Recognition}
+    \verb{url}
+    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
+    \endverb
+    \field{year}{2021}
+  \endentry
+
   \entry{magueresse_low-resource_2020}{misc}{}
     \name{author}{3}{}{%
       {{hash=MA}{%
@@ -625,6 +729,64 @@
     \verb https://arxiv.org/abs/1301.3781
     \endverb
     \field{year}{2013}
+  \endentry
+
+  \entry{nadeau_survey_2007}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ND}{%
+         family={Nadeau},
+         familyi={N\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Sekine},
+         familyi={S\bibinitperiod},
+         given={Satoshi},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \strng{namehash}{NDSS1}
+    \strng{fullhash}{NDSS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2007}
+    \field{labeldatesource}{}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{abstract}{%
+    This survey covers fifteen years of research in the Named Entity
+  Recognition and Classification (NERC) field, from 1991 to 2006. We report
+  observations about languages, named entity types, domains and textual genres
+  studied in the literature. From the start, NERC systems have been developed
+  using hand-made rules, but now machine learning techniques are widely used.
+  These techniques are surveyed along with other critical aspects of NERC such
+  as features and evaluation methods. Features are word-level, dictionary-level
+  and corpus-level representations of words in a document. Evaluation
+  techniques, ranging from intuitive exact match to very complex matching
+  techniques with adjustable cost of errors, are an indisputable key to
+  progress.%
+    }
+    \verb{doi}
+    \verb 10.1075/li.30.1.03nad
+    \endverb
+    \field{issn}{0378-4169, 1569-9927}
+    \field{number}{1}
+    \field{pages}{3\bibrangedash 26}
+    \field{title}{A survey of named entity recognition and classification}
+    \verb{url}
+    \verb http://www.jbe-platform.com/content/journals/10.1075/li.30.1.03nad
+    \endverb
+    \field{volume}{30}
+    \field{journaltitle}{Lingvisticae Investigationes}
+    \field{month}{08}
+    \field{year}{2007}
+    \field{urlday}{04}
+    \field{urlmonth}{07}
+    \field{urlyear}{2022}
   \endentry
 
   \entry{ritter_2011}{inproceedings}{}
