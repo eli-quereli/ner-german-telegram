@@ -126,7 +126,7 @@ These metrics rely on the number of entities recognized correctly by the model (
 Precision, recall, and F1 are defined as follows: 
 
 $$ precision = \frac {TP} {TP + FP} * 100 $$
-$$ recall = (TP / TP + FN) * 100 $$
+$$ recall = \frac {TP}  {TP + FN} * 100 $$
 $$ F1 = \frac {2 * precision * recall} {precision + recall} $$
 
 % $$ \frac {2*precision*recall} {precision+recall}$$ with ${\beta=1}$.
@@ -227,6 +227,8 @@ However, since the GermEval2014 dataset also includes nested and derived entitie
 \paragraph{NER tasks for social media data}
 In 2015, \cite{baldwin_shared_2015} organized a shared task for Named Entity Recognition on social media data, namely tweets from Twitter in the context of the Workshop on Noisy User-generated Text (W-NUT). 
 The task was designed to foster the development of NER systems capable of recognizing named entities in this specific domain which poses peculiar challenges to existing NER systems trained mainly on newswire text, since tweets, unlike edited newswire articles, contain a number of mis- and nonstandard spellings, abbreviations, incomplete sentences, and are often characterized by unreliable capitalization (cf. \cite{baldwin_shared_2015}). 
+`NER tasks have also been organized on social media data, e.g., Twitter, where the performance of classic NER systems degrades due to issues like variability in orthography and presence of grammatically incomplete sentences' (Baldwin et al., 2015)
+`Entity types on Twitter are also more variable (person, company, facility, band, sportsteam, movie, TV show, etc.) as they are based on user behavior on Twitter' (Yadav and Bethard 2019)
 
 As a result, existing NER tools mainly developed using newswire texts, perform rather poorly on this noisy, user-generated type of texts (cf. \cite{baldwin_shared_2015}). 
 
@@ -236,8 +238,7 @@ The data for the task was taken from the work by \cite{ritter_2011}, who conduct
 
 The best participating system in this task achieved an F1 score of 0.66 for the ten types (cf. \cite{ritter_2011}), thus outperforming the results later achieved in the shared task by \cite{baldwin_shared_2015}. Looking more detailed into the results of \cite{ritter_2011} for the standard entity types PERSON, LOCATION, and ORGANIZATION, it can be noted that the F1 score achieved for PERSON ranks highest with up to 0.83, followed by LOCATION, and then ORGANIZATION (0.74 and 0.66 for the best participating system). 
 
-NER tasks have also been organized on social media data, e.g., Twitter, where the performance of classic NER systems degrades due to issues like variability in orthography and presence of grammatically incomplete sentences (Baldwin et al., 2015)
-Entity types on Twitter are also more variable (person, company, facility, band, sportsteam, movie, TV show, etc.) as they are based on user behavior on Twitter (Yadav and Bethard 2019)
+
 
 
 \subsection{Additional German-language datasets for NER}
@@ -357,7 +358,7 @@ Some of the earliest systems required very minimal training data.
 - uses seeds to discover text having potential named entities, detects noun phrases and filters any with low IDF values, and feeds the filtered list to a classifier \cite{yadav_survey_2019}
  
 
-\subsection{Deep-learning based approaches / Neural Networks}
+\subsection{The introduction of neural networks}
 
 Deep learning: 
 "branch of machine learning that is based on artificial neural network architectures." (cf. \cite[14]{vajjala_practical_2020})
@@ -380,6 +381,7 @@ Modern neural architectures for NER can be broadly classified into categories de
 
 \paragraph{Feedforward neural networks}
 
+\subsection{Recurrent neural networks}
 \paragraph{Recurrent neural networks}
 
 - language is inherently sequential
@@ -406,13 +408,23 @@ Modern neural architectures for NER can be broadly classified into categories de
 - advantage: CNN can look at a group of words together using a context window
 - CNN uses a collection of convolution and pooling layers to achieve a condensed representation of the text which is then fed as input to a fully connected layer to learn some NLP tasks like text classification \cite[24]{vajjala_practical_2020}
 
-\paragraph{Transformers}
+\subsection{Transformers}
 - latest entry in the league of deep learning models for NLP
 - have achieved state of the art in almost all major NLP tasks in recent years
 - model the textual context but not in a sequential manner 
 - given a word in the input, it prefers to look at all the words around it (known as self-attention) and represent each word with respect to its context
 - e.g. bank different meaning depending on context (financial institute, furniture)
 - transformers can model such context and hence have been used heavily in NLP tasks due to this higher representation capacity as compared to other deep networks \cite[25-26]{vajjala_practical_2020}
+
+
+- prior to transformers: recurrent architectures (e.g. LSTMs, RNNs)
+- recurrent architectures contain a feedback loop in the network connections; allows information to propagate from one step o another, making them ideal for modeling sequential data like text
+- RNN: receives input, feeds it through the network, outputs a vector called the hidden state
+- at the same time, the model feeds some information back to itself through the feedback loop, which it can then use in the next step
+- RNN passes information about its state at each step to the next operation in the sequence 
+- this allows an RNN to keep track of information from previous steps, and use it for its output predictions
+\cite[2]{tunstall_natural_2022}
+
 
 \subparagraph{Transfer learning for downstream tasks with transformers}
 - large transformers used for smaller downstream tasks via transfer learning
@@ -422,5 +434,5 @@ Modern neural architectures for NER can be broadly classified into categories de
 - this model is then fine-tuned on NLP downstream tasks, e.g. NER \cite[26]{vajjala_practical_2020}
  
 
-\subsection{Summarization}
+\section{Summarization}
 

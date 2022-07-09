@@ -34,41 +34,48 @@
 \contentsline {paragraph}{Hidden Markov Model}{25}{}%
 \contentsline {paragraph}{Conditional Random Field}{26}{}%
 \contentsline {subsubsection}{Unsupervised / bootstrapped approaches}{26}{}%
-\contentsline {subsection}{\numberline {2.4.3}Deep-learning based approaches / Neural Networks}{27}{}%
-\contentsline {paragraph}{Feedforward neural networks}{28}{}%
+\contentsline {subsection}{\numberline {2.4.3}The introduction of neural networks}{27}{}%
+\contentsline {paragraph}{Feedforward neural networks}{27}{}%
+\contentsline {subsection}{\numberline {2.4.4}Recurrent neural networks}{28}{}%
 \contentsline {paragraph}{Recurrent neural networks}{28}{}%
 \contentsline {paragraph}{Long short-term memory}{28}{}%
 \contentsline {paragraph}{Bi-LSTM}{28}{}%
 \contentsline {paragraph}{Convolutional neural networks}{28}{}%
-\contentsline {paragraph}{Transformers}{29}{}%
+\contentsline {subsection}{\numberline {2.4.5}Transformers}{28}{}%
 \contentsline {subparagraph}{Transfer learning for downstream tasks with transformers}{29}{}%
-\contentsline {subsection}{\numberline {2.4.4}Summarization}{29}{}%
-\contentsline {chapter}{\numberline {3}Implementation}{30}{}%
-\contentsline {section}{\numberline {3.1}Exploration of existing solutions}{30}{}%
-\contentsline {section}{\numberline {3.2}Data}{30}{}%
-\contentsline {subsection}{\numberline {3.2.1}Domain-specific data}{30}{}%
-\contentsline {subsection}{\numberline {3.2.2}data cleaning}{33}{}%
-\contentsline {subsection}{\numberline {3.2.3}text cleaning}{33}{}%
-\contentsline {subsection}{\numberline {3.2.4}sample selection}{34}{}%
-\contentsline {section}{\numberline {3.3}Annotation scheme}{35}{}%
-\contentsline {section}{\numberline {3.4}Annotated dataset}{35}{}%
-\contentsline {section}{\numberline {3.5}Additional resources}{36}{}%
-\contentsline {subsection}{\numberline {3.5.1}GermEval 2014 NER task dataset}{36}{}%
-\contentsline {subsection}{\numberline {3.5.2}DFKI Smartdata corpus}{36}{}%
-\contentsline {subsection}{\numberline {3.5.3}XTREME dataset}{36}{}%
-\contentsline {section}{\numberline {3.6}Models}{36}{}%
-\contentsline {section}{\numberline {3.7}Pipeline}{36}{}%
-\contentsline {section}{\numberline {3.8}Translation approach}{36}{}%
-\contentsline {section}{\numberline {3.9}Evaluation}{36}{}%
-\contentsline {subsection}{\numberline {3.9.1}Evaluation metrics}{36}{}%
-\contentsline {subsection}{\numberline {3.9.2}Performance evaluation}{36}{}%
-\contentsline {section}{\numberline {3.10}Summarization}{36}{}%
-\contentsline {chapter}{\numberline {4}Results}{37}{}%
-\contentsline {section}{\numberline {4.1}Spacy}{37}{}%
-\contentsline {section}{\numberline {4.2}Hugging Face}{37}{}%
-\contentsline {section}{\numberline {4.3}Translation approach}{37}{}%
-\contentsline {section}{\numberline {4.4}Summarization}{37}{}%
-\contentsline {chapter}{\numberline {5}Conclusion}{38}{}%
-\contentsline {section}{\numberline {5.1}Summarization}{38}{}%
-\contentsline {section}{\numberline {5.2}Discussion}{38}{}%
-\contentsline {chapter}{Bibliography}{42}{}%
+\contentsline {section}{\numberline {2.5}Summarization}{29}{}%
+\contentsline {chapter}{\numberline {3}Exploration}{30}{}%
+\contentsline {section}{\numberline {3.1}Exploring the German-language spacy model}{30}{}%
+\contentsline {section}{\numberline {3.2}Exploring the German-language Flair model}{30}{}%
+\contentsline {section}{\numberline {3.3}Exploring the Potentials of Machine Translation for NER}{30}{}%
+\contentsline {section}{\numberline {3.4}Summarization}{30}{}%
+\contentsline {section}{\numberline {3.5}Translation approach}{30}{}%
+\contentsline {chapter}{\numberline {4}Implementation}{31}{}%
+\contentsline {section}{\numberline {4.1}Data}{31}{}%
+\contentsline {subsection}{\numberline {4.1.1}Existing German-language datasets for NER}{31}{}%
+\contentsline {subsubsection}{GermEval 2014 NER task dataset}{31}{}%
+\contentsline {subsubsection}{DFKI Smartdata corpus}{31}{}%
+\contentsline {subsubsection}{XTREME dataset}{31}{}%
+\contentsline {subsubsection}{WIKIANN}{31}{}%
+\contentsline {subsection}{\numberline {4.1.2}Domain-specific data from Telegram channel}{32}{}%
+\contentsline {subsection}{\numberline {4.1.3}Preprocessing and data selection}{35}{}%
+\contentsline {subsubsection}{data cleaning}{35}{}%
+\contentsline {subsubsection}{text cleaning}{35}{}%
+\contentsline {subsubsection}{sample selection}{36}{}%
+\contentsline {section}{\numberline {4.2}Annotation scheme}{36}{}%
+\contentsline {section}{\numberline {4.3}Annotated dataset}{37}{}%
+\contentsline {section}{\numberline {4.4}Models}{37}{}%
+\contentsline {section}{\numberline {4.5}Pipeline}{37}{}%
+\contentsline {subsection}{\numberline {4.5.1}Tokenization}{38}{}%
+\contentsline {subsubsection}{Subword tokenization, alignment}{38}{}%
+\contentsline {subsection}{\numberline {4.5.2}Vectorization?}{38}{}%
+\contentsline {subsubsection}{outputs}{39}{}%
+\contentsline {subsection}{\numberline {4.5.3}Model heads}{39}{}%
+\contentsline {subsection}{\numberline {4.5.4}Post-processing}{40}{}%
+\contentsline {section}{\numberline {4.6}Evaluation}{40}{}%
+\contentsline {section}{\numberline {4.7}Summarization}{40}{}%
+\contentsline {chapter}{\numberline {5}Results}{41}{}%
+\contentsline {chapter}{\numberline {6}Conclusion}{42}{}%
+\contentsline {section}{\numberline {6.1}Summarization}{42}{}%
+\contentsline {section}{\numberline {6.2}Discussion}{42}{}%
+\contentsline {chapter}{Bibliography}{46}{}%

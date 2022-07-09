@@ -1,24 +1,22 @@
 \chapter{Implementation}
 \label{cha:implementation}
 
-
-\section{Exploration of existing solutions}
-
-- spacy
-- Flair
-
-- German
-- translated to English
-
-explorative evaluation
-
-
-
 \section{Data}
 \label{sec:data}
 
 
-\subsection{Domain-specific data}
+\subsection{Existing German-language datasets for NER}
+
+\subsubsection{GermEval 2014 NER task dataset}
+\subsubsection{DFKI Smartdata corpus}
+the DFKI SmartData Corpus is released as CC-BY 4.0.
+\subsubsection{XTREME dataset}
+PAN-X annotations were generated through an automated process -> only `silver standard', not used here
+
+\subsubsection{WIKIANN} ?
+
+
+\subsection{Domain-specific data from Telegram channel}
 Telegram channel `Demotermine': 52.900 subscribers by the beginning of June 2022, 
 
 long channel name: `Demo-Termine \& Kontakte, Gleichgesinnte treffen - Demokalender, Spaziergänge, Mahnwachen, Meditation *Rücktritt Bundesregierung!'
@@ -67,8 +65,9 @@ Wir sehen uns auf der Straße ! Demos sind die ideale Gelegenheit , seinen Unmut
 
 
 
-\subsection{data cleaning}
+\subsection{Preprocessing and data selection}
 
+\subsubsection{data cleaning}
 
 - total number of rows: 31430
 - removal of duplicate texts
@@ -76,7 +75,7 @@ Wir sehen uns auf der Straße ! Demos sind die ideale Gelegenheit , seinen Unmut
 
 total number of messages (wo NaN / duplicates): 27.627 messages
 
-\subsection{text cleaning} 
+\subsubsection{text cleaning} 
 
 some general and some Telegram- / channel-specific cleaning and preprocessing steps
 - removal of user mentions
@@ -97,7 +96,7 @@ might refer to named entities, e.g. telegram channels run by / named after perso
 - removal of rows not containing values for cleaned text 
 - 22.803 messages remaining 
 
-\subsection{sample selection}
+\subsubsection{sample selection}
 - language detection with python package langdetect
 %TODO clean up notebook incl imports
 
@@ -190,27 +189,88 @@ hashtags encoding events via location and date, e.g. \#b20200809 or \#le1311 are
 
 
 
-
 \section{Annotated dataset}
 descriptive statistics
 access / licensing?
 
-\section{Additional resources}
-
-\subsection{GermEval 2014 NER task dataset}
-
-\subsection{DFKI Smartdata corpus}
-the DFKI SmartData Corpus is released as CC-BY 4.0.
-
-\subsection{XTREME dataset}
 
 
 \section{Models}
-- spacy
-- hugging face
+- DistilBERT
+- RoBERTa
+- GermaNER ..
+
 \section{Pipeline}
-\section{Translation approach}
+
+pipeline groups together three steps: preprocessing, passing the inputs through the model, and postprocessing
+% https://huggingface.co/course/chapter2/2?fw=pt
+
+
+Like other neural networks, Transformer models can’t process raw text directly, so the first step of our pipeline is to convert the text inputs into numbers that the model can make sense of. To do this we use a tokenizer, which will be responsible for:
+
+- Splitting the input into words, subwords, or symbols (like punctuation) that are called tokens
+- Mapping each token to an integer
+- Adding additional inputs that may be useful to the model
+
+
+\subsection{Tokenization}
+All this preprocessing needs to be done in exactly the same way as when the model was pretrained 
+
+use Autotokenizer  from\_pretrained
+
+Once we have the tokenizer, we can directly pass our sentences to it and we ll get back a dictionary that s ready to feed to our model
+
+\subsubsection{Subword tokenization, alignment}
+
+
+\subsection{Vectorization?}
+convert the list of input IDs to tensors.
+
+Transformer models only accept tensors as input. If this is your first time hearing about tensors, you can think of them as NumPy arrays instead. A NumPy array can be a scalar (0D), a vector (1D), a matrix (2D), or have more dimensions. It’s effectively a tensor; other ML frameworks’ tensors behave similarly, and are usually as simple to instantiate as NumPy arrays.
+
+To specify the type of tensors we want to get back (PyTorch, TensorFlow, or plain NumPy), we use the return\_tensors argument:
+
+padding, truncation, return\_tensors erklären können
+
+Don t worry about padding and truncation just yet; we’ll explain those later. The main things to remember here are that you can pass one sentence or a list of sentences, as well as specifying the type of tensors you want to get back (if no type is passed, you will get a list of lists as a result).
+
+The output itself is a dictionary containing two keys, input\_ids and attention\_mask. input\_ids contains two rows of integers (one for each sentence) that are the unique identifiers of the tokens in each sentence. We’ll explain what the attention\_mask is later in this chapter.
+
+
+\subsubsection{outputs}
+
+checkpoint / pretrained
+This architecture contains only the base Transformer module: given some inputs, it outputs what we’ll call hidden states, also known as features. For each model input, we’ll retrieve a high-dimensional vector representing the contextual understanding of that input by the Transformer model.
+While these hidden states can be useful on their own, they’re usually inputs to another part of the model, known as the head.
+
+The vector output by the Transformer module is usually large. It generally has three dimensions:
+
+Batch size: The number of sequences processed at a time (2 in our example).
+Sequence length: The length of the numerical representation of the sequence (16 in our example).
+Hidden size: The vector dimension of each model input.
+
+Note that the outputs of Transformers models behave like namedtuples or dictionaries. You can access the elements by attributes (like we did) or by key (outputs["last\_hidden\_state"]), or even by index if you know exactly where the thing you are looking for is (outputs[0]).
+
+\subsection{Model heads}
+The model heads take the high-dimensional vector of hidden states as input and project them onto a different dimension. They are usually composed of one or a few linear layers
+The output of the Transformer model is sent directly to the model head to be processed.
+
+In this diagram, the model is represented by its embeddings layer and the subsequent layers. The embeddings layer converts each input ID in the tokenized input into a vector that represents the associated token. The subsequent layers manipulate those vectors using the attention mechanism to produce the final representation of the sentences.
+
+There are many different architectures available in Transformers, with each one designed around tackling a specific task.
+
+here: for token classification (NER)
+
+
+\subsection{Post-processing}
+The values we get as output from our model don’t necessarily make sense by themselves
+
+Those are not probabilities but logits, the raw, unnormalized scores outputted by the last layer of the model. To be converted to probabilities, they need to go through a SoftMax layer (all  Transformers models output the logits, as the loss function for training will generally fuse the last activation function, such as SoftMax, with the actual loss function, such as cross entropy)
+
+To get the labels corresponding to each position, we can inspect the id2label attribute of the model config
+
+
+model.config.id2label
+
 \section{Evaluation}
-\subsection{Evaluation metrics}
-\subsection{Performance evaluation}
 \section{Summarization}

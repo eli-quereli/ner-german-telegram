@@ -1112,6 +1112,58 @@
     \field{urlyear}{2022}
   \endentry
 
+  \entry{tunstall_natural_2022}{book}{}
+    \name{author}{4}{}{%
+      {{hash=TL}{%
+         family={Tunstall},
+         familyi={T\bibinitperiod},
+         given={Lewis},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=WLv}{%
+         family={Werra},
+         familyi={W\bibinitperiod},
+         given={Leandro\bibnamedelima von},
+         giveni={L\bibinitperiod\bibinitdelim v\bibinitperiod},
+      }}%
+      {{hash=WT}{%
+         family={Wolf},
+         familyi={W\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Géron},
+         familyi={G\bibinitperiod},
+         given={Aurélien},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {eng}%
+    }
+    \list{publisher}{1}{%
+      {O'Reilly}%
+    }
+    \strng{namehash}{TL+1}
+    \strng{fullhash}{TLWLvWTGA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{edition}{First edition}
+    \field{isbn}{978-1-09-810324-8}
+    \field{shorttitle}{Natural language processing with {Transformers}}
+    \field{title}{Natural language processing with {Transformers}: building
+  language applications with {Hugging} {Face}}
+    \list{location}{1}{%
+      {Beijing Boston Farnham Sebastopol Tokyo}%
+    }
+    \field{year}{2022}
+  \endentry
+
   \entry{vajjala_practical_2020}{book}{}
     \name{author}{4}{}{%
       {{hash=VS}{%
