@@ -5,9 +5,14 @@
 \label{sec:data}
 
 
-\subsection{Existing German-language datasets for NER}
+\subsection{Existing German-language datasets for this specific task }
+
 
 \subsubsection{GermEval 2014 NER task dataset}
+Why not GermEval? TIME, DATE missing; ACTION as well
+not social media data
+
+
 \subsubsection{DFKI Smartdata corpus}
 the DFKI SmartData Corpus is released as CC-BY 4.0.
 \subsubsection{XTREME dataset}
@@ -17,109 +22,209 @@ PAN-X annotations were generated through an automated process -> only `silver st
 
 
 \subsection{Domain-specific data from Telegram channel}
-Telegram channel `Demotermine': 52.900 subscribers by the beginning of June 2022, 
+For the creation of a dataset suitable for the aim of this thesis, the Telegram channel `Demotermine' (\textit{Demo dates}) was selected. 
 
-long channel name: `Demo-Termine \& Kontakte, Gleichgesinnte treffen - Demokalender, Spaziergänge, Mahnwachen, Meditation *Rücktritt Bundesregierung!'
+The channel was selected because a prior qualitative exploration of sample messages indicated that its content consists mainly of information about and mobilization for demonstrations and others forms of protests against the German COVID-19 containment measures and could thus be expected to contain a lot of entities of the types relevant for the aim of this thesis.  
+The focus of the channel is also reflected in the extended channel name `Demo-Termine \& Kontakte, Gleichgesinnte treffen - Demokalender, Spaziergänge, Mahnwachen, Meditation *Rücktritt Bundesregierung!' (\textit{Demo dates \& contacts, meet like-minded - Demo calendar, walks, vigils, meditation *resignation federal government!}). 
 
-channel-info: ``Wir Demokraten wollen miteinander in Kontakt bleiben @DemotermineChat und uns im Bedarfsfall möglichst schnell austauschen, Beweise in Wort, Bild und Ton sichern, damit sie nicht unterschlagen werden können @LivestreamsFuerDich! @Terminverteiler\_Bot'
+% channel-info: ``Wir Demokraten wollen miteinander in Kontakt bleiben @DemotermineChat und uns im Bedarfsfall möglichst schnell austauschen, Beweise in Wort, Bild und Ton sichern, damit sie nicht unterschlagen werden können @LivestreamsFuerDich! @Terminverteiler\_Bot'
 
+The channel was part of a network investigated by IDZ Jena, and in the context of the research project `Digitaler Hass', data from the channel was collected including messages from the start of the channel until December 19, 2021. 
 
-after removal of duplicates and NaN text: 
+By the beginning of June 2022, the channel had around 52.900 subscribers.
 
-date range: 2018-11-03 bis 2021-12-19
+The dates of the collected messages range between March 3rd, 2018 and December 19th, 2021 (last day included in the data collection process). Even though the channel existed before the outbreak of the COVID-19 pandemic, an exploration of message frequencies clearly reveals that the channel gained relevant momentum at the beginning of the pandemic in Germany in spring 2020, as can be seen in figure \ref{fig:message_count}.
 
-
+\begin{figure}[H]
 \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/message_count.png}
+\caption{Message frequencies}
+  \label{fig:message_count}
+\end{figure}
 
-language: predominantly German (22803, ca. 83.064986\%), followed by English (3.823, 13.926126\%), French, Italian, Dutch (less than 1\%)
+
+% qualitative exploration of data:  - origin of channel?
+%early messages (before pandemic): 
+%- AfD, anti-immigration, Kandel, Gelbwesten
+%- racist and antisemitic
+%- against `mass immigration'
+%- focus on violence by immigrants
+%- lying press
+%- remembrance of German victims in WWII (`Bombenopfer'), self-victimization
+%- pegida
+%- landwirte gegen die politik der grünen
+%- Julian Assange
+%- against compulsary vaccinations (not COVID), Robert F. Kennedy jr.
+%- GEGEN REPRESSION UND GROSSEN AUSTAUSCH
+%- gegen USA (zB Ramstein airbase, drohnen, militärtransporte durch DE)
+%- Dresden Gedenken, Rheinwiesenlager
+
+%``2019-09-01 11:01:38
+%Wir sehen uns auf der Straße ! Demos sind die ideale Gelegenheit , seinen Unmut gegen die herrschende Politik , die kein Interesse mehr am Volk hat ( zum Ausdruck zu bringen . Hier lernt man vor allem Gleichgesinnte kennen , kann sich untereinander austauschen . Das Ziel bleibt , die Rechtsstaatlichkeit in der Bananenrepublik wiederherzustellen . Dazu gehört , dass in diesem Kanal keine Propaganda von Klima-Nazis ( Buntfaschisten und steuerfinanzierten Gefährdern der freiheitlich-demokratischen Grundordnung ( z.B. geteilt wird . Natürlich lehnen unsere Demoteilnehmer Nazi-Methoden der Terror-SA-Nachfolgeorganisation Antifa entschieden ab wie die durch Zwangsgebühren erpresste faschistische Propaganda von ARD und ZDF des Beitragsservice . Geteilt werden hier auch Demoankündigungen gegen die von Faschisten installierten Atomwaffen und durchgeführten Drohnenkriege von deutschem Boden aus . Grundsätzlich ist jede Form der Zionisierung , die die durch Migration massiv verstärkte Islamisierung zur Folge hat , abzulehnen . Hilfe an Hungernde hat grundsätzlich Vorrang gegenüber der faschistischen Deportation von wohlgenährten , jungen Männern nach und später vielleicht wieder Auschwitz . Menschen , die in Küstennähe ins Wasser gefallen sind , sind grundsätzlich zu retten und dort wieder an das nächste sichere Ufer an Land zu bringen , um ihr Leben und das von Nachahmern faschistischer Ideologien zu retten . Unsere Teilnehmer stehen zum Menschen- nach Artikel 5 im Grundgesetz . für das 5G-Netz und die des Regenwaldes zugunsten faschistischer , weltherrschaftlicher Ziele sind ebenso abzulehnen wie der faschistische Lobbyismus zum Impfzwang . Überall da , wo die feige , vermummte Antifa sein müsste , statt Faschisten die Rosetten zu lecken , sind wir da ! Soziale Ausgrenzung , Verbreitung von Hass und Hetze gegen Andersdenkende durch Stasi-Nazi-Faschisten nach Gleichmacher-Gleichschaltungs-Gleichschritt-Hitler-Vorbild liegt uns ebenso fern wie die Anwendung von Gewalt zugunsten der Diener des Faschismus in Parteien , Kirchen , Gewerkschaften , Stiftungen und EU-Reichs-Propagandamedien ARD und ZDF , die vor allem die stark wachsende Verarmung der Bevölkerung im reichen Fascho-Deutschland zur Folge hat , wogegen sich die auch Aktivisten wenden . Bei den Demos wollen wir überall und flächendeckend vor allem den Druck gegenüber der herrschenden Kaste aufbauen , den Menschen , die sich noch in der Wohlfühlblase und im Arschkriechermodus befinden zeigen , dass wir dennoch da sind ! Zu uns passende Demos bitte mitteilen . Bildet Fahrgemeinschaften , denn zusammen sind wir stark . Vernetzt euch , trefft einander . Das geht nirgendwo besser als auf der Straße . Dort erfährt man auch von weiteren ( geschlossenen ) und außerhalb der Demos .''
+
+\subsection{Text cleaning}
+
+The initial data collection yielded 31.430 rows of data. After the removal of text duplicates and rows not containing any text, 27.627 rows remained for further processing. 
+
+\verb|@user_mentions| or \verb|#hashtags| were deliberately included, and the special characters and words of these tokens were not split up into separate tokens. In-word hyphens (such as in Demo-Termine) were also not split up from their surrounding words. For this, the tokenizer of the German medium-size \verb|Spacy| model \verb|de\_core\_news\_md| was applied with a customized token match pattern as shown in the following code snippet:
+
+\begin{python}
+import re
+import spacy
+from spacy.tokenizer import _get_regex_pattern
+
+model="de_core_news_md"
+nlp = spacy.load(model)
+
+# code to keep special tokens as a sequence, taken from: https://stackoverflow.com/questions/43388476/how-could-spacy-tokenize-hashtag-as-a-whole
+# get default pattern for tokens that don't get split
+re_token_match = _get_regex_pattern(nlp.Defaults.token_match)   
+# add patterns (here: #hashtags, in-word hyphens, @mentions)
+re_token_match = f"({re_token_match}|#\w+|\w+-\w+|@\w+)"
+# overwrite token_match function of the tokenizer
+nlp.tokenizer.token_match = re.compile(re_token_match).match	
+ \end{python}
+ 
+Preventing the special characters in hashtags and user mentions from being split up was intended to serve for creating a realistic social media corpus and allow to include these special characters into the labels assigned during the annotation process. However, 	evaluation of training results indicate that it might indeed make sense to split up these special characters and simply treat them as separate tokens which are not treated as part of the tagged named entities. \refsection{%TODO add section error analysis}
+
+The overall text cleaning process was restricted to an absolute minimum in order to create a sample data which is as realistic as possible with regard to the task of recognizing named entities in social media text.  This basically included the removal of newlines and splitting up of compound hashtags into separate hashtags (so that e.g. \#food\#delicious would be split up into two different tokens \#food and \#delicious). The following code demonstrates the respective steps, including the application of the customized tokenizer. 
+
+\begin{python}
+import re
+import spacy
+from spacy.tokenizer import _get_regex_pattern
+
+def preprocess_text(s, nlp):
+    # remove newlines
+    s = ' '.join(s.split())
+    # split up compound hashtags, e.g. #food#delicious
+    s = re.sub(r'#', r' #', s)
+    doc = nlp(s)
+    # tokenize keeping all tokens, no removal of emojis
+    words = [token.text for token in doc]
+    # join tokens back together
+    result = " ".join(words)
+    #replace duplicate whitespaces
+    result = re.sub(r'  ', '', result)
+    return result
+\end{python}
+
+When applying the \verb|spacy| tokenizer, not only alphabetic tokens but all tokens were obtained. This was due to the fact that tokens representing dates and times usually consist of numbers and punctuation. Thus, in order to include dates and times in the sample data, all tokens were retained. URLs and emojis were also included in the final data, and the capitalization of tokens was retained as well. 
+
+The above code parts were then applied to all texts in the dataset, yielding a new column including all the cleaned text values: 
+\begin{python}
+from datetime import datetime
+
+ts_before = datetime.now()
+df['cleaned_text'] = df['text'].apply(lambda x: preprocess_text(x, nlp) if len(x)> 0 else None)
+ts_after = datetime.now()
+print(f"Took {ts_after - ts_before}")
+print(len(df), "rows remaining.")	
+\end{python}
 
 
+\begin{verbatim}
+Output:
+Took 0:03:43.779192
+27627 rows remaining.
+\end{verbatim}
+
+After this step, rows not containing values for cleaned text were removed from the dataset, leaving 22.803 messages for sample selection. 
+
+%some general and some Telegram- / channel-specific cleaning and preprocessing steps - removal of user mentions, might refer to named entities, e.g. telegram channels run by / named after persons
+%- but: explorations of models showed that this confuses models; also: mentions can easily be extracted from text via regex via the \@ at the beginning, and are unambiguous, 100\% accuracy can be achieved using regular expressions
+%- removal of urls: might contain strings containing named entities, confuse models
+%- removal of sensitive information (bank account details in the form of IBANs), be able to make labeled data publicly available
+%- normalization of unicode strings
+%- removal of emojis
+%- keep umlauts (German language)
+%- removal of footer texts ('Raus auf die Straßen')
+
+\subsection{Sample Selection}
+
+For sample selection, first the text length for each text was obtained to enable filtering texts based on their length. The second step consisted of detecting the language for each text in the dataset in order to be able to filter out non-German texts. For this, the \verb|Python| package \verb|langdetect| was applied to the cleaned texts. 
+
+After performing language detection on all messages in the channel, results show that German-language content is clearly predominant with $\sim83\%$ (22.803 messages), followed by English ($\sim3.8\%$, 3.823 messages), and then French, Italian, and Dutch (<1\% each). 
+
+\begin{figure}[H]
 \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/languages.png}
+\caption{Five most frequent languages}
+  \label{fig:language_count}
+\end{figure}
 
+It should be noted that the language detection was sometimes flawed due to the fact that the channel contains a number of mixed-language texts resulting in messages being classified as German while actually also consisting of a relevant fraction of e.g. English or other non-German languages. These mixed-language messages were filtered out later during the annotation process described in section %TODO \refsection{}. 
+However it could be argued that they should be included, since they represent realistic social media date and NER systems should be able to handle such kinds of texts as well.
 
-qualitative exploration of data: 
-
-- origin of channel?
-
-early messages (before pandemic): 
-
-
-- AfD, anti-immigration, Kandel, Gelbwesten
-- racist and antisemitic
-- against `mass immigration'
-- focus on violence by immigrants
-- lying press
-- remembrance of German victims in WWII (`Bombenopfer'), self-victimization
-- pegida
-- landwirte gegen die politik der grünen
-- Julian Assange
-- against compulsary vaccinations (not COVID), Robert F. Kennedy jr.
-- GEGEN REPRESSION UND GROSSEN AUSTAUSCH
-- gegen USA (zB Ramstein airbase, drohnen, militärtransporte durch DE)
-- Dresden Gedenken, Rheinwiesenlager
-
-``2019-09-01 11:01:38
-Wir sehen uns auf der Straße ! Demos sind die ideale Gelegenheit , seinen Unmut gegen die herrschende Politik , die kein Interesse mehr am Volk hat ( zum Ausdruck zu bringen . Hier lernt man vor allem Gleichgesinnte kennen , kann sich untereinander austauschen . Das Ziel bleibt , die Rechtsstaatlichkeit in der Bananenrepublik wiederherzustellen . Dazu gehört , dass in diesem Kanal keine Propaganda von Klima-Nazis ( Buntfaschisten und steuerfinanzierten Gefährdern der freiheitlich-demokratischen Grundordnung ( z.B. geteilt wird . Natürlich lehnen unsere Demoteilnehmer Nazi-Methoden der Terror-SA-Nachfolgeorganisation Antifa entschieden ab wie die durch Zwangsgebühren erpresste faschistische Propaganda von ARD und ZDF des Beitragsservice . Geteilt werden hier auch Demoankündigungen gegen die von Faschisten installierten Atomwaffen und durchgeführten Drohnenkriege von deutschem Boden aus . Grundsätzlich ist jede Form der Zionisierung , die die durch Migration massiv verstärkte Islamisierung zur Folge hat , abzulehnen . Hilfe an Hungernde hat grundsätzlich Vorrang gegenüber der faschistischen Deportation von wohlgenährten , jungen Männern nach und später vielleicht wieder Auschwitz . Menschen , die in Küstennähe ins Wasser gefallen sind , sind grundsätzlich zu retten und dort wieder an das nächste sichere Ufer an Land zu bringen , um ihr Leben und das von Nachahmern faschistischer Ideologien zu retten . Unsere Teilnehmer stehen zum Menschen- nach Artikel 5 im Grundgesetz . für das 5G-Netz und die des Regenwaldes zugunsten faschistischer , weltherrschaftlicher Ziele sind ebenso abzulehnen wie der faschistische Lobbyismus zum Impfzwang . Überall da , wo die feige , vermummte Antifa sein müsste , statt Faschisten die Rosetten zu lecken , sind wir da ! Soziale Ausgrenzung , Verbreitung von Hass und Hetze gegen Andersdenkende durch Stasi-Nazi-Faschisten nach Gleichmacher-Gleichschaltungs-Gleichschritt-Hitler-Vorbild liegt uns ebenso fern wie die Anwendung von Gewalt zugunsten der Diener des Faschismus in Parteien , Kirchen , Gewerkschaften , Stiftungen und EU-Reichs-Propagandamedien ARD und ZDF , die vor allem die stark wachsende Verarmung der Bevölkerung im reichen Fascho-Deutschland zur Folge hat , wogegen sich die auch Aktivisten wenden . Bei den Demos wollen wir überall und flächendeckend vor allem den Druck gegenüber der herrschenden Kaste aufbauen , den Menschen , die sich noch in der Wohlfühlblase und im Arschkriechermodus befinden zeigen , dass wir dennoch da sind ! Zu uns passende Demos bitte mitteilen . Bildet Fahrgemeinschaften , denn zusammen sind wir stark . Vernetzt euch , trefft einander . Das geht nirgendwo besser als auf der Straße . Dort erfährt man auch von weiteren ( geschlossenen ) und außerhalb der Demos .''
-
-%TODO insert histplot to show development of message numbers
-
-
-
-\subsection{Preprocessing and data selection}
-
-\subsubsection{data cleaning}
-
-- total number of rows: 31430
-- removal of duplicate texts
-- removal of rows not containing text
-
-total number of messages (wo NaN / duplicates): 27.627 messages
-
-\subsubsection{text cleaning} 
-
-some general and some Telegram- / channel-specific cleaning and preprocessing steps
-- removal of user mentions
-might refer to named entities, e.g. telegram channels run by / named after persons
-- but: explorations of models showed that this confuses models; also: mentions can easily be extracted from text via regex via the \@ at the beginning, and are unambiguous, 100\% accuracy can be achieved using regular expressions
-
-- removal of urls: might contain strings containing named entities, confuse models
-- removal of sensitive information (bank account details in the form of IBANs), be able to make labeled data publicly available
-- normalization of unicode strings
-- removal of emojis
-- keep umlauts (German language)
-- removal of footer texts ('Raus auf die Straßen')
-- keep capitalization (relevant to identify common and proper nouns in German)
-- split up compound hashtags
-- tokenization, spacy tokenizer (german md model)
-- all tokens, not only text were kept (date, time consisting of numbers and punctuation, needed for the purpose of this NER application)
-- removal of duplicate whitespaces after joining tokens back together 
-- removal of rows not containing values for cleaned text 
-- 22.803 messages remaining 
-
-\subsubsection{sample selection}
-- language detection with python package langdetect
 %TODO clean up notebook incl imports
 
-- selected only German-language messages, German-language: 22.803
-- selected only messages > 100 characters including whitespaces (lower quartile: 83 chars)
-- 14.605 remaining
+As a preparatory step for the final sample selection, the dataset was reduced to only German-language texts (22.803 messages remaining). Out of these messages, only those with a minimum length of 100 characters (in the \verb|cleaned_text| column) were selected (14.605 messages remaining).
 
-$$ 25\% 75 $$
-$$ 50\% 135 $$
-$$ 75\% 317 $$
+An exploration of the text length of all German-language messages shows that the messages have a median text length of 207 characters, and 75\% of the messages have a text length of up to 400 characters. The minimum text length is 5 characters, the longest text consists of 4458 characters. 
 
-- identify similar messages via Levenshtein Distance
-- treshold: >= 0.8 similarity
+\begin{figure}[H]
+\includegraphics[keepaspectratio]{images/text_length_descr.png}
+\caption{Descriptive statistiscs for text length of all German-language messages in dataset}
+  \label{fig:text_length_descr}
+\end{figure}
 
-- select random sample of 20\% of remaining 11.978 messages - 2.395 messages for annotation remaining
+Considering these insights, only messages consisting of at least 100 characters were selected (20.105 messages remaining). Out of these, twenty percent of the messages were randomly selected (4021 messages remaining).
 
-%TODO before training: remove footer 'Raus auf die Straße' from cleaned_text
+Insights from prior research with Telegram data in the context of the project Digitaler Hass revealed that channels often contain a relatively high number of similar messages. To avoid redundancy in the sample, the similarity of the remaining messages was computed based on the \verb|Levenshtein| distance:  
+
+
+\begin{python}
+import Levenshtein as lev
+import pandas as pd
+from datetime import datetime
+from itertools import combinations
+
+
+	def get_levenshtein_results(df, column='cleaned_text'):
+    lev_df = pd.DataFrame() 
+    new_df = pd.DataFrame(combinations(df[column],2), columns=["text_1", "text_2"]) 
+    new_df["lev_score"] = new_df.apply(lambda x: lev.ratio(x[0],x[1]), axis=1) 
+    lev_df = pd.concat([lev_df, new_df], axis=0).reset_index(drop=True)
+    return lev_df
+
+    
+def get_message_ids(df, column='message_id'):
+    lev_df_ids = pd.DataFrame() 
+    new_df_ids = pd.DataFrame(combinations(df[column],2), columns=["message_id_1", "message_id_2"]) 
+    lev_df_ids = pd.concat([lev_df_ids, new_df_ids], axis=0).reset_index(drop=True)
+    ts_after = datetime.now()
+    return lev_df_ids
+
+
+def combine_levenshtein_results_with_message_ids(lev_df, lev_df_ids):
+    levs = pd.DataFrame()
+    levs = pd.concat([lev_df,lev_df_ids], axis=1)
+    ts_after = datetime.now()
+    return levs
+
+
+def remove_similar_messages(lev_ids_df, sample_df, treshold): 
+    second_ids = lev_ids_df[lev_ids_df['lev_score'] >= treshold].message_id_2.tolist()
+    ids_to_drop = list(set(second_ids))
+    result_df = sample_df[~sample_df.message_id.isin(ids_to_drop)]
+    return result_df
+\end{python}
+
+A treshold of 0.8 was defined. If the Levensthein score between for a pair of messages was greater than or equal to this treshold, the second message was removed from the sample. 
+
+The remaining sample after this step consisted of 3.095 messages. 
+
+In a second iteration, an additional sample of short texts was selected. This was supposed to reflect the fact that social media texts can be of very short length and thus should be included in the training data for NER systems. The sampling process for these short texts was similar to the first sampling iteration, except for the sampling size which was 50\% instead of 20\% in the first iteration. After random sampling and removing similar messages based on the Levenshtein score, a sample of 540 short messages remained and was added to the overall sample dataset. 
+
+
+%min / max length / max sequence length Tranformers
 
 \section{Annotation scheme}
 
+annotation schemes vary greatly in terms of: granularity, types of entities, detailedness of instructions and definitions
+
+
 %TODO quick summary, rest in appendix
 
-Based on \cite{benikova-etal-2014-nosta} and spacy
+Loosely based on \cite{benikova-etal-2014-nosta} and spacy
 and on: %TODO https://github.com/DFKI-NLP/smartdata-corpus/blob/master/SmartData_Corpus_Annotation_Guidelines_Feb_2018_v1.0.pdf
 
 for the sake of simplicity: no nested entities, no derived entities 
@@ -187,24 +292,32 @@ IOB encoding: each word either begins, is inside, or is outside of a named entit
 
 hashtags encoding events via location and date, e.g. \#b20200809 or \#le1311 are not to be annotated, should be extracted via regex and treated separately; unsure if they are NEs? 
 
-
-
 \section{Annotated dataset}
 descriptive statistics
-access / licensing?
+max sequence length
+number of documents
+number of tokens per entity type
+%access / licensing?
 
+\section{Creating a baseline}
+Lit: Ritter et al. 
 
+Create Baseline with XLM Roberta
 
 \section{Models}
+Experiments on smartdata, Telegram separately: 
 - DistilBERT
-- RoBERTa
-- GermaNER ..
+- RoBERTa base
+- gbert base
+- dbmdz 
+
+selected: gbert and roberta base (best validation loss and F1)
+
 
 \section{Pipeline}
 
 pipeline groups together three steps: preprocessing, passing the inputs through the model, and postprocessing
 % https://huggingface.co/course/chapter2/2?fw=pt
-
 
 Like other neural networks, Transformer models can’t process raw text directly, so the first step of our pipeline is to convert the text inputs into numbers that the model can make sense of. To do this we use a tokenizer, which will be responsible for:
 
@@ -273,4 +386,23 @@ To get the labels corresponding to each position, we can inspect the id2label at
 model.config.id2label
 
 \section{Evaluation}
+- training loss
+- validation loss
+- early stopping
+- F1
+- precision, recall, accuracy erklären
+
+Overfitting
+
+Error Analysis
+
+
+Confusion matrix 
+
+\section{Hyperparameter tuning}
+
+
+\section{Processing of results}
+
+
 \section{Summarization}

@@ -1,18 +1,71 @@
-[0] Config.pm:307> INFO - This is Biber 2.17
-[0] Config.pm:310> INFO - Logfile is 'thesis.blg'
-[50] biber-darwin:340> INFO - === Sun Jun 19, 2022, 09:46:05
-[64] Biber.pm:418> INFO - Reading 'thesis.bcf'
-[135] Biber.pm:969> INFO - Using all citekeys in bib section 0
-[147] Biber.pm:4383> INFO - Processing section 0
-[155] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
-[157] bibtex.pm:1713> INFO - LaTeX decoding ...
-[164] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
-[223] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[223] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[223] Biber.pm:4203> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[223] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
-[230] bbl.pm:654> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[233] bbl.pm:757> INFO - Output to thesis.bbl
-[233] Biber.pm:130> WARN - ISBN '978-3-319-73530-6 978-3-319-73531-3' in entry 'aggarwal_machine_2018' is invalid - run biber with '--validate_datamodel' for details.
-[233] Biber.pm:130> WARN - ISBN '9789811600999 9789811601002' in entry 'zong_information_2021' is invalid - run biber with '--validate_datamodel' for details.
-[233] Biber.pm:132> INFO - WARNINGS: 2
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: /Users/elisabeth/repos/NER-german-telegram/thesis/thesis.aux
+The style file: biblatex.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: thesis-blx.bib
+Database file #2: thesis.bib
+You're missing a field name---line 269 of file thesis.bib
+ : 
+ : {shorttitle} = {Speech and Language Processing},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Biblatex version: 3.17
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 23 entries,
+            6399 wiz_defined-function locations,
+            1402 strings with 27079 characters,
+and the built_in function-call counts, 262774 in all, are:
+= -- 21192
+> -- 6244
+< -- 1244
++ -- 10596
+- -- 3914
+* -- 17822
+:= -- 31826
+add.period$ -- 0
+call.type$ -- 23
+change.case$ -- 687
+chr.to.int$ -- 379
+cite$ -- 44
+duplicate$ -- 27226
+empty$ -- 20961
+format.name$ -- 1808
+if$ -- 49921
+int.to.chr$ -- 0
+int.to.str$ -- 73
+missing$ -- 0
+newline$ -- 1203
+num.names$ -- 1425
+pop$ -- 8542
+preamble$ -- 1
+purify$ -- 855
+quote$ -- 0
+skip$ -- 5506
+stack$ -- 0
+substring$ -- 39457
+swap$ -- 5228
+text.length$ -- 812
+text.prefix$ -- 22
+top$ -- 1
+type$ -- 769
+warning$ -- 0
+while$ -- 3812
+width$ -- 0
+write$ -- 1181
+(There was 1 error message)

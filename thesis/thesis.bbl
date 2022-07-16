@@ -3,8 +3,8 @@
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
-% This file may safely be deleted. It will be recreated by
-% biber as required.
+% This file may safely be deleted. It will be recreated as
+% required.
 %
 \begingroup
 \makeatletter
@@ -16,234 +16,1336 @@
   {}
 \endgroup
 
+\datalist[entry]{nyt/global//global/global}
+  \entry{aggarwal_machine_2018}{book}{}
+    \name{author}{1}{}{%
+      {{hash=ACC}{%
+         family={Aggarwal},
+         familyi={A\bibinitperiod},
+         given={Charu\bibnamedelima C.},
+         giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {Springer International Publishing}%
+    }
+    \strng{namehash}{ACC1}
+    \strng{fullhash}{ACC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \verb{doi}
+    \verb 10.1007/978-3-319-73531-3
+    \endverb
+    \field{isbn}{978-3-319-73530-6 978-3-319-73531-3}
+    \field{title}{Machine {Learning} for {Text}}
+    \verb{url}
+    \verb http://link.springer.com/10.1007/978-3-319-73531-3
+    \endverb
+    \list{location}{1}{%
+      {Cham}%
+    }
+    \verb{file}
+    \verb Aggarwal - 2018 - Machine Learning for Text.pdf:/Users/elisabeth/Zote
+    \verb ro/storage/PJGDXKPT/Aggarwal - 2018 - Machine Learning for Text.pdf:a
+    \verb pplication/pdf
+    \endverb
+    \field{year}{2018}
+    \field{urlday}{14}
+    \field{urlmonth}{05}
+    \field{urlyear}{2022}
+  \endentry
 
-\refsection{0}
-  \datalist[entry]{nyt/global//global/global}
-    \entry{aggarwal_machine_2018}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=86d11a07b1bfeac58dc68f7a419b3039}{%
-           family={Aggarwal},
-           familyi={A\bibinitperiod},
-           given={Charu\bibnamedelima C.},
-           giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{language}{1}{%
-        {en}%
-      }
-      \list{location}{1}{%
-        {Cham}%
-      }
-      \list{publisher}{1}{%
-        {Springer International Publishing}%
-      }
-      \strng{namehash}{86d11a07b1bfeac58dc68f7a419b3039}
-      \strng{fullhash}{86d11a07b1bfeac58dc68f7a419b3039}
-      \strng{bibnamehash}{86d11a07b1bfeac58dc68f7a419b3039}
-      \strng{authorbibnamehash}{86d11a07b1bfeac58dc68f7a419b3039}
-      \strng{authornamehash}{86d11a07b1bfeac58dc68f7a419b3039}
-      \strng{authorfullhash}{86d11a07b1bfeac58dc68f7a419b3039}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{978-3-319-73530-6 978-3-319-73531-3}
-      \field{title}{Machine {Learning} for {Text}}
-      \field{urlday}{14}
-      \field{urlmonth}{5}
-      \field{urlyear}{2022}
-      \field{year}{2018}
-      \field{urldateera}{ce}
-      \verb{doi}
-      \verb 10.1007/978-3-319-73531-3
-      \endverb
-      \verb{file}
-      \verb Aggarwal - 2018 - Machine Learning for Text.pdf:/Users/elisabeth/Zotero/storage/PJGDXKPT/Aggarwal - 2018 - Machine Learning for Text.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb http://link.springer.com/10.1007/978-3-319-73531-3
-      \endverb
-      \verb{url}
-      \verb http://link.springer.com/10.1007/978-3-319-73531-3
-      \endverb
-    \endentry
-    \entry{vajjala_practical_2020}{book}{}
-      \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=77d0a89d3aaafe8c646daa561b087a04}{%
-           family={Vajjala},
-           familyi={V\bibinitperiod},
-           given={Sowmya},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4821e125a4b52d47cff6d7db5e3bccea}{%
-           family={Majumder},
-           familyi={M\bibinitperiod},
-           given={Bodhisattwa},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=92ab507529a213bb57119fea9b2dd298}{%
-           family={Gupta},
-           familyi={G\bibinitperiod},
-           given={Anju},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=9f1c864d4f86d4b2cb2c15e7632bbfa9}{%
-           family={Surana},
-           familyi={S\bibinitperiod},
-           given={Harshit},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{location}{1}{%
-        {Sebastopol, CA}%
-      }
-      \list{publisher}{1}{%
-        {O'Reilly Media}%
-      }
-      \strng{namehash}{9c7b884d283e909c89a45a8c26c97ef4}
-      \strng{fullhash}{805fc5e90a7b447b8ed5599d049f9c2f}
-      \strng{bibnamehash}{9c7b884d283e909c89a45a8c26c97ef4}
-      \strng{authorbibnamehash}{9c7b884d283e909c89a45a8c26c97ef4}
-      \strng{authornamehash}{9c7b884d283e909c89a45a8c26c97ef4}
-      \strng{authorfullhash}{805fc5e90a7b447b8ed5599d049f9c2f}
-      \field{sortinit}{V}
-      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{"Many books and courses tackle natural language processing (NLP) problems with toy use cases and well-defined datasets. But if you want to build, iterate, and scale NLP systems in a business setting and tailor them for particular industry verticals, this is your guide. Software engineers and data scientists will learn how to navigate the maze of options available at each step of the journey. Through the course of the book, authors Sowmya Vajjala, Bodhisattwa Majumder, Anuj Gupta, and Harshit Surana will guide you through the process of building real-world NLP solutions embedded in larger product setups. You'll learn how to adapt your solutions for different industry verticals such as healthcare, social media, and retail."--}
-      \field{edition}{First edition}
-      \field{isbn}{978-1-4920-5405-4}
-      \field{note}{OCLC: on1125266646}
-      \field{shorttitle}{Practical natural language processing}
-      \field{title}{Practical natural language processing: a comprehensive guide to building real-world {NLP} systems}
-      \field{year}{2020}
-      \true{nocite}
-      \keyw{Application software,Development,Machine learning,Natural language processing (Computer science),Text data mining}
-    \endentry
-    \entry{yadav_survey_2019}{report}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=b18b8138c18d67cd891ea7ea77c5d664}{%
-           family={Yadav},
-           familyi={Y\bibinitperiod},
-           given={Vikas},
-           giveni={V\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=49a90d0c36d5abd2de968939b124c604}{%
-           family={Bethard},
-           familyi={B\bibinitperiod},
-           given={Steven},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{institution}{1}{%
-        {arXiv}%
-      }
-      \strng{namehash}{db6895a3e7e2f0f0a61f85e19b04ff9d}
-      \strng{fullhash}{db6895a3e7e2f0f0a61f85e19b04ff9d}
-      \strng{bibnamehash}{db6895a3e7e2f0f0a61f85e19b04ff9d}
-      \strng{authorbibnamehash}{db6895a3e7e2f0f0a61f85e19b04ff9d}
-      \strng{authornamehash}{db6895a3e7e2f0f0a61f85e19b04ff9d}
-      \strng{authorfullhash}{db6895a3e7e2f0f0a61f85e19b04ff9d}
-      \field{sortinit}{Y}
-      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Named Entity Recognition (NER) is a key component in NLP systems for question answering, information retrieval, relation extraction, etc. NER systems have been studied and developed widely for decades, but accurate systems using deep neural networks (NN) have only been introduced in the last few years. We present a comprehensive survey of deep neural network architectures for NER, and contrast them with previous approaches to NER based on feature engineering and other supervised or semi-supervised learning algorithms. Our results highlight the improvements achieved by neural networks, and show how incorporating some of the lessons learned from past work on feature-based NER systems can yield further improvements.}
-      \field{month}{10}
-      \field{note}{arXiv:1910.11470 [cs] type: article}
-      \field{number}{arXiv:1910.11470}
-      \field{title}{A {Survey} on {Recent} {Advances} in {Named} {Entity} {Recognition} from {Deep} {Learning} models}
-      \field{type}{techreport}
-      \field{urlday}{14}
-      \field{urlmonth}{5}
-      \field{urlyear}{2022}
-      \field{year}{2019}
-      \field{urldateera}{ce}
-      \true{nocite}
-      \verb{file}
-      \verb arXiv Fulltext PDF:/Users/elisabeth/Zotero/storage/PGAX6CWC/Yadav and Bethard - 2019 - A Survey on Recent Advances in Named Entity Recogn.pdf:application/pdf;arXiv.org Snapshot:/Users/elisabeth/Zotero/storage/UXNXMD2R/1910.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/1910.11470
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/1910.11470
-      \endverb
-      \keyw{Computer Science - Computation and Language,Computer Science - Machine Learning}
-    \endentry
-    \entry{zong_information_2021}{incollection}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=9d8c366afd7f948820f05d7fe6206c28}{%
-           family={Zong},
-           familyi={Z\bibinitperiod},
-           given={Chengqing},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=81d13b72793e9de4d52426ac2166a308}{%
-           family={Xia},
-           familyi={X\bibinitperiod},
-           given={Rui},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b5f64909c50a46dc78d434721990127b}{%
-           family={Zhang},
-           familyi={Z\bibinitperiod},
-           given={Jiajun},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{language}{1}{%
-        {en}%
-      }
-      \list{location}{1}{%
-        {Singapore}%
-      }
-      \list{publisher}{1}{%
-        {Springer Singapore}%
-      }
-      \strng{namehash}{174d1620acb2f2d5ba65d8a222d851f0}
-      \strng{fullhash}{174d1620acb2f2d5ba65d8a222d851f0}
-      \strng{bibnamehash}{174d1620acb2f2d5ba65d8a222d851f0}
-      \strng{authorbibnamehash}{174d1620acb2f2d5ba65d8a222d851f0}
-      \strng{authornamehash}{174d1620acb2f2d5ba65d8a222d851f0}
-      \strng{authorfullhash}{174d1620acb2f2d5ba65d8a222d851f0}
-      \field{sortinit}{Z}
-      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Text {Data} {Mining}}
-      \field{isbn}{9789811600999 9789811601002}
-      \field{title}{Information {Extraction}}
-      \field{urlday}{14}
-      \field{urlmonth}{5}
-      \field{urlyear}{2022}
-      \field{year}{2021}
-      \field{urldateera}{ce}
-      \true{nocite}
-      \field{pages}{227\bibrangedash 283}
-      \range{pages}{57}
-      \verb{doi}
-      \verb 10.1007/978-981-16-0100-2_10
-      \endverb
-      \verb{file}
-      \verb Zong et al. - 2021 - Information Extraction.pdf:/Users/elisabeth/Zotero/storage/4Y4VBWGY/Zong et al. - 2021 - Information Extraction.pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://link.springer.com/10.1007/978-981-16-0100-2_10
-      \endverb
-      \verb{url}
-      \verb https://link.springer.com/10.1007/978-981-16-0100-2_10
-      \endverb
-    \endentry
-  \enddatalist
-\endrefsection
+  \entry{baldwin_shared_2015}{inproceedings}{}
+    \name{author}{6}{}{%
+      {{hash=BT}{%
+         family={Baldwin},
+         familyi={B\bibinitperiod},
+         given={Timothy},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=dMMC}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Marneffe},
+         familyi={M\bibinitperiod},
+         given={Marie\bibnamedelima Catherine},
+         giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+      {{hash=HB}{%
+         family={Han},
+         familyi={H\bibinitperiod},
+         given={Bo},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=KYB}{%
+         family={Kim},
+         familyi={K\bibinitperiod},
+         given={Young-Bum},
+         giveni={Y\bibinithyphendelim B\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Ritter},
+         familyi={R\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=XW}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Wei},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{BT+1}
+    \strng{fullhash}{BTMMCdHBKYBRAXW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{booktitle}{Proceedings of the {Workshop} on {Noisy} {User}-generated
+  {Text}}
+    \verb{doi}
+    \verb 10.18653/v1/W15-4319
+    \endverb
+    \field{pages}{126\bibrangedash 135}
+    \field{shorttitle}{Shared {Tasks} of the 2015 {Workshop} on {Noisy}
+  {User}-generated {Text}}
+    \field{title}{Shared {Tasks} of the 2015 {Workshop} on {Noisy}
+  {User}-generated {Text}: {Twitter} {Lexical} {Normalization} and {Named}
+  {Entity} {Recognition}}
+    \verb{url}
+    \verb https://aclanthology.org/W15-4319
+    \endverb
+    \list{location}{1}{%
+      {Beijing, China}%
+    }
+    \verb{file}
+    \verb Full Text PDF:/Users/elisabeth/Zotero/storage/AWHKFUM9/Baldwin et al.
+    \verb  - 2015 - Shared Tasks of the 2015 Workshop on Noisy User-ge.pdf:appl
+    \verb ication/pdf
+    \endverb
+    \field{month}{07}
+    \field{year}{2015}
+    \field{urlday}{16}
+    \field{urlmonth}{05}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{benikova-etal-2014-nosta}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=BD}{%
+         family={Benikova},
+         familyi={B\bibinitperiod},
+         given={Darina},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BC}{%
+         family={Biemann},
+         familyi={B\bibinitperiod},
+         given={Chris},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=RM}{%
+         family={Reznicek},
+         familyi={R\bibinitperiod},
+         given={Marc},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {European Language Resources Association (ELRA)}%
+    }
+    \strng{namehash}{BDBCRM1}
+    \strng{fullhash}{BDBCRM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{abstract}{%
+    We describe the annotation of a new dataset for German Named Entity
+  Recognition (NER). The need for this dataset is motivated by licensing issues
+  and consistency issues of existing datasets. We describe our approach to
+  creating annotation guidelines based on linguistic and semantic
+  considerations, and how we iteratively refined and tested them in the early
+  stages of annotation in order to arrive at the largest publicly available
+  dataset for German NER, consisting of over 31,000 manually annotated
+  sentences (over 591,000 tokens) from German Wikipedia and German online news.
+  We provide a number of statistics on the dataset, which indicate its high
+  quality, and discuss legal aspects of distributing the data as a compilation
+  of citations. The data is released under the permissive CC-BY license, and
+  will be fully available for download in September 2014 after it has been used
+  for the GermEval 2014 shared task on NER. We further provide the full
+  annotation guidelines and links to the annotation tool used for the creation
+  of this resource.%
+    }
+    \field{booktitle}{Proceedings of the Ninth International Conference on
+  Language Resources and Evaluation ({LREC}'14)}
+    \field{pages}{2524\bibrangedash 2531}
+    \field{title}{{N}o{S}ta-{D} Named Entity Annotation for {G}erman:
+  Guidelines and Dataset}
+    \verb{url}
+    \verb http://www.lrec-conf.org/proceedings/lrec2014/pdf/276_Paper.pdf
+    \endverb
+    \list{location}{1}{%
+      {Reykjavik, Iceland}%
+    }
+    \field{month}{05}
+    \field{year}{2014}
+  \endentry
+
+  \entry{benikova2014germeval}{article}{}
+    \name{author}{4}{}{%
+      {{hash=BD}{%
+         family={Benikova},
+         familyi={B\bibinitperiod},
+         given={Darina},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BC}{%
+         family={Biemann},
+         familyi={B\bibinitperiod},
+         given={Chris},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kisselew},
+         familyi={K\bibinitperiod},
+         given={Max},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=PS}{%
+         family={Pad{\'o}},
+         familyi={P\bibinitperiod},
+         given={Sebastian},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BD+1}
+    \strng{fullhash}{BDBCKMPS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{pages}{104\bibrangedash 112}
+    \field{title}{Germeval 2014 named entity recognition: Companion paper}
+    \field{journaltitle}{Proceedings of the KONVENS GermEval Shared Task on
+  Named Entity Recognition, Hildesheim, Germany}
+    \field{year}{2014}
+  \endentry
+
+  \entry{chinchor_nancy_message_2003}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=CN}{%
+         family={Chinchor},
+         familyi={C\bibinitperiod},
+         given={Nancy},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Sundheim},
+         familyi={S\bibinitperiod},
+         given={Beth},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Linguistic Data Consortium}%
+    }
+    \strng{namehash}{CNSB1}
+    \strng{fullhash}{CNSB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2003}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{abstract}{%
+  {\textless}h3{\textgreater}Introduction{\textless}/h3{\textgreater}{\textless}br{\textgreater}
+  {\textless}p{\textgreater}Message Understanding Conference (MUC) 6 was
+  produced by Linguistic Data Consortium (LDC) catalog number LDC2003T13 and
+  ISBN 1-58563-239-2.{\textless}/p{\textgreater}{\textless}br{\textgreater}
+  {\textless}p{\textgreater}In the 1990s, the MUC evaluations funded the
+  development of metrics and statistical algorithms to support government
+  evaluations of emerging information extraction technologies. Additional
+  information from NIST can be found at {\textless}a
+  href="http://www.itl.nist.gov/iaui/894.02/related\_projects/muc"
+  rel="nofollow"{\textgreater}http://www.itl.nist.gov/iaui/894.02/related\_projects/muc{\textless}/a{\textgreater}.{\textless}/p{\textgreater}{\textless}br{\textgreater}
+  {\textless}h3{\textgreater}Data{\textless}/h3{\textgreater}{\textless}br{\textgreater}
+  {\textless}p{\textgreater}This corpus contains the 318 annotated Wall Street
+  Journal articles, the scoring software and the corresponding documentation
+  used in the MUC6 evaluation. Both the {\textless}a
+  href="http://catalog.ldc.upenn.edu/LDC96T10" rel="nofollow"{\textgreater}MUC
+  6 Additional News Text{\textless}/a{\textgreater} and the MUC 6 corpus are
+  necessary in order to replicate the evaluation. All the materials are
+  published as received from the corpus creators, without any quality control
+  being done at the LDC (the only difference is that the files have been
+  uncompressed).{\textless}/p{\textgreater}{\textless}br{\textgreater}
+  {\textless}h3{\textgreater}Samples{\textless}/h3{\textgreater}{\textless}br{\textgreater}
+  {\textless}p{\textgreater}Please view this {\textless}a
+  href="desc/addenda/LDC2003T13.txt"{\textgreater}text
+  sample{\textless}/a{\textgreater}.{\textless}/p{\textgreater}{\textless}br{\textgreater}
+  {\textless}h3{\textgreater}Updates{\textless}/h3{\textgreater}{\textless}br{\textgreater}
+  {\textless}p{\textgreater}August 20th, 2003: What was formerly published as
+  MUC VI Text Collection ({\textless}a
+  href="http://catalog.ldc.upenn.edu/LDC96T10"
+  rel="nofollow"{\textgreater}LDC1996T10{\textless}/a{\textgreater}) was
+  renamed as MUC 6 Additional News Text, because LDC96T10 consists only of
+  additional training
+  materials.{\textless}/p{\textgreater}{\textless}/br{\textgreater} Portions ©
+  1986-1994 Dow Jones \& Company, Inc.
+  {\textless}br{\textgreater}{\textless}br{\textgreater}RESTRICTED RIGHTS
+  LEGEND: INFORMATION FROM THE WALL STREET JOURNAL AND/OR THE DOW JONES NEWS
+  SERVICE CONTAINED HEREIN IS THE PROPERTY OF DOW JONES \& COMPANY, INC. AND IS
+  PROTECTED BY COPYRIGHT. USE, DUPLICATION OR DISCLOSURE BY YOU IS SUBJECT TO
+  THE RESTRICTIONS SET FORTH IN THE USER AGREEMENT DELIVERED TO YOU BY THE
+  LINGUISTIC DATA CONSORTIUM OF THE UNIVERSITY OF PENNSYLVANIA. COPYRIGHT
+  1986-1994 DOW JONES \& COMPANY, INC. ALL RIGHTS RESERVED.%
+    }
+    \verb{doi}
+    \verb 10.35111/WBCC-Y063
+    \endverb
+    \field{note}{Artwork Size: 10240 KB Pages: 10240 KB Type: dataset}
+    \field{title}{Message {Understanding} {Conference} ({MUC}) 6}
+    \verb{url}
+    \verb https://catalog.ldc.upenn.edu/LDC2003T13
+    \endverb
+    \field{month}{08}
+    \field{year}{2003}
+    \field{urlday}{27}
+    \field{urlmonth}{06}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{collobert_natural_2011}{article}{}
+    \name{author}{6}{}{%
+      {{hash=CR}{%
+         family={Collobert},
+         familyi={C\bibinitperiod},
+         given={Ronan},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=WJ}{%
+         family={Weston},
+         familyi={W\bibinitperiod},
+         given={Jason},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BL}{%
+         family={Bottou},
+         familyi={B\bibinitperiod},
+         given={Leon},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Karlen},
+         familyi={K\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KK}{%
+         family={Kavukcuoglu},
+         familyi={K\bibinitperiod},
+         given={Koray},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=KP}{%
+         family={Kuksa},
+         familyi={K\bibinitperiod},
+         given={Pavel},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \strng{namehash}{CR+1}
+    \strng{fullhash}{CRWJBLKMKKKP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2011}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{abstract}{%
+    We propose a uniﬁed neural network architecture and learning algorithm
+  that can be applied to various natural language processing tasks including
+  part-of-speech tagging, chunking, named entity recognition, and semantic role
+  labeling. This versatility is achieved by trying to avoid task-speciﬁc
+  engineering and therefore disregarding a lot of prior knowledge. Instead of
+  exploiting man-made input features carefully optimized for each task, our
+  system learns internal representations on the basis of vast amounts of mostly
+  unlabeled training data. This work is then used as a basis for building a
+  freely available tagging system with good performance and minimal
+  computational requirements.%
+    }
+    \field{pages}{45}
+    \field{title}{Natural {Language} {Processing} ({Almost}) from {Scratch}}
+    \verb{file}
+    \verb Collobert et al. - Natural Language Processing (Almost) from Scratch.
+    \verb pdf:/Users/elisabeth/Zotero/storage/WASVWVIR/Collobert et al. - Natur
+    \verb al Language Processing (Almost) from Scratch.pdf:application/pdf
+    \endverb
+    \field{journaltitle}{NATURAL LANGUAGE PROCESSING}
+    \field{year}{2011}
+  \endentry
+
+  \entry{derczynski_analysis_2015}{article}{}
+    \name{author}{8}{}{%
+      {{hash=DL}{%
+         family={Derczynski},
+         familyi={D\bibinitperiod},
+         given={Leon},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=MD}{%
+         family={Maynard},
+         familyi={M\bibinitperiod},
+         given={Diana},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=RG}{%
+         family={Rizzo},
+         familyi={R\bibinitperiod},
+         given={Giuseppe},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=vEM}{%
+         prefix={van},
+         prefixi={v\bibinitperiod},
+         family={Erp},
+         familyi={E\bibinitperiod},
+         given={Marieke},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=GG}{%
+         family={Gorrell},
+         familyi={G\bibinitperiod},
+         given={Genevieve},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=TR}{%
+         family={Troncy},
+         familyi={T\bibinitperiod},
+         given={Raphaël},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=PJ}{%
+         family={Petrak},
+         familyi={P\bibinitperiod},
+         given={Johann},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BK}{%
+         family={Bontcheva},
+         familyi={B\bibinitperiod},
+         given={Kalina},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \strng{namehash}{DL+1}
+    \strng{fullhash}{DLMDRGEMvGGTRPJBK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{abstract}{%
+    Applying natural language processing for mining and intelligent information
+  access to tweets (a form of microblog) is a challenging, emerging research
+  area. Unlike carefully authored news text and other longer content, tweets
+  pose a number of new challenges, due to their short, noisy,
+  context-dependent, and dynamic nature. Information extraction from tweets is
+  typically performed in a pipeline, comprising consecutive stages of language
+  identiﬁcation, tokenisation, part-of-speech tagging, named entity
+  recognition and entity disambiguation (e.g. with respect to DBpedia). In this
+  work, we describe a new Twitter entity disambiguation dataset, and conduct an
+  empirical analysis of named entity recognition and disambiguation,
+  investigating how robust a number of state-of-the-art systems are on such
+  noisy texts, what the main sources of error are, and which problems should be
+  further investigated to improve the state of the art.%
+    }
+    \verb{doi}
+    \verb 10.1016/j.ipm.2014.10.006
+    \endverb
+    \field{issn}{03064573}
+    \field{number}{2}
+    \field{pages}{32\bibrangedash 49}
+    \field{title}{Analysis of named entity recognition and linking for tweets}
+    \verb{url}
+    \verb https://linkinghub.elsevier.com/retrieve/pii/S0306457314001034
+    \endverb
+    \field{volume}{51}
+    \verb{file}
+    \verb Derczynski et al. - 2015 - Analysis of named entity recognition and l
+    \verb inking f.pdf:/Users/elisabeth/Zotero/storage/3TYW52AI/Derczynski et a
+    \verb l. - 2015 - Analysis of named entity recognition and linking f.pdf:ap
+    \verb plication/pdf
+    \endverb
+    \field{journaltitle}{Information Processing \& Management}
+    \field{month}{03}
+    \field{year}{2015}
+    \field{urlday}{27}
+    \field{urlmonth}{06}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{ethnologue_how_2022}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={Ethnologue},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{abstract}{%
+    7,151 languages are spoken today, but just 23 languages account for more
+  than half the world's population.%
+    }
+    \field{title}{How many languages are there in the world?}
+    \verb{url}
+    \verb https://www.ethnologue.com/guides/how-many-languages
+    \endverb
+    \verb{file}
+    \verb Snapshot:/Users/elisabeth/Zotero/storage/ADWLMGZ4/how-many-languages.
+    \verb html:text/html
+    \endverb
+    \field{journaltitle}{Ethnologue}
+    \field{month}{05}
+    \field{year}{2022}
+    \field{urlday}{19}
+    \field{urlmonth}{06}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{grishman_message_1996}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=GR}{%
+         family={Grishman},
+         familyi={G\bibinitperiod},
+         given={Ralph},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Sundheim},
+         familyi={S\bibinitperiod},
+         given={Beth},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GRSB1}
+    \strng{fullhash}{GRSB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{labelyear}{1996}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{booktitle}{{COLING} 1996 {Volume} 1: {The} 16th {International}
+  {Conference} on {Computational} {Linguistics}}
+    \field{shorttitle}{Message {Understanding} {Conference}- 6}
+    \field{title}{Message {Understanding} {Conference}- 6: {A} {Brief}
+  {History}}
+    \verb{url}
+    \verb https://aclanthology.org/C96-1079
+    \endverb
+    \verb{file}
+    \verb Full Text PDF:/Users/elisabeth/Zotero/storage/LNHX7ICV/Grishman and S
+    \verb undheim - 1996 - Message Understanding Conference- 6 A Brief Histo.pd
+    \verb f:application/pdf
+    \endverb
+    \field{year}{1996}
+    \field{urlday}{27}
+    \field{urlmonth}{06}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{jurafsky_2021}{book}{}
+    \name{author}{2}{}{%
+      {{hash=JD}{%
+         family={Jurafsky},
+         familyi={J\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MJH}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={James\bibnamedelima H.},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JDMJH1}
+    \strng{fullhash}{JDMJH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{title}{Speech and Language Processing. An Introduction to Natural
+  Language Processing, Computational Linguistics, and Speech Recognition}
+    \verb{url}
+    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
+    \endverb
+    \field{year}{2021}
+  \endentry
+
+  \entry{magueresse_low-resource_2020}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=MA}{%
+         family={Magueresse},
+         familyi={M\bibinitperiod},
+         given={Alexandre},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CV}{%
+         family={Carles},
+         familyi={C\bibinitperiod},
+         given={Vincent},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=HE}{%
+         family={Heetderks},
+         familyi={H\bibinitperiod},
+         given={Evan},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {arXiv}%
+    }
+    \keyw{Computer Science - Computation and Language, I.2.7}
+    \strng{namehash}{MACVHE1}
+    \strng{fullhash}{MACVHE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{abstract}{%
+    A current problem in NLP is massaging and processing low-resource languages
+  which lack useful training attributes such as supervised data, number of
+  native speakers or experts, etc. This review paper concisely summarizes
+  previous groundbreaking achievements made towards resolving this problem, and
+  analyzes potential improvements in the context of the overall future research
+  direction.%
+    }
+    \field{note}{Number: arXiv:2006.07264 arXiv:2006.07264 [cs]}
+    \field{shorttitle}{Low-resource {Languages}}
+    \field{title}{Low-resource {Languages}: {A} {Review} of {Past} {Work} and
+  {Future} {Challenges}}
+    \verb{url}
+    \verb http://arxiv.org/abs/2006.07264
+    \endverb
+    \verb{file}
+    \verb arXiv Fulltext PDF:/Users/elisabeth/Zotero/storage/L7ZCSHJJ/Magueress
+    \verb e et al. - 2020 - Low-resource Languages A Review of Past Work and .p
+    \verb df:application/pdf;arXiv.org Snapshot:/Users/elisabeth/Zotero/storage
+    \verb /W4KI7JXF/2006.html:text/html
+    \endverb
+    \field{month}{06}
+    \field{year}{2020}
+    \field{urlday}{19}
+    \field{urlmonth}{06}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{mikolov_2013}{misc}{}
+    \name{author}{4}{}{%
+      {{hash=MT}{%
+         family={Mikolov},
+         familyi={M\bibinitperiod},
+         given={Tomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=CK}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Kai},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=CG}{%
+         family={Corrado},
+         familyi={C\bibinitperiod},
+         given={Greg},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=DJ}{%
+         family={Dean},
+         familyi={D\bibinitperiod},
+         given={Jeffrey},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {arXiv}%
+    }
+    \keyw{Computation and Language (cs.CL), FOS: Computer and information
+  sciences, FOS: Computer and information sciences}
+    \strng{namehash}{MT+1}
+    \strng{fullhash}{MTCKCGDJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.48550/ARXIV.1301.3781
+    \endverb
+    \field{title}{Efficient Estimation of Word Representations in Vector Space}
+    \verb{url}
+    \verb https://arxiv.org/abs/1301.3781
+    \endverb
+    \field{year}{2013}
+  \endentry
+
+  \entry{nadeau_survey_2007}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ND}{%
+         family={Nadeau},
+         familyi={N\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Sekine},
+         familyi={S\bibinitperiod},
+         given={Satoshi},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \strng{namehash}{NDSS1}
+    \strng{fullhash}{NDSS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2007}
+    \field{labeldatesource}{}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{abstract}{%
+    This survey covers fifteen years of research in the Named Entity
+  Recognition and Classification (NERC) field, from 1991 to 2006. We report
+  observations about languages, named entity types, domains and textual genres
+  studied in the literature. From the start, NERC systems have been developed
+  using hand-made rules, but now machine learning techniques are widely used.
+  These techniques are surveyed along with other critical aspects of NERC such
+  as features and evaluation methods. Features are word-level, dictionary-level
+  and corpus-level representations of words in a document. Evaluation
+  techniques, ranging from intuitive exact match to very complex matching
+  techniques with adjustable cost of errors, are an indisputable key to
+  progress.%
+    }
+    \verb{doi}
+    \verb 10.1075/li.30.1.03nad
+    \endverb
+    \field{issn}{0378-4169, 1569-9927}
+    \field{number}{1}
+    \field{pages}{3\bibrangedash 26}
+    \field{title}{A survey of named entity recognition and classification}
+    \verb{url}
+    \verb http://www.jbe-platform.com/content/journals/10.1075/li.30.1.03nad
+    \endverb
+    \field{volume}{30}
+    \field{journaltitle}{Lingvisticae Investigationes}
+    \field{month}{08}
+    \field{year}{2007}
+    \field{urlday}{04}
+    \field{urlmonth}{07}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{ritter_2011}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=RA}{%
+         family={Ritter},
+         familyi={R\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CS}{%
+         family={Clark},
+         familyi={C\bibinitperiod},
+         given={Sam},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=M}{%
+         family={Mausam},
+         familyi={M\bibinitperiod},
+      }}%
+      {{hash=EO}{%
+         family={Etzioni},
+         familyi={E\bibinitperiod},
+         given={Oren},
+         giveni={O\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{RA+1}
+    \strng{fullhash}{RACSMEO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2011}
+    \field{labeldatesource}{}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{abstract}{%
+    People tweet more than 100 Million times daily, yielding a noisy, informal,
+  but sometimes informative corpus of 140-character messages that mirrors the
+  zeitgeist in an unprecedented manner. The performance of standard NLP tools
+  is severely degraded on tweets. This paper addresses this issue by
+  re-building the NLP pipeline beginning with part-of-speech tagging, through
+  chunking, to named-entity recognition. Our novel T-ner system doubles F1
+  score compared with the Stanford NER system. T-ner leverages the redundancy
+  inherent in tweets to achieve this performance, using LabeledLDA to exploit
+  Freebase dictionaries as a source of distant supervision. LabeledLDA
+  outperforms co-training, increasing F1 by 25% over ten common entity
+  types.Our NLP tools are available at: http://github.com/aritter/twitter_nlp%
+    }
+    \field{booktitle}{Proceedings of the Conference on Empirical Methods in
+  Natural Language Processing}
+    \field{isbn}{9781937284114}
+    \field{pages}{1524–1534}
+    \field{series}{EMNLP '11}
+    \field{title}{Named Entity Recognition in Tweets: An Experimental Study}
+    \list{location}{1}{%
+      {Edinburgh, United Kingdom}%
+    }
+    \field{year}{2011}
+    \warn{\item Can't use 'location' + 'address'}
+  \endentry
+
+  \entry{schiersch_2018}{inproceedings}{}
+    \name{author}{6}{}{%
+      {{hash=SM}{%
+         family={Schiersch},
+         familyi={S\bibinitperiod},
+         given={Martin},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MV}{%
+         family={Mironova},
+         familyi={M\bibinitperiod},
+         given={Veselina},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Schmitt},
+         familyi={S\bibinitperiod},
+         given={Maximilian},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=TP}{%
+         family={Thomas},
+         familyi={T\bibinitperiod},
+         given={Philippe},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gabryszak},
+         familyi={G\bibinitperiod},
+         given={Aleksandra},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=HL}{%
+         family={Hennig},
+         familyi={H\bibinitperiod},
+         given={Leonhard},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \name{editor}{14}{}{%
+      {{hash=cNCC}{%
+         family={chair)},
+         familyi={c\bibinitperiod},
+         given={Nicoletta Calzolari\bibnamedelima (Conference},
+         giveni={N\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
+  C\bibinitperiod},
+      }}%
+      {{hash=CK}{%
+         family={Choukri},
+         familyi={C\bibinitperiod},
+         given={Khalid},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=CC}{%
+         family={Cieri},
+         familyi={C\bibinitperiod},
+         given={Christopher},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=DT}{%
+         family={Declerck},
+         familyi={D\bibinitperiod},
+         given={Thierry},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Goggi},
+         familyi={G\bibinitperiod},
+         given={Sara},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=HK}{%
+         family={Hasida},
+         familyi={H\bibinitperiod},
+         given={Koiti},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=IH}{%
+         family={Isahara},
+         familyi={I\bibinitperiod},
+         given={Hitoshi},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=MB}{%
+         family={Maegaard},
+         familyi={M\bibinitperiod},
+         given={Bente},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=MJ}{%
+         family={Mariani},
+         familyi={M\bibinitperiod},
+         given={Joseph},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=MH}{%
+         family={Mazo},
+         familyi={M\bibinitperiod},
+         given={Hélène},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Moreno},
+         familyi={M\bibinitperiod},
+         given={Asuncion},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=OJ}{%
+         family={Odijk},
+         familyi={O\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=PS}{%
+         family={Piperidis},
+         familyi={P\bibinitperiod},
+         given={Stelios},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=TT}{%
+         family={Tokunaga},
+         familyi={T\bibinitperiod},
+         given={Takenobu},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {english}%
+    }
+    \list{publisher}{1}{%
+      {European Language Resources Association (ELRA)}%
+    }
+    \strng{namehash}{SM+1}
+    \strng{fullhash}{SMMVSMTPGAHL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{Proceedings of the Eleventh International Conference on
+  Language Resources and Evaluation (LREC 2018)}
+    \field{isbn}{979-10-95546-00-9}
+    \field{title}{{A German Corpus for Fine-Grained Named Entity Recognition
+  and Relation Extraction of Traffic and Industry Events}}
+    \list{location}{1}{%
+      {Miyazaki, Japan}%
+    }
+    \field{year}{2018}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{singh_natural_2008}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=SAK}{%
+         family={Singh},
+         familyi={S\bibinitperiod},
+         given={Anil\bibnamedelima Kumar},
+         giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SAK1}
+    \strng{fullhash}{SAK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{labelyear}{2008}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{Proceedings of the {IJCNLP}-08 {Workshop} on {NLP} for
+  {Less} {Privileged} {Languages}}
+    \field{shorttitle}{Natural {Language} {Processing} for {Less} {Privileged}
+  {Languages}}
+    \field{title}{Natural {Language} {Processing} for {Less} {Privileged}
+  {Languages}: {Where} do we come from? {Where} are we going?}
+    \verb{url}
+    \verb https://aclanthology.org/I08-3004
+    \endverb
+    \verb{file}
+    \verb Full Text PDF:/Users/elisabeth/Zotero/storage/9BL3L9MB/Singh - 2008 -
+    \verb  Natural Language Processing for Less Privileged La.pdf:application/p
+    \verb df
+    \endverb
+    \field{year}{2008}
+    \field{urlday}{19}
+    \field{urlmonth}{06}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{tjong-kim-sang-2002-introduction}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=TKSEF}{%
+         family={Tjong Kim\bibnamedelima Sang},
+         familyi={T\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim
+  S\bibinitperiod},
+         given={Erik\bibnamedelima F.},
+         giveni={E\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TKSEF1}
+    \strng{fullhash}{TKSEF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2002}
+    \field{labeldatesource}{}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{booktitle}{{COLING}-02: The 6th Conference on Natural Language
+  Learning 2002 ({C}o{NLL}-2002)}
+    \field{title}{Introduction to the {C}o{NLL}-2002 Shared Task:
+  Language-Independent Named Entity Recognition}
+    \verb{url}
+    \verb https://aclanthology.org/W02-2024
+    \endverb
+    \field{year}{2002}
+  \endentry
+
+  \entry{tjong_kim_sang_introduction_2003}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=TKSEF}{%
+         family={Tjong Kim\bibnamedelima Sang},
+         familyi={T\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim
+  S\bibinitperiod},
+         given={Erik\bibnamedelima F.},
+         giveni={E\bibinitperiod\bibinitdelim F\bibinitperiod},
+      }}%
+      {{hash=DMF}{%
+         family={De\bibnamedelima Meulder},
+         familyi={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+         given={Fien},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TKSEFDMF1}
+    \strng{fullhash}{TKSEFDMF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{labelyear}{2003}
+    \field{labeldatesource}{}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{booktitle}{Proceedings of the {Seventh} {Conference} on {Natural}
+  {Language} {Learning} at {HLT}-{NAACL} 2003}
+    \field{pages}{142\bibrangedash 147}
+    \field{shorttitle}{Introduction to the {CoNLL}-2003 {Shared} {Task}}
+    \field{title}{Introduction to the {CoNLL}-2003 {Shared} {Task}:
+  {Language}-{Independent} {Named} {Entity} {Recognition}}
+    \verb{url}
+    \verb https://aclanthology.org/W03-0419
+    \endverb
+    \verb{file}
+    \verb Full Text PDF:/Users/elisabeth/Zotero/storage/67PGUHNA/Tjong Kim Sang
+    \verb  and De Meulder - 2003 - Introduction to the CoNLL-2003 Shared Task L
+    \verb angua.pdf:application/pdf
+    \endverb
+    \field{year}{2003}
+    \field{urlday}{19}
+    \field{urlmonth}{06}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{tunstall_natural_2022}{book}{}
+    \name{author}{4}{}{%
+      {{hash=TL}{%
+         family={Tunstall},
+         familyi={T\bibinitperiod},
+         given={Lewis},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=WLv}{%
+         family={Werra},
+         familyi={W\bibinitperiod},
+         given={Leandro\bibnamedelima von},
+         giveni={L\bibinitperiod\bibinitdelim v\bibinitperiod},
+      }}%
+      {{hash=WT}{%
+         family={Wolf},
+         familyi={W\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Géron},
+         familyi={G\bibinitperiod},
+         given={Aurélien},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {eng}%
+    }
+    \list{publisher}{1}{%
+      {O'Reilly}%
+    }
+    \strng{namehash}{TL+1}
+    \strng{fullhash}{TLWLvWTGA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{edition}{First edition}
+    \field{isbn}{978-1-09-810324-8}
+    \field{shorttitle}{Natural language processing with {Transformers}}
+    \field{title}{Natural language processing with {Transformers}: building
+  language applications with {Hugging} {Face}}
+    \list{location}{1}{%
+      {Beijing Boston Farnham Sebastopol Tokyo}%
+    }
+    \field{year}{2022}
+  \endentry
+
+  \entry{vajjala_practical_2020}{book}{}
+    \name{author}{4}{}{%
+      {{hash=VS}{%
+         family={Vajjala},
+         familyi={V\bibinitperiod},
+         given={Sowmya},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=MB}{%
+         family={Majumder},
+         familyi={M\bibinitperiod},
+         given={Bodhisattwa},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gupta},
+         familyi={G\bibinitperiod},
+         given={Anju},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SH}{%
+         family={Surana},
+         familyi={S\bibinitperiod},
+         given={Harshit},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {O'Reilly Media}%
+    }
+    \keyw{Application software, Development, Machine learning, Natural language
+  processing (Computer science), Text data mining}
+    \strng{namehash}{VS+1}
+    \strng{fullhash}{VSMBGASH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \field{abstract}{%
+    "Many books and courses tackle natural language processing (NLP) problems
+  with toy use cases and well-defined datasets. But if you want to build,
+  iterate, and scale NLP systems in a business setting and tailor them for
+  particular industry verticals, this is your guide. Software engineers and
+  data scientists will learn how to navigate the maze of options available at
+  each step of the journey. Through the course of the book, authors Sowmya
+  Vajjala, Bodhisattwa Majumder, Anuj Gupta, and Harshit Surana will guide you
+  through the process of building real-world NLP solutions embedded in larger
+  product setups. You'll learn how to adapt your solutions for different
+  industry verticals such as healthcare, social media, and retail."--%
+    }
+    \field{edition}{First edition}
+    \field{isbn}{978-1-4920-5405-4}
+    \field{note}{OCLC: on1125266646}
+    \field{shorttitle}{Practical natural language processing}
+    \field{title}{Practical natural language processing: a comprehensive guide
+  to building real-world {NLP} systems}
+    \list{location}{1}{%
+      {Sebastopol, CA}%
+    }
+    \field{year}{2020}
+  \endentry
+
+  \entry{yadav_survey_2019}{report}{}
+    \name{author}{2}{}{%
+      {{hash=YV}{%
+         family={Yadav},
+         familyi={Y\bibinitperiod},
+         given={Vikas},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={Bethard},
+         familyi={B\bibinitperiod},
+         given={Steven},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \keyw{Computer Science - Computation and Language, Computer Science -
+  Machine Learning}
+    \strng{namehash}{YVBS1}
+    \strng{fullhash}{YVBS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{sortinit}{Y}
+    \field{sortinithash}{Y}
+    \field{abstract}{%
+    Named Entity Recognition (NER) is a key component in NLP systems for
+  question answering, information retrieval, relation extraction, etc. NER
+  systems have been studied and developed widely for decades, but accurate
+  systems using deep neural networks (NN) have only been introduced in the last
+  few years. We present a comprehensive survey of deep neural network
+  architectures for NER, and contrast them with previous approaches to NER
+  based on feature engineering and other supervised or semi-supervised learning
+  algorithms. Our results highlight the improvements achieved by neural
+  networks, and show how incorporating some of the lessons learned from past
+  work on feature-based NER systems can yield further improvements.%
+    }
+    \field{note}{arXiv:1910.11470 [cs] type: article}
+    \field{number}{arXiv:1910.11470}
+    \field{title}{A {Survey} on {Recent} {Advances} in {Named} {Entity}
+  {Recognition} from {Deep} {Learning} models}
+    \verb{url}
+    \verb http://arxiv.org/abs/1910.11470
+    \endverb
+    \list{institution}{1}{%
+      {arXiv}%
+    }
+    \verb{file}
+    \verb arXiv Fulltext PDF:/Users/elisabeth/Zotero/storage/PGAX6CWC/Yadav and
+    \verb  Bethard - 2019 - A Survey on Recent Advances in Named Entity Recogn.
+    \verb pdf:application/pdf;arXiv.org Snapshot:/Users/elisabeth/Zotero/storag
+    \verb e/UXNXMD2R/1910.html:text/html
+    \endverb
+    \field{type}{techreport}
+    \field{month}{10}
+    \field{year}{2019}
+    \field{urlday}{14}
+    \field{urlmonth}{05}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{zong_information_2021}{incollection}{}
+    \name{author}{3}{}{%
+      {{hash=ZC}{%
+         family={Zong},
+         familyi={Z\bibinitperiod},
+         given={Chengqing},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=XR}{%
+         family={Xia},
+         familyi={X\bibinitperiod},
+         given={Rui},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=ZJ}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Jiajun},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {Springer Singapore}%
+    }
+    \strng{namehash}{ZCXRZJ1}
+    \strng{fullhash}{ZCXRZJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \field{booktitle}{Text {Data} {Mining}}
+    \verb{doi}
+    \verb 10.1007/978-981-16-0100-2_10
+    \endverb
+    \field{isbn}{9789811600999 9789811601002}
+    \field{pages}{227\bibrangedash 283}
+    \field{title}{Information {Extraction}}
+    \verb{url}
+    \verb https://link.springer.com/10.1007/978-981-16-0100-2_10
+    \endverb
+    \list{location}{1}{%
+      {Singapore}%
+    }
+    \verb{file}
+    \verb Zong et al. - 2021 - Information Extraction.pdf:/Users/elisabeth/Zote
+    \verb ro/storage/4Y4VBWGY/Zong et al. - 2021 - Information Extraction.pdf:a
+    \verb pplication/pdf
+    \endverb
+    \field{year}{2021}
+    \field{urlday}{14}
+    \field{urlmonth}{05}
+    \field{urlyear}{2022}
+  \endentry
+\enddatalist
 \endinput
-

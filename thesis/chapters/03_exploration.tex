@@ -1,17 +1,98 @@
-\chapter{Exploration}
+\chapter{Exploration of existing solutions}
 \label{cha:exploration}
 
-\section{Exploring the German-language spacy model}
-\section{Exploring the German-language Flair model}
-\section{Exploring the Potentials of Machine Translation for NER}
+In order to explore the potentials and limitations of existing German-language models for Named Entity Recognition, two models were selected for a qualitative exploration of their results with some sample texts. 
+
+Furthermore, it was explored if machine translation could be used as a tool to allow for the use of well-resourced English NER models for the recognition of named entities in (originally German-language) texts after translating them to English. 
+
+The two models explored in this chapter, \verb|spaCy| and \verb|Flair|, were chosen due to their easy applicability, allowing for fast exploration and analysis, and because both of them support both German- and English-language named entity recognition. 
+
+For the exploration of these models, a few example messages were randomly selected from the Telegram channel `Demotermine' (\textit{Demo dates}). 
+
+The channel was selected because a prior qualitative exploration of sample messages indicated that its content consists mainly of information about and mobilization for demonstrations and others forms of protests against the German COVID-19 containment measures and could thus be expected to contain a lot of relevant entities. 
+
+\section{The German-language spaCy model}
+
+The first model is the German-language, medium-size \verb|spaCy| model. 
+
+\verb|spaCy| is a free open-source library for Natural Language Processing developed for use in production. The library is extensively documented and thus serves as an easy starting point for beginner, while also claiming to be designed specifically for use in production. 
+
+The library supports more than 66 languages (including German), comes with pre-trained word vectors, and supports a variety of NLP tasks such as part-of-speech tagging, text classification, and named entity recognition. 
+
+%https://spacy.io/usage/facts-figures
+
+While the English \verb|spaCy| model supports named entity recognition for 18 entity types (\verb|CARDINAL|, \verb|DATE|, \verb|EVENT|, \verb|FAC|, \verb|GPE|, \verb|LANGUAGE|, \verb|LAW|, \verb|LOC|, \verb|MONEY|, \verb|NORP|, \verb|ORDINAL|, \verb|ORG|, \verb|PERCENT|, \verb|PERSON|, \verb|PRODUCT|, \verb|QUANTITY|, \verb|TIME|, and \verb|WORK_OF_ART|), the German \verb|spaCy| model is unfortunately limited to the common entity types are \verb|LOC|, \verb|MISC|, \verb|ORG|, and \verb|PER|. 
+
+%https://spacy.io/models/de
+For exploring the German s\verb|spaCy| model, a simple code was implemented, using the \verb|displacy| module of the library to display the sample texts tagged with the detected entities. 
+
+\begin{python}
+import spacy
+from spacy import displacy
+
+def display_entities(texts):
+    for text in texts: 
+        try: 
+            doc = nlp(text)
+            sentence_spans = list(doc.sents)
+            displacy.render(sentence_spans, style="ent")
+		
+        except:
+            pass
+\end{python}
+
+The results show that the model does to some extent recognized locations and persons mentioned in the example texts: 
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/spacy_de_01.png}
+%\caption{}
+\end{figure}
+
+However, the assignment of the labels \verb|ORG| to the phrase 'GEHT DEMONSTRIEREN' and \verb|MISC| to `Videos' is irritating. 
+Also, the text part `Dresdner \&' was labeled as location, which is wrong since the text here refers residents of Dresden, but not to the city Dresden itself. 
+
+The next example leads to strong doubts about the model's capability to recognized locations in a text: While `Blankenfelde' is correctly labeled, the model misses the remaining three locations mentioned in the text, `Mahlow', `Berlin', and 'Lichtenrade'. Furthermore, the labeling of the phrase `Out on the road' as \verb|MISC| is not plausible. 
+Nor is the classification of the phrase `Der Mann mit dem Schild' (the man with the sign) as \verb|MISC| in the next example text understandable: 
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/spacy_de_03.png}
+%\caption{}
+\end{figure}
+
+Admittedly, these explorations are rather anecdotal and cannot be generalized without further evaluation based on quantative metrics. However, the claim that \verb|spaCy| offers production-ready components is put into question when looking at these examples. 
+
+\section{The German-language Flair model}
+better performance, but still: 
+problem: time, date, action cannot be recognized since not learned by model
+
+\section{Exploring the multilingual XLM Roberta large finetuned for NER}
+%TODO
+model with most downloads for German / multilingual NER
+disadvantage: large -> requires more resources
+exploration...
+problem: time, date, action cannot be recognized since not learned by model
+
+all models trained on Wikipedia or GermEval -> not social media data
+rather few datasets for German NER, almost all models are evaluated on GermEval14 or even CoNLL 2003!
+
+
+\section{Potentials of Machine Translation for NER}
+Machine translation: sometimes used in the context of augmentation (create training data for multilingual models)
+some attempts to use MT for low-resource languages
+
+small experiments: translated some example texts with DeeplAI, then fed to spacy and flair
+
+spacy English: knows more entity types
+flair: more training data because of English
+% Roberta XLM: %TODO
+
+
 \section{Summarization}
 
+potentials and limitations / observed errors
 - spacy
 - Flair
-
-- German
-- translated to English
-\section{Translation approach}
+- XLM Roberta 
 
 
 
