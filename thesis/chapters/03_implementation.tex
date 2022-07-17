@@ -84,7 +84,7 @@ re_token_match = f"({re_token_match}|#\w+|\w+-\w+|@\w+)"
 nlp.tokenizer.token_match = re.compile(re_token_match).match	
  \end{python}
  
-Preventing the special characters in hashtags and user mentions from being split up was intended to serve for creating a realistic social media corpus and allow to include these special characters into the labels assigned during the annotation process. However, 	evaluation of training results indicate that it might indeed make sense to split up these special characters and simply treat them as separate tokens which are not treated as part of the tagged named entities. \refsection{%TODO add section error analysis}
+Preventing the special characters in hashtags and user mentions from being split up was intended to serve for creating a realistic social media corpus and allow to include these special characters into the labels assigned during the annotation process. However, 	evaluation of training results indicate that it might indeed make sense to split up these special characters and simply treat them as separate tokens which are not treated as part of the tagged named entities. %\refsection{%TODO add section error analysis}
 
 The overall text cleaning process was restricted to an absolute minimum in order to create a sample data which is as realistic as possible with regard to the task of recognizing named entities in social media text.  This basically included the removal of newlines and splitting up of compound hashtags into separate hashtags (so that e.g. \#food\#delicious would be split up into two different tokens \#food and \#delicious). The following code demonstrates the respective steps, including the application of the customized tokenizer. 
 

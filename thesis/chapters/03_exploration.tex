@@ -26,20 +26,20 @@ While the English \verb|spaCy| model supports named entity recognition for 18 en
 %https://spacy.io/models/de
 For exploring the German s\verb|spaCy| model, a simple code was implemented, using the \verb|displacy| module of the library to display the sample texts tagged with the detected entities. 
 
-\begin{python}
-import spacy
-from spacy import displacy
-
-def display_entities(texts):
-    for text in texts: 
-        try: 
-            doc = nlp(text)
-            sentence_spans = list(doc.sents)
-            displacy.render(sentence_spans, style="ent")
-		
-        except:
-            pass
-\end{python}
+%\begin{python}
+%import spacy
+%from spacy import displacy
+%
+%def display_entities(texts):
+%    for text in texts: 
+%        try: 
+%            doc = nlp(text)
+%            sentence_spans = list(doc.sents)
+%            displacy.render(sentence_spans, style="ent")
+%		
+%        except:
+%            pass
+%\end{python}
 
 The results show that the model does to some extent recognized locations and persons mentioned in the example texts: 
 
@@ -59,7 +59,7 @@ Nor is the classification of the phrase `Der Mann mit dem Schild' (the man with 
 %\caption{}
 \end{figure}
 
-Admittedly, these explorations are rather anecdotal and cannot be generalized without further evaluation based on quantative metrics. However, the claim that \verb|spaCy| offers production-ready components is put into question when looking at these examples. 
+Admittedly, these explorations are rather anecdotal and cannot be generalized without further evaluation based on quantiative metrics. However, the claim that \verb|spaCy| offers production-ready components is put into question when looking at these examples. 
 
 \section{The German-language Flair model}
 better performance, but still: 

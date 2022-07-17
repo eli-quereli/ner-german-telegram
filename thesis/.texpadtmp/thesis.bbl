@@ -1228,6 +1228,36 @@
     \field{year}{2020}
   \endentry
 
+  \entry{teledash_2022}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=WG}{%
+         family={Weichbrodt},
+         familyi={W\bibinitperiod},
+         given={Gregor},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=SG}{%
+         family={Stanjek},
+         familyi={S\bibinitperiod},
+         given={Grischa},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WGSG1}
+    \strng{fullhash}{WGSG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Teledash – analysis and research software for Telegram}
+    \verb{url}
+    \verb https://github.com/democ-de/teledash
+    \endverb
+    \field{year}{2022}
+  \endentry
+
   \entry{yadav_survey_2019}{report}{}
     \name{author}{2}{}{%
       {{hash=YV}{%

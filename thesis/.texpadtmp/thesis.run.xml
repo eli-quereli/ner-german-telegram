@@ -41,20 +41,17 @@
   >
 ]>
 <requests version="1.0">
-  <internal package="biblatex" priority="9" active="1">
+  <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
       <file>thesis.aux</file>
-      <file>thesis1-blx.aux</file>
       <file>thesis-blx.bib</file>
     </provides>
     <requires type="dynamic">
       <file>thesis.bbl</file>
-      <file>thesis1-blx.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
-      <file>blx-unicode.def</file>
       <file>blx-compat.def</file>
       <file>blx-bibtex.def</file>
       <file>biblatex.def</file>
@@ -83,33 +80,6 @@
     </provides>
     <requires type="dynamic">
       <file>thesis.aux</file>
-      <file>thesis-blx.bib</file>
-    </requires>
-    <requires type="editable">
-      <file>thesis.bib</file>
-    </requires>
-    <requires type="static">
-      <file>biblatex.bst</file>
-    </requires>
-  </external>
-  <external package="biblatex" priority="5" active="1">
-    <generic>bibtex</generic>
-    <cmdline>
-      <binary>bibtex</binary>
-      <option>-min-crossrefs 2</option>
-      <infile>thesis1-blx</infile>
-    </cmdline>
-    <input>
-      <file>thesis1-blx.aux</file>
-    </input>
-    <output>
-      <file>thesis1-blx.bbl</file>
-    </output>
-    <provides type="dynamic">
-      <file>thesis1-blx.bbl</file>
-    </provides>
-    <requires type="dynamic">
-      <file>thesis1-blx.aux</file>
       <file>thesis-blx.bib</file>
     </requires>
     <requires type="editable">
