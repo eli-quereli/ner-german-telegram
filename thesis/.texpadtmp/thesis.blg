@@ -19,7 +19,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: thesis-blx.bib
 Database file #2: ../thesis.bib
-You're missing a field name---line 269 of file ../thesis.bib
+You're missing a field name---line 264 of file ../thesis.bib
  : 
  : {shorttitle} = {Speech and Language Processing},
 (Error may have been on previous line)
@@ -27,45 +27,45 @@ I'm skipping whatever remains of this entry
 Biblatex version: 3.17
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 23 entries,
+You've used 24 entries,
             6399 wiz_defined-function locations,
-            1403 strings with 27110 characters,
-and the built_in function-call counts, 262774 in all, are:
-= -- 21192
-> -- 6244
-< -- 1244
-+ -- 10596
-- -- 3914
-* -- 17822
-:= -- 31826
+            1407 strings with 27254 characters,
+and the built_in function-call counts, 269112 in all, are:
+= -- 21649
+> -- 6353
+< -- 1273
++ -- 10777
+- -- 3959
+* -- 18282
+:= -- 32520
 add.period$ -- 0
-call.type$ -- 23
-change.case$ -- 687
+call.type$ -- 24
+change.case$ -- 697
 chr.to.int$ -- 379
-cite$ -- 44
-duplicate$ -- 27226
-empty$ -- 20961
-format.name$ -- 1808
-if$ -- 49921
+cite$ -- 46
+duplicate$ -- 27945
+empty$ -- 21521
+format.name$ -- 1875
+if$ -- 51210
 int.to.chr$ -- 0
-int.to.str$ -- 73
+int.to.str$ -- 75
 missing$ -- 0
-newline$ -- 1203
-num.names$ -- 1425
-pop$ -- 8542
+newline$ -- 1233
+num.names$ -- 1466
+pop$ -- 8900
 preamble$ -- 1
-purify$ -- 855
+purify$ -- 870
 quote$ -- 0
-skip$ -- 5506
+skip$ -- 5683
 stack$ -- 0
-substring$ -- 39457
-swap$ -- 5228
-text.length$ -- 812
-text.prefix$ -- 22
+substring$ -- 40225
+swap$ -- 5369
+text.length$ -- 842
+text.prefix$ -- 23
 top$ -- 1
-type$ -- 769
+type$ -- 803
 warning$ -- 0
-while$ -- 3812
+while$ -- 3901
 width$ -- 0
-write$ -- 1181
+write$ -- 1210
 (There was 1 error message)

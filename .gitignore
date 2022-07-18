@@ -5,7 +5,8 @@
 data/
 src/notebooks/temp/
 models/
-
+# includes flair taggers, files too large for git
+src/notebooks/NER/resources/
 
 #### Config ###
 src/config/db_credentials.py

@@ -3,13 +3,13 @@
 
 The first part of this chapter places Named Entity Recognition in its larger context of Natural Language Processing (NLP) in general, and of Information Extraction (IE) as a specific NLP task in particular. It provides a basic definition of of NER, lines out its historical evolvement, and discusses the challenges related to this task, both in general and with regard to the peculiarities of German language and to text data from social media. 
 
-The second part elaborates different approaches for NER, from heuristics-/rule-based methods over classical machine learning-based to deep learning-based approaches including transformers. It also discusses the limitations and potentials of the respective approaches. %TODO ausformulieren/überarbeiten
+The second part elaborates different approaches for NER, from heuristics-/rule-based methods over classical machine learning-based to deep learning-based approaches including transformers, and briefly discusses the limitations and potentials of the respective approaches. %TODO ausformulieren/überarbeiten
 
 
 \section{Natural Language Processing}
 
 %TODO add some text here
-\subsection{What is Natural Language Processing?}
+% \subsection{What is Natural Language Processing?}
 The field of Natural Language Processing combines approaches from computer science, linguistics, and artificial intelligence. Its main focus is to build systems and computational techniques for the automated processing and analysis of human language (cf. \cite[xvii]{vajjala_practical_2020}).
 Since its evolvement in the 1950s, NLP has been primarily an area of interest for academic research, but lately, it is being used more and more for real-world tasks and business applications. (cf. \cite[xvii]{vajjala_practical_2020})
 
@@ -38,7 +38,7 @@ Since NLP processes data representing human language, it is confronted with seve
 According to the database \textit{Ethnologue}, there are currently over 7.000 languages actively spoken worldwide (cf. \cite{ethnologue_how_2022}). Even though some of these languages share the same family and thus have some similarities, a direct mapping between two languages is not possible. This makes it hard to apply an NLP solution from one language to another. Building language-agnostic solutions is a very complex matter, while building separate solutions for each language is labor- and time-intensive (cf. \cite[14]{vajjala_practical_2020}).
 
 \paragraph{}
-\textbf{Imbalanced resources for different languages} is yet another challenge for NLP, both in terms of research efforts and data. In fact, most NLP technologies are still designed for English or European languages (cf. \cite{singh_natural_2008}). For these so-called high-resource languages, a large number of datasets and libraries exists while low-resource languages are usually significantly `less studied, resource scarce, less computerized' (\cite{magueresse_low-resource_2020}). This imbalance is also reflected in the existing NER datasets.% (see section ~\ref{sec:data}).
+\textbf{Imbalanced resources for different languages} is yet another challenge for NLP, both in terms of research efforts and data. In fact, most NLP technologies are still designed for English or other European languages (cf. \cite{singh_natural_2008}). For these so-called high-resource languages, a large number of datasets and libraries exists while low-resource languages are usually significantly `less studied, resource scarce, less computerized' (\cite{magueresse_low-resource_2020}). This imbalance is also reflected in the existing NER datasets.% (see section ~\ref{sec:data}).
 
 
 %TODO multilingual models - nicht language agnostic, sondern mehrere sprachen kombiniert, also auch separate solutions combined
@@ -72,31 +72,34 @@ Common examples of IE applications are news tracking, counter-terrorism, busines
 
 \section{Named Entity Recognition}
 
-Named entity recognition is a subtask of IE and addresses the task of identifying named entities like person, location, organization, drug, time, clinical procedure, biological protein, etc. in text. NER is often used as the first step in question answering, information retrieval, co-reference resolution, topic modeling, etc. and is thus a fundamental task in NLP (cf. \cite{yadav_survey_2019}). The entities which are to be identified can mainly be represented by the following categories: 
+Named entity recognition is a subtask of IE and addresses the task of identifying named entities like person, location, organization, drug, time, clinical procedure, biological protein, etc. in text. NER is often used as the first step in question answering, information retrieval, co-reference resolution, topic modeling, etc. and is thus a fundamental task in NLP (cf. \cite{yadav_survey_2019}). 
+
+\subsection{Common entity types}
+The entities which are to be identified via NER approaches are commonly represented by the following categories: 
 
 \begin{itemize}
 \item PERSON
 \item LOCATION
 \item ORGANIZATION
 \item MISC/OTH
-\item TIME
-\item DATE
-\item CURRENCY/QUANTITY, PERCENTAGE
 \end{itemize}
  
-While TIME, DATE, CURRENCY/QUANTITY, and PERCENTAGE can commonly be identified via regular expressions, instances of PERSON, LOCATION, ORGANIZATION, and MISC/OTH (miscellaneous/other entities) usually do not follow a consistent pattern and thus pose larger challenges for NER, which is why most of NER research focusses mainly on these entity types (cf. \cite[229]{zong_information_2021}).
+Early NER approaches also included time, date, currency/quantity, and percentage as entity types. But since these can commonly be identified via regular expressions, instances of persons, locations, organizations, and miscellaneous/other usually do not follow a consistent pattern and thus pose larger challenges for NER, which is why most of NER research focusses mainly on these entity types (cf. \cite[229]{zong_information_2021}).
 
-Also it should be noted that TIME, DATE, CURRENCY/QUANTITY, and PERCENTAGE do not qualify as named entities in a narrow sense, but may be useful depending on the purpose of the application which NER is used for (cf. \cite[386]{aggarwal_machine_2018}).
+Also it should be noted that times, dates, currencies, quantities and percentage do not qualify as named entities in a narrow sense, but may be useful depending on the purpose of the application which NER is used for (cf. \cite[386]{aggarwal_machine_2018}).
 %This also applies to this thesis/purpose
+
+
+\subsection{IOB tagging scheme}
+% \subsection{BIO tagging scheme and entity types}
 
 NER can be divided into the following two subtasks (cf.\cite[229]{zong_information_2021}):
 \begin{itemize}
 	\item \textbf{1. Entity detection}, to detect whether a given string in a text document is an entity, including the detection of the entity's boundaries.
-	\item \textbf{2. Entity classification}, to assign a specific category to the detected entity. \end{itemize}
+	\item \textbf{2. Entity classification}, to assign a specific category to the detected entity. 
+ \end{itemize}
 
-\subsection{IOB tagging scheme}
-% \subsection{BIO tagging scheme and entity types}
-NER is usually regarded as a sequence labeling task. For the respective sequence labeling model, an appropriate label set as well as the language granularity for the annotation process needs to be determined. 
+NER is thus usually regarded as a sequence labeling task. For the respective sequence labeling model, an appropriate label set as well as the language granularity for the annotation process needs to be determined. 
 
 A widely used tagging scheme is the IOB (or BIO) label set. In this tagging scheme, the B-tag is used to label the beginning of an entity, the I-tag is used for labeling intermediate or final tokens of an entity, and the O-tag is assigned to all tokens outside of an entity.(cf. \cite[231]{zong_information_2021}). 
 
@@ -119,6 +122,7 @@ For NER, the manually annotated entity tags in the test set serve as gold refere
 
 Intrinsic evaluation metric are designed to measures a model's performance  independent of its later real-world application. (cf. \cite[36]{jurafsky_2021}). Yet, the applied metrics for intrinsic evaluation vary depending on the NLP task they are built for. 
 
+\subsection{Common metrics for intrinsic evaluation of NER systems: F1, Precision, Recall}
 For NER models, the commonly used metrics are \textbf{precision}, \textbf{recall}, and \textbf{F1-score}. 
 
 These metrics rely on the number of entities recognized correctly by the model (true positives, tp), the number of entities detected by the model, but not labeled as entities in the test set (false positives, fp), and the number of entities not recognized by the model, but tagged as named entities in the test set (false negatives, fn). 
@@ -148,7 +152,7 @@ to assess the performance of the participating systems.
 
 %`The performance in this task is measured with $ F_{\beta = 1}  $ rate which is equal to: $$ \frac {({\beta^2}+1)*precision*recall} {({\beta^2}*precision+recall)}$$ with ${\beta=1}$.
 
-\subsection{Challenges for NER}
+\subsection{General challenges for NER}
 
 %In general, and specifically for German language, and for social media text data
 
@@ -161,17 +165,18 @@ Another important challenge are \textbf{abbreviations} which are used to refer t
 
 The \textbf{creative and dynamic characteristics of human language} as described in \ref{ssec:nlp_challenges} also pose challenges for the task of named entity recognition: Since \textbf{new entities}  evolve over time, the set of know entities is never constant. While for `some types of entities like locations, the names of entities evolve slowly, whereas for others like people and organizations, the incompleteness problem is very significant.' (\cite[386]{aggarwal_machine_2018}). 
 
-Yet another challenge stems from capitalization conventions which vary across languages: While in English-language texts, capitalization usually indicates proper names and can thus be used as a feature for named entity recognition, in German-language texts all nouns are capitalized, making the feature less suitable (cf. \cite{benikova-etal-2014-nosta}).
+Yet another challenge stems from \textbf{capitalization} conventions which vary across languages: While in English-language texts, capitalization usually indicates proper names and can thus be used as a feature for named entity recognition, in German-language texts all nouns are capitalized, making the feature less suitable (cf. \cite{benikova-etal-2014-nosta}).
 
 \subsection{Challenges for NER in Social Media Texts}
 
 The aforementioned challenges for NER also apply to texts from social media. However, named entity recognition for this genre can be regarded as even more challenging. 
 
-One reason for this stems from the challenges of \textbf{domain adaptation}: Since most of the existing general NER datasets consist of newswire texts, named entity recognition applications for other domains usually require the creation of custom annotated corpora. Moreover, social media text data is often more informal, noisy and shorter of length than newspaper articles, which aggravates domain adaptation for this genre and usually results in poor performance of existing NER systems when applied to texts from social media (cf.  \cite{ritter_2011}). 
+One reason for this stems from the challenges of \textbf{domain adaptation}: Since most of the existing general NER datasets consist of newswire texts, named entity recognition applications for other domains usually require the creation of custom annotated corpora. Moreover, social media text data is often \textbf{more informal and noisy} (e.g. due to missspellings) than newspaper articles, which aggravates domain adaptation for this genre and usually results in poor performance of existing NER systems when applied to texts from social media (cf.  \cite{ritter_2011}). 
 
-Furthermore, since texts from social media are often shorter, they lack sufficient context for the determination of an entity's type (cf. \cite{ritter_2011}).
+Furthermore, since texts from social media are often \textbf{shorter of length}, they lack sufficient context for the determination of an entity's type (cf. \cite{ritter_2011}).
 
-The wide variety of capitalization styles are another challenge, like e.g. the use of only lowercase for German texts, or the use of uppercase only in some texts (cf. \cite{ritter_2011}). As \cite{ritter_2011} points out, news-trained NER systems seem to rely heavily on capitalization which limits their applicability to user-generated social media texts. Figure \ref{fig:noisy_texts} illustrates the noisy character of tweets as an example. 
+The \textbf{wide variety of capitalization styles} are another challenge, like e.g. the use of only lowercase for German texts, or the use of uppercase only in some texts (cf. \cite{ritter_2011}). As \cite{ritter_2011} points out, news-trained NER systems seem to rely heavily on capitalization which limits their applicability to user-generated social media texts. 
+Figure \ref{fig:noisy_texts} illustrates the noisy character of tweets as an example. 
 
 
 \begin{figure}[H]
@@ -179,7 +184,9 @@ The wide variety of capitalization styles are another challenge, like e.g. the u
   \label{fig:noisy_texts}
 \end{figure}
 
-Also, these texts usually contain more OOV (out of vocabulary) words than e.g. news articles. This is partly due to misspellings, but also stems from platform specific codes and  styles, such as hashtags or lexical variations. For example, the authors collected more than fifty variations for the word `tomorrow' from their Twitter corpus as shown in figure \ref{fig:lex_var}.
+Also, these texts usually contain more \textbf{out of vocabulary (OOV) words} than e.g. news articles. This is partly due to misspellings, but also stems from \textbf{platform specific codes and styles}, such as hashtags or lexical variations. For example, the authors collected more than fifty variations for the word `tomorrow' from their Twitter corpus as shown in figure \ref{fig:lex_var}.
+
+The frequent occurence of \textbf{special characters} such as \# for hashtags or \@ for user mentions pose challenges because they cannot easily be handled during annotation and training. 
 
 
 \begin{figure}[H]
@@ -187,7 +194,7 @@ Also, these texts usually contain more OOV (out of vocabulary) words than e.g. n
   \label{fig:lex_var}
 \end{figure}
 
-Last but not least, social media texts often combine different languages, making it harder for language-specific models to accurately determine named entities in them. 
+Last but not least, social media texts often \textbf{mixed-language texts}, making it harder for language-specific models to accurately determine named entities in them. 
 
 In 2015, \cite{derczynski_analysis_2015} investigated the applicability of existing, by then state-of-the-art systems for named entity recognition in tweets as one example for data from microblogs. Their results indicate as well that existing machine-learning based approaches do not perform well on noisy user-generated data from microblogs. In line with \cite{ritter_2011}, they identify unreliable capitalization, typographic errors, shortenings, and lack of context due to the shortness of the texts as main challenges in this specific domain. 
 
@@ -195,9 +202,8 @@ In 2015, \cite{derczynski_analysis_2015} investigated the applicability of exist
 
 The authors furthermore point out that annotated datasets from the genre of microblogs are still really rare, and emphasize the need for creating larger human-annotated corpora of microblog content to allow better domain adaptation for named entity recognition systems (cf. \cite{derczynski_analysis_2015}). 
 
-
 \subsection{Important Shared Tasks and Datasets for NER}
-The following subsection provides a brief history of the most relevant shared tasks for named entity recognition. The focus is on relevant cornerstones for NER in general, on German-language texts, and on data from social media. 
+The following subsection provides a brief history of the most relevant shared tasks for named entity recognition. The focus is on relevant cornerstones for NER in general, and on German-language texts in particular. 
 
 \paragraph{MUC-6}
 The first NER task was introduced in 1996 at the Sixth Message Understanding Conference (MUC-6).  The aim was to apply information extraction technologies for largely domain independent named entity recognition. Besides recognizing the entity types person, organization, and location, the task also involved numerical expressions including time, currency, and percentage (cf. \cite{grishman_message_1996}).
@@ -224,7 +230,7 @@ The dataset is available under a e CC-BY license which `allows to distribute, al
 
 However, since the GermEval2014 dataset also includes nested and derived entities, it is not readily combinable with other datasets. 
 
-\paragraph{NER tasks for social media data}
+\subsection{Important Shared Tasks and Datasets for NER on Social Media Data}
 In 2015, \cite{baldwin_shared_2015} organized a shared task for Named Entity Recognition on social media data, namely tweets from Twitter in the context of the Workshop on Noisy User-generated Text (W-NUT). 
 The task was designed to foster the development of NER systems capable of recognizing named entities in this specific domain which poses peculiar challenges to existing NER systems trained mainly on newswire text, since tweets, unlike edited newswire articles, contain a number of mis- and nonstandard spellings, abbreviations, incomplete sentences, and are often characterized by unreliable capitalization (cf. \cite{baldwin_shared_2015}). 
 `NER tasks have also been organized on social media data, e.g., Twitter, where the performance of classic NER systems degrades due to issues like variability in orthography and presence of grammatically incomplete sentences' (Baldwin et al., 2015)
@@ -268,7 +274,7 @@ The first systems for NER were relied on handcrafted rules, lexicons, orthograph
 
 Rule-based systems make use of the fact that the structure and the context of named instances of type person, location, and organization often follow certain rules and can thus be recognized e.g. by using regular expressions (cf. \cite[230]{zong_information_2021}). Hand-crafted rules can make use e.g. of capitalization (used in a lot of languages for the beginning of person names) or of certain `key words' such as titles for persons (Mr., Mrs. Dr., etc.) for the recognition of named entities (cf. \cite[230]{zong_information_2021}).
 
-However, these approaches are limited even when relying a large amount of data is considered. This is due to the ambiguity of language, resultung in different meanings for a given word or sequence in different contexts. Also, these approaches are rather static and often struggle with handling newly emerging identities without updating the underlying rules. Furthermore, the generation of rules is labor-intensive and usually requires expert domain knowledge. (cf. \cite[231]{zong_information_2021}). 
+However, these approaches are limited even when a large amount of data is considered. This is due to the ambiguity of language, resulting in different meanings for a given word or sequence in different contexts. Also, these approaches are rather static and often struggle with handling newly emerging identities without updating the underlying rules. Furthermore, the generation of rules is labor-intensive and usually requires expert domain knowledge. (cf. \cite[231]{zong_information_2021}). 
 
 Knowledge-based approaches rely on lexicon resources and domain specific knowledge. The performance of these systems heavily depends on the exhaustiveness and completeness of the used lexicon. Here as well, the process can be rather labor-intensive because domain expert knowledge is needed for the construction and maintenance of the knowledge resources (cf.\cite{yadav_survey_2019}). 
 
@@ -424,6 +430,7 @@ Modern neural architectures for NER can be broadly classified into categories de
 - RNN passes information about its state at each step to the next operation in the sequence 
 - this allows an RNN to keep track of information from previous steps, and use it for its output predictions
 \cite[2]{tunstall_natural_2022}
+
 
 
 \subparagraph{Transfer learning for downstream tasks with transformers}

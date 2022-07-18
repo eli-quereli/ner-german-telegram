@@ -14,7 +14,8 @@ Over time, the so-called `Querdenken' (lateral thinking) movement became the mos
 %TODO ein satz: Pandemie als Verschwörung
 %TODO https://de.wikipedia.org/wiki/Proteste_gegen_Schutzma%C3%9Fnahmen_zur_COVID-19-Pandemie_in_Deutschland#Proteste_vor_Privatwohnungen_von_Politikern,_Morddrohungen_und_Anschl%C3%A4ge_auf_B%C3%BCros
 The movement reached its preliminary climax with several large demonstrations taking place in Berlin, directed against legislative changes regarding the containment of the pandemic passed by the German parliament.
-In the context of these demonstrations, violent clashes occurred between police and protesters, which often refused to act according the official restrictions for the demonstration such as wearing a face mask. Furthermore, there were several incidents in which journalists were violently attacked by protesters, accusing them to be part of the `Lügenpresse' (lying press), and two incidents in which the seat of the German parliament, the Reichstag, was targeted by protesters: On August 29th 2020, around 500 protesters, among them several prominent actors from the German far-right movement, broke the barriers in front of the Reichstag in Berlin, seat of the German parliament, and occupied the stairs of the building, waving several `Reichskriegsflaggen'. On November 18th 2020, another large demonstration organized by the `Querdenken' movement took place; once again accompanied by heavy clashes between protesters and police officers. On the same day, a small group of right-wing social media activists was invited as visitors to the Reichstag by the German far-right party `Alternative für Deutschland' (AfD). The group approached and harassed politicians from other parties, filming and live-streaming the events, an incident which was perceived as a caesura and heavily criticized by the other parties. 
+In the context of these demonstrations, violent clashes occurred between police and protesters, which often refused to act according the official restrictions for the demonstration such as wearing a face mask. Furthermore, there were several incidents in which journalists were violently attacked by protesters, accusing them to be part of the `Lügenpresse' (lying press), and two incidents in which the seat of the German parliament, the Reichstag, was targeted by protesters.
+% On August 29th 2020, around 500 protesters, among them several prominent actors from the German far-right movement, broke the barriers in front of the Reichstag in Berlin, seat of the German parliament, and occupied the stairs of the building, waving several `Reichskriegsflaggen'. On November 18th 2020, another large demonstration organized by the `Querdenken' movement took place; once again accompanied by heavy clashes between protesters and police officers. On the same day, a small group of right-wing social media activists was invited as visitors to the Reichstag by the German far-right party `Alternative für Deutschland' (AfD). The group approached and harassed politicians from other parties, filming and live-streaming the events, an incident which was perceived as a caesura and heavily criticized by the other parties. 
 
 On April 21st 2021, the last large authorized demonstration of the `Querdenken' movement took place in Berlin, comparing a new law for the containment of the pandemic with the `Ermächtigungsgesetz' put into effect in 1933 which ultimately paved the way for the Nazi dictatorship in Germany. In response to several violations of official restrictions by demonstration participants, police decided to disperse the demonstration. Several protesters subsequently moved to other areas nearby. Clashes between protesters and police continued to occur throughout the rest of the day. 
 
@@ -27,7 +28,7 @@ However, the calls to gather for walks in the public became more targeted and mo
 
 In December 2021, around thirty members of the far-right group `Freie Sachsen' (Free Saxonians) gathered in front of the home of Saxony's Minister of Health, Petra Köpping, carrying torchlights. The incident received a lot of public attention, and was criticized in the media as well as by German politicians as attempts to intimidate politicians under the pretext of the protesters right to `freedom of speech'. 
 
-Earlier that year, the same group had gathered in front of Saxony's prime minister, Michael Kretschmer, who is one of the most prominent targets of the radical movement against the COVID-19 containment measures. In December 2021, an investigative report by German journalists revealed that members of the Telegram chat group `Dresden Offlinevernetzung' had talked about concrete preparations to assassinate Kretschmer. A few months later, by mid-April 2022, police foiled a plot to kidnap Germany's Minister of Health Karl Lauterbach and to sabotage power facilities in order to create chaos which would ultimately allow to overthrow the government. %TODO Belege!
+Earlier that year, the same group had gathered in front of Saxony's prime minister, Michael Kretschmer, who is one of the most prominent targets of the radical movement against the COVID-19 containment measures. In December 2021, an investigative report by German journalists revealed that members of the Telegram chat group `Dresden Offlinevernetzung' had talked about concrete preparations to assassinate Kretschmer. And a few months later, by mid-April 2022, police foiled a plot to kidnap Germany's Minister of Health Karl Lauterbach and to sabotage power facilities in order to create chaos which would ultimately allow to overthrow the government. %TODO Belege!
 
 The messenger service Telegram played a key role in the mobilization of the movement. The service allows the creation of large groups and channels to disseminate information quickly to a large number of users. Unlike Facebook or Google, which hand over data to authorities at their request, Telegram does not cooperate with authorities. 
 
@@ -59,21 +60,24 @@ Thus the process points out the relevance of investigative work by critical jour
 
 \section{Objective}
 
-This thesis aims at exploring the potentials of a particular NLP technology, namely Named Entity Recognition (NER) for the investigation of the mobilization for protests against COVID-19 measures in a German-language Telegram channel. The overarching goal is to explore if a component for Named Entity Recognition could be a beneficial contribution to the Open Source project `Teledash', to make NER  available as a tool for journalists, NGOs, and researchers investigating the COVID-19 related protest movements and networks in Germany. 
+This thesis aims at exploring the potentials of a particular NLP technology, namely Named Entity Recognition (NER) for the investigation of the mobilization for protests against COVID-19 measures in a German-language Telegram channel. The overarching goal is to explore if a component for Named Entity Recognition could be a beneficial contribution to the Open Source project `Teledash' (cf. \cite{teledash_2022}), to make NER  available as a tool for journalists, NGOs, and researchers investigating the COVID-19 related protest movements and networks in Germany. 
 
 \begin{itemize}
-\item low-resource approach of NER in German-language Telegram messages
+\item approach of NER in German-language Telegram messages
 \item extraction of entities particularly relevant for mobilization / monitoring of potential targeting: PERSON, ORGANIZATION; DATE; TIME; LOCATION; ACTION as custom type
 \item explore potentials and limitations of existing models
 \item explore potentials of translation approach
-\item provide a low-resource tool for NGOs and researchersm make available as API; Project teledash
+\item explore potentials of transfer learning with Transformer models 
+% \item provide a low-resource tool for NGOs and researchersm make available as API; Project teledash
 \end{itemize}
 
 \section{Thesis Structure}
 \begin{itemize}
 \item Theory
+\item Exploration 
 \item Implementation
-\item Conclusion and Discussion
+\item Conclusion and Discussion:
+suggestions for future work
 \end{itemize}
 
 
