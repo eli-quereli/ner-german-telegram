@@ -1003,6 +1003,38 @@
     \warn{\item Invalid format of field 'month'}
   \endentry
 
+  \entry{schweter2020flert}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=SS}{%
+         family={Schweter},
+         familyi={S\bibinitperiod},
+         given={Stefan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=AA}{%
+         family={Akbik},
+         familyi={A\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SSAA1}
+    \strng{fullhash}{SSAA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{eprint}
+    \verb 2011.06993
+    \endverb
+    \field{title}{FLERT: Document-Level Features for Named Entity Recognition}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2020}
+  \endentry
+
   \entry{singh_natural_2008}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=SAK}{%

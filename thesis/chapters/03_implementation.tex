@@ -299,13 +299,14 @@ number of documents
 number of tokens per entity type
 %access / licensing?
 
-\section{Creating a baseline}
-Lit: Ritter et al. 
+\section{Baseline}
+Lit: Ritter et al. /Baldwin?
+
 
 Create Baseline with XLM Roberta
 
 \section{Models}
-Experiments on smartdata, Telegram separately: 
+Experiments on smartdata, and Telegram separately: 
 - DistilBERT
 - RoBERTa base
 - gbert base
@@ -314,7 +315,48 @@ Experiments on smartdata, Telegram separately:
 selected: gbert and roberta base (best validation loss and F1)
 
 
-\section{Pipeline}
+\begin{table}[]
+\caption{Results from fine-tuning results different models on Telegram dataset}
+\label{tab:telegram_test_models}
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{p{0.5\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}}
+
+\textbf{Model} & \textbf{Validation Loss} & \textbf{F1 score} \\
+\hline 
+dbmdz/bert-base-german-uncased & 0.2285 & 0.7440
+
+\\
+\hline
+
+
+  \\ 
+\hline
+
+ \\ 
+\hline
+
+ \\ 
+\hline
+
+\\ 
+
+\hline
+
+  \\ 
+
+\hline
+
+ \\ 
+
+\hline
+
+\end{tabular}
+\end{adjustbox}
+
+\end{table}
+
+\section{Building a Pipeline}
 
 pipeline groups together three steps: preprocessing, passing the inputs through the model, and postprocessing
 % https://huggingface.co/course/chapter2/2?fw=pt

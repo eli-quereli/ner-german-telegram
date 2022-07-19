@@ -5,41 +5,118 @@ In order to explore the potentials and limitations of existing German-language m
 
 Furthermore, it was explored if machine translation could be used as a tool to allow for the use of well-resourced English NER models for the recognition of named entities in (originally German-language) texts after translating them to English. 
 
+\subsection{Models}
 The two models explored in this chapter, \verb|spaCy| and \verb|Flair|, were chosen due to their easy applicability, allowing for fast exploration and analysis, and because both of them support both German- and English-language named entity recognition. 
 
+spaCy is a free open-source library for Natural Language Processing devel- oped for use in production. The library is extensively documented and thus serves as an easy starting point for beginner, while also claiming to be designed specifically for use in production.
+The library supports more than 66 languages (including German), comes with pre-trained word vectors, and supports a variety of NLP tasks such as part-of-speech tagging, text classification, and named entity recognition.
+
+While the English \verb|spaCy| model supports named entity recognition for 18 entity types (\verb|CARDINAL|, \verb|DATE|, \verb|EVENT|, \verb|FAC|, \verb|GPE|, \verb|LANGUAGE|, \verb|LAW|, \verb|LOC|, \verb|MONEY|, \verb|NORP|, \verb|ORDINAL|, \verb|ORG|, \verb|PERCENT|, \verb|PERSON|, \verb|PRODUCT|, \verb|QUANTITY|, \verb|TIME|, and \verb|WORK_OF_ART|), the German \verb|spaCy| model is unfortunately limited to the common entity types are \verb|LOC|, \verb|MISC|, \verb|ORG|, and \verb|PER|. 
+
+
+%TODO describe Flair/FLERT!
+\cite{schweter2020flert}
+
+
+%https://spacy.io/usage/facts-figures
+
+
+\subsection{Data}
 For the exploration of these models, a few example messages were randomly selected from the Telegram channel `Demotermine' (\textit{Demo dates}). 
 
 The channel was selected because a prior qualitative exploration of sample messages indicated that its content consists mainly of information about and mobilization for demonstrations and others forms of protests against the German COVID-19 containment measures and could thus be expected to contain a lot of relevant entities. 
 
-\section{The German-language spaCy model}
+\section{German-language Named Entity Recognition with spaCy and Flair}
 
-The first model is the German-language, medium-size \verb|spaCy| model. 
 
-\verb|spaCy| is a free open-source library for Natural Language Processing developed for use in production. The library is extensively documented and thus serves as an easy starting point for beginner, while also claiming to be designed specifically for use in production. 
 
-The library supports more than 66 languages (including German), comes with pre-trained word vectors, and supports a variety of NLP tasks such as part-of-speech tagging, text classification, and named entity recognition. 
-
-%https://spacy.io/usage/facts-figures
-
-While the English \verb|spaCy| model supports named entity recognition for 18 entity types (\verb|CARDINAL|, \verb|DATE|, \verb|EVENT|, \verb|FAC|, \verb|GPE|, \verb|LANGUAGE|, \verb|LAW|, \verb|LOC|, \verb|MONEY|, \verb|NORP|, \verb|ORDINAL|, \verb|ORG|, \verb|PERCENT|, \verb|PERSON|, \verb|PRODUCT|, \verb|QUANTITY|, \verb|TIME|, and \verb|WORK_OF_ART|), the German \verb|spaCy| model is unfortunately limited to the common entity types are \verb|LOC|, \verb|MISC|, \verb|ORG|, and \verb|PER|. 
+\subsection{Implementation}
 
 %https://spacy.io/models/de
 For exploring the German s\verb|spaCy| model, a simple code was implemented, using the \verb|displacy| module of the library to display the sample texts tagged with the detected entities. 
 
-%\begin{python}
-%import spacy
-%from spacy import displacy
-%
-%def display_entities(texts):
-%    for text in texts: 
-%        try: 
-%            doc = nlp(text)
-%            sentence_spans = list(doc.sents)
-%            displacy.render(sentence_spans, style="ent")
-%		
-%        except:
-%            pass
-%\end{python}
+For exploring the German medium-size spaCy model, a simple code was implemented, using the displacy module of the library to display the sample texts tagged with the detected entities.
+
+\begin{python}
+import spacyfrom spacy import displacy 
+
+def display_entities(texts):	for text in texts: 
+		try:
+			doc = nlp(text)			sentence_spans = list(doc.sents)
+			displacy.render(sentence_spans, style="ent")
+	
+        except:
+        	pass
+
+nlp = spacy.load("de_core_news_md")display_entities(samples)
+\end{python}
+
+
+The next code section shows the implementation for the Flair model:
+
+\begin{python}
+from flair.data import Sentence
+from flair.models import SequenceTagger
+tagger_default = SequenceTagger.load("flair/ner-german") 
+
+def get_ents(tagger, text):
+	sentence = Sentence(text) # predict NER tags
+	tagger.predict(sentence)	# print sentence
+	print(sentence)
+	# print predicted NER spans	print('The following NER tags are found:') 
+	# iterate over entities and print
+	for entity in sentence.get_spans('ner'):		print(entity) 
+	
+for text in samples:	try:
+		get_ents(tagger_default, text)
+	except: 
+		pass
+\end{python}
+
+
+\subsection{Results}
+
+
+
+\begin{table}[]
+\caption{Detected entities for German-language example messages}
+\label{tab:detect_ents_de}
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{p{0.045\linewidth}|p{0.6\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}}
+
+\textbf{No.} & \textbf{Text} & \textbf{spaCy} & \textbf{Flair} \\
+\hline 
+1 & Freiburg Aufzug mit Endkundgebung am Platz der altenSynagoge . Live Musik ! Details 19062021 Raus auf die Straße & Endkundgebung[LOC], alten Synagoge[LOC]& Freiburg[LOC] \\
+\hline
+
+
+  \\ 
+\hline
+
+ \\ 
+\hline
+
+ \\ 
+\hline
+
+\\ 
+
+\hline
+
+  \\ 
+
+\hline
+
+ \\ 
+
+\hline
+
+\end{tabular}
+\end{adjustbox}
+
+\end{table}
+
 
 The results show that the model does to some extent recognized locations and persons mentioned in the example texts: 
 
