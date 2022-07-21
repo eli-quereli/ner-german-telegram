@@ -3,7 +3,7 @@
 
 The first part of this chapter places Named Entity Recognition in its larger context of Natural Language Processing (NLP) in general, and of Information Extraction (IE) as a specific NLP task in particular. It provides a basic definition of of NER, lines out its historical evolvement, and discusses the challenges related to this task, both in general and with regard to the peculiarities of German language and to text data from social media. 
 
-The second part elaborates different approaches for NER, from heuristics-/rule-based methods over classical machine learning-based to deep learning-based approaches including transformers, and briefly discusses the limitations and potentials of the respective approaches. %TODO ausformulieren/überarbeiten
+The second part elaborates different approaches for NER, from knowledge- and rule-based methods over classical machine learning-based to deep learning-based approaches including transformers, and briefly discusses the limitations and potentials of the respective approaches. %TODO ausformulieren/überarbeiten
 
 
 \section{Natural Language Processing}
@@ -28,20 +28,16 @@ The extracted parts can also be attributes related to those entities, or relatio
 The kinds of texts which information is extracted from may be news texts from the web, social media posts, customer reviews, academic literature, and others. The aim of IE is to generate structured output from this unstructured or semistructured text data. 
 Typical tasks of IE are named entity recognition, entity disambiguation, relation extraction, and event extraction (cf. (\cite[227]{zong_information_2021})
 
-%\subsection{Historical Evolvement}
-The origins of IE dates back to the late 1970s, and its development was further accelerated in the late 1980s, when the US government financed activities to evaluate IE technology. Organized by the \textit{Defense Advanced Research Projects Agency} (DARPA), the first \textit{Message Understanding Conference} (MUC-1) took place in 1987. The conference provided standard datasets for international researchers to compete on.
-The MUC evaluation was held seven times between 1987 and 1997. The tasks included NER, coreference resolution, relation extraction, and slot filling, and mainly focused on text data from limited domains such as naval military intelligence, terrorist attacks, or aircraft crashes (cf. \cite[228]{zong_information_2021}). The first NER task was introduced at the Sixth Message Understanding Conference (MUC-6) in 1996. The aim was to apply information extraction technologies for largely domain independent named entity recognition. Besides recognizing the entity types person, organization, and location, the task also involved numerical expressions including time, currency, and percentage (cf. \cite{grishman_message_1996}). The corpus for the task consisted of 318 annotated articles  from the Wall Street Journal. %The dataset is publicly available, but its use is copyright-restricted (cf.\cite{chinchor_nancy_message_2003}).
+According to \cite{zong_information_2021}, IE technology can be classified via the domain aspect (limited vs. open domain), the type of extracted information (entity recognition, relation extraction, event extraction), and implementation methods (rule-based, machine learning-based, or deep learning-based approaches) (cf. \cite[229]{zong_information_2021}).
+
+Common examples of IE applications are news tracking, counter-terrorism, business and financial intelligence, the processing of biomedical data or scientific libraries. IE can also be utilized for applications building on entity-oriented search, for question-answering systems, or the task of text segmentation (cf. \cite{aggarwal_machine_2018}).
+
+The origins of IE dates back to the late 1970s, and its development was further accelerated in the late 1980s, when the US government financed activities to evaluate IE technology. Organized by the \textit{Defense Advanced Research Projects Agency} (DARPA), the first \textit{Message Understanding Conference} (MUC-1) took place in 1987. The conference provided standard datasets for international researchers to compete on and was held seven times between 1987 and 1997. The tasks included NER, coreference resolution, relation extraction, and slot filling, and mainly focused on text data from limited domains such as naval military intelligence, terrorist attacks, or aircraft crashes (cf. \cite[228]{zong_information_2021}). The first NER task was introduced at the Sixth Message Understanding Conference (MUC-6) in 1996. The aim was to apply information extraction technologies for largely domain independent named entity recognition. Besides recognizing the entity types person, organization, and location, the task also involved numerical expressions including time, currency, and percentage (cf. \cite{grishman_message_1996}). The corpus for the task consisted of 318 annotated articles  from the Wall Street Journal. 
 
 By the end of the 1990s, the MUC was replaced by the \textit{Automatic Content Extraction} (ACE) meeting which put its focus on extracting more fine-grained entities, as well as entity relations, and events. There was also a shift in the data to broader news data covering political and international events. 
 
 In 2009, ACE became a subtask of the \textit{Text Analysis Conference Knowledge Base Population} (TAC KBP). This shifted the focus in data to open domain data (mainly from webpages), and the focus of tasks to entity attribute extraction and entity linking. Both MUC and ACE contributed to the development of several standard test datasets for the evaluation and development of IE approaches. (cf. \cite[229]{zong_information_2021}). 
 
-% Regarding NER, another important event series was the \textit{Conference on Computational Natural Language Learning} (CoNLL), which launched language-independent NER tasks in 2002 and 2003 (cf. \cite[229]{zong_information_2021}). 
-
-%\subsection{Classification and Application}
-Following \cite{zong_information_2021}, IE technology can be classified via the domain aspect (limited vs. open domain), the type of extracted information (entity recognition, relation extraction, event extraction), and implementation methods (rule-based, machine learning-based, or deep learning-based approaches) (cf. \cite[229]{zong_information_2021}).
-
-Common examples of IE applications are news tracking, counter-terrorism, business and financial intelligence, the processing of biomedical data or scientific libraries. IE can also be utilized for applications building on entity-oriented search, for question-answering systems, or the task of text segmentation (cf. \cite{aggarwal_machine_2018}).
 
 \section{Named Entity Recognition}
 
@@ -79,14 +75,14 @@ Similar to other NLP tasks, NER involves an evaluation of the trained model. Eva
 
 The evaluation during model building and deployment usually relies on intrinsic evaluation using ML metrics, while the evaluation in the production phase also involves application-specific business metrics, which is called extrinsic evaluation. 
 
-\textbf{Extrinsic evaluation} is usually way more expensive than intrinsic evaluation, and often requires the involvement of stakeholders, sometimes even end-users. \textbf{Intrinsic evaluation} using ML metrics on the other hand can be done by machine learning engineers themselves and is less cost-effective. Also, they are applied in the earlier phase of the process, thus allowing early adjustments and quick improvments of the model (cf. \cite[71]{vajjala_practical_2020}). This is why intrinsic evaluation is usually used as a `proxy for extrinsic evaluation.' ([71]\cite{vajjala_practical_2020}). 
+\textbf{Extrinsic evaluation} is usually way more expensive than intrinsic evaluation, and often requires the involvement of stakeholders, sometimes even end-users. \textbf{Intrinsic evaluation} using machine learning metrics on the other hand can be done by machine learning engineers themselves and is less cost-effective. Also, they are applied in the earlier phase of the process, thus allowing early adjustments and quick improvments of the model (cf. \cite[71]{vajjala_practical_2020}). This is why intrinsic evaluation is usually used as a `proxy for extrinsic evaluation.' ([71]\cite{vajjala_practical_2020}). 
 
-To measure a model's performance, usually a test set is selected before training the model, and excluded from the training process. After training the model on the training set, the test set is used to evaluate the predictions of the model to assess its performance on unseen data.  For NER, the manually annotated entity tags in the test set serve as gold reference with which the models predictions are compared (cf. \cite[241]{zong_information_2021}). 
+To measure a model's performance by intrinsic evaluation, usually a test set is selected before training the model, and excluded from the training process. After training the model on the training set, the test set is used to evaluate the predictions of the model to assess its performance on unseen data.  For NER, the manually annotated entity tags in the test set serve as gold reference with which the models predictions are compared (cf. \cite[241]{zong_information_2021}). 
 
-While intrinsic evaluation is a standard measure on most ML tasks, the specific metrics used differ depending on the specific task. 
+While intrinsic evaluation is a standard measure on most ML tasks, the specific metrics applied differ depending on the specific task. 
 
 \subsubsection{F1, Precision, and Recall}
-For NER models, the commonly used metrics are \textbf{precision}, \textbf{recall}, and \textbf{F1-score}. 
+For NER models, the commonly used metrics are the model's \textbf{precision}, \textbf{recall}, and \textbf{F1} score. 
 
 These metrics rely on the number of entities recognized correctly by the model (true positives, TP), the number of entities detected by the model, but not labeled as entities in the test set (false positives, FP), and the number of entities not recognized by the model, but tagged as named entities in the test set (false negatives, FN). 
 
@@ -96,7 +92,7 @@ $$ precision = \frac {TP} {TP + FP} * 100 $$
 $$ recall = \frac {TP}  {TP + FN} * 100 $$
 $$ F1 = \frac {2 * precision * recall} {precision + recall} $$
 
-Precision represents the percentage of correctly identified named entities out of all recognized named entities, (i.e. the percentage of true positives out of all positive predictions), and recall equates to the percentage of named entities that are recognized by the model out of all tokens tagged as named entities in the test set. 
+Precision thus represents the percentage of correctly identified named entities out of all recognized named entities, (i.e. the percentage of true positives out of all positive predictions), and recall equates to the percentage of named entities that are recognized by the model out of all tokens tagged as named entities in the test set. 
 
 The F1-score combines precision and recall and is the metric commonly used in shared tasks on NER to assess the performance of the participating systems. 
 
@@ -107,11 +103,9 @@ The F1-score combines precision and recall and is the metric commonly used in sh
 
 %`Grishman and Sundheim (1996) scored NER performance based on type, whether the predicted label was correct regardless of entity boundaries, and text, whether the predicted entity boundaries were correct regardless of the label. For each score category, precision was defined as the number of entities a system predicted correctly divided by the number that the system predicted, recall was defined as the number of entities a system predicted correctly divided by the number that were identified by the human annotators, and (micro) F-score was defined as the harmonic mean of precision and recall from both type and text. The exact match metrics introduced by CoNLL (Tjong Kim Sang and De Meulder, 2003; Tjong Kim Sang, 2002) considers a prediction to be correct only when the predicted label for the complete entity is matched to exactly the same words as the gold label of that entity. CoNLL also used (micro) F-score, taking the harmonic mean of the exact match precision and recall. The relaxed F1 and strict F1 metrics have been used in many NER shared tasks (Segura Bedmar et al., 2013; Krallinger et al., 2015; Bossy et al., 2013; Del ̇ eger et al., 2016). Relaxed F1 considers a prediction to be correct as long as part of the named entity is identified correctly. Strict F1 requires the character offsets of a prediction and the human annotation to match exactly. In these data, unlike CoNLL, word offsets are not given, so relaxed F1 is intended to allow comparison despite different systems having different word boundaries due to different segmentation techniques (Liu et al., 2015).' (\cite{yadav_survey_2019})
 
-%`The performance in this task is measured with $ F_{\beta = 1}  $ rate which is equal to: $$ \frac {({\beta^2}+1)*precision*recall} {({\beta^2}*precision+recall)}$$ with ${\beta=1}$.
 
-\subsection{General Challenges for NER}
-
-Since NLP deals with human language, it is confronted with several challenges which stem from the characteristics of human language:
+\subsection{Challenges for NER}
+Like other NLP tasks, NER is confronted with several challenges which stem from the characteristics of human language:
 \paragraph{}
 \textbf{Ambiguity}, understood as uncertainty or inexactness of meaning, is inherent to most human languages: Words or phrases can have multiple meanings, and usually it requires knowledge of the context in which they appear to resolve this ambiguity. Making computer-based systems take into account and `understand' these contexts is one of the major challenges for NLP (cf. \cite[12-13]{vajjala_practical_2020}) As for NLP tasks in general, ambiguity is also a core challenge for NER (cf.  \cite[386]{aggarwal_machine_2018}). For example, the word `Bill' might refer to a persons first name and thus indicate a named entity of type PERSON, but when located at the beginning of the sentence, it might also be a synonym for `invoice'. 
 
@@ -134,13 +128,7 @@ Yet another challenge stems from \textbf{capitalization} conventions which vary 
 The aforementioned challenges for NER also apply for texts from social media platforms. However, named entity recognition for these user-generated texts can be regarded as even more challenging. 
 
 One reason for this is the challenge of \textbf{domain adaptation}: Most of the existing NER systems are trained on a handful of standard NER datasets which mainly consist of newswire texts. 
-Since social media text data is often \textbf{more informal and noisy} (e.g. due to missspellings) than newspaper articles, which aggravates domain adaptation for this genre and usually results in poor performance of existing NER systems when applied to texts from social media (cf.  \cite{ritter_2011}). 
-
- Named entity recognition applications for other domains thus usually require the creation of custom corpora including a labor-intensive annotation process.
- 
-Furthermore, since texts from social media are often \textbf{shorter of length}, they lack sufficient context for the determination of an entity's type (cf. \cite{ritter_2011}).
-
-The \textbf{wide variety of capitalization styles} are another challenge, like e.g. the use of only lowercase for German texts, or the use of uppercase only in some texts (cf. \cite{ritter_2011}). As \cite{ritter_2011} points out, news-trained NER systems seem to rely heavily on capitalization which limits their applicability to user-generated social media texts. 
+Since social media text data is often \textbf{more informal and noisy} (e.g. due to misspellings) than newspaper articles, which aggravates domain adaptation for this genre and usually results in poor performance of existing NER systems when applied to texts from social media (cf.  \cite{ritter_2011}). 
 
 Figure \ref{fig:noisy_texts} illustrates the noisy character of tweets as an example. 
 
@@ -148,6 +136,10 @@ Figure \ref{fig:noisy_texts} illustrates the noisy character of tweets as an exa
 \includegraphics[keepaspectratio]{images/noisy_texts_ritter.png}  \caption{Examples of noisy text in tweets, taken from \cite{ritter_2011}}
   \label{fig:noisy_texts}
 \end{figure}
+ 
+Furthermore, since texts from social media are often \textbf{shorter of length}, they lack sufficient context for the determination of an entity's type (cf. \cite{ritter_2011}).
+
+The \textbf{wide variety of capitalization styles} are another challenge, like e.g. the use of only lowercase for German texts, or the use of uppercase only in some texts (cf. \cite{ritter_2011}). As \cite{ritter_2011} point out, news-trained NER systems seem to rely heavily on capitalization which limits their applicability to user-generated social media texts. 
 
 Also, these texts usually contain more \textbf{out of vocabulary (OOV) words} than e.g. news articles. This is partly due to misspellings, but also stems from platform specific codes and styles: The frequent occurence of \textbf{special characters} such as \# for hashtags or \@ for user mentions poses challenges because they cannot easily be handled during annotation and training. User-generated text in social media also often includes a lot of \textbf{lexical variations}. As an example, \cite{ritter_2011} collected more than fifty variations for the word `tomorrow' from a Twitter corpus, as shown in figure \ref{fig:lex_var}.
 
@@ -157,6 +149,8 @@ Also, these texts usually contain more \textbf{out of vocabulary (OOV) words} th
 \end{figure}
 
 Last but not least, social media texts often \textbf{mixed-language texts}, making it harder for language-specific models to accurately determine named entities in them. 
+
+Named entity recognition applications for other domains thus usually require the creation of custom corpora including a labor-intensive annotation process, or rely on automatically generated annotations of large text corpora, often resulting in inconsistent annotations. 
 
 \subsection{Important Shared Tasks and Datasets for German-Language NER}
 
@@ -177,7 +171,7 @@ The dataset is publicly available under a e CC-BY license.  However, since the G
 
 Up until today, the Germeval 2014 corpus and (to some extent) the ConLL 2003 dataset represent standards for German-language NER and are used to train and evaluate state-of-the art NER models. 
 
-\subsection{Important Shared Tasks, Experimental Studies, and Datasets for NER on Social Media Texts}
+\subsection{Important Experimental Studies on NER on Social Media Texts}
 
 In 2011, \citeauthor{ritter_2011} conducted an experimental study on named entity recognition in tweets, and used a random sample of 2.400 English-language tweets for this which were annotated with the following ten entity types: PERSON, GEO-LOCATION, COMPANY, PRODUCT,  FACILITY, TV-SHOW, MOVIE, SPORTSTEAM, BAND, and OTHER (cf. \cite{ritter_2011}).  The best participating system in this task achieved an F1 score of 0.66 for these ten types (cf. \cite{ritter_2011}). 
 
@@ -189,7 +183,9 @@ The evaluated systems achieved F1 scores ranging between 40.27, 51.49 (Ritter da
 
 In line with \cite{ritter_2011}, the authors identify unreliable capitalization, typographic errors, shortenings, and lack of context due to the shortness of the texts as main challenges in this specific domain. 
 
-The authors suggest language detection, part-of-speech tagging, and normalization as pre-processing steps to encounter these challenges. Their results indicate however that e.g. normalization only leads to minimal increases, and in some cases even decreases the F1 score (cf.\cite{derczynski_analysis_2015}).
+The authors suggest language detection, part-of-speech tagging, and normalization as pre-processing steps to encounter these challenges. Their results indicate however that e.g. normalization only leads to minimal increases, and in some cases even decreases the F1 score (cf. \cite{derczynski_analysis_2015}).
+
+\subsection{Important Shared Tasks and Datasets for NER on Social Media Texts}
 
 Also in 2015, \citeauthor{baldwin_shared_2015} organized a shared task for Named Entity Recognition on social media data, namely tweets from Twitter in the context of the \textit{Workshop on Noisy User-generated Text} (W-NUT). The task used the corpus created by \cite{ritter_2011}. 
 
@@ -197,89 +193,47 @@ Also in 2015, \citeauthor{baldwin_shared_2015} organized a shared task for Named
 
 Among the participating systems, the best F1 score achieved was 56.41, which is $\sim$0.1 lower than the F1 score achieved in the initial study by \cite{ritter_2011}, and $\sim$0.2 lower than the best F1 score achieved at the GermEval 2014 NER task (76.38, cf. \cite{benikova2014germeval}). 
 
-Unfortunately: no german-language WNUT tasks
+The W-NUT series continued to address the task of NER in subsequent years: 
+In 2016, another shared task on Twitter Named Entity Recognition was organized in the context of the workshop, again relying on the Ritter dataset and focussing on the ten entity types included in it.  
+An important difference compared to 2015 was that some of the participating systems introduced the use of neural network methods for the task of NER (cf. \cite{strauss_results_2016}), including the winning system which achieved an F1 score of 59.08. 
 
-%`NER tasks have also been organized on social media data, e.g., Twitter, where the performance of classic NER systems degrades due to issues like variability in orthography and presence of grammatically incomplete sentences' (Baldwin et al., 2015)
-%`Entity types on Twitter are also more variable (person, company, facility, band, sportsteam, movie, TV show, etc.) as they are based on user behavior on Twitter' (Yadav and Bethard 2019)
-
-%As a result, existing NER tools mainly developed using newswire texts, perform rather poorly on this noisy, user-generated type of texts (cf. \cite{baldwin_shared_2015}). 
-
-%thus outperforming the results later achieved in the shared task by \cite{baldwin_shared_2015}. 
-
-\subsection{Additional German-language datasets for NER}
- 
-NER German-language datasets already mentioned:  ConLL 2003, GermEval 2014; are used for training and for evaluation up until today (`gold standard')
-
-additionally: Smartdata corpus, XTREME corpus, WIKIANN?
-
-%first shared task on NER (Grishman and Sundheim, 1996)
-%CoNLL 2002 (Tjong Kim Sang, 2002) and CoNLL 2003 (Tjong Kim Sang and De Meulder, 2003) were created from newswire articles in four different languages (Spanish, Dutch, English, and German) and focused on 4 entities - PER (person), LOC (location), ORG (organization) and MISC (miscellaneous including all other types of entities).
-
-%CoNLL 2003: licensing not clear, website not available; also: annotated by non-natve speakers, said to be somewhat inconsistent (cf. benikova 2014)
-
-%NER shared tasks have also been organized for a variety of other languages; German (Benikova et al., 2014)
-% named entity types vary widely by source of dataset and language
-% Benikova et al. (2014)’s data, which is based on German wikipedia and online news, has named entity types similar to that of CoNLL 2002 and 2003: PERson, ORGanization, LOCation and OTHer
-%Though most named entity annotations are flat, some datasets include more complex structures; e.g. nested entities  
-
+The W-NUT shared task in 2017 focused on novel and emerging entity recognition, thus addressing the challenge of newly emerging entities in social media data. The Ritter corpus was used as training data again. The development set consisting of $\sim$ 1.000 documents was composed of manually annotated texts from different online sources such as Reddit, StackExchange, and Twitter, while the test set ($\sim$ 1.300 documents) consisted of manually annotated Youtube comments (cf. \cite{derczynski_results_2017}). The annotation schema mapped the ten entity types of the Ritter corpus to the seven entity types person, location (including GPE, facility), corporation, product, creative-work, and group (representing music bands, sports teams, and non-corporate organisations). The best participating system achieved an F1 score of 41.86. In the following years, the focus of the workshop series shifted to other tasks and domains which might be due to newly emerging research trends, but also due to the lack of relevant progress in terms of performance. 
+Judging from the F1 scores of the respective winning systems, the task of NER in social media texts continued to be a considerable challenge. Furthermore, the ongoing shortage of manually annotated and sufficiently large corpora for this task becomes apparent. However, the results might also indicate that by then state-of-the-art machine learning systems had reached their limits. The following section traces the evolvement of NER approaches over time and gives insights into the respective potentials and limitations. 
  
 \section{Overview of NER approaches}
 
-The following section provides an overview of NER approaches as they have evolved over time: Starting with early rule-based and knowledge-based systems, the field moved on to machine-learning approaches based on feature-engineering. The development of NER systems based on neural networks with minimal feature engineering mark another important step forward in the field. Lately, the introduction of transformer models brought along yet another crucial advancement and achieve new state of the art performance for several NLP tasks including NER. 
+Since it's beginnings in the 1970s, NER approaches have undergone several phases of development, parallel to the advancements in NLP technologies:  Starting with early rule-based and knowledge-based systems, the field moved on to machine-learning approaches based on feature-engineering. The development of NER systems based on neural networks, relying only on minimal feature-engineering, marked another important step forward in the field. Lately, the introduction of transformer models brought along yet another crucial advancement and achieve new state of the art performance for several NLP tasks including NER. 
 
 \subsection{Rule-based and knowledge-based approaches}
 
-The first systems for NER were relied on handcrafted rules, lexicons, orthographic features and ontologies (cf. \cite{yadav_survey_2019}). 
+The first systems for NER relied on handcrafted rules, lexicons, orthographic features and ontologies (cf. \cite{yadav_survey_2019}). 
 
-Rule-based systems make use of the fact that the structure and the context of named instances of type person, location, and organization often follow certain rules and can thus be recognized e.g. by using regular expressions (cf. \cite[230]{zong_information_2021}). Hand-crafted rules can make use e.g. of capitalization (used in a lot of languages for the beginning of person names) or of certain `key words' such as titles for persons (Mr., Mrs. Dr., etc.) for the recognition of named entities (cf. \cite[230]{zong_information_2021}).
+Rule-based systems make use of the fact that the structure and the context of named instances of type person, location, and organization often follow certain rules and can thus be recognized to some extent by using e.g. regular expressions (cf. \cite[230]{zong_information_2021}). Hand-crafted rules can make use of features such as capitalization (used in a lot of languages for the beginning of person names) or of certain `key words' such as titles for persons (Mr., Mrs. Dr., etc.) for the recognition of named entities (cf. \cite[230]{zong_information_2021}).
 
 However, these approaches are limited even when a large amount of data is considered. This is due to the ambiguity of language, resulting in different meanings for a given word or sequence in different contexts. Also, these approaches are rather static and often struggle with handling newly emerging identities without updating the underlying rules. Furthermore, the generation of rules is labor-intensive and usually requires expert domain knowledge. (cf. \cite[231]{zong_information_2021}). 
 
 Knowledge-based approaches rely on lexicon resources and domain specific knowledge. The performance of these systems heavily depends on the exhaustiveness and completeness of the used lexicon. Here as well, the process can be rather labor-intensive because domain expert knowledge is needed for the construction and maintenance of the knowledge resources (cf.\cite{yadav_survey_2019}). 
 
-% Each token in the text is converted into a set of features. These features are typically helpful properties of the token or their context for entity extraction. e.g. starts with capital letter.' help in defining various patterns on the left-hand side of the rule contextual pattern on the left-hand side of the rule is a combination of conditions corresponding to the features associated with a sequence of tokens a rule is fired if a sequence of tokens in the text matches this pattern action on the right-hand side could correspond to labeling that sequence as a named entity \cite{aggarwal_machine_2018}
-
-
-% Therefore, the development of a NER model using an automatic learning framework is desirable. \cite[231]{zong_information_2021}
-
 \subsection{Machine-learning based approaches}
 
 Machine-learning based approaches based on feature-engineering introduced a critical advancement for the task of NER ( cf. \cite{nadeau_survey_2007})
 
-Machine learning "deals with the development of algorithms that can learn to perform tasks automatically based on a large number of examples, without requiring handcrafted rules." (cf. \cite[14]{vajjala_practical_2020})
+Machine learning approaches resign from the concept of handcrafted rules and instead focus on the development of algorithms which are able to perform a given task by automatically learning from a large number of examples, the training data (cf. \cite[14]{vajjala_practical_2020}). 
+The process usually involves the creation of a numeric representation of the training data. These features are then processed by the model which is supposed to patterns in the training data from them (cf. \cite[15]{vajjala_practical_2020}).
 
+The introduction of machine learning approaches thus allowed for the development of NER models through an automated learning process. 
 
-This allows for developing NER models through an automated learning process. 
-
-goal of ML: `learn' to perform tasks based on examples (training data) without explicit instruction
-typically done by creating a numeric representation (features) of the training data and using this representation to learn the patterns in those examples
-(cf. \cite[15]{vajjala_practical_2020})
-
-ML algorithms can be grouped in three paradigms: supervised learning, unsupervised learning, reinforcement learning
-
-supervised: learn the mapping function from input to output given a large number of examples in the form of input-output pairs
-input-output pairs = training data
-output = labels, or ground truth
-example: spam classification
-
-supervised learning requires large number of labeled data
-(cf. \cite[15]{vajjala_practical_2020})
-
+Machine learning algorithms can roughly be grouped into three paradigms: supervised learning, unsupervised learning, and reinforcement learning. For the sake of brevity, I will focus on supervised learning and not go into further detail about the latter two concepts. 
 
 \subsubsection{Feature-engineered supervised systems}
 
-Given a collection of text data, suppose all person, location, and organization entities are manually labeled, as shown in the examples below. Supervised NER systems attempt to design machine learning methods that learn automatic prediction models based on these correctly labeled training data.\cite[231]{zong_information_2021}
+In supervised learning, the machine learning model learns to make predictions for unseen data from a large number of examples which 
+represent input-output pairs. Regarding NER, an input example could be a text containing different instances of entities. The output would then be the corresponding spans and labels which determine the type of each given entity in the text example. These outputs are also called labels or ground truth. 
+In order to yield a well-performing model which is able to predict the spans and labels for entities in unseen texts, large amounts of labeled data are required (cf. \cite[15]{vajjala_practical_2020}).
 
-- Researchers usually regard this task of supervised NER as a sequence labeling problem. 
+%Given a collection of text data, suppose all person, location, and organization entities are manually labeled, as shown in the examples below. Supervised NER systems attempt to design machine learning methods that learn automatic prediction models based on these correctly labeled training data.\cite[231]{zong_information_2021}
 
-Supervised machine learning models learn to make predictions by training on example inputs and their expected outputs, and can be used to replace human curated rules. 
-Common ML systems for NER: 
-Hidden Markov Models (HMM)
-Maximum Entropy 
-Support Vector Machines (SVM)
-Conditional Random Fields (CRF)
-decision trees \cite{yadav_survey_2019}
-
+Commonly used models for NER based on machine learning are Hidden Markov Models (HMM), Maximum Entropy Models (MEM), Support Vector Machines (SVM), Decision Trees, and Conditional Random Fields (CRF) (cf.  \cite{yadav_survey_2019})
 
 \paragraph{Support Vector Machines}
 - goal of any classification task: learn a decision boundary that acts as a separation between different categories of text 
@@ -304,23 +258,28 @@ HMM is a statistical model that assumes there is an underlying, observable proce
 - takes the sequential input and the context of tags into consideration \cite[22]{vajjala_practical_2020}
 
 
-\subsubsection{Unsupervised / bootstrapped approaches}
-Unsupervised learning: aim to find hidden patterns in given input data without any reference to output
-works with large collection of unlabeled data
-example: topic modeling, identity latent topics in large collection of texts
-(cf. \cite[15]{vajjala_practical_2020})
-
-common in real-world NLP: semi-supervised; small labeled dataset, large unlabeled dataset; learn from both sets
-(cf. \cite[16]{vajjala_practical_2020})
-
-reinforcement learning: absence of larger data colletions, trial and error principle, improvement via feedback (punishment or reward)
-(cf. \cite[16]{vajjala_practical_2020})
-
-
-Some of the earliest systems required very minimal training data. 
-- labeled seeds, and 7 features including orthography (e.g., capitalization), context of the entity, words contained within named entities, etc.
-- shallow syntactic knowledge and inverse document frequency (IDF)
-- uses seeds to discover text having potential named entities, detects noun phrases and filters any with low IDF values, and feeds the filtered list to a classifier \cite{yadav_survey_2019}
+%\subsubsection{Unsupervised / bootstrapped approaches}
+%Unsupervised learning: aim to find hidden patterns in given input data without any reference to output
+%works with large collection of unlabeled data
+%example: topic modeling, identity latent topics in large collection of texts
+%(cf. \cite[15]{vajjala_practical_2020})
+%
+%common in real-world NLP: semi-supervised; small labeled dataset, large unlabeled dataset; learn from both sets
+%(cf. \cite[16]{vajjala_practical_2020})
+%
+%reinforcement learning: absence of larger data colletions, trial and error principle, improvement via feedback (punishment or reward)
+%(cf. \cite[16]{vajjala_practical_2020})
+%
+%Some of the earliest systems required very minimal training data. 
+%- labeled seeds, and 7 features including orthography (e.g., capitalization), context of the entity, words contained within named entities, etc.
+%- shallow syntactic knowledge and inverse document frequency (IDF)
+%- uses seeds to discover text having potential named entities, detects noun phrases and filters any with low IDF values, and feeds the filtered list to a classifier \cite{yadav_survey_2019}
+ 
+ Limitations: 
+ feature-engineering (aufwändig)
+ sparse vectors
+ no word embeddings
+ what about OOV words?
  
 
 \subsection{The introduction of neural networks}

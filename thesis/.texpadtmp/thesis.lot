@@ -1,10 +1,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Detected entities for German-language example messages}}{31}{}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Detected entities for German-language example messages}}{30}{}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Annotation scheme: Entity types}}{43}{}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Results from fine-tuning results different models on Telegram dataset}}{44}{}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Annotation scheme: Entity types}}{42}{}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Results from fine-tuning results different models on Telegram dataset}}{43}{}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1}{\ignorespaces Annotation scheme: Entity types}}{60}{}%
+\contentsline {table}{\numberline {1}{\ignorespaces Annotation scheme: Entity types}}{59}{}%

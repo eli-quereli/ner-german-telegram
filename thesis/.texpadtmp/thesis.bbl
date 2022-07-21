@@ -509,6 +509,85 @@
     \field{urlyear}{2022}
   \endentry
 
+  \entry{derczynski_results_2017}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=DL}{%
+         family={Derczynski},
+         familyi={D\bibinitperiod},
+         given={Leon},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=NE}{%
+         family={Nichols},
+         familyi={N\bibinitperiod},
+         given={Eric},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=vEM}{%
+         prefix={van},
+         prefixi={v\bibinitperiod},
+         family={Erp},
+         familyi={E\bibinitperiod},
+         given={Marieke},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LN}{%
+         family={Limsopatham},
+         familyi={L\bibinitperiod},
+         given={Nut},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{DL+1}
+    \strng{fullhash}{DLNEEMvLN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{abstract}{%
+    This shared task focuses on identifying unusual, previously-unseen entities
+  in the context of emerging discussions. Named entities form the basis of many
+  modern approaches to other tasks (like event clustering and summarization),
+  but recall on them is a real problem in noisy text - even among annotators.
+  This drop tends to be due to novel entities and surface forms. Take for
+  example the tweet “so.. kktny in 30 mins⁈” – even human experts find
+  the entity `kktny' hard to detect and resolve. The goal of this task is to
+  provide a definition of emerging and of rare entities, and based on that,
+  also datasets for detecting these entities. The task as described in this
+  paper evaluated the ability of participating entries to detect and classify
+  novel and emerging named entities in noisy text.%
+    }
+    \field{booktitle}{Proceedings of the 3rd {Workshop} on {Noisy}
+  {User}-generated {Text}}
+    \verb{doi}
+    \verb 10.18653/v1/W17-4418
+    \endverb
+    \field{pages}{140\bibrangedash 147}
+    \field{title}{Results of the {WNUT2017} {Shared} {Task} on {Novel} and
+  {Emerging} {Entity} {Recognition}}
+    \verb{url}
+    \verb https://aclanthology.org/W17-4418
+    \endverb
+    \list{location}{1}{%
+      {Copenhagen, Denmark}%
+    }
+    \verb{file}
+    \verb Full Text PDF:/Users/elisabeth/Zotero/storage/I5KYSIG4/Derczynski et
+    \verb al. - 2017 - Results of the WNUT2017 Shared Task on Novel and E.pdf:a
+    \verb pplication/pdf
+    \endverb
+    \field{month}{09}
+    \field{year}{2017}
+    \field{urlday}{21}
+    \field{urlmonth}{07}
+    \field{urlyear}{2022}
+  \endentry
+
   \entry{ethnologue_how_2022}{misc}{}
     \name{author}{1}{}{%
       {{hash=E}{%
@@ -1069,6 +1148,82 @@
     \field{year}{2008}
     \field{urlday}{19}
     \field{urlmonth}{06}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{strauss_results_2016}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=SB}{%
+         family={Strauss},
+         familyi={S\bibinitperiod},
+         given={Benjamin},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=TB}{%
+         family={Toma},
+         familyi={T\bibinitperiod},
+         given={Bethany},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Ritter},
+         familyi={R\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=dMMC}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Marneffe},
+         familyi={M\bibinitperiod},
+         given={Marie-Catherine},
+         giveni={M\bibinithyphendelim C\bibinitperiod},
+      }}%
+      {{hash=XW}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Wei},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {The COLING 2016 Organizing Committee}%
+    }
+    \strng{namehash}{SB+1}
+    \strng{fullhash}{SBTBRAMMCdXW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{abstract}{%
+    This paper presents the results of the Twitter Named Entity Recognition
+  shared task associated with W-NUT 2016: a named entity tagging task with 10
+  teams participating. We outline the shared task, annotation process and
+  dataset statistics, and provide a high-level overview of the participating
+  systems for each shared task.%
+    }
+    \field{booktitle}{Proceedings of the 2nd {Workshop} on {Noisy}
+  {User}-generated {Text} ({WNUT})}
+    \field{pages}{138\bibrangedash 144}
+    \field{title}{Results of the {WNUT16} {Named} {Entity} {Recognition}
+  {Shared} {Task}}
+    \verb{url}
+    \verb https://aclanthology.org/W16-3919
+    \endverb
+    \list{location}{1}{%
+      {Osaka, Japan}%
+    }
+    \verb{file}
+    \verb Full Text PDF:/Users/elisabeth/Zotero/storage/U7I6J9CN/Strauss et al.
+    \verb  - 2016 - Results of the WNUT16 Named Entity Recognition Sha.pdf:appl
+    \verb ication/pdf
+    \endverb
+    \field{month}{12}
+    \field{year}{2016}
+    \field{urlday}{21}
+    \field{urlmonth}{07}
     \field{urlyear}{2022}
   \endentry
 
