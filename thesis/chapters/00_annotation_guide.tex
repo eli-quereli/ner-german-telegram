@@ -12,6 +12,11 @@ Named entities can consist of more than one token. Phrases only partly containin
 
 Combined named entities (e.g. `Wien-Demo') should be tagged separately if possible (Wien[LOC]-Demo[ACTION]), or else tagged as the dominant entity type (here: [ACTION]) to avoid nested entities.
 
+WHITESPACE: Not labelled
+
+ONLY NOUNS: No verbs can be entities (Spaziergang vs spazieren gehen), dates and times can be represented by numbers and strings. 
+
+
 %https://www-nlpir.nist.gov/related_projects/muc/proceedings/ne_task.html
 
 \section{Definition of Different Entity Types}
@@ -68,6 +73,177 @@ ACTION &  &  \\
 \end{adjustbox}
 
 \end{table}
+
+\section{Specifications}
+
+\subsection{Mixed-language messages}
+
+Mixed-language where actual message is non-German language should be skipped. 
+
+Examples:
+We are angry and pissed off - Raus auf die Straße \@Demotermine!
+Brilliant numbers in Carlisle ! Raus auf die Straßen @Demotermine
+
+\subsection{Incomprehensible messages}
+Incomprehensible message should be skipped. 
+
+Example: 
+Sterne-Restaurant Walliserkanne . Naudreck . Bersets faule Tricks . Uniarzt panikfrei . Herzmuskel .  Neuer Beitrag \#Walliserkanne Raus auf die Straßen \@Demotermine! Übersicht / Overview
+
+\subsection{Special characters}
+SPECIAL CHARS: Only label if in the middle of sequence representing an an entity
+
+Examples:
+Donnerstag[B-DATE] ,[I-DATE] 17.04.2020[I-DATE]
+
+\subsubsection{Hashtags}
+HASHTAGS - If hashtag -> include
+Examples:
+\#Berlin[B-ORG]
+\#BW[B-ORG]
+\#CH[B-ORG]
+\#Hardy[B-PER] Groeneveld[I-PER]
+\#Mutigmacher[B-ORG]n
+
+\section{Specifications and Detailed Examples for Entity Types}
+
+\subsection{Locations}
+LOCATION
+Alex, Nollendorfplatz
+Norden
+Hellersdorf
+Berlin
+Deutschland
+Frankreich
+Bundestag
+
+No derived location-words: 
+Kreuzberger[O] Nächte[O]
+Combined locations
+ e.g. streets or routes -> B-LOC, I-LOC, incuding special chars (e.g. , - . /)
+
+Examples: 
+Straße[B-LOC] des[I-LOC] 17.[I-LOC] Juni[I-LOC]
+Bad[B-LOC] Oldesloe[I-LOC]
+Elbe[B-LOC] Elster[I-LOC]
+Bremen[B-LOC]-Vegesack[I-LOC]
+Königstraße[B-LOC] Richtung[I-LOC] HBF[I-LOC]
+Bernauer[B-LOC] Str[I-LOC] Richtung[I-LOC] Süden[I-LOC]
+Marktoberdorf[B-LOC] -[I-LOC] Kaufbeuren[I-LOC]-Neugablonz[I-LOC]
+Lutherstadt[B-LOC] Wittenberg[I-LOC]
+D-67454[B-LOC] Haßloch[I-LOC]
+Landeplatz[B-LOC] Grießkirchen[I-LOC]
+Google[B-LOC] center[I-LOC]
+Stuttgarter[B-LOC] Landtag[I-LOC]
+
+ABER:
+Berlin[B-LOC] Neptunbrunnen[B-LOC]
+
+
+Combined location and date hashtag: 
+\#b[B-LOC]2908[B-DATE]
+
+Metaphorical locations:  not labeled
+e.g. Berliner[O] Regenwald[O]
+
+\subsection{Organizations}
+ORGANIZATION
+Bundesregierung[B-ORG
+Gesundheitsamt[B-ORG
+Französische[B-ORG] Polizei[I-ORG]
+Facebook[B-ORG]
+Telegram[B-ORG]
+Google[B-ORG]
+Bill[B-ORG]  Gates[I-ORG] Foundation[I-ORG]
+ARD[B-ORG]
+KSV[B-ORG] LiLi[I-ORG]
+FC[B-ORG] St.[I-ORG] Pauli[I-ORG]
+SGD[B-ORG]-Ultras[I-ORG]
+Bündnis21[B-ORG] Hessen[I-ORG]
+Polizei[B-ORG]
+Polizeipräsidium[B-ORG] Pforzheim[I-ORG]
+
+
+ORG vs. LOC? -> LOC 
+
+Examples: 
+Landtag[B-LOC]
+Charité[B-LOC]
+Charité[B-LOC] krankenhaus[I-LOC]
+
+
+
+\subsection{Persons}
+PERSON 
+Scholz[B-PER]
+Carolin[B-PER] Matthie[I-PER]
+Anselm[B-PER] Lenz[I-PER]
+Karl[B-PER]
+Merkel[B-PER]s
+
+\subsection{Time}
+TIME 
+Times of day: 
+15:00[B-TIME]
+17:00[B-TIME] Uhr[I-TIME]
+
+Time codes after URLS, eg. www.example.com 00:30[B-TIME]
+
+Relative time values: 
+Mittag[B-DATE]
+15:30[B-TIME] -[I-TIME] 19:30[I-TIME]
+
+\subsection{Date}
+DATE
+2019[B-DATE]
+13.12.21[B-DATE]
+2.7.21[B-DATE]
+31. [B-DATE] JULI[I-DATE]
+01122020[B-DATE]
+Pfingstmontag[B-DATE]
+HEUTE[B-DATE]
+
+
+Combined dates / periods
+ -> B-DATE, I-DATE
+Examples: 
+17042021[B-DATE] –[I-DATE] 21042021[I-DATE]
+28. [B-DATE]+ [I-DATE] 29.8. [I-DATE]
+
+
+\subsection{Action}
+ACTION
+Angriff-B
+Demo-B
+Autokorso-B
+Offenes-B Treffen-I
+Aufzug
+Zug
+Plakate
+Infostände
+Informationstouren
+Anti[B]-Corona[I]-Proteste[I]
+Protestzug
+Spaziergänge
+Querdenker[B-ORG]-Demo[B-ACTION]
+Korso[B-ACTION] Nord[I-ACTION]
+\#kidsfreedomday[B-ORG]
+Gedenken
+Aktionswoche
+Wahlkampf
+Live-Stream
+
+Not labeled, to imprecise:
+Super Aktion[O] in Bönnigheim[B-LOC]
+
+
+ACTION-LOCATION
+Demo[B-ACTION]-[O]Berlin[B-LOC]
+separately; unsure if they are NEs? 
+
+
+
+
 
 hashtags encoding events via location and date, e.g. \#b20200809 or \#le1311 are not to be annotated, should be extracted via regex and treated separately; unsure if they are NEs? 
 

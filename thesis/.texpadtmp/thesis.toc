@@ -78,3 +78,15 @@
 \contentsline {chapter}{Bibliography}{61}{}%
 \contentsline {section}{\numberline {.1}Named Entity - Basic Definition}{66}{}%
 \contentsline {section}{\numberline {.2}Definition of Different Entity Types}{66}{}%
+\contentsline {section}{\numberline {.3}Specifications}{68}{}%
+\contentsline {subsection}{\numberline {.3.1}Mixed-language messages}{68}{}%
+\contentsline {subsection}{\numberline {.3.2}Incomprehensible messages}{68}{}%
+\contentsline {subsection}{\numberline {.3.3}Special characters}{68}{}%
+\contentsline {subsubsection}{Hashtags}{68}{}%
+\contentsline {section}{\numberline {.4}Specifications and Detailed Examples for Entity Types}{69}{}%
+\contentsline {subsection}{\numberline {.4.1}Locations}{69}{}%
+\contentsline {subsection}{\numberline {.4.2}Organizations}{69}{}%
+\contentsline {subsection}{\numberline {.4.3}Persons}{70}{}%
+\contentsline {subsection}{\numberline {.4.4}Time}{70}{}%
+\contentsline {subsection}{\numberline {.4.5}Date}{70}{}%
+\contentsline {subsection}{\numberline {.4.6}Action}{70}{}%
