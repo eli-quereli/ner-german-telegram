@@ -33,6 +33,7 @@ According to \cite{zong_information_2021}, IE technology can be classified via t
 Common examples of IE applications are news tracking, counter-terrorism, business and financial intelligence, the processing of biomedical data or scientific libraries. IE can also be utilized for applications building on entity-oriented search, for question-answering systems, or the task of text segmentation (cf. \cite{aggarwal_machine_2018}).
 
 The origins of IE dates back to the late 1970s, and its development was further accelerated in the late 1980s, when the US government financed activities to evaluate IE technology. Organized by the \textit{Defense Advanced Research Projects Agency} (DARPA), the first \textit{Message Understanding Conference} (MUC-1) took place in 1987. The conference provided standard datasets for international researchers to compete on and was held seven times between 1987 and 1997. The tasks included NER, coreference resolution, relation extraction, and slot filling, and mainly focused on text data from limited domains such as naval military intelligence, terrorist attacks, or aircraft crashes (cf. \cite[228]{zong_information_2021}). The first NER task was introduced at the Sixth Message Understanding Conference (MUC-6) in 1996. The aim was to apply information extraction technologies for largely domain independent named entity recognition. Besides recognizing the entity types person, organization, and location, the task also involved numerical expressions including time, currency, and percentage (cf. \cite{grishman_message_1996}). The corpus for the task consisted of 318 annotated articles  from the Wall Street Journal. 
+For the MUC-7 NER task, \citeauthor{muc7_ner} developed annotation guidelines which were used as a basis for several later NER tasks (cf. \cite{muc7_ner}. 
 
 By the end of the 1990s, the MUC was replaced by the \textit{Automatic Content Extraction} (ACE) meeting which put its focus on extracting more fine-grained entities, as well as entity relations, and events. There was also a shift in the data to broader news data covering political and international events. 
 
@@ -204,7 +205,7 @@ Judging from the F1 scores of the respective winning systems, the task of NER in
 
 Since it's beginnings in the 1970s, NER approaches have undergone several phases of development, parallel to the advancements in NLP technologies:  Starting with early rule-based and knowledge-based systems, the field moved on to machine-learning approaches based on feature-engineering. The development of NER systems based on neural networks, relying only on minimal feature-engineering, marked another important step forward in the field. Lately, the introduction of transformer models brought along yet another crucial advancement and achieve new state of the art performance for several NLP tasks including NER. 
 
-\subsection{Rule-based and knowledge-based approaches}
+\subsection{Rule-based and Knowledge-based Approaches}
 
 The first systems for NER relied on handcrafted rules, lexicons, orthographic features and ontologies (cf. \cite{yadav_survey_2019}). 
 
@@ -214,7 +215,7 @@ However, these approaches are limited even when a large amount of data is consid
 
 Knowledge-based approaches rely on lexicon resources and domain specific knowledge. The performance of these systems heavily depends on the exhaustiveness and completeness of the used lexicon. Here as well, the process can be rather labor-intensive because domain expert knowledge is needed for the construction and maintenance of the knowledge resources (cf.\cite{yadav_survey_2019}). 
 
-\subsection{Machine-learning based approaches}
+\subsection{Machine-learning Based Approaches}
 
 Machine-learning based approaches based on feature-engineering introduced a critical advancement for the task of NER ( cf. \cite{nadeau_survey_2007})
 
@@ -282,7 +283,7 @@ HMM is a statistical model that assumes there is an underlying, observable proce
  what about OOV words?
  
 
-\subsection{The introduction of neural networks}
+\subsection{The Introduction of Neural Networks}
 
 Deep learning: 
 "branch of machine learning that is based on artificial neural network architectures." (cf. \cite[14]{vajjala_practical_2020})
@@ -305,7 +306,7 @@ Modern neural architectures for NER can be broadly classified into categories de
 
 \paragraph{Feedforward neural networks}
 
-\subsection{Recurrent neural networks}
+\subsection{Recurrent Neural Networks}
 \paragraph{Recurrent neural networks}
 
 - language is inherently sequential

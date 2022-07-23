@@ -1,28 +1,37 @@
 \chapter*{Annotation guidelines}
 \label{cha:annotation_guide}
-some sample text
+
+Loosely based on \cite{benikova-etal-2014-nosta}, \cite{ldc_2005}, \cite{muc7_ner}, \cite{smartdata_anno}
 
 
-Based on \cite{benikova-etal-2014-nosta} and spacy
+\section{Named Entity - Basic Definition}
 
-and on: %TODO https://github.com/DFKI-NLP/smartdata-corpus/blob/master/SmartData_Corpus_Annotation_Guidelines_Feb_2018_v1.0.pdf
+Names are denominators for a single unique object in the real world. Only full noun phrases are considered as named entities. Pronouns and all other phrases can be ignored. 
+
+Named entities can consist of more than one token. Phrases only partly containing names (e.g. `deutschlandweit), or adjectives referring to entities (`euklidisch') can be ignored.
+
+Combined named entities (e.g. `Wien-Demo') should be tagged separately if possible (Wien[LOC]-Demo[ACTION]), or else tagged as the dominant entity type (here: [ACTION]) to avoid nested entities.
+
+%https://www-nlpir.nist.gov/related_projects/muc/proceedings/ne_task.html
+
+\section{Definition of Different Entity Types}
+Person (PER) - Named person. Person entities are limited to humans. A person must be a single
+individual. Fictional people can be included, as long as they’re referred to by name (e.g. Harry Potter). 
+
+Organization (ORG) - ORGANIZATION: named corporate, governmental, or other organizational entity. Organization entities are corporations, agencies, and other groups of people. Companies, agencies, institutions, newspapers, tv/radio channels, other media platforms; political parties; non-governmental organizations; political groups
+
+Location (LOC) - Name of politically or geographically defined location (cities, provinces, countries, international regions, bodies of water, mountains, etc.). Location entities are geographical entities such as geographical areas and landmasses, bodies of water, and geological formations; furthermore they are geographical regions defined by political and/or social groups. Locations also include buildings, and addresses including streets, squares, and postal codes. Countries, cities, states; continents, districts, regions, streets and squares; shopping centers, parking lots, restaurants.
+
+Date (DATE): Absolute or relative date expression. 
+
+Time (TIME): Absolute time expressions, including times of day and time codes (e.g. for video urls). 
+
+Action (ACTION): Specific type of action undertaken to express political beliefs, e.g. demonstrations, vigils, motorcades, walks in public. Specific action or event mentioned in a text, e.g. demonstrations, pickets, motorcade; (protest) walks; etc. - must not be unique entity, plural allowed
+
+Frechheit - WNUT 15: %https://docs.google.com/document/d/12hI-2A3vATMWRdsKkzDPHu5oT74_tG0-PPQ7VN0IRaw/edit
 
 
-for the sake of simplicity: no nested entities, no derived entities 
-
-Only full noun phrases are considered as named entities. Pronouns and all other phrases can be ignored. 
-
-Names are denominators for a single unique object in the real world.
-
-A named entity is a “real-world object” that’s assigned a name – for example, a person, a country, a product or a book title. (spacy) 
-
-- NEs can consist of more than one token
-- Phrases only partly containing names (deutschlandweit), or adjectives referring to entities (euklidisch) can be ignored 
-
-combined NEs, e.g. Wien-Demo -> tagged separately if possible, otherwise tagged as the dominant entity type (here Demo), to avoid nested entities
-
-
-hier wird klar wie der shift von protest forms is: Achtung Demonstration wird Abgesagt ! Wir haben als Orga Team beschlossen , das wir keine Demos mehr anmelden werden ! Wir sagen klar Nein zu den Auflagen die uns vorgegeben werden . Deshalb , neuer Termin , wir fahren nach Plauen ! Lasst uns die Freie Sachsen und den Bürgermeisterkandidaten Thomas Kaden unterstützen ! 11062021 Raus auf die Straße
+% hier wird klar wie der shift von protest forms is: Achtung Demonstration wird Abgesagt ! Wir haben als Orga Team beschlossen , das wir keine Demos mehr anmelden werden ! Wir sagen klar Nein zu den Auflagen die uns vorgegeben werden . Deshalb , neuer Termin , wir fahren nach Plauen ! Lasst uns die Freie Sachsen und den Bürgermeisterkandidaten Thomas Kaden unterstützen ! 11062021 Raus auf die Straße
 
 
 \begin{table}[]
@@ -35,13 +44,13 @@ hier wird klar wie der shift von protest forms is: Achtung Demonstration wird Ab
 \textbf{Entity type} & \textbf{Description} & \textbf{Examples} \\
 \hline 
 
-PERSON & Named person or family, including artist names, names of fictional characters, etc. & \\
+PER &  & \\
 \hline
 
-LOCATION & Countries, cities, states'; continents, districts, regions, streets and squares; shopping centers, parking lots, restaurants, 'Non-GPE locations, mountain ranges, bodies of water'; landmarks &  \\ 
+LOC &  &  \\ 
 \hline
 
-ORGANIZATION & Companies, agencies, institutions, newspapers, tv/radio channels, other media platforms; political parties; non-governmental organizations; political groups & \\ 
+ORG &  & \\ 
 \hline
 
 DATE & Absolute or relative dates & 23.09.2022 \\ 
@@ -51,11 +60,7 @@ TIME & Specific times of day, time codes & 13:10 \\
 
 \hline
 
-ACTION & Specific action or event mentioned in a text, e.g. demonstrations, pickets, motorcade; (protest) walks; etc. - must not be unique entity, plural allowed &  \\ 
-
-\hline
-
-OTHER & Other entities, e.g. religions,  nationalities, products, works of art, political spectres & \\ 
+ACTION &  &  \\ 
 
 \hline
 
@@ -63,10 +68,6 @@ OTHER & Other entities, e.g. religions,  nationalities, products, works of art, 
 \end{adjustbox}
 
 \end{table}
-
-labelstudio 
-
-IOB encoding: each word either begins, is inside, or is outside of a named entity
 
 hashtags encoding events via location and date, e.g. \#b20200809 or \#le1311 are not to be annotated, should be extracted via regex and treated separately; unsure if they are NEs? 
 

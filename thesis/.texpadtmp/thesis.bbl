@@ -62,6 +62,173 @@
     \field{urlyear}{2022}
   \endentry
 
+  \entry{akbik2018coling}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=AA}{%
+         family={Akbik},
+         familyi={A\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Blythe},
+         familyi={B\bibinitperiod},
+         given={Duncan},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=VR}{%
+         family={Vollgraf},
+         familyi={V\bibinitperiod},
+         given={Roland},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AABDVR1}
+    \strng{fullhash}{AABDVR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{booktitle}{{COLING} 2018, 27th International Conference on
+  Computational Linguistics}
+    \field{pages}{1638\bibrangedash 1649}
+    \field{title}{Contextual String Embeddings for Sequence Labeling}
+    \field{year}{2018}
+  \endentry
+
+  \entry{flair_ner}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=AA}{%
+         family={Akbik},
+         familyi={A\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Blythe},
+         familyi={B\bibinitperiod},
+         given={Duncan},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=VR}{%
+         family={Vollgraf},
+         familyi={V\bibinitperiod},
+         given={Roland},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AABDVR1}
+    \strng{fullhash}{AABDVR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{note}{(Accessed on 07/23/2022)}
+    \field{title}{flair/ner-english · Hugging Face}
+    \verb{url}
+    \verb https://huggingface.co/flair/ner-english
+    \endverb
+    \field{year}{2022}
+  \endentry
+
+  \entry{flair_ner_german_standard_model}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=AA}{%
+         family={Akbik},
+         familyi={A\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Blythe},
+         familyi={B\bibinitperiod},
+         given={Duncan},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=VR}{%
+         family={Vollgraf},
+         familyi={V\bibinitperiod},
+         given={Roland},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AABDVR1}
+    \strng{fullhash}{AABDVR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{note}{(Accessed on 07/23/2022)}
+    \field{title}{flair/ner-german · Hugging Face}
+    \verb{url}
+    \verb https://huggingface.co/flair/ner-german
+    \endverb
+    \field{year}{2022}
+  \endentry
+
+  \entry{akbik2019flair}{inproceedings}{}
+    \name{author}{6}{}{%
+      {{hash=AA}{%
+         family={Akbik},
+         familyi={A\bibinitperiod},
+         given={Alan},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BT}{%
+         family={Bergmann},
+         familyi={B\bibinitperiod},
+         given={Tanja},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Blythe},
+         familyi={B\bibinitperiod},
+         given={Duncan},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=RK}{%
+         family={Rasul},
+         familyi={R\bibinitperiod},
+         given={Kashif},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Schweter},
+         familyi={S\bibinitperiod},
+         given={Stefan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=VR}{%
+         family={Vollgraf},
+         familyi={V\bibinitperiod},
+         given={Roland},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AA+1}
+    \strng{fullhash}{AABTBDRKSSVR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{booktitle}{{NAACL} 2019, 2019 Annual Conference of the North
+  American Chapter of the Association for Computational Linguistics
+  (Demonstrations)}
+    \field{pages}{54\bibrangedash 59}
+    \field{title}{{FLAIR}: An easy-to-use framework for state-of-the-art {NLP}}
+    \field{year}{2019}
+  \endentry
+
   \entry{baldwin_shared_2015}{inproceedings}{}
     \name{author}{6}{}{%
       {{hash=BT}{%
@@ -249,6 +416,33 @@
     \field{year}{2014}
   \endentry
 
+  \entry{muc7_ner}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=CN}{%
+         family={Chinchor},
+         familyi={C\bibinitperiod},
+         given={Nancy},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CN1}
+    \strng{fullhash}{CN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1997}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{note}{(Accessed on 07/23/2022)}
+    \field{title}{MUC-7 Named Entity Task Definition}
+    \verb{url}
+    \verb https://www-nlpir.nist.gov/related_projects/muc/proceedings/ne_task.h
+    \verb tml
+    \endverb
+    \field{month}{09}
+    \field{year}{1997}
+  \endentry
+
   \entry{chinchor_nancy_message_2003}{misc}{}
     \name{author}{2}{}{%
       {{hash=CN}{%
@@ -403,6 +597,33 @@
     \endverb
     \field{journaltitle}{NATURAL LANGUAGE PROCESSING}
     \field{year}{2011}
+  \endentry
+
+  \entry{ldc_2005}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=CLD}{%
+         family={Consortium},
+         familyi={C\bibinitperiod},
+         given={Linguistic\bibnamedelima Data},
+         giveni={L\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CLD1}
+    \strng{fullhash}{CLD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2008}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{note}{(Accessed on 07/23/2022)}
+    \field{title}{ACE (Automatic Content Extraction) English Annotation
+  Guidelines for Entities version 6.6}
+    \verb{url}
+    \verb https://www.ldc.upenn.edu/sites/www.ldc.upenn.edu/files/english-entit
+    \verb ies-guidelines-v6.6.pdf
+    \endverb
+    \field{year}{2008}
   \endentry
 
   \entry{derczynski_analysis_2015}{article}{}
@@ -624,6 +845,139 @@
     \field{urlday}{19}
     \field{urlmonth}{06}
     \field{urlyear}{2022}
+  \endentry
+
+  \entry{spacy_english_md}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={ExplosionAI},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{E2}
+    \strng{fullhash}{E2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{note}{(Accessed on 07/23/2022)}
+    \field{title}{English · spaCy Models Documentation}
+    \verb{url}
+    \verb https://spacy.io/models/en#en_core_web_md
+    \endverb
+    \field{year}{2022}
+  \endentry
+
+  \entry{spacy_entity_recognizer}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={ExplosionAI},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{E2}
+    \strng{fullhash}{E2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{note}{(Accessed on 07/23/2022)}
+    \field{title}{EntityRecognizer · spaCy API Documentation}
+    \verb{url}
+    \verb https://spacy.io/api/entityrecognizer
+    \endverb
+    \field{year}{2022}
+  \endentry
+
+  \entry{spacy_facts}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={ExplosionAI},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \strng{namehash}{E2}
+    \strng{fullhash}{E2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{3}
+    \field{labeldatesource}{}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{abstract}{%
+    The hard numbers for spaCy and how it compares to other tools%
+    }
+    \field{title}{Facts \& {Figures} · {spaCy} {Usage} {Documentation}}
+    \verb{url}
+    \verb https://spacy.io/usage/facts-figures
+    \endverb
+    \verb{file}
+    \verb Snapshot:/Users/elisabeth/Zotero/storage/6BWKY7LN/facts-figures.html:
+    \verb text/html
+    \endverb
+    \field{journaltitle}{Facts \& Figures}
+    \field{year}{2022}
+    \field{urlday}{23}
+    \field{urlmonth}{07}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{spacy_german_md}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={ExplosionAI},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{E2}
+    \strng{fullhash}{E2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{4}
+    \field{labeldatesource}{}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{note}{(Accessed on 07/23/2022)}
+    \field{title}{German · spaCy Models Documentation}
+    \verb{url}
+    \verb https://spacy.io/models/de#de_core_news_md
+    \endverb
+    \field{year}{2022}
+  \endentry
+
+  \entry{spacy_transition_based_parser}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={ExplosionAI},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{E2}
+    \strng{fullhash}{E2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{5}
+    \field{labeldatesource}{}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{note}{(Accessed on 07/23/2022)}
+    \field{title}{TransitionBasedParser · spaCy API Documentation}
+    \verb{url}
+    \verb https://spacy.io/api/architectures#TransitionBasedParser
+    \endverb
+    \field{year}{2022}
   \endentry
 
   \entry{grishman_message_1996}{inproceedings}{}
@@ -868,6 +1222,142 @@
     \field{urlyear}{2022}
   \endentry
 
+  \entry{nothman_learning_2013}{article}{}
+    \name{author}{5}{}{%
+      {{hash=NJ}{%
+         family={Nothman},
+         familyi={N\bibinitperiod},
+         given={Joel},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RN}{%
+         family={Ringland},
+         familyi={R\bibinitperiod},
+         given={Nicky},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=RW}{%
+         family={Radford},
+         familyi={R\bibinitperiod},
+         given={Will},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=MT}{%
+         family={Murphy},
+         familyi={M\bibinitperiod},
+         given={Tara},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=CJR}{%
+         family={Curran},
+         familyi={C\bibinitperiod},
+         given={James\bibnamedelima R.},
+         giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \keyw{Annotated corpora, Information extraction, Named entity recognition,
+  Semi-structured resources, Semi-supervised learning, Wikipedia}
+    \strng{namehash}{NJ+1}
+    \strng{fullhash}{NJRNRWMTCJR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{labeldatesource}{}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.artint.2012.03.006
+    \endverb
+    \field{issn}{0004-3702}
+    \field{pages}{151\bibrangedash 175}
+    \field{title}{Learning multilingual named entity recognition from
+  {Wikipedia}}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0004370212000276
+    \endverb
+    \field{volume}{194}
+    \field{journaltitle}{Artificial Intelligence}
+    \field{year}{2013}
+  \endentry
+
+  \entry{pennington2014glove}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=PJ}{%
+         family={Pennington},
+         familyi={P\bibinitperiod},
+         given={Jeffrey},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Socher},
+         familyi={S\bibinitperiod},
+         given={Richard},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=MCD}{%
+         family={Manning},
+         familyi={M\bibinitperiod},
+         given={Christopher\bibnamedelima D.},
+         giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PJSRMCD1}
+    \strng{fullhash}{PJSRMCD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{labeldatesource}{}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{booktitle}{Empirical Methods in Natural Language Processing (EMNLP)}
+    \field{pages}{1532\bibrangedash 1543}
+    \field{title}{GloVe: Global Vectors for Word Representation}
+    \verb{url}
+    \verb http://www.aclweb.org/anthology/D14-1162
+    \endverb
+    \field{year}{2014}
+  \endentry
+
+  \entry{ontonotes5}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=RWMMEHSPLRNXATJKMFMEBRBAHMP}{%
+         family={Ralph\bibnamedelima Weischedel},
+         familyi={R\bibinitperiod\bibinitdelim W\bibinitperiod},
+         suffix={Martha\bibnamedelima Palmer},
+         suffixi={M\bibinitperiod\bibinitdelim P\bibinitperiod},
+         given={Mitchell Marcus Eduard Hovy Sameer Pradhan Lance Ramshaw
+  Nianwen Xue Ann Taylor Jeff Kaufman Michelle Franchini Mohammed El-Bachouti
+  Robert Belvin Ann\bibnamedelima Houston},
+         giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim
+  E\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim
+  S\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim
+  L\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim
+  N\bibinitperiod\bibinitdelim X\bibinitperiod\bibinitdelim
+  A\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
+  J\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim
+  M\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim
+  M\bibinitperiod\bibinitdelim E\bibinithyphendelim
+  B\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim
+  B\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RWMPMMEHSPLRNXATJKMFMEBRBAH1}
+    \strng{fullhash}{RWMPMMEHSPLRNXATJKMFMEBRBAH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{labeldatesource}{}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{note}{(Accessed on 07/23/2022)}
+    \field{title}{OntoNotes Release 5.0 - Linguistic Data Consortium}
+    \verb{url}
+    \verb https://catalog.ldc.upenn.edu/LDC2013T19
+    \endverb
+    \field{month}{10}
+    \field{year}{2013}
+  \endentry
+
   \entry{ritter_2011}{inproceedings}{}
     \name{author}{4}{}{%
       {{hash=RA}{%
@@ -928,6 +1418,38 @@
     }
     \field{year}{2011}
     \warn{\item Can't use 'location' + 'address'}
+  \endentry
+
+  \entry{smartdata_anno}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=SSVMLHAGPTSK}{%
+         family={Saskia\bibnamedelima Schön},
+         familyi={S\bibinitperiod\bibinitdelim S\bibinitperiod},
+         suffix={Sebastian\bibnamedelima Krause},
+         suffixi={S\bibinitperiod\bibinitdelim K\bibinitperiod},
+         given={Veselina Mironova Leonhard Hennig Aleksandra Gabryszak
+  Philippe\bibnamedelima Thomas},
+         giveni={V\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim
+  L\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim
+  A\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim
+  P\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SSSKVMLHAGPT1}
+    \strng{fullhash}{SSSKVMLHAGPT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{note}{(Accessed on 07/23/2022)}
+    \field{title}{DFKI Annotation Guidelines, Version 1.0}
+    \verb{url}
+    \verb https://github.com/DFKI-NLP/smartdata-corpus/blob/master/SmartData_Co
+    \verb rpus_Annotation_Guidelines_Feb_2018_v1.0.pdf
+    \endverb
+    \field{year}{2018}
   \endentry
 
   \entry{schiersch_2018}{inproceedings}{}
