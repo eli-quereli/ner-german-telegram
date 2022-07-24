@@ -77,16 +77,17 @@
 \contentsline {section}{\numberline {6.2}Discussion}{55}{}%
 \contentsline {chapter}{Bibliography}{61}{}%
 \contentsline {section}{\numberline {.1}Named Entity - Basic Definition}{66}{}%
-\contentsline {section}{\numberline {.2}Definition of Different Entity Types}{66}{}%
-\contentsline {section}{\numberline {.3}Specifications}{68}{}%
-\contentsline {subsection}{\numberline {.3.1}Mixed-language messages}{68}{}%
-\contentsline {subsection}{\numberline {.3.2}Incomprehensible messages}{68}{}%
-\contentsline {subsection}{\numberline {.3.3}Special characters}{68}{}%
-\contentsline {subsubsection}{Hashtags}{68}{}%
-\contentsline {section}{\numberline {.4}Specifications and Detailed Examples for Entity Types}{69}{}%
-\contentsline {subsection}{\numberline {.4.1}Locations}{69}{}%
-\contentsline {subsection}{\numberline {.4.2}Organizations}{69}{}%
-\contentsline {subsection}{\numberline {.4.3}Persons}{70}{}%
-\contentsline {subsection}{\numberline {.4.4}Time}{70}{}%
-\contentsline {subsection}{\numberline {.4.5}Date}{70}{}%
-\contentsline {subsection}{\numberline {.4.6}Action}{70}{}%
+\contentsline {section}{\numberline {.2}Definition of Different Entity Types}{67}{}%
+\contentsline {section}{\numberline {.3}Specifications}{67}{}%
+\contentsline {subsection}{\numberline {.3.1}Mixed-language messages}{67}{}%
+\contentsline {subsection}{\numberline {.3.2}Incomprehensible messages}{69}{}%
+\contentsline {subsection}{\numberline {.3.3}Short messages}{69}{}%
+\contentsline {subsection}{\numberline {.3.4}Punctuation}{69}{}%
+\contentsline {subsubsection}{Hashtags}{69}{}%
+\contentsline {section}{\numberline {.4}Detailed Annotation Instructions for Entity Types}{70}{}%
+\contentsline {subsection}{\numberline {.4.1}PERSON}{70}{}%
+\contentsline {subsection}{\numberline {.4.2}LOCATION}{71}{}%
+\contentsline {subsection}{\numberline {.4.3}ORGANIZATION}{72}{}%
+\contentsline {subsection}{\numberline {.4.4}TIME}{73}{}%
+\contentsline {subsection}{\numberline {.4.5}DATE}{73}{}%
+\contentsline {subsection}{\numberline {.4.6}ACTION}{74}{}%

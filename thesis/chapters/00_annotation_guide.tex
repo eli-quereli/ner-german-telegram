@@ -1,249 +1,248 @@
 \chapter*{Annotation guidelines}
 \label{cha:annotation_guide}
 
-Loosely based on \cite{benikova-etal-2014-nosta}, \cite{ldc_2005}, \cite{muc7_ner}, \cite{smartdata_anno}
+The following annotation guidelines are a combined adaptation of \cite{benikova-etal-2014-nosta}, \cite{ldc_2005}, \cite{muc7_ner}, and \cite{smartdata_anno}.
 
 
 \section{Named Entity - Basic Definition}
 
 Names are denominators for a single unique object in the real world. Only full noun phrases are considered as named entities. Pronouns and all other phrases can be ignored. 
+Phrases only partly containing names (e.g. `deutschlandweit), or adjectives referring to entities (`euklidisch') can be ignored.
 
-Named entities can consist of more than one token. Phrases only partly containing names (e.g. `deutschlandweit), or adjectives referring to entities (`euklidisch') can be ignored.
+\noindent Only one entity type per token should be annotated. In case of multiple options (e.g. `Charité' could be referred to as organization or as location, same for `Landtag' or `Bundestag'), the context of usage should be considered for the final classification. 
 
-Combined named entities (e.g. `Wien-Demo') should be tagged separately if possible (Wien[LOC]-Demo[ACTION]), or else tagged as the dominant entity type (here: [ACTION]) to avoid nested entities.
+\noindent Named entities can consist of more than one token. The inital token of an entity should be tagged with the B-label of the corresponding entity type. The following tokens belonging to the same entity should be labelled with the I-label of the same type. For 
 
-WHITESPACE: Not labelled
+\noindent Combined named entities including different entity types (e.g. `Wien-Demo') should be tagged separately if possible (Wien[LOC]-Demo[ACTION]), or else tagged as the dominant entity type (here: [ACTION]) to avoid nested entities.
 
-ONLY NOUNS: No verbs can be entities (Spaziergang vs spazieren gehen), dates and times can be represented by numbers and strings. 
+\noindent Whitespace should not be labelled as part of an entity. Token separators such aus /, - or . should be included if they are inside an entity sequence, and excluded if they separate two different entities, or an entity and a non-entity token. Hashtags should be included in the labeled span. 
 
+\noindent Dates and times can be represented by numbers (31.10.2019, 16:00), and strings ('Morgen', 'Uhr'). 
 
-%https://www-nlpir.nist.gov/related_projects/muc/proceedings/ne_task.html
+\noindent Emoticons, user mentions and (parts of) urls should not be tagged as named entities. 
 
 \section{Definition of Different Entity Types}
-Person (PER) - Named person. Person entities are limited to humans. A person must be a single
-individual. Fictional people can be included, as long as they’re referred to by name (e.g. Harry Potter). 
+For annotation, the the 6 entity types PERSON, LOCATION, ORGANIZATION, DATE, TIME, and ACTION are used. The label set consists of B-tag and 
+I-tag for each entity type, resulting in a total of 12 labels. 
 
-Organization (ORG) - ORGANIZATION: named corporate, governmental, or other organizational entity. Organization entities are corporations, agencies, and other groups of people. Companies, agencies, institutions, newspapers, tv/radio channels, other media platforms; political parties; non-governmental organizations; political groups
-
-Location (LOC) - Name of politically or geographically defined location (cities, provinces, countries, international regions, bodies of water, mountains, etc.). Location entities are geographical entities such as geographical areas and landmasses, bodies of water, and geological formations; furthermore they are geographical regions defined by political and/or social groups. Locations also include buildings, and addresses including streets, squares, and postal codes. Countries, cities, states; continents, districts, regions, streets and squares; shopping centers, parking lots, restaurants.
-
-Date (DATE): Absolute or relative date expression. 
-
-Time (TIME): Absolute time expressions, including times of day and time codes (e.g. for video urls). 
-
-Action (ACTION): Specific type of action undertaken to express political beliefs, e.g. demonstrations, vigils, motorcades, walks in public. Specific action or event mentioned in a text, e.g. demonstrations, pickets, motorcade; (protest) walks; etc. - must not be unique entity, plural allowed
-
-Frechheit - WNUT 15: %https://docs.google.com/document/d/12hI-2A3vATMWRdsKkzDPHu5oT74_tG0-PPQ7VN0IRaw/edit
+ref{tab:entity_types} shows the core definitions and examples for 
+%Person (PER) - An entity of type person refers to a named, single individual. Person entities are limited to humans. Fictional persons can be included, as long as they’re referred to by name (e.g. Harry Potter). 
+%Organization (ORG) - An organization refers to a named corporate, governmental, or other organizational entity. Organization entities can be corporations, agencies, institutions, newspapers, tv/radio channels, other media platforms, political parties, non-governmental organizations, and other groups of people who are to some extent organized formally or informally.
+%Location (LOC) - Location entities are names of politically or geographically defined locations. This incluseds countries, provinces, regions, cities, districts, addresses including streets, squares, and postal codes, (named) buildings, shopping centers, parking lots, or restaurants.
+%Date (DATE): Date entities are absolute or relative date expression. 
+%Time (TIME): Time entities are absolute time expressions, including times of day and time codes (e.g. for video urls). 
+%Action (ACTION): Action entities refer to a specific instance of an action or event undertaken to express political beliefs, e.g. demonstrations, vigils, motorcades, walks in public. 
 
 
-% hier wird klar wie der shift von protest forms is: Achtung Demonstration wird Abgesagt ! Wir haben als Orga Team beschlossen , das wir keine Demos mehr anmelden werden ! Wir sagen klar Nein zu den Auflagen die uns vorgegeben werden . Deshalb , neuer Termin , wir fahren nach Plauen ! Lasst uns die Freie Sachsen und den Bürgermeisterkandidaten Thomas Kaden unterstützen ! 11062021 Raus auf die Straße
+% TODO in intro verschieben  hier wird klar wie der shift von protest forms is: Achtung Demonstration wird Abgesagt ! Wir haben als Orga Team beschlossen , das wir keine Demos mehr anmelden werden ! Wir sagen klar Nein zu den Auflagen die uns vorgegeben werden . Deshalb , neuer Termin , wir fahren nach Plauen ! Lasst uns die Freie Sachsen und den Bürgermeisterkandidaten Thomas Kaden unterstützen ! 11062021 Raus auf die Straße
 
-
-\begin{table}[]
-\caption{Annotation scheme: Entity types}
+\begin{table}[htp]
+\caption{Definition of Entity types}
 \label{tab:entity_types}
 \centering
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{p{0.25\linewidth}|p{0.65\linewidth}|p{0.65\linewidth}}
-
-\textbf{Entity type} & \textbf{Description} & \textbf{Examples} \\
+\begin{tabular}{|p{0.12\linewidth}|p{0.7\linewidth}|p{0.4\linewidth}|}
+\hline
+\textbf{Label} & \textbf{Description} & \textbf{Examples} \\
 \hline 
 
-PER &  & \\
+PER 
+& Named, single individual, limited to humans. Fictional persons can be included, as long as they’re referred to by name. 
+& Karl Lauterbach, Merkel, Harry Potter, Kretscher, Karl Hilz, Markus
+\\
 \hline
-
-LOC &  &  \\ 
+LOC 
+& Names of politically or geographically defined locations, including countries, provinces, regions, cities, districts, addresses including streets, squares, and postal codes, (named) buildings or other man-made structures, shopping centers, parking lots, or restaurants, cardinal points. No metaphorical locations.
+& Deutschland, Frankreich, \#BW, Berlin, Bundestag, Restaurant Walliserkanne, Straße des 17. Juni, Neptunbrunnen, Alex, Nollendorfplatz, Norden, Süden, Hellersdorf
+ \\ 
 \hline
-
-ORG &  & \\ 
+ORG 
+& A named corporate, governmental, or other organizational entity: Organization entities can be corporations, agencies, institutions, newspapers, tv/radio channels, other media platforms, political parties, non-governmental organizations, and political groups with a formal or informal organizational structure.
+ & ARD, Polizei Berlin, Youtube, Telegram, Amadeu Antonio Stiftung, Querdenken711, Antifa, Bundesregierung, Gesundheitsamt, Französische Polizei, Facebook, Google, Bill Gates Foundation, KSV LiLi, FC St. Pauli, SGD-Ultras, Bündnis21 Hessen, Polizei, Polizeipräsidium Pforzheim
+ \\ 
 \hline
-
-DATE & Absolute or relative dates & 23.09.2022 \\ 
+DATE 
+& Absolute or relative date expressions 
+& 23.09.2022, 20210930, 3108, Morgen, Heute, 2019, \#Sa2011 \\ 
 \hline
-
-TIME & Specific times of day, time codes & 13:10 \\ 
-
+TIME 
+& Specific, absolute time expressions referring to times of day, and time codes. 
+& 13:10, 13:12 Uhr, 16 Uhr, 6:49 \\ 
 \hline
-
-ACTION &  &  \\ 
-
+ACTION 
+& A specific instance of an action or event undertaken to express political beliefs, e.g. demonstrations, vigils, motorcades, walks in public.  
+& Kundgebung, Demo, Demonstration, Spaziergang, Aufzug, Aufzug RufderTrommeln \\ 
 \hline
-
 \end{tabular}
 \end{adjustbox}
-
 \end{table}
 
 \section{Specifications}
 
 \subsection{Mixed-language messages}
+Skip mixed-language in which the actual message is non-German language.\\
 
-Mixed-language where actual message is non-German language should be skipped. 
+\noindent\textbf{Examples:}
 
-Examples:
-We are angry and pissed off - Raus auf die Straße \@Demotermine!
-Brilliant numbers in Carlisle ! Raus auf die Straßen @Demotermine
+\begin{itemize}
+	\item \textit{We are angry and pissed off - Raus auf die Straße \@Demotermine!}
+	\item \textit{Brilliant numbers in Carlisle ! Raus auf die Straßen @Demotermine}
+	\item \textit{MASSIMA DIFFUSIONE http://t.me/stopdittatura/1930 Raus auf die Straßen @Demotermine}
+\end{itemize}
 
 \subsection{Incomprehensible messages}
-Incomprehensible message should be skipped. 
+Skip incomprehensible messages.\\
 
-Example: 
-Sterne-Restaurant Walliserkanne . Naudreck . Bersets faule Tricks . Uniarzt panikfrei . Herzmuskel .  Neuer Beitrag \#Walliserkanne Raus auf die Straßen \@Demotermine! Übersicht / Overview
+\noindent\textbf{Example:} \textit{``Sterne-Restaurant Walliserkanne . Naudreck . Bersets faule Tricks . Uniarzt panikfrei . Herzmuskel .  Neuer Beitrag \#Walliserkanne Raus auf die Straßen \@Demotermine! Übersicht / Overview''}
 
-\subsection{Special characters}
-SPECIAL CHARS: Only label if in the middle of sequence representing an an entity
+\subsection{Short messages}
+Skip short messages which do not include at least two named entities.\\ 
 
-Examples:
-Donnerstag[B-DATE] ,[I-DATE] 17.04.2020[I-DATE]
+\noindent\textbf{Examples:}
+\begin{itemize}
+	\item \textit{``\@AnwaelteFuerAufklaerung \@Demotermine''}
+	\item \textit{``Egal wo ihr diesen , oder die kommenden Samstage seid ! \@RheinCandleLight \@Demotermine''}
+\end{itemize}
+
+\subsection{Punctuation}
+Punctutaion should only be included in the tag if they appear in the middle of sequence representing an entity.\\
+
+\noindent\textbf{Example}: \textit{Donnerstag[B-DATE] ,[I-DATE] 17.04.2020[I-DATE]}
 
 \subsubsection{Hashtags}
-HASHTAGS - If hashtag -> include
-Examples:
-\#Berlin[B-ORG]
-\#BW[B-ORG]
-\#CH[B-ORG]
-\#Hardy[B-PER] Groeneveld[I-PER]
-\#Mutigmacher[B-ORG]n
+If a hashtag is part of a named entity, it should be included in the tag.\\
 
-\section{Specifications and Detailed Examples for Entity Types}
+\noindent\textbf{Examples:}
+\begin{itemize}
+	\item \#Berlin[B-ORG]
+	\item \#BW[B-ORG]
+	\item \#CH[B-ORG]
+	\item \#Hardy[B-PER] Groeneveld[I-PER]
+	\item \#Mutigmacher[B-ORG]
+\end{itemize}
 
-\subsection{Locations}
-LOCATION
-Alex, Nollendorfplatz
-Norden
-Hellersdorf
-Berlin
-Deutschland
-Frankreich
-Bundestag
+\noindent If a hashtag is part of a sequence combining two named entities, it should be included in the tag for the first entity.\\
 
-No derived location-words: 
-Kreuzberger[O] Nächte[O]
-Combined locations
- e.g. streets or routes -> B-LOC, I-LOC, incuding special chars (e.g. , - . /)
+\textbf{Example:} \#be[B-LOC]2908[B-DATE]
+	
+\section{Detailed Annotation Instructions for Entity Types}
 
-Examples: 
-Straße[B-LOC] des[I-LOC] 17.[I-LOC] Juni[I-LOC]
-Bad[B-LOC] Oldesloe[I-LOC]
-Elbe[B-LOC] Elster[I-LOC]
-Bremen[B-LOC]-Vegesack[I-LOC]
-Königstraße[B-LOC] Richtung[I-LOC] HBF[I-LOC]
-Bernauer[B-LOC] Str[I-LOC] Richtung[I-LOC] Süden[I-LOC]
-Marktoberdorf[B-LOC] -[I-LOC] Kaufbeuren[I-LOC]-Neugablonz[I-LOC]
-Lutherstadt[B-LOC] Wittenberg[I-LOC]
-D-67454[B-LOC] Haßloch[I-LOC]
-Landeplatz[B-LOC] Grießkirchen[I-LOC]
-Google[B-LOC] center[I-LOC]
-Stuttgarter[B-LOC] Landtag[I-LOC]
+\subsection{PERSON}
+Person names can consist of given name and last name, or only first / only last name. Titles (e.g. Dr.) and forms of address (Herr, Frau) should not be annotated.  
 
-ABER:
-Berlin[B-LOC] Neptunbrunnen[B-LOC]
+\noindent\textbf{Examples:}
+\begin{itemize}
+	\item \textit{Scholz[B-PER]}
+	\item \textit{Carolin[B-PER] Matthie[I-PER]}
+	\item \textit{Merkel[B-PER]}
+	\item \textit{Anselm[B-PER] Lenz[I-PER]}
+	\item \textit{Karl[B-PER]}
+\end{itemize}
 
+\subsection{LOCATION}
+Do not label derived location words (e.g. \textit{Kreuzberger Nächte} as location. 
 
-Combined location and date hashtag: 
-\#b[B-LOC]2908[B-DATE]
-
-Metaphorical locations:  not labeled
-e.g. Berliner[O] Regenwald[O]
-
-\subsection{Organizations}
-ORGANIZATION
-Bundesregierung[B-ORG
-Gesundheitsamt[B-ORG
-Französische[B-ORG] Polizei[I-ORG]
-Facebook[B-ORG]
-Telegram[B-ORG]
-Google[B-ORG]
-Bill[B-ORG]  Gates[I-ORG] Foundation[I-ORG]
-ARD[B-ORG]
-KSV[B-ORG] LiLi[I-ORG]
-FC[B-ORG] St.[I-ORG] Pauli[I-ORG]
-SGD[B-ORG]-Ultras[I-ORG]
-Bündnis21[B-ORG] Hessen[I-ORG]
-Polizei[B-ORG]
-Polizeipräsidium[B-ORG] Pforzheim[I-ORG]
+If a a sequence contains a number of tokens representing a location entity (e.g. an address), use the B-tag for the initial token and the I-tag for all succeeding tokens belonging to the same entity, including special characters such as , - . or /. The sequence should be long enough to create a representation of an entity which can be understood without the succeeding tokens.\\
+ 
+\noindent\textbf{Examples:}
+\begin{itemize}
+	\item \textit{Straße[B-LOC] des[I-LOC] 17.[I-LOC] Juni[I-LOC]}
+	\item \textit{Bad[B-LOC] Oldesloe[I-LOC]}
+	\item \textit{Elbe[B-LOC] Elster[I-LOC]}
+	\item \textit{Bremen[B-LOC]-Vegesack[I-LOC]}
+	\item \textit{Lutherstadt[B-LOC] Wittenberg[I-LOC]}
+	\item \textit{Landeplatz[B-LOC] Grießkirchen[I-LOC]}
+	\item \textit{Google[B-LOC] center[I-LOC]}
+	\item \textit{Stuttgarter[B-LOC] Landtag[I-LOC]}
+	\item NOTE: \textit{Berlin[B-LOC] Neptunbrunnen[B-LOC]}
+\end{itemize}
 
 
-ORG vs. LOC? -> LOC 
+\noindent If the sequence contains a specification of the location, include the specification using the I-tags. 
 
-Examples: 
-Landtag[B-LOC]
-Charité[B-LOC]
-Charité[B-LOC] krankenhaus[I-LOC]
-
-
-
-\subsection{Persons}
-PERSON 
-Scholz[B-PER]
-Carolin[B-PER] Matthie[I-PER]
-Anselm[B-PER] Lenz[I-PER]
-Karl[B-PER]
-Merkel[B-PER]s
-
-\subsection{Time}
-TIME 
-Times of day: 
-15:00[B-TIME]
-17:00[B-TIME] Uhr[I-TIME]
-
-Time codes after URLS, eg. www.example.com 00:30[B-TIME]
-
-Relative time values: 
-Mittag[B-DATE]
-15:30[B-TIME] -[I-TIME] 19:30[I-TIME]
-
-\subsection{Date}
-DATE
-2019[B-DATE]
-13.12.21[B-DATE]
-2.7.21[B-DATE]
-31. [B-DATE] JULI[I-DATE]
-01122020[B-DATE]
-Pfingstmontag[B-DATE]
-HEUTE[B-DATE]
+\noindent\textbf{Examples:}
+\begin{itemize}
+	\item \textit{Königstraße[B-LOC] Richtung[I-LOC] HBF[I-LOC]}
+	\item \textit{Bernauer[B-LOC] Str[I-LOC] Richtung[I-LOC] Süden[I-LOC]}
+	\item \textit{Marktoberdorf[B-LOC]-Kaufbeuren[I-LOC]-Neugablonz[I-LOC]}
+	\item \textit{Bremen[B-LOC]-Vegesack[I-LOC]}
+	\item \textit{D-67454[B-LOC] Haßloch[I-LOC]}
+\end{itemize}
 
 
-Combined dates / periods
- -> B-DATE, I-DATE
-Examples: 
-17042021[B-DATE] –[I-DATE] 21042021[I-DATE]
-28. [B-DATE]+ [I-DATE] 29.8. [I-DATE]
+\subsection{ORGANIZATION}
+If a a sequence contains a number of tokens representing an organization entity, use the B-tag for the initial token and the I-tag for all succeeding tokens belonging to the same entity, including special characters such as , - . or /. The sequence should be long enough to create a representation of an entity which can be understood without the succeeding tokens.\\
+
+\noindent\textbf{Examples:}
+\begin{itemize}
+	\item \textit{Bundesregierung[B-ORG]}
+	\item \textit{Gesundheitsamt[B-ORG]}
+	\item \textit{Französische[B-ORG] Polizei[I-ORG]}
+	\item \textit{Google[B-ORG]}
+	\item \textit{Bill[B-ORG]  Gates[I-ORG] Foundation[I-ORG]}
+	\item \textit{KSV[B-ORG] LiLi[I-ORG]}
+	\item \textit{FC[B-ORG] St.[I-ORG] Pauli[I-ORG]}
+	\item \textit{Bündnis21[B-ORG] Hessen[I-ORG]}
+	\item \textit{Polizeipräsidium[B-ORG] Pforzheim[I-ORG]}
+\end{itemize}
 
 
-\subsection{Action}
-ACTION
-Angriff-B
-Demo-B
-Autokorso-B
-Offenes-B Treffen-I
-Aufzug
-Zug
-Plakate
-Infostände
-Informationstouren
-Anti[B]-Corona[I]-Proteste[I]
-Protestzug
-Spaziergänge
-Querdenker[B-ORG]-Demo[B-ACTION]
-Korso[B-ACTION] Nord[I-ACTION]
-\#kidsfreedomday[B-ORG]
-Gedenken
-Aktionswoche
-Wahlkampf
-Live-Stream
+\subsection{TIME}
+Time expressions can include specific times of day and time codes (usually appearing after URLs. Sequences denoting a time span / duration should be annotated with the B-tag for the initial token and I-tags for the succeeding tokens.\\ 
 
-Not labeled, to imprecise:
-Super Aktion[O] in Bönnigheim[B-LOC]
+\noindent\textbf{Examples.}
+\begin{itemize}
+	\item \textit{15:00[B-TIME]}
+	\item \textit{17:00[B-TIME] Uhr[I-TIME]}
+	\item \textit{www.example.com[O] 00:30[B-TIME]}
+	\item \textit{Mittag[B-DATE]}
+	\item \textit{15:30[B-TIME] -[I-TIME] 19:30[I-TIME]}
+\end{itemize}
 
+\subsection{DATE}
+Date expressions can be numeric values or strings. Sequences denoting a date spanshould be annotated with the B-tag for the initial token and I-tags for the succeeding tokens.\\ 
 
-ACTION-LOCATION
-Demo[B-ACTION]-[O]Berlin[B-LOC]
-separately; unsure if they are NEs? 
-
-
-
+\noindent\textbf{Examples:}
+\begin{itemize}
+	\item \textit{2019[B-DATE]}
+	\item \textit{14.12.21[B-DATE]}
+	\item \textit{2.7.21[B-DATE]}
+	\item \textit{31. [B-DATE] JULI[I-DATE]}
+	\item \textit{01122020[B-DATE]}
+	\item \textit{Pfingstmontag[B-DATE]}
+	\item \textit{HEUTE[B-DATE]}
+	\item \textit{3108[B-DATE]}
+	\item \textit{201905[B-DATE]}
+	\item \textit{2019/03/05[B-DATE]}
+	\item \textit{28. [B-DATE]+ [I-DATE] 29.8. [I-DATE]}
+	\item \textit{17042021[B-DATE] –[I-DATE] 21042021[I-DATE]}
+\end{itemize}
 
 
-hashtags encoding events via location and date, e.g. \#b20200809 or \#le1311 are not to be annotated, should be extracted via regex and treated separately; unsure if they are NEs? 
+\subsection{ACTION}
+Actions represent unique real-world events or actions. They must not necessarily be named, but be identifiable as unique object in the context in which they are mentioned. Also, the type of action should be expressed.\\
+
+\noindent\textbf{Examples:}
+\begin{itemize}
+	\item \textit{Angriff[B-ACTION]}
+	\item \textit{Demo-B}
+	\item \textit{Autokorso[B-ACTION]}
+	\item \textit{Offenes[B-ACTION] Treffen[I-ACTION]}
+	\item \textit{Aufzug[B-ACTION] RufderTrommeln[I-ACTION]}
+	\item \textit{Zug[B-ACTION]}
+	\item \textit{Plakate[B-ACTION]}
+	\item \textit{Infostände[B-ACTION]}
+	\item \textit{Informationstouren[B-ACTION]}
+	\item \textit{Anti[B-ACTION]-Corona[I-ACTION]-Proteste[I-ACTION]}
+	\item \textit{Protestzug[B-ACTION]}
+	\item \textit{Spaziergänge[B-ACTION]}
+	\item \textit{Querdenker[B-ORG]-Demo[B-ACTION]}
+	\item \textit{Korso[B-ACTION] Nord[I-ACTION]}
+	\item \textit{Gedenken[B-ACTION]}
+	\item \textit{Aktionswoche[B-ACTION]}
+	\item \textit{Wahlkampf[B-ACTION]}
+	\item \textit{Live-Stream[B-ACTION]}
+\end{itemize}
+
+
 
