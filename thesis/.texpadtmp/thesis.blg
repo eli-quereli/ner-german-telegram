@@ -1033,45 +1033,45 @@ Name 1 in "Schön, Saskia, and Krause, Sebastian and Mironova, Veselina and Henn
 while executing---line 2815 of file biblatex.bst
 Name 1 in "Schön, Saskia, and Krause, Sebastian and Mironova, Veselina and Hennig, Leonhard and Gabryszak, Aleksandra and Thomas, Philippe" has a comma at the end for entry smartdata_anno
 while executing---line 2815 of file biblatex.bst
-You've used 42 entries,
+You've used 43 entries,
             6399 wiz_defined-function locations,
-            1504 strings with 28646 characters,
-and the built_in function-call counts, 433555 in all, are:
-= -- 34863
-> -- 9265
-< -- 1916
-+ -- 15724
-- -- 5459
-* -- 30578
-:= -- 51300
+            1511 strings with 29953 characters,
+and the built_in function-call counts, 443774 in all, are:
+= -- 35695
+> -- 9466
+< -- 2001
++ -- 16047
+- -- 5526
+* -- 31252
+:= -- 52347
 add.period$ -- 0
-call.type$ -- 42
-change.case$ -- 991
-chr.to.int$ -- 472
-cite$ -- 82
-duplicate$ -- 43875
-empty$ -- 35990
-format.name$ -- 3187
-if$ -- 84069
+call.type$ -- 43
+change.case$ -- 1050
+chr.to.int$ -- 478
+cite$ -- 84
+duplicate$ -- 44990
+empty$ -- 36797
+format.name$ -- 3276
+if$ -- 86190
 int.to.chr$ -- 0
-int.to.str$ -- 136
+int.to.str$ -- 140
 missing$ -- 0
-newline$ -- 1922
-num.names$ -- 2372
-pop$ -- 15516
+newline$ -- 1970
+num.names$ -- 2466
+pop$ -- 15888
 preamble$ -- 1
-purify$ -- 1269
+purify$ -- 1336
 quote$ -- 0
-skip$ -- 9215
+skip$ -- 9554
 stack$ -- 0
-substring$ -- 66070
-swap$ -- 8529
-text.length$ -- 1385
-text.prefix$ -- 41
+substring$ -- 67436
+swap$ -- 8775
+text.length$ -- 1423
+text.prefix$ -- 42
 top$ -- 1
-type$ -- 1415
+type$ -- 1449
 warning$ -- 0
-while$ -- 5989
+while$ -- 6123
 width$ -- 0
-write$ -- 1881
+write$ -- 1928
 (There were 502 error messages)

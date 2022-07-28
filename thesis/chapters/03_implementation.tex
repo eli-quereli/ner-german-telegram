@@ -4,16 +4,14 @@
 \section{Building a Domain-specific Dataset: The Telegram Corpus}
 \label{sec:data}
 
-For the creation of a dataset suitable for the aim of this thesis, the Telegram channel `Demotermine' (\textit{Demo dates}) was selected. 
+For the creation of a dataset suitable for the aim of this thesis, the Telegram channel `Demotermine' (Demo dates) was selected. 
 
-The channel was selected because a prior qualitative exploration of sample messages indicated that its content consists mainly of information about and mobilization for demonstrations and others forms of protests against the German COVID-19 containment measures and could thus be expected to contain a lot of entities of the types relevant for the aim of this thesis.  
-The focus of the channel is also reflected in the extended channel name `Demo-Termine \& Kontakte, Gleichgesinnte treffen - Demokalender, Spaziergänge, Mahnwachen, Meditation *Rücktritt Bundesregierung!' (\textit{Demo dates \& contacts, meet like-minded - Demo calendar, walks, vigils, meditation *resignation federal government!}). 
+The channel was chosen because a prior qualitative exploration in the context of the research prject `Digitaler Hass'\footnote{https://www.digitalerhass.de/} revealed that its content consists mainly of information about and mobilization for demonstrations and others forms of protests against the German COVID-19 containment measures. The extended channel name `Demo-Termine \& Kontakte, Gleichgesinnte treffen - Demokalender, Spaziergänge, Mahnwachen, Meditation *Rücktritt Bundesregierung!' (Demo dates \& contacts, meet like-minded - Demo calendar, walks, vigils, meditation *resignation federal government!) also reflects this focus. The channel is thus a promising source of text data containing a lot of entities relevant for the aim of this thesis.
 
 % channel-info: ``Wir Demokraten wollen miteinander in Kontakt bleiben @DemotermineChat und uns im Bedarfsfall möglichst schnell austauschen, Beweise in Wort, Bild und Ton sichern, damit sie nicht unterschlagen werden können @LivestreamsFuerDich! @Terminverteiler\_Bot'
 
-The channel was part of a network investigated by IDZ Jena, and in the context of the research project `Digitaler Hass', data from the channel was collected including messages from the start of the channel until December 19, 2021. 
-
-By the beginning of June 2022, the channel had around 52.900 subscribers.
+\subsection{Exploratory Data Analysis}
+The data collected includes messages from the start of the channel until December 19, 2021. By the beginning of June 2022, the channel had around 52.900 subscribers.
 
 The dates of the collected messages range between March 3rd, 2018 and December 19th, 2021 (last day included in the data collection process). Even though the channel existed before the outbreak of the COVID-19 pandemic, an exploration of message frequencies clearly reveals that the channel gained relevant momentum at the beginning of the pandemic in Germany in spring 2020, as can be seen in figure \ref{fig:message_count}.
 
@@ -43,32 +41,16 @@ The dates of the collected messages range between March 3rd, 2018 and December 1
 %``2019-09-01 11:01:38
 %Wir sehen uns auf der Straße ! Demos sind die ideale Gelegenheit , seinen Unmut gegen die herrschende Politik , die kein Interesse mehr am Volk hat ( zum Ausdruck zu bringen . Hier lernt man vor allem Gleichgesinnte kennen , kann sich untereinander austauschen . Das Ziel bleibt , die Rechtsstaatlichkeit in der Bananenrepublik wiederherzustellen . Dazu gehört , dass in diesem Kanal keine Propaganda von Klima-Nazis ( Buntfaschisten und steuerfinanzierten Gefährdern der freiheitlich-demokratischen Grundordnung ( z.B. geteilt wird . Natürlich lehnen unsere Demoteilnehmer Nazi-Methoden der Terror-SA-Nachfolgeorganisation Antifa entschieden ab wie die durch Zwangsgebühren erpresste faschistische Propaganda von ARD und ZDF des Beitragsservice . Geteilt werden hier auch Demoankündigungen gegen die von Faschisten installierten Atomwaffen und durchgeführten Drohnenkriege von deutschem Boden aus . Grundsätzlich ist jede Form der Zionisierung , die die durch Migration massiv verstärkte Islamisierung zur Folge hat , abzulehnen . Hilfe an Hungernde hat grundsätzlich Vorrang gegenüber der faschistischen Deportation von wohlgenährten , jungen Männern nach und später vielleicht wieder Auschwitz . Menschen , die in Küstennähe ins Wasser gefallen sind , sind grundsätzlich zu retten und dort wieder an das nächste sichere Ufer an Land zu bringen , um ihr Leben und das von Nachahmern faschistischer Ideologien zu retten . Unsere Teilnehmer stehen zum Menschen- nach Artikel 5 im Grundgesetz . für das 5G-Netz und die des Regenwaldes zugunsten faschistischer , weltherrschaftlicher Ziele sind ebenso abzulehnen wie der faschistische Lobbyismus zum Impfzwang . Überall da , wo die feige , vermummte Antifa sein müsste , statt Faschisten die Rosetten zu lecken , sind wir da ! Soziale Ausgrenzung , Verbreitung von Hass und Hetze gegen Andersdenkende durch Stasi-Nazi-Faschisten nach Gleichmacher-Gleichschaltungs-Gleichschritt-Hitler-Vorbild liegt uns ebenso fern wie die Anwendung von Gewalt zugunsten der Diener des Faschismus in Parteien , Kirchen , Gewerkschaften , Stiftungen und EU-Reichs-Propagandamedien ARD und ZDF , die vor allem die stark wachsende Verarmung der Bevölkerung im reichen Fascho-Deutschland zur Folge hat , wogegen sich die auch Aktivisten wenden . Bei den Demos wollen wir überall und flächendeckend vor allem den Druck gegenüber der herrschenden Kaste aufbauen , den Menschen , die sich noch in der Wohlfühlblase und im Arschkriechermodus befinden zeigen , dass wir dennoch da sind ! Zu uns passende Demos bitte mitteilen . Bildet Fahrgemeinschaften , denn zusammen sind wir stark . Vernetzt euch , trefft einander . Das geht nirgendwo besser als auf der Straße . Dort erfährt man auch von weiteren ( geschlossenen ) und außerhalb der Demos .''
 
-\subsection{Text cleaning}
+\subsection{Preprocessing}
 
-The initial data collection yielded 31.430 rows of data. After the removal of text duplicates and rows not containing any text, 27.627 rows remained for further processing. 
+The overall dataset consists of 31.430 rows of data. After the removal of text duplicates and empty rows, 27.627 rows remained for further processing. 
 
-\verb|@user_mentions| or \verb|#hashtags| were deliberately included, and the special characters and words of these tokens were not split up into separate tokens. In-word hyphens (such as in Demo-Termine) were also not split up from their surrounding words. For this, the tokenizer of the German medium-size \verb|Spacy| model \verb|de\_core\_news\_md| was applied with a customized token match pattern as shown in the following code snippet:
+The overall text cleaning process was restricted to an absolute minimum in order to create a sample data which is as realistic as possible with regard to the task of recognizing named entities in social media text. This basically included the removal of newlines and splitting up of compound hashtags into separate hashtags (so that e.g. \#food\#delicious would be split up into two different tokens \#food and \#delicious). 
 
-\begin{python}
-import re
-import spacy
-from spacy.tokenizer import _get_regex_pattern
+\verb|@user_mentions| or \verb|#hashtags| were deliberately included, and the special characters and words of these tokens were not split up into separate tokens. In-word hyphens (such as in Demo-Termine) were also not split up from their surrounding words. URLs and emojis were included as well, and the original capitalization of words was left unchanged.
 
-model="de_core_news_md"
-nlp = spacy.load(model)
-
-# code to keep special tokens as a sequence, taken from: https://stackoverflow.com/questions/43388476/how-could-spacy-tokenize-hashtag-as-a-whole
-# get default pattern for tokens that don't get split
-re_token_match = _get_regex_pattern(nlp.Defaults.token_match)   
-# add patterns (here: #hashtags, in-word hyphens, @mentions)
-re_token_match = f"({re_token_match}|#\w+|\w+-\w+|@\w+)"
-# overwrite token_match function of the tokenizer
-nlp.tokenizer.token_match = re.compile(re_token_match).match	
- \end{python}
- 
-Preventing the special characters in hashtags and user mentions from being split up was intended to serve for creating a realistic social media corpus and allow to include these special characters into the labels assigned during the annotation process. However, 	evaluation of training results indicate that it might indeed make sense to split up these special characters and simply treat them as separate tokens which are not treated as part of the tagged named entities. %\refsection{%TODO add section error analysis}
-
-The overall text cleaning process was restricted to an absolute minimum in order to create a sample data which is as realistic as possible with regard to the task of recognizing named entities in social media text.  This basically included the removal of newlines and splitting up of compound hashtags into separate hashtags (so that e.g. \#food\#delicious would be split up into two different tokens \#food and \#delicious). The following code demonstrates the respective steps, including the application of the customized tokenizer. 
+For preprocessing, the tokenizer of the German medium-size spaCy model (\verb|de\_core\_news\_md|) was applied, using a customized token match pattern. The following code parts were applied to all rows in the dataset, storing the results in a separate \verb|cleaned_text| column.
+:
 
 \begin{python}
 import re
@@ -90,27 +72,26 @@ def preprocess_text(s, nlp):
     return result
 \end{python}
 
-When applying the \verb|spacy| tokenizer, not only alphabetic tokens but all tokens were obtained. This was due to the fact that tokens representing dates and times usually consist of numbers and punctuation. Thus, in order to include dates and times in the sample data, all tokens were retained. URLs and emojis were also included in the final data, and the capitalization of tokens was retained as well. 
+Preventing the special characters in hashtags and user mentions from being split up was intended to serve for creating a realistic social media corpus and allow to include these special characters into the labels assigned during the annotation process. However, evaluation of training results indicate that it might indeed make sense to split up these special characters and simply treat them as separate tokens which are not treated as part of the tagged named entities. %\refsection{%TODO add section error analysis} 
 
-The above code parts were then applied to all texts in the dataset, yielding a new column including all the cleaned text values: 
-\begin{python}
-from datetime import datetime
+%\begin{python}
+%from datetime import datetime
+%
+%ts_before = datetime.now()
+%df['cleaned_text'] = df['text'].apply(lambda x: preprocess_text(x, nlp) if len(x)> 0 else None)
+%ts_after = datetime.now()
+%print(f"Took {ts_after - ts_before}")
+%print(len(df), "rows remaining.")	
+%\end{python}
+%
+%
+%\begin{verbatim}
+%Output:
+%Took 0:03:43.779192
+%27627 rows remaining.
+%\end{verbatim}
 
-ts_before = datetime.now()
-df['cleaned_text'] = df['text'].apply(lambda x: preprocess_text(x, nlp) if len(x)> 0 else None)
-ts_after = datetime.now()
-print(f"Took {ts_after - ts_before}")
-print(len(df), "rows remaining.")	
-\end{python}
-
-
-\begin{verbatim}
-Output:
-Took 0:03:43.779192
-27627 rows remaining.
-\end{verbatim}
-
-After this step, rows not containing values for cleaned text were removed from the dataset, leaving 22.803 messages for sample selection. 
+After preprocessing, all rows which did not contain any results for cleaned text were removed, leaving 22.803 messages for sample selection. 
 
 %some general and some Telegram- / channel-specific cleaning and preprocessing steps - removal of user mentions, might refer to named entities, e.g. telegram channels run by / named after persons
 %- but: explorations of models showed that this confuses models; also: mentions can easily be extracted from text via regex via the \@ at the beginning, and are unambiguous, 100\% accuracy can be achieved using regular expressions
@@ -125,7 +106,7 @@ After this step, rows not containing values for cleaned text were removed from t
 
 For sample selection, first the text length for each text was obtained to enable filtering texts based on their length. The second step consisted of detecting the language for each text in the dataset in order to be able to filter out non-German texts. For this, the \verb|Python| package \verb|langdetect| was applied to the cleaned texts. 
 
-After performing language detection on all messages in the channel, results show that German-language content is clearly predominant with $\sim83\%$ (22.803 messages), followed by English ($\sim3.8\%$, 3.823 messages), and then French, Italian, and Dutch (<1\% each). 
+Results show that German-language content is clearly predominant with $\sim83\%$ (22.803 messages), followed by English ($\sim3.8\%$, 3.823 messages), and then French, Italian, and Dutch (<1\% each). 
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/languages.png}
@@ -133,10 +114,8 @@ After performing language detection on all messages in the channel, results show
   \label{fig:language_count}
 \end{figure}
 
-It should be noted that the language detection was sometimes flawed due to the fact that the channel contains a number of mixed-language texts resulting in messages being classified as German while actually also consisting of a relevant fraction of e.g. English or other non-German languages. These mixed-language messages were filtered out later during the annotation process described in section %TODO \refsection{}. 
-However it could be argued that they should be included, since they represent realistic social media date and NER systems should be able to handle such kinds of texts as well.
-
-%TODO clean up notebook incl imports
+It should be noted that the language detection was sometimes flawed due to the fact that the channel contains a number of mixed-language texts resulting in messages being classified as German while actually also consisting of a relevant fraction of e.g. English or other non-German languages. These mixed-language messages were filtered out later during the annotation process. 
+However it could also be argued that they should be included in the final training data, since they represent realistic social media date and NER systems should be able to handle such kinds of texts as well.
 
 As a preparatory step for the final sample selection, the dataset was reduced to only German-language texts (22.803 messages remaining). Out of these messages, only those with a minimum length of 100 characters (in the \verb|cleaned_text| column) were selected (14.605 messages remaining).
 
@@ -150,8 +129,7 @@ An exploration of the text length of all German-language messages shows that the
 
 Considering these insights, only messages consisting of at least 100 characters were selected (20.105 messages remaining). Out of these, twenty percent of the messages were randomly selected (4021 messages remaining).
 
-Insights from prior research with Telegram data in the context of the project Digitaler Hass revealed that channels often contain a relatively high number of similar messages. To avoid redundancy in the sample, the similarity of the remaining messages was computed based on the \verb|Levenshtein| distance:  
-
+Insights from prior research with Telegram data in the context of the project `Digitaler Hass' revealed that channels often contain a relatively high number of similar messages. To avoid redundancy in the sample, the similarity of the remaining messages was computed based on the Levenshtein distance:  
 
 \begin{python}
 import Levenshtein as lev
@@ -199,94 +177,206 @@ In a second iteration, an additional sample of short texts was selected. This wa
 
 %min / max length / max sequence length Tranformers
 
-\subsection{Data Annotation}
+\subsection{Annotation}
 
-Data annotation turned out to be among the most challenging subtasks to accomplish for this thesis. 
-Existing annotation schemes for NER vary greatly in terms of entity types, detailedness and precision of the provided definitions, granularity, and the handling of social media-specific phenomena like user mentions, urls, or hashtags. 
+Data annotation turned out to be among the most challenging subtasks. Existing annotation schemes for NER vary greatly in terms of entity types, detailedness and precision of the provided definitions, granularity, and the handling of social media-specific phenomena like user mentions, urls, or hashtags. 
 
-For this thesis, a custom annotation schema had to developed. The schema which includes basic definitions, detailed instructions as well as several examples can be found in the appendix (see \ref{cha:annotation_guide}). 
+For this thesis, a custom annotation schema had to be developed. The schema which includes basic definitions, detailed instructions as well as several examples can be found in the appendix (see \ref{cha:annotation_guide}). 
 
-For annotation, the tool Labelstudio\footnote{https://labelstud.io/} was used.
+For carrying out the annotation, the tool Labelstudio\footnote{https://labelstud.io/} was used.
 
 The tag set covers the six entity types person, location, organization, time, date and action. Following the IOB tagging scheme, a B- and an I-tag was provided for each entity type, resulting in a total of 12 tags. The O-tag (denoting tokens outside of an NE) was assigned automatically to all tokens who remained unlabeled at the end of the manual annotation process. 
 
 % Frechheit - WNUT 15: %https://docs.google.com/document/d/12hI-2A3vATMWRdsKkzDPHu5oT74_tG0-PPQ7VN0IRaw/edit
 
-\subsection{Corpus Statistics}
+\subsection{Telegram Corpus Statistics}
 
-descriptive statistics
-max sequence length
-number of documents
-number of tokens per entity type
-%access / licensing?
+500 documents
+
+\begin{table}[htp]
+\caption{Distribution of entities in Telegram corpus}
+\label{tab:tg_corpus_stats}
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{|p{0.18\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
+\hline
+& \textbf{LOC} & \textbf{PER} & \textbf{ORG} & \textbf{DATE} & \textbf{TIME} & \textbf{ACTION} & \textbf{total} \\ \hline 
+\textbf{train} & 1.140 & 76 & 132 & 321 & 188 & 253 & 2.110 \\ \hline
+\textbf{test} & 66 & 17 & 26 & 62 & 19 & 29 & 219\\ \hline
+\textbf{validation} & 73 & 17 & 18 & 40 & 9 & 23 & 180\\ \hline
+\textbf{total} & 1.279 & 110 & 176 & 423 & 216 & 305 & 2.509 \\ \hline
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
 
 \section{Additional Data: The DFKI Smartdata Corpus}
-the DFKI SmartData Corpus is released as CC-BY 4.0.
+Telegram not enough data
 
-GermEval 2014 NER task dataset
-Why not GermEval or ConLL? TIME, DATE missing; ACTION as well, not social media data
+Smartdata corpus, advantage: more training data
+disadvantage: different tag sets, requires mapping, not necessarily totally consistent definitions, because different annotation guidelines
+disadvantage: no entity type action, will thus be very imbalanced and underrepresented
+
+cite 
+
+describe corpus and purpose
+
+DFKI SmartData Corpus is released as CC-BY 4.0.
+
+%GermEval 2014 NER task dataset
+%Why not GermEval or ConLL? TIME, DATE missing; ACTION as well, not social media data
 
 \subsection{Label Mapping}
+\begin{table}[htp]
+\caption{Overview of Label Mapping from Smartdata to Telegram Label Schema}
+\label{tab:label_mapping}
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{|p{0.5\linewidth}|p{0.5\linewidth}|}
+\hline
+\textbf{Smartdata Label} & \textbf{Telegram Label} \\
+\hline 
+B-DATE & B-DATE\\ \hline
+I-DATE & I-DATE\\ \hline
+B-DISASTER\_TYPE & O \\ \hline
+I-DISASTER\_TYPE & O \\ \hline
+B-DISTANCE & O \\ \hline
+I-DISTANCE & O \\ \hline
+B-DURATION & O \\ \hline
+I-DURATION & O \\ \hline
+B-LOCATION & B-LOC \\ \hline
+I-LOCATION & I-LOC \\ \hline
+B-LOCATION\_CITY & B-LOC \\ \hline
+I-LOCATION\_CITY & I-LOC \\ \hline
+B-LOCATION\_ROUTE &  O \\ \hline
+I-LOCATION\_ROUTE & O \\ \hline
+B-LOCATION\_STOP & B-LOC \\ \hline
+I-LOCATION\_STOP & I-LOC \\ \hline
+B-LOCATION\_STREET & B-LOC \\ \hline
+I-LOCATION\_STREET & I-LOC \\ \hline
+B-NUMBER & O \\ \hline
+I-NUMBER & O \\ \hline
+B-ORGANIZATION & B-ORG \\ \hline
+I-ORGANIZATION & I-ORG \\ \hline
+B-ORGANIZATION\_COMPANY & B-ORG \\ \hline
+I-ORGANIZATION\_COMPANY & I-ORG \\ \hline
+B-ORG\_POSITION &  O \\ \hline
+I-ORG\_POSITION & O \\ \hline
+B-PERSON & B-PER \\ \hline
+I-PERSON & I-PER \\ \hline
+B-TIME & B-TIME \\ \hline
+I-TIME & I-TIME \\ \hline
+B-TRIGGER & O \\ \hline
+I-TRIGGER & O \\ \hline
+
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\subsection{Smartdata Corpus Statistics}
+
+500 documents
+
+\begin{table}[]
+\caption{Distribution of entities in Smartdata Corpus after Label Mapping}
+\label{tab:sm_corpus_stats}
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{|p{0.18\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
+\hline
+& \textbf{LOC} & \textbf{PER} & \textbf{ORG} & \textbf{DATE} & \textbf{TIME} & \textbf{ACTION} & \textbf{total} \\ \hline 
+\textbf{train} & 5.526 & 978 & 3.223 & 1.511 & 556 & 0 & 11.794 \\ \hline
+\textbf{test} & 681 & 100 & 307 & 168 & 69 & 0 & 1.325 \\ \hline
+\textbf{validation} & 688 & 127 & 387 & 167 & 69 & 0 & 1.438 \\ \hline
+\textbf{total} &  6.895 &  1.205 &  3.917 & 1.846 & 694 & 0 & 14.557  \\ \hline
+\end{tabular}
+\end{adjustbox}
+\end{table}
 
 
-\subsection{Corpus Statistics}
-
-\section{Baseline}
-Lit: Ritter et al. /Baldwin?
-
-
-Create Baseline with XLM Roberta
+%\section{Baseline}
+%Lit: Ritter et al. /Baldwin?
+% Create Baseline with XLM Roberta
 
 \section{Models}
+
+
+
+
 Experiments on smartdata, and Telegram separately: 
 - DistilBERT
 - RoBERTa base
 - gbert base
 - dbmdz 
 
-selected: gbert and roberta base (best validation loss and F1)
 
-
-\begin{table}[]
-\caption{Results from fine-tuning results different models on Telegram dataset}
-\label{tab:telegram_test_models}
+\begin{table}[htp]
+\caption{Fine-tuning different models on Telegram dataset}
+\label{tab:experiments_tg}
 \centering
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{p{0.5\linewidth}|p{0.2\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}}
-
-\textbf{Model} & \textbf{Validation Loss} & \textbf{F1 score} \\
-\hline 
-dbmdz/bert-base-german-uncased & 0.2285 & 0.7440
-
-\\
+\begin{tabular}{|p{0.7\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
 \hline
-
-
-  \\ 
-\hline
-
- \\ 
-\hline
-
- \\ 
-\hline
-
-\\ 
-
-\hline
-
-  \\ 
-
-\hline
-
- \\ 
-
-\hline
-
+\textbf{Model} & \textbf{F1} & \textbf{Validation Loss}& \textbf{Epoch}\\ \hline 
+\verb|distilbert-base-multilingual-cased| & 0.6481 & 0.2910 & 1\\ \hline
+\verb|dbmdz/bert-base-german-uncased| & 0.7440 & 0.2285 & 2 \\ \hline
+\verb|deepset/gbert-base| & \textbf{0.7482} & 0.2524 & 2 \\ \hline
+\verb|xlm-roberta-base| & 0.7330 & \textbf{0.2459} & 3 \\ \hline
+\verb|cardiffnlp/twitter-xlm-roberta-base| & 0.7103 & 0.2648 & 3 \\ \hline
 \end{tabular}
 \end{adjustbox}
-
 \end{table}
+
+
+\begin{table}[htp]
+\caption{Fine-tuning different models on Smartdata dataset}
+\label{tab:experiments_sm}
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{|p{0.7\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
+\hline
+\textbf{Model} & \textbf{F1} & \textbf{Validation Loss} & \textbf{Epoch}\\ \hline 
+\verb|distilbert-base-multilingual-cased| & 0.8203 & 0.1456 & 2 \\ \hline
+\verb|dbmdz/bert-base-german-uncased| & 0.6156 & 0.2560 & 3 \\ \hline
+\verb|deepset/gbert-base| & \textbf{0.8535} & \textbf{0.1114} & 3\\ \hline
+\verb|xlm-roberta-base| & 0.8264 & 0.1445 & 1 \\ \hline
+\verb|cardiffnlp/twitter-xlm-roberta-base| & 0.8266 & 0.1344 & 3\\ \hline
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+
+\begin{table}[htp]
+\caption{Fine-tuning different models on both datasets combined}
+\label{tab:experiments_sm_tg}
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{|p{0.7\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
+\hline
+\textbf{Model} & \textbf{F1} & \textbf{Validation Loss}& \textbf{Epoch}\\ \hline 
+\verb|distilbert-base-multilingual-cased| & 0.6634 & 0.2543 & 2 \\ \hline
+\verb|dbmdz/bert-base-german-uncased| & 0.7775 & 0.1751 & 1 \\ \hline
+\verb|deepset/gbert-base| & 0.7922 & \textbf{0.1751} & 2 \\ \hline
+\verb|xlm-roberta-base| & \textbf{0.7988} & 0.1842 & 3 \\ \hline
+\verb|cardiffnlp/twitter-xlm-roberta-base| & 0.7768 & 0.2061 & 3 \\ \hline
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\textbf{Final model}
+
+selected: gbert, best F1 score on both datasets
+- Loss: 0.1751
+- F1: 0.7922
+- Precision: 0.7816
+- Recall: 0.8032
+
+XLM Roberta: 
+- Loss: 0.1842
+- F1: 0.7988
+- Precision: 0.7682
+- Recall: 0.8319
+- Accuracy: 0.9531
 
 \section{Building a Pipeline}
 

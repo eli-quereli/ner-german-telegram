@@ -5,8 +5,13 @@
 \contentsline {table}{\numberline {3.2}{\ignorespaces Overview of spaCy's entity types}}{35}{}%
 \contentsline {table}{\numberline {3.3}{\ignorespaces Detected entities for English-language example messages}}{38}{}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Results from fine-tuning results different models on Telegram dataset}}{50}{}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Distribution of entities in Telegram corpus}}{47}{}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Overview of Label Mapping from Smartdata to Telegram Label Schema}}{48}{}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Distribution of entities in Smartdata Corpus after Label Mapping}}{49}{}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Fine-tuning different models on Telegram dataset}}{50}{}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Fine-tuning different models on Smartdata dataset}}{50}{}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Fine-tuning different models on both datasets combined}}{50}{}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Detected entities for German-language example messages: Flair vs. Custom model}}{54}{}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Detected entities for German-language example messages: Flair vs. Custom model}}{56}{}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1}{\ignorespaces Definition of Entity types}}{68}{}%
+\contentsline {table}{\numberline {1}{\ignorespaces Definition of Entity types}}{70}{}%

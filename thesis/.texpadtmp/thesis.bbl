@@ -540,6 +540,69 @@
     \field{year}{2011}
   \endentry
 
+  \entry{derczynski-etal-2016-broad}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=DL}{%
+         family={Derczynski},
+         familyi={D\bibinitperiod},
+         given={Leon},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=BK}{%
+         family={Bontcheva},
+         familyi={B\bibinitperiod},
+         given={Kalina},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=RI}{%
+         family={Roberts},
+         familyi={R\bibinitperiod},
+         given={Ian},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {The COLING 2016 Organizing Committee}%
+    }
+    \strng{namehash}{DLBKRI1}
+    \strng{fullhash}{DLBKRI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{abstract}{%
+    One of the main obstacles, hampering method development and comparative
+  evaluation of named entity recognition in social media, is the lack of a
+  sizeable, diverse, high quality annotated corpus, analogous to the
+  CoNLL{'}2003 news dataset. For instance, the biggest Ritter tweet corpus is
+  only 45,000 tokens {--} a mere 15{\%} the size of CoNLL{'}2003. Another major
+  shortcoming is the lack of temporal, geographic, and author diversity. This
+  paper introduces the Broad Twitter Corpus (BTC), which is not only
+  significantly bigger, but sampled across different regions, temporal periods,
+  and types of Twitter users. The gold-standard named entity annotations are
+  made by a combination of NLP experts and crowd workers, which enables us to
+  harness crowd recall while maintaining high quality. We also measure the
+  entity drift observed in our dataset (i.e. how entity representation varies
+  over time), and compare to newswire. The corpus is released openly, including
+  source text and intermediate annotations.%
+    }
+    \field{booktitle}{Proceedings of {COLING} 2016, the 26th International
+  Conference on Computational Linguistics: Technical Papers}
+    \field{pages}{1169\bibrangedash 1179}
+    \field{title}{Broad {T}witter Corpus: A Diverse Named Entity Recognition
+  Resource}
+    \verb{url}
+    \verb https://aclanthology.org/C16-1111
+    \endverb
+    \list{location}{1}{%
+      {Osaka, Japan}%
+    }
+    \field{month}{12}
+    \field{year}{2016}
+  \endentry
+
   \entry{derczynski_analysis_2015}{article}{}
     \name{author}{8}{}{%
       {{hash=DL}{%

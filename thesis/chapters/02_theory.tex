@@ -199,7 +199,9 @@ In 2016, another shared task on Twitter Named Entity Recognition was organized i
 An important difference compared to 2015 was that some of the participating systems introduced the use of neural network methods for the task of NER (cf. \cite{strauss_results_2016}), including the winning system which achieved an F1 score of 59.08. 
 
 The W-NUT shared task in 2017 focused on novel and emerging entity recognition, thus addressing the challenge of newly emerging entities in social media data. The Ritter corpus was used as training data again. The development set consisting of $\sim$ 1.000 documents was composed of manually annotated texts from different online sources such as Reddit, StackExchange, and Twitter, while the test set ($\sim$ 1.300 documents) consisted of manually annotated Youtube comments (cf. \cite{derczynski_results_2017}). The annotation schema mapped the ten entity types of the Ritter corpus to the seven entity types person, location (including GPE, facility), corporation, product, creative-work, and group (representing music bands, sports teams, and non-corporate organisations). The best participating system achieved an F1 score of 41.86. In the following years, the focus of the workshop series shifted to other tasks and domains which might be due to newly emerging research trends, but also due to the lack of relevant progress in terms of performance. 
-Judging from the F1 scores of the respective winning systems, the task of NER in social media texts continued to be a considerable challenge. Furthermore, the ongoing shortage of manually annotated and sufficiently large corpora for this task becomes apparent. However, the results might also indicate that by then state-of-the-art machine learning systems had reached their limits. The following section traces the evolvement of NER approaches over time and gives insights into the respective potentials and limitations. 
+Judging from the F1 scores of the respective winning systems, the task of NER in social media texts continued to be a considerable challenge. Furthermore, the ongoing shortage of manually annotated and sufficiently large corpora for this task becomes apparent. This shortage has been tackled by the creation of human-annotated NER corpora such as the Broad Twitter Corpus (cf. \cite{derczynski-etal-2016-broad}, which is unfortunately exclusively English-language. 
+
+However, the results presented so far might also indicate that by then state-of-the-art machine learning systems had reached their limits. The following section traces the evolvement of NER approaches over time and gives insights into the respective potentials and limitations. 
  
 \section{Overview of NER approaches}
 
@@ -247,7 +249,7 @@ Commonly used models for NER based on machine learning are Hidden Markov Models 
 Hidden Markov Models are based on the concept of an underlying structure, called hidden state which is assumed to generate the observed state of data. Regarding text data, this would be an underlying grammar which is hidden, but actually generates the order of parts of speechs in a text: 
 
  
- statisical model which is based on the assumption that data is 
+ statistical model which is based on the assumption that data is 
 
 HMM is a statistical model that assumes there is an underlying, observable process with hidden states that generates the data, ie we can only observe the data once it is generated
 - an HMM then tries to model the hidden states from this data
