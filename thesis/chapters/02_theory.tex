@@ -205,7 +205,7 @@ Judging from the F1 scores of the respective winning systems, the task of NER in
 
 Since it's beginnings in the 1970s, NER approaches have undergone several phases of development, parallel to the advancements in NLP technologies:  Starting with early rule-based and knowledge-based systems, the field moved on to machine-learning approaches based on feature-engineering. The development of NER systems based on neural networks, relying only on minimal feature-engineering, marked another important step forward in the field. Lately, the introduction of transformer models brought along yet another crucial advancement and achieve new state of the art performance for several NLP tasks including NER. 
 
-\subsection{Rule-based and Knowledge-based Approaches}
+\subsection{Rule-based and Knowledge-Based Approaches}
 
 The first systems for NER relied on handcrafted rules, lexicons, orthographic features and ontologies (cf. \cite{yadav_survey_2019}). 
 
@@ -228,26 +228,31 @@ Machine learning algorithms can roughly be grouped into three paradigms: supervi
 
 \subsubsection{Feature-engineered supervised systems}
 
-In supervised learning, the machine learning model learns to make predictions for unseen data from a large number of examples which 
-represent input-output pairs. Regarding NER, an input example could be a text containing different instances of entities. The output would then be the corresponding spans and labels which determine the type of each given entity in the text example. These outputs are also called labels or ground truth. 
+In supervised learning, the machine learning model learns to make predictions for unseen data from a large number of examples which represent input-output pairs. Regarding NER, an input example could be a text containing different instances of entities. The output would then be the corresponding spans and labels which determine the type of each given entity in the text example. These outputs are also called labels or ground truth. 
 In order to yield a well-performing model which is able to predict the spans and labels for entities in unseen texts, large amounts of labeled data are required (cf. \cite[15]{vajjala_practical_2020}).
 
 %Given a collection of text data, suppose all person, location, and organization entities are manually labeled, as shown in the examples below. Supervised NER systems attempt to design machine learning methods that learn automatic prediction models based on these correctly labeled training data.\cite[231]{zong_information_2021}
 
-Commonly used models for NER based on machine learning are Hidden Markov Models (HMM), Maximum Entropy Models (MEM), Support Vector Machines (SVM), Decision Trees, and Conditional Random Fields (CRF) (cf.  \cite{yadav_survey_2019})
+Commonly used models for NER based on machine learning are Hidden Markov Models (HMM), Maximum Entropy Models (MEM), Support Vector Machines (SVM), Decision Trees, and Conditional Random Fields (CRF) (cf.  \cite{yadav_survey_2019}). As two examples, I will briefly describe HMMs and CRF.
 
-\paragraph{Support Vector Machines}
-- goal of any classification task: learn a decision boundary that acts as a separation between different categories of text 
-- decision boundary can be linear or nonlinear (e.g. a circle)
-- SVM: can learn linear and nonlinear
-- SVM learns an optimal decision boundary so that the distance between points across classes is at its maximum
-\cite[20]{vajjala_practical_2020}
+%\paragraph{Support Vector Machines}
+%- goal of any classification task: learn a decision boundary that acts as a separation between different categories of text 
+%- decision boundary can be linear or nonlinear (e.g. a circle)
+%- SVM: can learn linear and nonlinear
+%- SVM learns an optimal decision boundary so that the distance between points across classes is at its maximum
+%\cite[20]{vajjala_practical_2020}
 
 
 \paragraph{Hidden Markov Model}
+Hidden Markov Models are based on the concept of an underlying structure, called hidden state which is assumed to generate the observed state of data. Regarding text data, this would be an underlying grammar which is hidden, but actually generates the order of parts of speechs in a text: 
+
+ 
+ statisical model which is based on the assumption that data is 
+
 HMM is a statistical model that assumes there is an underlying, observable process with hidden states that generates the data, ie we can only observe the data once it is generated
 - an HMM then tries to model the hidden states from this data
-- e.g. POS tagging: we assume that text is generated according to an underlying grammar, which is hidden underneath the text
+- e.g. POS tagging: we assume that text is generated according to an underlying grammar, which is hidden underneath the text 
+
 - hidden states are parts of speech that inherently define the structure of the sentence following the language grammar, but we only observe the words that are governed by these latent states
 - HMM also make the Markow assumption: each hidden state is dependent on the previous state(s)
 - human language is sequential which means that the current word depends on what occured before

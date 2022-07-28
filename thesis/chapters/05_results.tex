@@ -1,3 +1,73 @@
 \chapter{Results}
 \label{cha:results}
 
+\subsection{Example messages}
+
+Observations: model now detects time and date to some extent, did not recognize action Demo-Berlin, but unlike Flair model does not tag is as a location
+
+makes errors, e.g. postcal code missing last digit, 0 as time entitity, Kurpfalz as location instead of offene gesellschaft kurpfalz 
+
+Table \ref{tab:detect_ents_de} shows the results of the German-language Flair model and the custom fine-tuned  model for the example texts: 
+
+\begin{table}[htp]
+\caption{Detected entities for German-language example messages: Flair vs. Custom model}
+\label{tab:detect_ents_de}
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{|p{0.04\linewidth}|p{0.6\linewidth}|p{0.3\linewidth}|p{0.35\linewidth}|}
+\hline
+\textbf{No.} & \textbf{Text} & \textbf{flair/ner-german} & \textbf{gbert-base/finetuned} \\
+\hline 
+1 
+& Freiburg Aufzug mit Endkundgebung am Platz der altenSynagoge . Live Musik ! Details 19062021 Raus auf die Straße 
+& Freiburg[LOC] 
+& Freiburg[LOC]\\
+\hline
+2 
+& GEHT DEMONSTRIEREN ! - Message von Elijah Tee an die Dresdner \& anderen Demonstranten in Deutschland Morgen am 13.06. um 16.30 Uhr und bundesweit überall , wo es Mitdenker gibt . - Bilder und Videos hochladen - Diskussion Fahren oder Mitfahren
+& Elijah Tee[PER], Deutschland[LOC] 
+& Elijah Tee[PER], Dresdner[LOC], Deutschland[LOC], 13.06.[DATE], 16.30 Uhr[TIME]\\ 
+\hline
+3 
+& 15831 Blankenfelde Mahlow Berliner Speckgürtel Ausfahrt Lichtenrade am 14.03.2021 14032021 Raus auf die Straße
+& Blankenfelde Mahlow[LOC], Lichtenrade[LOC] 
+& 1583[LOC], Blankenfelde[LOC], Mahlow[LOC], Berliner Speckgürtel[LOC], Ausfahrt[LOC], Lichtenrade[LOC], 14.03.2021[DATE]\\
+\hline
+4 
+& 2021 10 11 Sven Liebich fragt Ministerpräsident Haseloff nach dessen Verständnis 
+von Versammlungsfre - Sven Liebich 0:23 Raus auf die Straßen  \"Ubersicht / Overview 
+& Sven Liebich[PER, Haseloff[PER], Sven Liebich[PER]
+& 20211011[DATE], Sven Liebich[PER], Haseloff[PER], Sven Liebich[PER], 0[TIME]\\ 
+\hline
+5 
+& F\"UR ALLE DEMOKRATEN   GEFAHR : Die Polizei blockiert den Stern !   Deswegen laufen die Menschen vom Ernst-Reuther-Platz nach Südosten zum Breitscheitplatz und dort weiter auf den Kudamm ! ! Schließt euch an : Neue Kantstraße direkt Richtung Osten auf den Breitscheitplatz ! Von der Straße des 17. Juni Richtung Süden zum Kudamm ! 
+& FU[ORG], Ernst-Reuther-Platz[LOC], Breitscheitplatz[LOC], Kudamm[LOC], Kantstraße[LOC], Breitscheitplatz[LOC], Kudamm[LOC]
+& Ernst- Reuther- Platz[LOC], Breitscheitplatz[LOC], Kudamm[LOC], Neue Kantstraße[LOC], Breitscheitplatz[LOC], 17.Juni[DATE], Kudamm[LOC]\\ 
+\hline
+6 
+& Dr. Gunter Frank : Wie Moralismus dazu führt das man Feinde sieht und vernichten will — Antihygienista - Offene Gesellschaft Kurpfalz 15:04 Raus auf die Straßen   \"Ubersicht / Overview 
+& Gunter Frank[PER], Antihygienista[ORG], Offene Gesellschaft Kurpfalz[ORG]
+& Gunter Frank[PER], Antigienista- Offene Gesellschaft[ORG], Kurpfalz[LOC], 15:04[TIME]\\ 
+\hline
+7 
+& Einfach nur Krank solche Politiker ! Was sollen wir mit ihm machen wenn unsere Kinder anhand dieser Impfung nen schaden erleiden ? Wer ist dann dafür verantwortlich , wen schmeißen wir dann in den Knast und nehmen sein ganzes Geld weg , sollen wir das mit dir machen ? Raus auf die Straße 
+& \textit{no entities detected}
+& \textit{no entities detected}\\ 
+\hline
+8 
+& 27.11.2021 Frankfurt Durchsagen von gemischt mit Musik . Super Idee   Für mehr Berichte folgen auf ... Raus auf die Straßen   \"Ubersicht / Overview 
+& Frankfurt[LOC]
+& 27.11.2021[DATE], Frankfurt[LOC]\\ 
+\hline
+9 
+& Demo-Berlin : Der Mann mit dem Schild wurde soeben von der Polizei festgenommen . Circa 7 Einsatzwägen sind vor Ort und umzäunen den Park großräumig . Am Humboldthain gibt es nichts mehr zu gewinnen . \# b2908 Raus auf die Straßen 
+& Demo-Berlin[LOC], Humboldthain[LOC]
+& Berlin[LOC], Humboldthain[LOC]\\ 
+\hline
+10 
+& Anthony Fauci : Definition von `` vollständig geimpft '' könnte geändert werden — Epoch Times Nachrichten 6:59 Raus auf die Straßen   \"Ubersicht / Overview 
+& Anthony Fauci[PER], Epoch Times Nachrichten[ORG]
+& Anthony Fauci[PER], Epoch Times Nachrichten[ORG], 6:59[TIME]
+\end{tabular}
+\end{adjustbox}
+\end{table}

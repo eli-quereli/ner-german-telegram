@@ -1,27 +1,9 @@
 \chapter{Towards building a custom model for NER in Telegram channels}
 \label{cha:implementation}
 
-\section{Data}
+\section{Building a Domain-specific Dataset: The Telegram Corpus}
 \label{sec:data}
 
-
-\subsection{Existing German-language datasets for this specific task }
-
-
-\subsubsection{GermEval 2014 NER task dataset}
-Why not GermEval? TIME, DATE missing; ACTION as well
-not social media data
-
-
-\subsubsection{DFKI Smartdata corpus}
-the DFKI SmartData Corpus is released as CC-BY 4.0.
-\subsubsection{XTREME dataset}
-PAN-X annotations were generated through an automated process -> only `silver standard', not used here
-
-\subsubsection{WIKIANN} ?
-
-
-\subsection{Domain-specific data from Telegram channel}
 For the creation of a dataset suitable for the aim of this thesis, the Telegram channel `Demotermine' (\textit{Demo dates}) was selected. 
 
 The channel was selected because a prior qualitative exploration of sample messages indicated that its content consists mainly of information about and mobilization for demonstrations and others forms of protests against the German COVID-19 containment measures and could thus be expected to contain a lot of entities of the types relevant for the aim of this thesis.  
@@ -217,29 +199,37 @@ In a second iteration, an additional sample of short texts was selected. This wa
 
 %min / max length / max sequence length Tranformers
 
-\section{Annotation scheme}
+\subsection{Data Annotation}
 
+Data annotation turned out to be among the most challenging subtasks to accomplish for this thesis. 
+Existing annotation schemes for NER vary greatly in terms of entity types, detailedness and precision of the provided definitions, granularity, and the handling of social media-specific phenomena like user mentions, urls, or hashtags. 
 
-Frechheit - WNUT 15: %https://docs.google.com/document/d/12hI-2A3vATMWRdsKkzDPHu5oT74_tG0-PPQ7VN0IRaw/edit
+For this thesis, a custom annotation schema had to developed. The schema which includes basic definitions, detailed instructions as well as several examples can be found in the appendix (see \ref{cha:annotation_guide}). 
 
+For annotation, the tool Labelstudio\footnote{https://labelstud.io/} was used.
 
-%TODO quick summary, rest in appendix
+The tag set covers the six entity types person, location, organization, time, date and action. Following the IOB tagging scheme, a B- and an I-tag was provided for each entity type, resulting in a total of 12 tags. The O-tag (denoting tokens outside of an NE) was assigned automatically to all tokens who remained unlabeled at the end of the manual annotation process. 
 
-annotation schemes vary greatly in terms of: granularity, types of entities, detailedness of instructions and definitions
+% Frechheit - WNUT 15: %https://docs.google.com/document/d/12hI-2A3vATMWRdsKkzDPHu5oT74_tG0-PPQ7VN0IRaw/edit
 
-labelstudio 
+\subsection{Corpus Statistics}
 
-IOB encoding: each word either begins, is inside, or is outside of a named entity
-
-Loosely based on \cite{benikova-etal-2014-nosta}, \cite{ldc_2005}, \cite{muc7_ner}, \cite{smartdata_anno}
-
-
-\section{Annotated dataset}
 descriptive statistics
 max sequence length
 number of documents
 number of tokens per entity type
 %access / licensing?
+
+\section{Additional Data: The DFKI Smartdata Corpus}
+the DFKI SmartData Corpus is released as CC-BY 4.0.
+
+GermEval 2014 NER task dataset
+Why not GermEval or ConLL? TIME, DATE missing; ACTION as well, not social media data
+
+\subsection{Label Mapping}
+
+
+\subsection{Corpus Statistics}
 
 \section{Baseline}
 Lit: Ritter et al. /Baldwin?

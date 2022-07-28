@@ -1,4 +1,4 @@
-\chapter*{Annotation guidelines}
+\chapter*{Annotation Guidelines}
 \label{cha:annotation_guide}
 
 The following annotation guidelines are a combined adaptation of \cite{benikova-etal-2014-nosta}, \cite{ldc_2005}, \cite{muc7_ner}, and \cite{smartdata_anno}.
@@ -25,7 +25,8 @@ Phrases only partly containing names (e.g. `deutschlandweit), or adjectives refe
 For annotation, the the 6 entity types PERSON, LOCATION, ORGANIZATION, DATE, TIME, and ACTION are used. The label set consists of B-tag and 
 I-tag for each entity type, resulting in a total of 12 labels. 
 
-ref{tab:entity_types} shows the core definitions and examples for 
+Table \ref{tab:entity_types} shows the core definitions and examples for the annotated entity types. 
+
 %Person (PER) - An entity of type person refers to a named, single individual. Person entities are limited to humans. Fictional persons can be included, as long as they’re referred to by name (e.g. Harry Potter). 
 %Organization (ORG) - An organization refers to a named corporate, governmental, or other organizational entity. Organization entities can be corporations, agencies, institutions, newspapers, tv/radio channels, other media platforms, political parties, non-governmental organizations, and other groups of people who are to some extent organized formally or informally.
 %Location (LOC) - Location entities are names of politically or geographically defined locations. This incluseds countries, provinces, regions, cities, districts, addresses including streets, squares, and postal codes, (named) buildings, shopping centers, parking lots, or restaurants.
@@ -36,7 +37,7 @@ ref{tab:entity_types} shows the core definitions and examples for
 
 % TODO in intro verschieben  hier wird klar wie der shift von protest forms is: Achtung Demonstration wird Abgesagt ! Wir haben als Orga Team beschlossen , das wir keine Demos mehr anmelden werden ! Wir sagen klar Nein zu den Auflagen die uns vorgegeben werden . Deshalb , neuer Termin , wir fahren nach Plauen ! Lasst uns die Freie Sachsen und den Bürgermeisterkandidaten Thomas Kaden unterstützen ! 11062021 Raus auf die Straße
 
-\begin{table}[htp]
+\begin{table}[]
 \caption{Definition of Entity types}
 \label{tab:entity_types}
 \centering
@@ -79,7 +80,7 @@ ACTION
 
 \section{Specifications}
 
-\subsection{Mixed-language messages}
+\subsection{Handling Mixed-language Messages}
 Skip mixed-language in which the actual message is non-German language.\\
 
 \noindent\textbf{Examples:}
@@ -90,12 +91,12 @@ Skip mixed-language in which the actual message is non-German language.\\
 	\item \textit{MASSIMA DIFFUSIONE http://t.me/stopdittatura/1930 Raus auf die Straßen @Demotermine}
 \end{itemize}
 
-\subsection{Incomprehensible messages}
+\subsection{Handling Incomprehensible Messages}
 Skip incomprehensible messages.\\
 
 \noindent\textbf{Example:} \textit{``Sterne-Restaurant Walliserkanne . Naudreck . Bersets faule Tricks . Uniarzt panikfrei . Herzmuskel .  Neuer Beitrag \#Walliserkanne Raus auf die Straßen \@Demotermine! Übersicht / Overview''}
 
-\subsection{Short messages}
+\subsection{Handling Short Messages}
 Skip short messages which do not include at least two named entities.\\ 
 
 \noindent\textbf{Examples:}
@@ -104,7 +105,7 @@ Skip short messages which do not include at least two named entities.\\
 	\item \textit{``Egal wo ihr diesen , oder die kommenden Samstage seid ! \@RheinCandleLight \@Demotermine''}
 \end{itemize}
 
-\subsection{Punctuation}
+\subsection{Handling Punctuation}
 Punctutaion should only be included in the tag if they appear in the middle of sequence representing an entity.\\
 
 \noindent\textbf{Example}: \textit{Donnerstag[B-DATE] ,[I-DATE] 17.04.2020[I-DATE]}
