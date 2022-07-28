@@ -5,6 +5,8 @@
 data/
 src/notebooks/temp/
 models/
+*/old/
+
 # includes flair taggers, files too large for git
 src/notebooks/NER/resources/
 
