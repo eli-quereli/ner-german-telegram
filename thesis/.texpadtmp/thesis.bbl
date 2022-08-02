@@ -467,6 +467,52 @@
     \field{urlyear}{2022}
   \endentry
 
+  \entry{collobert_2008}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=CR}{%
+         family={Collobert},
+         familyi={C\bibinitperiod},
+         given={Ronan},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=WJ}{%
+         family={Weston},
+         familyi={W\bibinitperiod},
+         given={Jason},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computing Machinery}%
+    }
+    \strng{namehash}{CRWJ1}
+    \strng{fullhash}{CRWJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2008}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{booktitle}{Proceedings of the 25th International Conference on
+  Machine Learning}
+    \verb{doi}
+    \verb 10.1145/1390156.1390177
+    \endverb
+    \field{isbn}{9781605582054}
+    \field{pages}{160–167}
+    \field{series}{ICML '08}
+    \field{title}{A Unified Architecture for Natural Language Processing: Deep
+  Neural Networks with Multitask Learning}
+    \verb{url}
+    \verb https://doi.org/10.1145/1390156.1390177
+    \endverb
+    \list{location}{1}{%
+      {Helsinki, Finland}%
+    }
+    \field{year}{2008}
+    \warn{\item Can't use 'location' + 'address'}
+  \endentry
+
   \entry{collobert_natural_2011}{article}{}
     \name{author}{6}{}{%
       {{hash=CR}{%
@@ -999,6 +1045,108 @@
     \field{urlyear}{2022}
   \endentry
 
+  \entry{jurafsky_2021_6}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=JD}{%
+         family={Jurafsky},
+         familyi={J\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MJH}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={James\bibnamedelima H},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JDMJH2}
+    \strng{fullhash}{JDMJH2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{chapter}{Vector Semantics and Embeddings}
+    \field{edition}{Third edition draft}
+    \field{title}{Speech and Language Processing. An Introduction to Natura
+  Language Processing, Computational Linguistics, and Speech Recognition}
+    \verb{url}
+    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
+    \endverb
+    \field{year}{2021}
+  \endentry
+
+  \entry{jurafsky_2021_8}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=JD}{%
+         family={Jurafsky},
+         familyi={J\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MJH}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={James\bibnamedelima H},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JDMJH2}
+    \strng{fullhash}{JDMJH2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{chapter}{Sequence Labeling for Parts of Speech and Named Entities}
+    \field{edition}{Third edition draft}
+    \field{title}{Speech and Language Processing. An Introduction to Natura
+  Language Processing, Computational Linguistics, and Speech Recognition}
+    \verb{url}
+    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
+    \endverb
+    \field{year}{2021}
+  \endentry
+
+  \entry{jurafsky_2021_9}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=JD}{%
+         family={Jurafsky},
+         familyi={J\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MJH}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={James\bibnamedelima H},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JDMJH2}
+    \strng{fullhash}{JDMJH2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{extradate}{3}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{chapter}{Deep Learning Architectures for Sequence Processing}
+    \field{edition}{Third edition draft}
+    \field{title}{Speech and Language Processing. An Introduction to Natura
+  Language Processing, Computational Linguistics, and Speech Recognition}
+    \verb{url}
+    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
+    \endverb
+    \field{year}{2021}
+  \endentry
+
   \entry{jurafsky_2021}{book}{}
     \name{author}{2}{}{%
       {{hash=JD}{%
@@ -1019,6 +1167,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2021}
+    \field{extradate}{4}
     \field{labeldatesource}{}
     \field{sortinit}{J}
     \field{sortinithash}{J}
@@ -1358,6 +1507,37 @@
     \endverb
     \field{month}{10}
     \field{year}{2013}
+  \endentry
+
+  \entry{ramshaw-marcus-1995-text}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=RL}{%
+         family={Ramshaw},
+         familyi={R\bibinitperiod},
+         given={Lance},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Marcus},
+         familyi={M\bibinitperiod},
+         given={Mitch},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RLMM1}
+    \strng{fullhash}{RLMM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1995}
+    \field{labeldatesource}{}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{booktitle}{Third Workshop on Very Large Corpora}
+    \field{title}{Text Chunking using Transformation-Based Learning}
+    \verb{url}
+    \verb https://aclanthology.org/W95-0107
+    \endverb
+    \field{year}{1995}
   \endentry
 
   \entry{ritter_2011}{inproceedings}{}

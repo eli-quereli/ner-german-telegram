@@ -19,7 +19,7 @@ The central component of the model's NER pipeline is spaCy's Entity Recognizer w
 
 The model was trained on the WIKINER corpus, a free, multilingual corpus created from Wikipedia articles which were automatically annotated and thus are silver standard training data (cf. \cite{nothman_learning_2013}). According to the official documentation, the model achieved an F1 score of 0.84 (cf. \cite{spacy_german_md}).
 
-\subsection{The German-language standard NER Flair model}
+\subsection{The German-language Standard NER Flair Model}
 \label{sec:flair_de}
 The FLAIR framework is an NLP library released in 2018, developed to `facilitate training and distribution of
 state-of-the-art sequence labeling, text classification and language models' (\cite{akbik2019flair}). The framework's aim is to provide an interface to easily use different types of word and document embeddings (cf. \cite{akbik2019flair}).
@@ -167,7 +167,7 @@ It can be hypothesized that both the different model architectures and the diffe
 Even though the spaCy model explored in the previous section provided rather dissatisfying results, its English equivalent has one advantage, since it supports more entity types, including DATE and TIME, meaning that it might be useful for extracting dates and times, as they are relevant for the aim of this thesis. 
 Also, since more training data is available for English-language NLP models, exploring the potentials of machine translation for NER seems worth a try. 
 
-\subsection{The English-language spaCy model}
+\subsection{The English-language spaCy Model}
 
 The English-language spacy model supports 18 entity types: (\verb|CARDINAL|, \verb|DATE|, \verb|EVENT|, \verb|FAC|, \verb|GPE|, \verb|LANGUAGE|, \verb|LAW|, \verb|LOC|, \verb|MONEY|, \verb|NORP|, \verb|ORDINAL|, \verb|ORG|, \verb|PERCENT|, \verb|PERSON|, \verb|PRODUCT|, \verb|QUANTITY|, \verb|TIME|, and \verb|WORK_OF_ART|). 
 
@@ -224,7 +224,7 @@ WORK\_OF\_ART & Titles of books, songs, etc.\\
 
 The training data sources listed in the model's official documentation suggest that the NER training data was the OntoNotes 5 corpus (cf. \cite{ontonotes5}). The model achieved an F1 score of 0.85 for NER. 
 
-\subsection{The English-language Flair model}
+\subsection{The English-language Standard NER Flair Model}
 The architecture of the standard English-language Flair model is the same as for the standard German model described in section \ref{sec:flair_de}. It was trained on a corrected version of the CoNLL 2003 corpus and achieved an F1 score of 93.06 (cf. \cite{flair_ner}). 
 
 \subsection{Implementation}

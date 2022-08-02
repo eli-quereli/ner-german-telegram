@@ -1,11 +1,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Examples of noisy text in tweets, taken from \blx@tocontentsinit {0}\cite {ritter_2011}}}{15}{}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Lexical variations of the word `tomorrow' in tweets, taken from \blx@tocontentsinit {0}\cite {ritter_2011}}}{17}{}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Examples of noisy text in tweets, taken from \blx@tocontentsinit {0}\cite {ritter_2011}}}{16}{}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Lexical variations of the word `tomorrow' in tweets, taken from \blx@tocontentsinit {0}\cite {ritter_2011}}}{18}{}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces An illustration of an HMM for part-of-speech tagging; modelling transition probabilities between POS tags and observation likelihoods for words occuring with these tags. Taken from \blx@tocontentsinit {0}\cite [11]{jurafsky_2021_8}}}{26}{}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces NER features for an example sentence, taken from \blx@tocontentsinit {0}\cite [19]{jurafsky_2021_8}}}{29}{}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Message frequencies}}{40}{}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Five most frequent languages}}{43}{}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Descriptive statistiscs for text length of all German-language messages in dataset}}{44}{}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Message frequencies}}{46}{}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Five most frequent languages}}{49}{}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Descriptive statistiscs for text length of all German-language messages in dataset}}{50}{}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
