@@ -50,41 +50,41 @@
 \contentsline {subsection}{\numberline {4.1.3}Sample Selection}{48}{}%
 \contentsline {subsection}{\numberline {4.1.4}Annotation}{52}{}%
 \contentsline {subsection}{\numberline {4.1.5}Telegram Corpus Statistics}{53}{}%
-\contentsline {section}{\numberline {4.2}Additional Data: The DFKI Smartdata Corpus}{53}{}%
+\contentsline {section}{\numberline {4.2}Additional Data: The DFKI Smartdata Corpus}{54}{}%
 \contentsline {subsection}{\numberline {4.2.1}Label Mapping}{55}{}%
 \contentsline {subsection}{\numberline {4.2.2}Smartdata Corpus Statistics}{55}{}%
-\contentsline {section}{\numberline {4.3}Models}{55}{}%
-\contentsline {section}{\numberline {4.4}Building a Pipeline}{55}{}%
-\contentsline {subsection}{\numberline {4.4.1}Tokenization}{57}{}%
-\contentsline {subsubsection}{Subword tokenization, alignment}{57}{}%
-\contentsline {subsection}{\numberline {4.4.2}Vectorization?}{57}{}%
-\contentsline {subsubsection}{outputs}{58}{}%
-\contentsline {subsection}{\numberline {4.4.3}Model heads}{58}{}%
-\contentsline {subsection}{\numberline {4.4.4}Post-processing}{59}{}%
-\contentsline {section}{\numberline {4.5}Evaluation}{59}{}%
-\contentsline {section}{\numberline {4.6}Hyperparameter tuning}{60}{}%
-\contentsline {section}{\numberline {4.7}Processing of results}{60}{}%
-\contentsline {section}{\numberline {4.8}Summarization}{60}{}%
-\contentsline {chapter}{\numberline {5}Results}{61}{}%
-\contentsline {subsection}{\numberline {5.0.1}Example messages}{61}{}%
-\contentsline {chapter}{\numberline {6}Conclusion}{63}{}%
-\contentsline {section}{\numberline {6.1}Summarization}{63}{}%
-\contentsline {section}{\numberline {6.2}Discussion}{63}{}%
-\contentsline {chapter}{Bibliography}{70}{}%
-\contentsline {chapter}{Appendix}{70}{}%
-\contentsline {chapter}{Annotation Guidelines}{70}{}%
-\contentsline {section}{\numberline {.1}Named Entity - Basic Definition}{75}{}%
-\contentsline {section}{\numberline {.2}Definition of Different Entity Types}{76}{}%
-\contentsline {section}{\numberline {.3}Specifications}{76}{}%
-\contentsline {subsection}{\numberline {.3.1}Handling Mixed-language Messages}{76}{}%
-\contentsline {subsection}{\numberline {.3.2}Handling Incomprehensible Messages}{78}{}%
-\contentsline {subsection}{\numberline {.3.3}Handling Short Messages}{78}{}%
-\contentsline {subsection}{\numberline {.3.4}Handling Punctuation}{78}{}%
-\contentsline {subsubsection}{Hashtags}{78}{}%
-\contentsline {section}{\numberline {.4}Detailed Annotation Instructions for Entity Types}{79}{}%
-\contentsline {subsection}{\numberline {.4.1}PERSON}{79}{}%
-\contentsline {subsection}{\numberline {.4.2}LOCATION}{80}{}%
-\contentsline {subsection}{\numberline {.4.3}ORGANIZATION}{81}{}%
-\contentsline {subsection}{\numberline {.4.4}TIME}{82}{}%
-\contentsline {subsection}{\numberline {.4.5}DATE}{82}{}%
-\contentsline {subsection}{\numberline {.4.6}ACTION}{83}{}%
+\contentsline {subsection}{\numberline {4.2.3}Final corpus statistics}{55}{}%
+\contentsline {section}{\numberline {4.3}Building a Pipeline}{56}{}%
+\contentsline {subsection}{\numberline {4.3.1}Pre-processing}{57}{}%
+\contentsline {subsection}{\numberline {4.3.2}Vectorization}{61}{}%
+\contentsline {subsubsection}{outputs}{61}{}%
+\contentsline {subsection}{\numberline {4.3.3}Selecting a Model Head}{62}{}%
+\contentsline {section}{\numberline {4.4}Models}{63}{}%
+\contentsline {subsection}{\numberline {4.4.1}Post-processing}{64}{}%
+\contentsline {section}{\numberline {4.5}Evaluation}{64}{}%
+\contentsline {section}{\numberline {4.6}Processing of results}{64}{}%
+\contentsline {section}{\numberline {4.7}Summarization}{64}{}%
+\contentsline {chapter}{\numberline {5}Results}{65}{}%
+\contentsline {subsection}{\numberline {5.0.1}Example messages}{65}{}%
+\contentsline {subsection}{\numberline {5.0.2}Larger sample}{65}{}%
+\contentsline {chapter}{\numberline {6}Conclusion}{67}{}%
+\contentsline {section}{\numberline {6.1}Summarization}{67}{}%
+\contentsline {section}{\numberline {6.2}Discussion}{67}{}%
+\contentsline {chapter}{Bibliography}{74}{}%
+\contentsline {chapter}{Appendix}{74}{}%
+\contentsline {chapter}{Annotation Guidelines}{74}{}%
+\contentsline {section}{\numberline {.1}Named Entity - Basic Definition}{79}{}%
+\contentsline {section}{\numberline {.2}Definition of Different Entity Types}{80}{}%
+\contentsline {section}{\numberline {.3}Specifications}{80}{}%
+\contentsline {subsection}{\numberline {.3.1}Handling Mixed-language Messages}{80}{}%
+\contentsline {subsection}{\numberline {.3.2}Handling Incomprehensible Messages}{82}{}%
+\contentsline {subsection}{\numberline {.3.3}Handling Short Messages}{82}{}%
+\contentsline {subsection}{\numberline {.3.4}Handling Punctuation}{82}{}%
+\contentsline {subsubsection}{Hashtags}{82}{}%
+\contentsline {section}{\numberline {.4}Detailed Annotation Instructions for Entity Types}{83}{}%
+\contentsline {subsection}{\numberline {.4.1}PERSON}{83}{}%
+\contentsline {subsection}{\numberline {.4.2}LOCATION}{84}{}%
+\contentsline {subsection}{\numberline {.4.3}ORGANIZATION}{85}{}%
+\contentsline {subsection}{\numberline {.4.4}TIME}{86}{}%
+\contentsline {subsection}{\numberline {.4.5}DATE}{86}{}%
+\contentsline {subsection}{\numberline {.4.6}ACTION}{87}{}%

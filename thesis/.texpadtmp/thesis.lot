@@ -6,12 +6,13 @@
 \contentsline {table}{\numberline {3.3}{\ignorespaces Detected entities for English-language example messages}}{44}{}%
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces Distribution of entities in Telegram corpus}}{53}{}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Overview of Label Mapping from Smartdata to Telegram Label Schema}}{54}{}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Distribution of entities in Smartdata Corpus after Label Mapping}}{55}{}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Fine-tuning different models on Telegram dataset}}{56}{}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Fine-tuning different models on Smartdata dataset}}{56}{}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces Fine-tuning different models on both datasets combined}}{56}{}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Mapping of label schemas}}{56}{}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Distribution of entities in Smartdata corpus, after label mapping}}{57}{}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Distribution of entities in final corpus}}{57}{}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Fine-tuning different models on Telegram dataset}}{63}{}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Fine-tuning different models on Smartdata dataset}}{63}{}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Fine-tuning different models on both datasets combined}}{63}{}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Detected entities for German-language example messages: Flair vs. Custom model}}{62}{}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Detected entities for German-language example messages: Flair vs. Custom model}}{66}{}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1}{\ignorespaces Definition of Entity types}}{77}{}%
+\contentsline {table}{\numberline {1}{\ignorespaces Definition of Entity types}}{81}{}%

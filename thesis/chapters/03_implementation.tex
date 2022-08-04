@@ -190,10 +190,12 @@ The tag set covers the six entity types person, location, organization, time, da
 % Frechheit - WNUT 15: %https://docs.google.com/document/d/12hI-2A3vATMWRdsKkzDPHu5oT74_tG0-PPQ7VN0IRaw/edit
 
 \subsection{Telegram Corpus Statistics}
+The final annotated corpus consists of 500 documents with a total of 2.509 annotated named entities. 
+Table \ref{tab:tg_corpus_stats} shows the distribution of the different entity types among the corpus after splitting up the dataset into a training (80\%), test (10\%), and validation set (10\%). We can see that locations are by far the most often mentioned entity types ($\sim$51\%), followed by dates ($\sim$17\%), and action mentions ($\sim$12\%). 
+ 
+It is also apparent that the Telegram corpus is very small of size, compared to other corpora used for training NER models. The GermEval 2014 corpus for example consists of 31,300 sentences containing more than 41.000 named entities (cf. \cite{benikova2014germeval}. Due to the limited resources in terms of times and personnel, manually annotating larger amounts of data for this thesis was not possible. Against this background, additional data from the Smartdata corpus by \cite{schiersch_2018} was taken and adapted to fit the task at hand.  
 
-500 documents
-
-\begin{table}[htp]
+\begin{table}[h]
 \caption{Distribution of entities in Telegram corpus}
 \label{tab:tg_corpus_stats}
 \centering
@@ -209,76 +211,55 @@ The tag set covers the six entity types person, location, organization, time, da
 \end{adjustbox}
 \end{table}
 
-
 \section{Additional Data: The DFKI Smartdata Corpus}
-Telegram not enough data
+The Smartdata corpus consists of 2.598 German-language documents sampled from online resources covering three genres: newswire texts, Twitter, and traffic reports via RSS feeds from radio stations, police and railway companies (cf. \cite{schiersch_2018}). 
+The dataset was created by researchers at the German Research Center for Artificial Intelligence (Deutsches Forschungszentrum für Künstliche Intelligenz, DFKI) and is available under a permissive CC-BY 4.0 license.\footnote{https://creativecommons.org/licenses/by/4.0/}  
+The corpus contains a total of 22.075 named entities (cf. \cite{schiersch_2018}).
 
-Smartdata corpus, advantage: more training data
-disadvantage: different tag sets, requires mapping, not necessarily totally consistent definitions, because different annotation guidelines
-disadvantage: no entity type action, will thus be very imbalanced and underrepresented
+Even though the corpus is still relatively small of size compared to the above-mentioned standard datasets such as GermEval2014 or CoNLL2003, it is useful for several reasons: 
+First, the Smartdata corpus is explicitly designed for the recognition of events and therefore includes time and date mentions, extending the commonly used entity types. 
+Second, unlike the standard datasets, it consists of online documents, making it more similar to the Telegram corpus than corpora created from classic news articles. 
 
-cite 
+However, the tag set of the corpus is not readily combinable with the Telegram corpus, since the Smartdata corpus is based on a (partially) fine-grained annotation scheme: Organizations were annotated as organization or organization-company, and locations were annotated as location, location-city, location-street, location-route, and location-stop.
+Furthermore, the dataset contains entity types which are not of interest for my task, such as duration, distance, disaster type, or trigger events. 
+It should also be noted that even for the same entity types, the two corpora might differ slightly since the development of the annotation scheme and the annotation process itself were carried out separately.
+Another disadvantage is that the Smartdata corpus does not contain the entity type action (or a similar entity type). This results in an underrepresentation of this specific class when merging both datasets and might most probably cause problems during training, since there will not be enough examples for the model to learn, and mentions of actions occuring in the Smartdata corpus do not have a corresponding tag. 
 
-describe corpus and purpose
-
-DFKI SmartData Corpus is released as CC-BY 4.0.
-
-%GermEval 2014 NER task dataset
-%Why not GermEval or ConLL? TIME, DATE missing; ACTION as well, not social media data
 
 \subsection{Label Mapping}
-\begin{table}[htp]
-\caption{Overview of Label Mapping from Smartdata to Telegram Label Schema}
+For merging the two corpora, the labels of the Smartdata corpus were mapped to those of the Telegram corpus. This was done by mapping all entities not of interest (e.g. duration) to the O-tag, and mapping the fine-grained entity labels to their coarse-grained match, provided that the definition of the fine-grained entity was considered to sufficiently match the definition used in the Telegram corpus. 
+Table \ref{tab:label_mapping} shows the mapping between the two labels schemas in detail.  
+
+\begin{table}[h]
+\caption{Mapping of label schemas}
 \label{tab:label_mapping}
 \centering
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{|p{0.5\linewidth}|p{0.5\linewidth}|}
+\begin{tabular}{|p{0.3\linewidth}|p{0.7\linewidth}|}
 \hline
-\textbf{Smartdata Label} & \textbf{Telegram Label} \\
+\textbf{Telegram Label} & \textbf{Original Smartdata Label} \\
 \hline 
 B-DATE & B-DATE\\ \hline
 I-DATE & I-DATE\\ \hline
-B-DISASTER\_TYPE & O \\ \hline
-I-DISASTER\_TYPE & O \\ \hline
-B-DISTANCE & O \\ \hline
-I-DISTANCE & O \\ \hline
-B-DURATION & O \\ \hline
-I-DURATION & O \\ \hline
-B-LOCATION & B-LOC \\ \hline
-I-LOCATION & I-LOC \\ \hline
-B-LOCATION\_CITY & B-LOC \\ \hline
-I-LOCATION\_CITY & I-LOC \\ \hline
-B-LOCATION\_ROUTE &  O \\ \hline
-I-LOCATION\_ROUTE & O \\ \hline
-B-LOCATION\_STOP & B-LOC \\ \hline
-I-LOCATION\_STOP & I-LOC \\ \hline
-B-LOCATION\_STREET & B-LOC \\ \hline
-I-LOCATION\_STREET & I-LOC \\ \hline
-B-NUMBER & O \\ \hline
-I-NUMBER & O \\ \hline
-B-ORGANIZATION & B-ORG \\ \hline
-I-ORGANIZATION & I-ORG \\ \hline
-B-ORGANIZATION\_COMPANY & B-ORG \\ \hline
-I-ORGANIZATION\_COMPANY & I-ORG \\ \hline
-B-ORG\_POSITION &  O \\ \hline
-I-ORG\_POSITION & O \\ \hline
-B-PERSON & B-PER \\ \hline
-I-PERSON & I-PER \\ \hline
+B-LOC & B-LOCATION, B-LOCATION\_CITY, \newline B-LOCATION\_STOP, 
+ B-LOCATION\_STREET  \\ \hline
+I-LOC & I-LOCATION, I-LOCATION\_CITY, \newline I-LOCATION\_STOP, I-LOCATION\_STREET \\ \hline
+B-ORG & B-ORGANIZATION, \newline B-ORGANIZATION\_COMPANY \\ \hline
+I-ORG & I-ORGANIZATION, \newline I-ORGANIZATION\_COMPANY \\ \hline
+B-PER & B-PERSON \\ \hline
+I-PER & I-PERSON \\ \hline
 B-TIME & B-TIME \\ \hline
 I-TIME & I-TIME \\ \hline
-B-TRIGGER & O \\ \hline
-I-TRIGGER & O \\ \hline
-
+O & B-DISASTER\_TYPE, I-DISASTER\_TYPE, \newline B-DISTANCE, I-DISTANCE, \newline B-DURATION, I-DURATION, \newline B-LOCATION\_ROUTE, I-LOCATION\_ROUTE, \newline B-NUMBER, I-NUMBER, \newline B-ORG\_POSITION, I-ORG\_POSITION, \newline B-TRIGGER, I-TRIGGER \\ \hline
 \end{tabular}
 \end{adjustbox}
 \end{table}
 
 \subsection{Smartdata Corpus Statistics}
+After carrying out the label mapping, the adjusted Smartdata corpus contains a  total of 14.557 entities, distributed as shown in table \ref{tab:sm_corpus_stats}. We can see that as in the Telegram corpus, location mentions represent the largest class ($\sim$47\%). The next largest proportions are organizations ($\sim$27\%), and dates ($\sim$13\%). 
 
-500 documents
-
-\begin{table}[]
-\caption{Distribution of entities in Smartdata Corpus after Label Mapping}
+\begin{table}[h]
+\caption{Distribution of entities in Smartdata corpus, after label mapping}
 \label{tab:sm_corpus_stats}
 \centering
 \begin{adjustbox}{max width=\textwidth}
@@ -293,10 +274,170 @@ I-TRIGGER & O \\ \hline
 \end{adjustbox}
 \end{table}
 
+\subsection{Final corpus statistics}
+Combining the Telegram corpus and the adjusted Smartdata corpus results in a total of 17.066 entities with a class distribution of as shown in table \ref{tab:final_corpus_stats}. 
+Resulting from the stark proportion of location mentions in both datasets, here once again entities of type location make up for almost half of all entities ($\sim$48\%). The next most frequent entity types are organizations ($\sim$24\%), and dates ($\sim$13\%). Less frequently mentioned are persons ($\sim$8\%), and times ($\sim$5\%). Entities of type action make up for less than 2\%, which is not surprising given the fact that this tag only exists in the far smaller Telegram corpus. 
+
+\begin{table}[ht]
+\caption{Distribution of entities in final corpus}
+\label{tab:final_corpus_stats}
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{|p{0.18\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
+\hline
+& \textbf{LOC} & \textbf{PER} & \textbf{ORG} & \textbf{DATE} & \textbf{TIME} & \textbf{ACTION} & \textbf{total} \\ \hline 
+\textbf{train} & 6.666 & 1.054 & 3.355 & 1.832 & 744 & 253 & 13.904 \\ \hline
+\textbf{test} & 747 & 117 & 333 & 230 & 88 & 29 & 1.544 \\ \hline
+\textbf{validation} & 761 & 144 & 405 & 207 & 78 & 23 & 1.618 \\ \hline
+\textbf{total} & 8.174 & 1.315 & 4.093 & 2.269 & 910 & 305 & 17.066 \\ \hline
+\end{tabular}
+\end{adjustbox}
+\end{table}
 
 %\section{Baseline}
 %Lit: Ritter et al. /Baldwin?
 % Create Baseline with XLM Roberta
+
+\section{Building a Pipeline}
+Fine-tuning a pre-trained transformer model for NER (and other NLP tasks) requires a pipeline which basically includes the following three steps: 
+First, the input texts need to be pre-processed so that the model can process them. 
+Second, these pre-processed inputs are passed through the model, resulting in the model's outputs. 
+Third, these outputs need to be post-processed in order to obtain the model's predictions.
+
+% https://huggingface.co/course/chapter2/2?fw=pt
+
+%- Adding additional inputs that may be useful to the model
+
+\subsection{Pre-processing}
+Like other neural networks (or any other machine learning models in general), transformer models cannot process raw strings, but require tokenized and encoded (i.e. vectorized) representations of textual data as input (cf. \cite[29]{tunstall_natural_2022}). This is done in the first part of the pipeline via a tokenizer. 
+Tokenization basically refers to the act of breaking down a string into single units. There are different tokenization strategies ranging from character-based over subword-based to word-based tokenization (cf. \cite[29]{tunstall_natural_2022}). 
+
+Transformer models rely on subword tokenization as an attempt to combine the advantages of both character- und word-based tokenization. This means that rare words are split up into smaller units while more frequent words are not split up. This allows to handle complex words and misspellings, but at the same time keep the input length at a processable size (cf. \cite[33]{tunstall_natural_2022}). Which words should be split up and which not is usually learned during the pre-training of transformer models, using different algorithms such as WordPiece, Byte-Pair Encoding (BPE), or SentencePiece (cf. \cite{huggingface_tokenizers}) . Against this background, the tokenizer used for later fine-tuning needs to match the pre-training process. 
+
+The tokenizer takes care of several pre-processing steps including normalization, pretokenization, subword tokenization, and post-processing (cf. \cite[94-95]{tunstall_natural_2022}).  
+
+To load a tokenizer which fits the pre-trained model, the \verb|AutoTokenizer| class can be used by passing the model name to the \verb|from_pretrained()| method: 
+
+\begin{python}
+from transformers import AutoTokenizer
+
+model_name = 'deepset/gbert-base'
+tokenizer = AutoTokenizer.from_pretrained(model_name) 
+\end{python}
+
+While the tokenizer splits up the input strings into subwords, the NE tags in the training corpus are assigned to entire tokens. We thus need to handle this by properly aligning the NE tags with their corresponding subtokens. Since every word in the input is assigned a unique \verb|word_id| which is also assigned to the resulting subtokens of the word, we can make use of this id for tag alignment. If a subtoken has the same \verb|word_id| as its predecessor, we can assign the value -100 as its \verb|label_id|. This tells the cross entropy loss function to ignore these subtokens and only consider the label assigned to the first subtoken of a word (cf. \cite[104]{tunstall_natural_2022}). 
+
+The following method based on \cite[104]{tunstall_natural_2022}
+was used for tokenization and label alignment of the Telegram and Smartdata corpus.
+
+\begin{python}
+def tokenize_and_align_labels(examples):
+    
+    tokenized_inputs = tokenizer(
+        examples['tokens'], 
+        padding='max_length',
+        truncation=True, 
+        is_split_into_words=True
+    )    
+
+    labels = []
+    
+    for idx, label in enumerate(examples['ner_tags']):
+        word_ids = tokenized_inputs.word_ids(batch_index=idx)
+        previous_word_idx = None
+        label_ids = []
+        for word_idx in word_ids:
+            if word_idx is None or word_idx == previous_word_idx:
+                label_ids.append(-100)
+            else: 
+                label_ids.append(label[word_idx])
+            previous_word_idx = word_idx
+        labels.append(label_ids)
+    tokenized_inputs['labels'] = labels
+    return tokenized_inputs
+\end{python}
+
+We can see above that besides the input tokens, some additional arguments are passed to the tokenizer. These arguments tell the tokenizer that the input texts is already split into separate tokens via \verb|is_split_into_words=True|. Furthermore, since transformer models operate with fixed-size vector representations of inputs (called tensors), the tokenizer needs to be told how to handle inputs of different length. Truncation deals with long inputs by truncating them to the maximum length accepted by a given model (e.g. 512 tokens for BERT models). Padding on the other hand deals with shorter input sequences by adding a special padding token until the defined length (here: maximum length accepted by the model) is reached (cf. \cite{huggingface_pad_trunc}). 
+
+Before we can start to train the model, the whole dataset needs to be encoded. This can be achieved via the \verb|map()| method of the Hugging Face Datasets library. In this step, unnecessary columns are also removed. We encode both the training and the validation split since we need the validation set in its encoded form for evaluating the training results:  
+
+\begin{python}
+def encode_dataset(corpus, columns_to_remove=['ner_tags', 'tokens', 'ner_tags_str']):
+    return corpus.map(tokenize_and_align_labels, 
+                      batched=True,
+                      remove_columns=columns_to_remove)
+\end{python} 
+
+We can now load the prepared Telegram corpus and the adjusted Smartdata corpus from disk: 
+
+\begin{python}
+smartdata = load_from_disk('/home/eli/data/data_prepared_for_tf/smartdata/')
+telegram = load_from_disk('/home/eli/data/data_prepared_for_tf/telegram_train_test_valid/')
+\end{python}
+
+And then concatenate the respective training and validation splits. Note that the training split is being shuffled before training to randomly rearrange its values, thus ensuring that there is no unintended ordering in the data which might affect the model training). 
+
+\begin{python}
+train_ds = concatenate_datasets([smartdata['train'], telegram['train']])
+train_ds = train_ds.shuffle(seed=42)
+
+eval_ds = concatenate_datasets([smartdata['validation'], telegram['validation']])
+\end{python}
+
+Finally, we can tokenize and encode both splits: 
+\begin{python}
+train_encoded = encode_dataset(train_ds)
+eval_encoded = encode_dataset(eval_ds)	
+\end{python}
+
+After encoding, the dataset consists of numerical \verb|input_ids|, representing the input tokens, and numerical \verb|labels|, representing the corresponding NE tags, as shown in figure \ref{fig:encoded_ds}: 
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/encoded_ds.png}
+\caption{Training data after tokenization and encoding}
+  \label{fig:encoded_ds}
+\end{figure}
+
+
+\subsection{Vectorization}
+The next step in the pipeline is about passing these pre-processed numerical inputs through the model. 
+
+convert the list of input IDs to tensors.
+
+Transformer models only accept tensors as input. If this is your first time hearing about tensors, you can think of them as NumPy arrays instead. A NumPy array can be a scalar (0D), a vector (1D), a matrix (2D), or have more dimensions. It’s effectively a tensor; other ML frameworks’ tensors behave similarly, and are usually as simple to instantiate as NumPy arrays.
+
+To specify the type of tensors we want to get back (PyTorch, TensorFlow, or plain NumPy), we use the return\_tensors argument:
+
+padding, truncation, return\_tensors erklären können
+
+
+The output itself is a dictionary containing two keys, input\_ids and attention\_mask. input\_ids contains two rows of integers (one for each sentence) that are the unique identifiers of the tokens in each sentence. We’ll explain what the attention\_mask is later in this chapter.
+
+
+\subsubsection{outputs}
+
+checkpoint / pretrained
+This architecture contains only the base Transformer module: given some inputs, it outputs what we’ll call hidden states, also known as features. For each model input, we’ll retrieve a high-dimensional vector representing the contextual understanding of that input by the Transformer model.
+While these hidden states can be useful on their own, they’re usually inputs to another part of the model, known as the head.
+
+The vector output by the Transformer module is usually large. It generally has three dimensions:
+
+Batch size: The number of sequences processed at a time (2 in our example).
+Sequence length: The length of the numerical representation of the sequence (16 in our example).
+Hidden size: The vector dimension of each model input.
+
+Note that the outputs of Transformers models behave like namedtuples or dictionaries. You can access the elements by attributes (like we did) or by key (outputs["last\_hidden\_state"]), or even by index if you know exactly where the thing you are looking for is (outputs[0]).
+
+\subsection{Selecting a Model Head}
+The model heads take the high-dimensional vector of hidden states as input and project them onto a different dimension. They are usually composed of one or a few linear layers
+
+The output of the Transformer model is sent directly to the model head to be processed.
+
+In this diagram, the model is represented by its embeddings layer and the subsequent layers. The embeddings layer converts each input ID in the tokenized input into a vector that represents the associated token. The subsequent layers manipulate those vectors using the attention mechanism to produce the final representation of the sentences.
+
+There are many different architectures available in Transformers, with each one designed around tackling a specific task.
+
+here: for token classification (NER)
 
 \section{Models}
 
@@ -378,65 +519,6 @@ XLM Roberta:
 - Recall: 0.8319
 - Accuracy: 0.9531
 
-\section{Building a Pipeline}
-
-pipeline groups together three steps: preprocessing, passing the inputs through the model, and postprocessing
-% https://huggingface.co/course/chapter2/2?fw=pt
-
-Like other neural networks, Transformer models can’t process raw text directly, so the first step of our pipeline is to convert the text inputs into numbers that the model can make sense of. To do this we use a tokenizer, which will be responsible for:
-
-- Splitting the input into words, subwords, or symbols (like punctuation) that are called tokens
-- Mapping each token to an integer
-- Adding additional inputs that may be useful to the model
-
-
-\subsection{Tokenization}
-All this preprocessing needs to be done in exactly the same way as when the model was pretrained 
-
-use Autotokenizer  from\_pretrained
-
-Once we have the tokenizer, we can directly pass our sentences to it and we ll get back a dictionary that s ready to feed to our model
-
-\subsubsection{Subword tokenization, alignment}
-
-
-\subsection{Vectorization?}
-convert the list of input IDs to tensors.
-
-Transformer models only accept tensors as input. If this is your first time hearing about tensors, you can think of them as NumPy arrays instead. A NumPy array can be a scalar (0D), a vector (1D), a matrix (2D), or have more dimensions. It’s effectively a tensor; other ML frameworks’ tensors behave similarly, and are usually as simple to instantiate as NumPy arrays.
-
-To specify the type of tensors we want to get back (PyTorch, TensorFlow, or plain NumPy), we use the return\_tensors argument:
-
-padding, truncation, return\_tensors erklären können
-
-Don t worry about padding and truncation just yet; we’ll explain those later. The main things to remember here are that you can pass one sentence or a list of sentences, as well as specifying the type of tensors you want to get back (if no type is passed, you will get a list of lists as a result).
-
-The output itself is a dictionary containing two keys, input\_ids and attention\_mask. input\_ids contains two rows of integers (one for each sentence) that are the unique identifiers of the tokens in each sentence. We’ll explain what the attention\_mask is later in this chapter.
-
-
-\subsubsection{outputs}
-
-checkpoint / pretrained
-This architecture contains only the base Transformer module: given some inputs, it outputs what we’ll call hidden states, also known as features. For each model input, we’ll retrieve a high-dimensional vector representing the contextual understanding of that input by the Transformer model.
-While these hidden states can be useful on their own, they’re usually inputs to another part of the model, known as the head.
-
-The vector output by the Transformer module is usually large. It generally has three dimensions:
-
-Batch size: The number of sequences processed at a time (2 in our example).
-Sequence length: The length of the numerical representation of the sequence (16 in our example).
-Hidden size: The vector dimension of each model input.
-
-Note that the outputs of Transformers models behave like namedtuples or dictionaries. You can access the elements by attributes (like we did) or by key (outputs["last\_hidden\_state"]), or even by index if you know exactly where the thing you are looking for is (outputs[0]).
-
-\subsection{Model heads}
-The model heads take the high-dimensional vector of hidden states as input and project them onto a different dimension. They are usually composed of one or a few linear layers
-The output of the Transformer model is sent directly to the model head to be processed.
-
-In this diagram, the model is represented by its embeddings layer and the subsequent layers. The embeddings layer converts each input ID in the tokenized input into a vector that represents the associated token. The subsequent layers manipulate those vectors using the attention mechanism to produce the final representation of the sentences.
-
-There are many different architectures available in Transformers, with each one designed around tackling a specific task.
-
-here: for token classification (NER)
 
 
 \subsection{Post-processing}
@@ -447,6 +529,8 @@ Those are not probabilities but logits, the raw, unnormalized scores outputted b
 To get the labels corresponding to each position, we can inspect the id2label attribute of the model config
 
 
+transformers pipeline 
+
 model.config.id2label
 
 \section{Evaluation}
@@ -454,16 +538,15 @@ model.config.id2label
 - validation loss
 - early stopping
 - F1
-- precision, recall, accuracy erklären
+- precision, recall, (accuracy) erklären
 
 Overfitting
 
 Error Analysis
 
-
 Confusion matrix 
 
-\section{Hyperparameter tuning}
+%\section{Hyperparameter tuning}
 
 
 \section{Processing of results}

@@ -1003,6 +1003,58 @@
     \field{year}{2022}
   \endentry
 
+  \entry{huggingface_pad_trunc}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=FH}{%
+         family={Face},
+         familyi={F\bibinitperiod},
+         given={Hugging},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FH1}
+    \strng{fullhash}{FH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{note}{(Accessed on 08/04/2022)}
+    \field{title}{Padding and truncation}
+    \verb{url}
+    \verb https://huggingface.co/docs/transformers/pad_truncation
+    \endverb
+    \field{year}{2022}
+  \endentry
+
+  \entry{huggingface_tokenizers}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=FH}{%
+         family={Face},
+         familyi={F\bibinitperiod},
+         given={Hugging},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FH1}
+    \strng{fullhash}{FH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{note}{(Accessed on 08/04/2022)}
+    \field{title}{Summary of the tokenizers}
+    \verb{url}
+    \verb https://huggingface.co/docs/transformers/tokenizer_summary
+    \endverb
+    \field{year}{2022}
+  \endentry
+
   \entry{grishman_message_1996}{inproceedings}{}
     \name{author}{2}{}{%
       {{hash=GR}{%
