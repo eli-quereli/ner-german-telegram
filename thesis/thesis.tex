@@ -1,6 +1,8 @@
 \documentclass[12pt]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{caption}
+\captionsetup{font=footnotesize}
 \usepackage{adjustbox}
 \graphicspath{ {images/} }
 \usepackage{xcolor}
@@ -14,7 +16,8 @@
 \pagestyle{headings}
 
 \usepackage[nottoc,notlot,notlof]{tocbibind}
-\usepackage[style=authoryear, backend=bibtex]{biblatex}
+\usepackage[style=authoryear-ibid, backend=bibtex]{biblatex}
+\usepackage{hyperref}
 \addbibresource{thesis.bib}
 \DeclareNameAlias{sortname}{family-given}
 \nocite{*}

@@ -1,14 +1,15 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Examples of noisy text in tweets, taken from \blx@tocontentsinit {0}\cite {ritter_2011}}}{16}{}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Lexical variations of the word `tomorrow' in tweets, taken from \blx@tocontentsinit {0}\cite {ritter_2011}}}{18}{}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces An illustration of an HMM for part-of-speech tagging; modelling transition probabilities between POS tags and observation likelihoods for words occuring with these tags. Taken from \blx@tocontentsinit {0}\cite [11]{jurafsky_2021_8}}}{26}{}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces NER features for an example sentence, taken from \blx@tocontentsinit {0}\cite [19]{jurafsky_2021_8}}}{29}{}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Examples of noisy text in tweets, taken from \blx@tocontentsinit {0}\cite {ritter_2011}\relax }}{16}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Lexical variations of the word `tomorrow' in tweets, taken from \blx@tocontentsinit {0}\cite {ritter_2011}\relax }}{17}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces An illustration of an HMM for part-of-speech tagging; modelling transition probabilities between POS tags and observation likelihoods for words occuring with these tags. Taken from \blx@tocontentsinit {0}\cite [11]{jurafsky_2021_8}\relax }}{25}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces NER features for an example sentence, taken from \blx@tocontentsinit {0}\cite [19]{jurafsky_2021_8}\relax }}{28}{figure.caption.8}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Message frequencies}}{46}{}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Five most frequent languages}}{49}{}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Descriptive statistiscs for text length of all German-language messages in dataset}}{50}{}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Training data after tokenization and encoding}}{61}{}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Message frequencies\relax }}{45}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Five most frequent languages\relax }}{48}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Training data after tokenization and encoding\relax }}{64}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Fine-tuning the deepset/gbert-base model: Training and validation loss \relax }}{74}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Fine-tuning the deepset/gbert-base model: F1, precision, recall, and accuracy\relax }}{74}{figure.caption.32}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

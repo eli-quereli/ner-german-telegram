@@ -79,7 +79,20 @@ get_entities(texts)
 
 \subsection{Results}
 
-Table \ref{tab:detect_ents_de} shows the results of both models for the example texts: 
+Table \ref{tab:detect_ents_de} shows the results of both models for the example texts. I would like to emphasize that due to the small size of the explored sample, these explorations are rather anecdotal and cannot be generalized without further quantitative evaluation on a larger sample. 
+However, the following observations can be made when looking at the results: 
+ 
+The spaCy model produces more false positives overall: It falsely tags the sequences `Endkundgebung' (final rally), `GEHT DEMONSTRIEREN' (go demonstrate), `Dresdner \&', `Videos', `Berliner', `Versammlungsfre' (freedom of assembly, truncated), `Einfach' (simple/simply), `Der Mann mit dem Schild' (the man with the sign), and `Einsatzwägen' (patrol cars) as entities. 
+
+The Flair model only falsely tags `FU' and `Demo-Berlin'. The sequence `FU' was originally part of the German word `F\"UR' and apparently was modified by the model's tokenizer which is applied when creating a Sentence object from the input text. The sequence `Demo-Berlin' contains a location, which makes the model's mistake to some extent plausible. 
+
+It can also be observed that the spaCy model sometimes assigns the wrong tag to a correctly detected entity. This applies for the sequences `Blankenfelde Mahlow' which is not a person as suggested by the model, but a location. 
+
+Regarding false negatives, it can be observed that the sapCy model does not detect `Freiburg' in the first message. On the other hand, it recognizes parts of the sequence `Platz der alten Synagoge` (square of the old synagogue) as a location. The Flair model correctly detects Freiburg, but misses the mentioned square. 
+
+Even though the sample is too small for generalization, this first exploration casts strong doubts on the claim that spaCy offers production-ready components for NER.
+
+It can be hypothesized that both the different model architectures and the different corpora used for training result in the better performance of the Flair model compared to the spaCy model.
 
 \begin{table}[htp]
 \caption{Detected entities for German-language example messages}
@@ -144,23 +157,6 @@ von Versammlungsfre - Sven Liebich 0:23 Raus auf die Straßen  \"Ubersicht / Ove
 \end{tabular}
 \end{adjustbox}
 \end{table}
-
-I would like to emphasize that due to the small size of the explored sample, these explorations are rather anecdotal and cannot be generalized without further quantitative evaluation on a larger sample. 
-
-However, the following observations can be made when looking at the results: 
- 
-The spaCy model produces more false positives overall: It falsely tags the sequences `Endkundgebung' (final rally), `GEHT DEMONSTRIEREN' (go demonstrate), `Dresdner \&', `Videos', `Berliner', `Versammlungsfre' (freedom of assembly, truncated), `Einfach' (simple/simply), `Der Mann mit dem Schild' (the man with the sign), and `Einsatzwägen' (patrol cars) as entities. 
-
-The Flair model only falsely tags `FU' and `Demo-Berlin'. The sequence `FU' was originally part of the German word `F\"UR' and apparently was modified by the model's tokenizer which is applied when creating a Sentence object from the input text. The sequence `Demo-Berlin' contains a location, which makes the model's mistake to some extent plausible. 
-
-It can also be observed that the spaCy model sometimes assigns the wrong tag to a correctly detected entity. This applies for the sequences `Blankenfelde Mahlow' which is not a person as suggested by the model, but a location. 
-
-Regarding false negatives, it can be observed that the sapCy model does not detect `Freiburg' in the first message. On the other hand, it recognizes parts of the sequence `Platz der alten Synagoge` (square of the old synagogue) as a location. The Flair model correctly detects Freiburg, but misses the mentioned square. 
-
-Even though the sample is too small for generalization, this first exploration casts strong doubts on the claim that spaCy offers production-ready components for NER.
-
-It can be hypothesized that both the different model architectures and the different corpora used for training result in the better performance of the Flair model compared to the spaCy model.
-
 
 \section{Exploring the Potentials of Machine Translation for NER}
 
@@ -253,6 +249,8 @@ The translated texts were then fed to the English-language spaCy and Flair model
 \subsection{Results}
 
 Table \ref{tab:detect_ents_en} shows the results of both models for the translated example texts. 
+
+%TODO describe results
 
 \begin{table}[htp]
 \caption{Detected entities for English-language example messages}

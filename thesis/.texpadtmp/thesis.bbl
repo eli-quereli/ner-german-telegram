@@ -310,6 +310,51 @@
     \field{urlyear}{2022}
   \endentry
 
+  \entry{xlm_roberta_twitter}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=BF}{%
+         family={Barbieri},
+         familyi={B\bibinitperiod},
+         given={Francesco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=ALE}{%
+         family={Anke},
+         familyi={A\bibinitperiod},
+         given={Luis\bibnamedelima Espinosa},
+         giveni={L\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=CCJ}{%
+         family={Camacho-Collados},
+         familyi={C\bibinithyphendelim C\bibinitperiod},
+         given={Jose},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {arXiv}%
+    }
+    \keyw{Computation and Language (cs.CL), FOS: Computer and information
+  sciences, FOS: Computer and information sciences}
+    \strng{namehash}{BFALECCJ1}
+    \strng{fullhash}{BFALECCJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \verb{doi}
+    \verb 10.48550/ARXIV.2104.12250
+    \endverb
+    \field{title}{XLM-T: Multilingual Language Models in Twitter for Sentiment
+  Analysis and Beyond}
+    \verb{url}
+    \verb https://arxiv.org/abs/2104.12250
+    \endverb
+    \field{year}{2021}
+  \endentry
+
   \entry{benikova-etal-2014-nosta}{inproceedings}{}
     \name{author}{3}{}{%
       {{hash=BD}{%
@@ -397,6 +442,45 @@
     \field{journaltitle}{Proceedings of the KONVENS GermEval Shared Task on
   Named Entity Recognition, Hildesheim, Germany}
     \field{year}{2014}
+  \endentry
+
+  \entry{bert_german_2020}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=CB}{%
+         family={Chan},
+         familyi={C\bibinitperiod},
+         given={Branden},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Schweter},
+         familyi={S\bibinitperiod},
+         given={Stefan},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=MT}{%
+         family={Möller},
+         familyi={M\bibinitperiod},
+         given={Timo},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CBSSMT1}
+    \strng{fullhash}{CBSSMT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{doi}
+    \verb 10.48550/ARXIV.2010.10906
+    \endverb
+    \field{title}{German's Next Language Model}
+    \verb{url}
+    \verb https://arxiv.org/abs/2010.10906
+    \endverb
+    \field{year}{2020}
   \endentry
 
   \entry{muc7_ner}{misc}{}
@@ -584,6 +668,90 @@
     \endverb
     \field{journaltitle}{NATURAL LANGUAGE PROCESSING}
     \field{year}{2011}
+  \endentry
+
+  \entry{xlm_roberta}{article}{}
+    \name{author}{10}{}{%
+      {{hash=CA}{%
+         family={Conneau},
+         familyi={C\bibinitperiod},
+         given={Alexis},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KK}{%
+         family={Khandelwal},
+         familyi={K\bibinitperiod},
+         given={Kartikay},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=GN}{%
+         family={Goyal},
+         familyi={G\bibinitperiod},
+         given={Naman},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=CV}{%
+         family={Chaudhary},
+         familyi={C\bibinitperiod},
+         given={Vishrav},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=WG}{%
+         family={Wenzek},
+         familyi={W\bibinitperiod},
+         given={Guillaume},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=GF}{%
+         family={Guzm{\'{a}}n},
+         familyi={G\bibinitperiod},
+         given={Francisco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=GE}{%
+         family={Grave},
+         familyi={G\bibinitperiod},
+         given={Edouard},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=OM}{%
+         family={Ott},
+         familyi={O\bibinitperiod},
+         given={Myle},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=ZL}{%
+         family={Zettlemoyer},
+         familyi={Z\bibinitperiod},
+         given={Luke},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SV}{%
+         family={Stoyanov},
+         familyi={S\bibinitperiod},
+         given={Veselin},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CA+1}
+    \strng{fullhash}{CAKKGNCVWGGFGEOMZLSV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{eprint}
+    \verb 1911.02116
+    \endverb
+    \field{title}{Unsupervised Cross-lingual Representation Learning at Scale}
+    \verb{url}
+    \verb http://arxiv.org/abs/1911.02116
+    \endverb
+    \field{volume}{abs/1911.02116}
+    \field{journaltitle}{CoRR}
+    \field{eprinttype}{arXiv}
+    \field{year}{2019}
   \endentry
 
   \entry{derczynski-etal-2016-broad}{inproceedings}{}
@@ -832,6 +1000,55 @@
     \field{urlyear}{2022}
   \endentry
 
+  \entry{devlin_2018}{misc}{}
+    \name{author}{4}{}{%
+      {{hash=DJ}{%
+         family={Devlin},
+         familyi={D\bibinitperiod},
+         given={Jacob},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=CMW}{%
+         family={Chang},
+         familyi={C\bibinitperiod},
+         given={Ming-Wei},
+         giveni={M\bibinithyphendelim W\bibinitperiod},
+      }}%
+      {{hash=LK}{%
+         family={Lee},
+         familyi={L\bibinitperiod},
+         given={Kenton},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=TK}{%
+         family={Toutanova},
+         familyi={T\bibinitperiod},
+         given={Kristina},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {arXiv}%
+    }
+    \strng{namehash}{DJ+1}
+    \strng{fullhash}{DJCMWLKTK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{doi}
+    \verb 10.48550/ARXIV.1810.04805
+    \endverb
+    \field{title}{BERT: Pre-training of Deep Bidirectional Transformers for
+  Language Understanding}
+    \verb{url}
+    \verb https://arxiv.org/abs/1810.04805
+    \endverb
+    \field{year}{2018}
+  \endentry
+
   \entry{ethnologue_how_2022}{misc}{}
     \name{author}{1}{}{%
       {{hash=E}{%
@@ -1003,58 +1220,6 @@
     \field{year}{2022}
   \endentry
 
-  \entry{huggingface_pad_trunc}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=FH}{%
-         family={Face},
-         familyi={F\bibinitperiod},
-         given={Hugging},
-         giveni={H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{FH1}
-    \strng{fullhash}{FH1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2022}
-    \field{extradate}{1}
-    \field{labeldatesource}{}
-    \field{sortinit}{F}
-    \field{sortinithash}{F}
-    \field{note}{(Accessed on 08/04/2022)}
-    \field{title}{Padding and truncation}
-    \verb{url}
-    \verb https://huggingface.co/docs/transformers/pad_truncation
-    \endverb
-    \field{year}{2022}
-  \endentry
-
-  \entry{huggingface_tokenizers}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=FH}{%
-         family={Face},
-         familyi={F\bibinitperiod},
-         given={Hugging},
-         giveni={H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{FH1}
-    \strng{fullhash}{FH1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2022}
-    \field{extradate}{2}
-    \field{labeldatesource}{}
-    \field{sortinit}{F}
-    \field{sortinithash}{F}
-    \field{note}{(Accessed on 08/04/2022)}
-    \field{title}{Summary of the tokenizers}
-    \verb{url}
-    \verb https://huggingface.co/docs/transformers/tokenizer_summary
-    \endverb
-    \field{year}{2022}
-  \endentry
-
   \entry{grishman_message_1996}{inproceedings}{}
     \name{author}{2}{}{%
       {{hash=GR}{%
@@ -1095,6 +1260,102 @@
     \field{urlday}{27}
     \field{urlmonth}{06}
     \field{urlyear}{2022}
+  \endentry
+
+  \entry{huggingface_attention_mask}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=H}{%
+         family={HuggingFace},
+         familyi={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{H1}
+    \strng{fullhash}{H1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{note}{(Accessed on 08/05/2022)}
+    \field{title}{Glossary: Attention mask}
+    \verb{url}
+    \verb https://huggingface.co/docs/transformers/glossary#attention-mask
+    \endverb
+    \field{year}{2022}
+  \endentry
+
+  \entry{huggingface_token_type_ids}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=H}{%
+         family={HuggingFace},
+         familyi={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{H1}
+    \strng{fullhash}{H1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{note}{(Accessed on 08/05/2022)}
+    \field{title}{Glossary: Token Type IDs}
+    \verb{url}
+    \verb https://huggingface.co/docs/transformers/glossary#token-type-ids
+    \endverb
+    \field{year}{2022}
+  \endentry
+
+  \entry{huggingface_pad_trunc}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=H}{%
+         family={HuggingFace},
+         familyi={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{H1}
+    \strng{fullhash}{H1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{3}
+    \field{labeldatesource}{}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{note}{(Accessed on 08/04/2022)}
+    \field{title}{Padding and truncation}
+    \verb{url}
+    \verb https://huggingface.co/docs/transformers/pad_truncation
+    \endverb
+    \field{year}{2022}
+  \endentry
+
+  \entry{huggingface_tokenizers}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=H}{%
+         family={HuggingFace},
+         familyi={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{H1}
+    \strng{fullhash}{H1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{4}
+    \field{labeldatesource}{}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{note}{(Accessed on 08/04/2022)}
+    \field{title}{Summary of the tokenizers}
+    \verb{url}
+    \verb https://huggingface.co/docs/transformers/tokenizer_summary
+    \endverb
+    \field{year}{2022}
   \endentry
 
   \entry{jurafsky_2021_6}{inbook}{}
@@ -1229,6 +1490,34 @@
     \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
     \endverb
     \field{year}{2021}
+  \endentry
+
+  \entry{regularization}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=KAI}{%
+         family={Koppert-Anisimova},
+         familyi={K\bibinithyphendelim A\bibinitperiod},
+         given={Inara},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KAI1}
+    \strng{fullhash}{KAI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{note}{(Accessed on 08/05/2022)}
+    \field{title}{Stay away from overfitting: L2-norm Regularization, Weight
+  Decay and L1-norm Regularization techniques | by Inara Koppert-Anisimova |
+  unpack | Medium}
+    \verb{url}
+    \verb https://medium.com/unpackai/stay-away-from-overfitting-l2-norm-regula
+    \verb rization-weight-decay-and-l1-norm-regularization-795bbc5cf958
+    \endverb
+    \field{year}{2022}
   \endentry
 
   \entry{ldc_2005}{misc}{}
@@ -2284,6 +2573,55 @@
     \field{urlday}{14}
     \field{urlmonth}{05}
     \field{urlyear}{2022}
+  \endentry
+
+  \entry{yamada-etal-2015-enhancing}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=YI}{%
+         family={Yamada},
+         familyi={Y\bibinitperiod},
+         given={Ikuya},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=TH}{%
+         family={Takeda},
+         familyi={T\bibinitperiod},
+         given={Hideaki},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=TY}{%
+         family={Takefuji},
+         familyi={T\bibinitperiod},
+         given={Yoshiyasu},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{YITHTY1}
+    \strng{fullhash}{YITHTY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{Y}
+    \field{sortinithash}{Y}
+    \field{booktitle}{Proceedings of the Workshop on Noisy User-generated Text}
+    \verb{doi}
+    \verb 10.18653/v1/W15-4320
+    \endverb
+    \field{pages}{136\bibrangedash 140}
+    \field{title}{Enhancing Named Entity Recognition in {T}witter Messages
+  Using Entity Linking}
+    \verb{url}
+    \verb https://aclanthology.org/W15-4320
+    \endverb
+    \list{location}{1}{%
+      {Beijing, China}%
+    }
+    \field{month}{07}
+    \field{year}{2015}
   \endentry
 
   \entry{zong_information_2021}{incollection}{}
