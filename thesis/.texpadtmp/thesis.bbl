@@ -1262,6 +1262,48 @@
     \field{urlyear}{2022}
   \endentry
 
+  \entry{huang_2015}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=HZ}{%
+         family={Huang},
+         familyi={H\bibinitperiod},
+         given={Zhiheng},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=XW}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Wei},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=YK}{%
+         family={Yu},
+         familyi={Y\bibinitperiod},
+         given={Kai},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {arXiv}%
+    }
+    \strng{namehash}{HZXWYK1}
+    \strng{fullhash}{HZXWYK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \verb{doi}
+    \verb 10.48550/ARXIV.1508.01991
+    \endverb
+    \field{title}{Bidirectional LSTM-CRF Models for Sequence Tagging}
+    \verb{url}
+    \verb https://arxiv.org/abs/1508.01991
+    \endverb
+    \field{year}{2015}
+  \endentry
+
   \entry{huggingface_attention_mask}{misc}{}
     \name{author}{1}{}{%
       {{hash=H}{%
@@ -1358,7 +1400,7 @@
     \field{year}{2022}
   \endentry
 
-  \entry{jurafsky_2021_6}{inbook}{}
+  \entry{jurafsky_2021_4}{inbook}{}
     \name{author}{2}{}{%
       {{hash=JD}{%
          family={Jurafsky},
@@ -1382,75 +1424,7 @@
     \field{labeldatesource}{}
     \field{sortinit}{J}
     \field{sortinithash}{J}
-    \field{chapter}{Vector Semantics and Embeddings}
-    \field{edition}{Third edition draft}
-    \field{title}{Speech and Language Processing. An Introduction to Natura
-  Language Processing, Computational Linguistics, and Speech Recognition}
-    \verb{url}
-    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
-    \endverb
-    \field{year}{2021}
-  \endentry
-
-  \entry{jurafsky_2021_8}{inbook}{}
-    \name{author}{2}{}{%
-      {{hash=JD}{%
-         family={Jurafsky},
-         familyi={J\bibinitperiod},
-         given={Daniel},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=MJH}{%
-         family={Martin},
-         familyi={M\bibinitperiod},
-         given={James\bibnamedelima H},
-         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{JDMJH2}
-    \strng{fullhash}{JDMJH2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2021}
-    \field{extradate}{2}
-    \field{labeldatesource}{}
-    \field{sortinit}{J}
-    \field{sortinithash}{J}
-    \field{chapter}{Sequence Labeling for Parts of Speech and Named Entities}
-    \field{edition}{Third edition draft}
-    \field{title}{Speech and Language Processing. An Introduction to Natura
-  Language Processing, Computational Linguistics, and Speech Recognition}
-    \verb{url}
-    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
-    \endverb
-    \field{year}{2021}
-  \endentry
-
-  \entry{jurafsky_2021_9}{inbook}{}
-    \name{author}{2}{}{%
-      {{hash=JD}{%
-         family={Jurafsky},
-         familyi={J\bibinitperiod},
-         given={Daniel},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=MJH}{%
-         family={Martin},
-         familyi={M\bibinitperiod},
-         given={James\bibnamedelima H},
-         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{JDMJH2}
-    \strng{fullhash}{JDMJH2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2021}
-    \field{extradate}{3}
-    \field{labeldatesource}{}
-    \field{sortinit}{J}
-    \field{sortinithash}{J}
-    \field{chapter}{Deep Learning Architectures for Sequence Processing}
+    \field{chapter}{Naive Bayes and Sentiment Classification}
     \field{edition}{Third edition draft}
     \field{title}{Speech and Language Processing. An Introduction to Natura
   Language Processing, Computational Linguistics, and Speech Recognition}
@@ -1480,10 +1454,180 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2021}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{title}{Speech and Language Processing. An Introduction to Natural
+  Language Processing, Computational Linguistics, and Speech Recognition}
+    \verb{url}
+    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
+    \endverb
+    \field{year}{2021}
+  \endentry
+
+  \entry{jurafsky_2021_5}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=JD}{%
+         family={Jurafsky},
+         familyi={J\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MJH}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={James\bibnamedelima H},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JDMJH2}
+    \strng{fullhash}{JDMJH2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{extradate}{3}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{chapter}{Logistic Regression}
+    \field{edition}{Third edition draft}
+    \field{title}{Speech and Language Processing. An Introduction to Natural
+  Language Processing, Computational Linguistics, and Speech Recognition}
+    \verb{url}
+    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
+    \endverb
+    \field{year}{2021}
+  \endentry
+
+  \entry{jurafsky_2021_6}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=JD}{%
+         family={Jurafsky},
+         familyi={J\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MJH}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={James\bibnamedelima H},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JDMJH2}
+    \strng{fullhash}{JDMJH2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
     \field{extradate}{4}
     \field{labeldatesource}{}
     \field{sortinit}{J}
     \field{sortinithash}{J}
+    \field{chapter}{Vector Semantics and Embeddings}
+    \field{edition}{Third edition draft}
+    \field{title}{Speech and Language Processing. An Introduction to Natural
+  Language Processing, Computational Linguistics, and Speech Recognition}
+    \verb{url}
+    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
+    \endverb
+    \field{year}{2021}
+  \endentry
+
+  \entry{jurafsky_2021_7}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=JD}{%
+         family={Jurafsky},
+         familyi={J\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MJH}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={James\bibnamedelima H},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JDMJH2}
+    \strng{fullhash}{JDMJH2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{extradate}{5}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{chapter}{Neural Networks and Neural Language Models}
+    \field{edition}{Third edition draft}
+    \field{title}{Speech and Language Processing. An Introduction to Natural
+  Language Processing, Computational Linguistics, and Speech Recognition}
+    \verb{url}
+    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
+    \endverb
+    \field{year}{2021}
+  \endentry
+
+  \entry{jurafsky_2021_8}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=JD}{%
+         family={Jurafsky},
+         familyi={J\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MJH}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={James\bibnamedelima H},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JDMJH2}
+    \strng{fullhash}{JDMJH2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{extradate}{6}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{chapter}{Sequence Labeling for Parts of Speech and Named Entities}
+    \field{edition}{Third edition draft}
+    \field{title}{Speech and Language Processing. An Introduction to Natural
+  Language Processing, Computational Linguistics, and Speech Recognition}
+    \verb{url}
+    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
+    \endverb
+    \field{year}{2021}
+  \endentry
+
+  \entry{jurafsky_2021_9}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=JD}{%
+         family={Jurafsky},
+         familyi={J\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MJH}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={James\bibnamedelima H},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JDMJH2}
+    \strng{fullhash}{JDMJH2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{extradate}{7}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{chapter}{Deep Learning Architectures for Sequence Processing}
+    \field{edition}{Third edition draft}
     \field{title}{Speech and Language Processing. An Introduction to Natural
   Language Processing, Computational Linguistics, and Speech Recognition}
     \verb{url}

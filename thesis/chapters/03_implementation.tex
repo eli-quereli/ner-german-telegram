@@ -19,12 +19,6 @@ The data collected includes messages from the start of the channel until Decembe
 The dates of the collected messages range between March 3rd, 2018 and December 19th, 2021 (last day included in the data collection process). Even though the channel existed before the outbreak of the COVID-19 pandemic, an exploration of message frequencies clearly reveals that the channel gained relevant momentum at the beginning of the pandemic in Germany in spring 2020, as can be seen in figure \ref{fig:message_count}.
 The overall dataset consists of 31.430 rows of data. After the removal of text duplicates and empty rows, 27.627 rows remained for further processing. 
 
-\begin{figure}[H]
-\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/message_count.png}
-\caption{Message frequencies}
-  \label{fig:message_count}
-\end{figure}
-
 
 % qualitative exploration of data:  - origin of channel?
 %early messages (before pandemic): 
@@ -389,7 +383,7 @@ The next sections will describe the required steps for training and evaluation. 
 
 %- Adding additional inputs that may be useful to the model
 
-\section{Pre-Processing: Tokenization and Encoding}
+\section{Preprocessing: Tokenization and Encoding}
 \label{sec:tokenization_and_encoding}
 Like other neural networks (or any other machine learning models in general), transformer models cannot process raw strings, but require tokenized and encoded (i.e. vectorized) representations of textual data as input (cf. \cite[29]{tunstall_natural_2022}). This is done in the first part of the pipeline via a tokenizer. 
 Tokenization basically refers to the act of breaking down a string into single units. There are different tokenization strategies ranging from character-based over subword-based to word-based tokenization (cf. \cite[29]{tunstall_natural_2022}). 
@@ -612,7 +606,9 @@ trainer.create_model_card()
 \section{Evaluation Results}
 The following section explores the results of fine-tuning the selected models on the two datasets separately, and on the final combined dataset. 
 
-Table \ref{tab:baselines} provides the baselines for orientation. Table \ref{tab:experiments_tg} contains the results from fine-tuning on the Telegram dataset. Most of the achieved F1 scores surpass 0.7 and therefore outperform baseline no. 2, none of them gets close to baseline no. 1. The DistilBERT model achieved the lowest F1-score (0.6481), and the German-language BERT model by deepset and dbmdz performed best (0.7482). 
+Table \ref{tab:baselines} provides the baselines for orientation. Table \ref{tab:experiments_tg} contains the results from fine-tuning on the Telegram dataset. Most of the achieved F1 scores surpass 0.7 and therefore outperform baseline no. 2, none of them gets close to baseline no. 1. The DistilBERT model achieved the lowest score (F1=0.6481), and the German-language BERT model by deepset and dbmdz performed best (F1=0.7482). 
+We can furthermore observe that training was stopped after a maximum of 3 epochs, sometimes already after 1 epoch. This tells us that the model's performance regarding the validation loss starts decrease rather soon. This is probably due to the rather small size of provided data, which tends to favor overfitting, meaning that the model learns patterns in the training data which are not helpful for improving its predictions on unseen data  (cf. \cite[88]{jurafsky_2021_5}). A similar behaviour could be observed for the other experiments. 
+
 
 \begin{table}[htp]
 \caption{Baselines}
@@ -645,7 +641,7 @@ Table \ref{tab:baselines} provides the baselines for orientation. Table \ref{tab
 \end{adjustbox}
 \end{table}
 
-The results shown in table \ref{tab:experiments_sm} are more promising. We can see that the tested models overall performed better on the adjusted Smartdata corpus, with most F1-scores exceeding 0.8. The German-language BERT model by dbmdz is an exception with the lowest score out of all results (0.6156), however still outperforming baseline no. 2. Once again, the German-language BERT model by deepset and dbmdz performed best with an F1-score of 0.8535. Even though this is still below baseline no. 1, the achieved score seems promising, particularly when considering that baseline no. 1 was achieved using a larger corpus for fine-tuning than provided here. 
+The results shown in table \ref{tab:experiments_sm} are a bit more promising. We can see that the tested models overall performed better on the adjusted Smartdata corpus, with most F1-scores exceeding F1=0.8. The German-language BERT model by dbmdz is an exception with the lowest score out of all results (0.6156), however still outperforming baseline no. 2. Once again, the German-language BERT model by deepset and dbmdz performed best with an F1-score of 0.8535. Even though this is still below baseline no. 1, the achieved score seems promising, particularly when considering that baseline no. 1 was achieved using a larger corpus for fine-tuning than provided here. 
  
 \begin{table}[htp]
 \caption{Fine-tuning different models on adjusted Smartdata corpus}
@@ -684,8 +680,7 @@ However, compared to the fine-tuning on the adjusted Smartdata corpus only, the 
 \end{adjustbox}
 \end{table}
 
-
-The best performing model regarding the F1-score in this experiment was the XLM-RoBERTa model (0.7988), followed by the German-language BERT model by deepset and dbmdz. However, when comparing the validation loss of both models, the BERT model performs better than the XLM-RoBERTa model. Furthermore, a more detailed look into the precision and recall scores of both models reveals that the German-language BERT model achieves better precision than the RoBERTa model, as shown in \ref{tab:best_models_metrics}. This means that the results obtained from the deepset/gbert-base model can be considered more relevant than those of the xlm-roberta-base model. 
+The best performing model regarding the F1-score in this experiment was the XLM-RoBERTa model (F1=0.7988), followed by the German-language BERT model by deepset and dbmdz. However, when comparing the validation loss of both models, the BERT model performs better than the XLM-RoBERTa model. Furthermore, a more detailed look into the precision and recall scores of both models reveals that the German-language BERT model achieves better precision than the RoBERTa model, as shown in \ref{tab:best_models_metrics}. This means that the results obtained from the deepset/gbert-base model can be considered more relevant than those of the xlm-roberta-base model. 
 
 Against this background, and taking into account that the deepset/gbert-base model performed best in both fine-tuning experiments with the separate datasets, the German BERT-model was selected as best model and used for application on real-world Telegram data in chapter \ref{cha:application}.
 
@@ -745,14 +740,17 @@ ax.set_xticks(range(len(eval_df)),labels=range(len(eval_df)))
 plt.show()
 \end{python}
 
-Figure \ref{fig:gbert_loss_1} and \ref{fig:gbert_loss_2} show evaluation metrics for the fine-tuned \verb|deepset/gbert-base| model. We can make the following observations: 
+Figure \ref{fig:gbert_loss_1} and \ref{fig:gbert_loss_2} show evaluation metrics for the fine-tuned deepset/gbert-base model. We can make the following observations: 
 
-The loss on the training set intersects with the validation loss between epoch 1 and 2. After that, the training loss continues to decrease, while the validation loss remains relatively constant, and then increases at epoch 5. This can be interpreted at overfitting, meaning that the model improves performance on the training data while it does not improve when transferring what it has learned on the training data to the validation set. 
-In the second plot we see that accuracy is continuously high with around 0.95. This is however not very informative for an NER model, since we are dealing with a very imbalanced dataset in which by far the most tokens are tagged as O. Therefore, if we would take a model which assigns O to all tokens in the dataset, it would still have a high accuracy because it would do correct predictions for the majority of tokens. 
-We can furthermore observe that recall for this model is in general higher than its precision. This means that the model's sensitity (finding all relevant tokens in the dataset) is higher than its ability to return valid results (i.e. how many of the returned tokens are actually tagged as NEs). 
+The loss on the training set intersects with the validation loss between epoch 1 and 2. After that, the training loss continues to decrease, while the validation loss remains relatively constant, and then increases at epoch 5. This can be interpreted as overfitting, as we have already observed when looking at the number of epochs in the results above. 
+
+In the second plot we see that accuracy is continuously high with around 0.95. This is, however, not very informative for an NER model, since we are dealing with a very imbalanced dataset (see section \ref{ssec:evaluation_metrics}. 
+
+We can furthermore observe that recall for this model is in general higher than its precision. This means that the model tends to return less false negatives than false positives. 
+Its predictions are thus better in terms of completeness than in terms of relevance or validity. 
 
 \begin{figure}
-	\begin{minipage}{0.5\linewidth}
+	\begin{minipage}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{images/evaluation_plot_gbert_1.png}
 		\caption{Fine-tuning the deepset/gbert-base model: Training and validation loss }
  		\label{fig:gbert_loss_1}
@@ -764,7 +762,6 @@ We can furthermore observe that recall for this model is in general higher than 
     \label{fig:gbert_loss_2}
 	\end{minipage}
 \end{figure}
-
 
 %selected: gbert, best F1 score on both datasets
 %- Loss: 0.1751
@@ -778,6 +775,77 @@ We can furthermore observe that recall for this model is in general higher than 
 %- Precision: 0.7682
 %- Recall: 0.8319
 
+\begin{python}
+from torch.nn.functional import cross_entropy
+
+num_labels = 13
+
+def forward_pass_with_label(batch):
+    # Convert dict of lists to list of dicts suitable for data collator
+    features = [dict(zip(batch, t)) for t in zip(*batch.values())]
+    # Pad inputs and labels and put all tensors on device
+    batch = data_collator(features)
+    input_ids = batch["input_ids"].to(device)
+    attention_mask = batch["attention_mask"].to(device)
+    labels = batch["labels"].to(device)
+    with torch.no_grad():
+        # Pass data through model  
+        output = trainer.model(input_ids, attention_mask)
+        # Logit.size: [batch_size, sequence_length, classes]
+        # Predict class with largest logit value on classes axis
+        predicted_label = torch.argmax(output.logits, axis=-1).cpu().numpy()
+    # Calculate loss per token after flattening batch dimension with view
+    loss = cross_entropy(output.logits.view(-1, num_labels), 
+                         labels.view(-1), reduction="none")
+    # Unflatten batch dimension and convert to numpy array
+    loss = loss.view(len(input_ids), -1).cpu().numpy()
+
+    return {"loss":loss, "predicted_label": predicted_label}
+
+valid_set_gbert = eval_encoded
+valid_set_gbert = valid_set_gbert.map(forward_pass_with_label, batched=True, batch_size=32)
+df = valid_set_gbert.to_pandas()
+\end{python}
+
+We can now further work with this dataframe to explore the loss on token and class level, and plot a confusion matrix.\footnote{For implementation details see \url{https://github.com/eli-quereli/ner-german-telegram/blob/main/src/notebooks/4.2_training/02_training/model_experiments_combined_datasets/gbert_smartdata_telegram.ipynb}}
+
+\subsubsection{Token-level errors}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/highest_loss_tokens_gbert.png}
+\caption{Tokens ranked by mean loss, German-language BERT model}
+  \label{fig:highest_loss_tokens_gbert}
+\end{figure}
+
+
+Observations
+. token has highest total loss, not surprising since most common token in the list, and also part of named entities (count: 647), whitespace does not appear here (anders als bei roberta)
+
+tokens: - \# : Uhr \@ ( ) , / are rarer, but have relatively high mean loss -> appear often together with named entities, are even sometimes part of them, that's why model mixes them up; probably need to revise annotations / annotation guide 
+
+\subsubsection{Class-level erros}
+\begin{figure}[H]
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/highest_loss_labels_gbert.png}
+\caption{Classes ranked by mean loss, German-language BERT model}
+  \label{fig:highest_loss_labels_gbert}
+\end{figure}
+
+
+- I-ACTION has highest loss, ua because very rare (only 6 occurences) -> need for more data
+- same for B-ACTION (same with roberta-model, label is problematic, maybe drop or label more)
+- I-ORG, I-LOC?
+- lowest loss: O
+- lowest loss labels: B-LOC, B-PER, I-TIME, I-PER, I-DATE
+
+\subsubsection{Confusion matrix}
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/confusion_matrix_gbert.png}
+\caption{Confusion matrix, German-language BERT model}
+  \label{fig:confusion_matrix_gbert}
+\end{figure}
+
+
 \subsection{Post-processing}
 The values we get as output from our model don’t necessarily make sense by themselves
 
@@ -785,23 +853,6 @@ Those are not probabilities but logits, the raw, unnormalized scores outputted b
 
 To get the labels corresponding to each position, we can inspect the id2label attribute of the model config
 
-
-transformers pipeline 
-
-model.config.id2label
-
-\section{Evaluation}
-- training loss
-- validation loss
-- early stopping
-- F1
-- precision, recall, (accuracy) erklären
-
-Overfitting
-
-Error Analysis
-
-Confusion matrix 
 
 %\section{Hyperparameter tuning}
 

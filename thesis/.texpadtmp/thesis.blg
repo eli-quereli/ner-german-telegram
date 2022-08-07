@@ -17,7 +17,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 12140 items from 5000.
+Reallocated field_info (elt_size=4) to 12840 items from 5000.
 Database file #1: thesis-blx.bib
 Database file #2: ../thesis.bib
 You're missing a field name---line 252 of file ../thesis.bib
@@ -30,17 +30,32 @@ I was expecting a `,' or a `}'---line 265 of file ../thesis.bib
  : addendum = {E-book}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 276 of file ../thesis.bib
+I was expecting a `,' or a `}'---line 275 of file ../thesis.bib
  : 
  : addendum = {E-book}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 287 of file ../thesis.bib
+I was expecting a `,' or a `}'---line 285 of file ../thesis.bib
  : 
  : addendum = {E-book}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 538 of file ../thesis.bib
+I was expecting a `,' or a `}'---line 295 of file ../thesis.bib
+ : 
+ : addendum = {E-book}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 305 of file ../thesis.bib
+ : 
+ : addendum = {E-book}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 315 of file ../thesis.bib
+ : 
+ : addendum = {E-book}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 566 of file ../thesis.bib
  : 
  : doi = {https://doi.org/10.35111/xmhb-2b84}
 (Error may have been on previous line)
@@ -1048,45 +1063,45 @@ Name 1 in "Schön, Saskia, and Krause, Sebastian and Mironova, Veselina and Henn
 while executing---line 2815 of file biblatex.bst
 Name 1 in "Schön, Saskia, and Krause, Sebastian and Mironova, Veselina and Hennig, Leonhard and Gabryszak, Aleksandra and Thomas, Philippe" has a comma at the end for entry smartdata_anno
 while executing---line 2815 of file biblatex.bst
-You've used 58 entries,
+You've used 62 entries,
             6399 wiz_defined-function locations,
-            1586 strings with 32884 characters,
-and the built_in function-call counts, 561221 in all, are:
-= -- 44867
-> -- 11283
-< -- 2531
-+ -- 19378
-- -- 6219
-* -- 39829
-:= -- 65278
+            1597 strings with 33185 characters,
+and the built_in function-call counts, 591553 in all, are:
+= -- 47162
+> -- 11801
+< -- 2657
++ -- 20218
+- -- 6432
+* -- 42163
+:= -- 68635
 add.period$ -- 0
-call.type$ -- 58
-change.case$ -- 1322
+call.type$ -- 62
+change.case$ -- 1368
 chr.to.int$ -- 484
-cite$ -- 114
-duplicate$ -- 57591
-empty$ -- 47076
-format.name$ -- 4377
-if$ -- 110069
+cite$ -- 122
+duplicate$ -- 60753
+empty$ -- 49740
+format.name$ -- 4690
+if$ -- 116257
 int.to.chr$ -- 0
-int.to.str$ -- 194
+int.to.str$ -- 212
 missing$ -- 0
-newline$ -- 2529
-num.names$ -- 3250
-pop$ -- 21336
+newline$ -- 2670
+num.names$ -- 3440
+pop$ -- 22777
 preamble$ -- 1
-purify$ -- 1695
+purify$ -- 1764
 quote$ -- 0
-skip$ -- 12580
+skip$ -- 13364
 stack$ -- 0
-substring$ -- 83778
-swap$ -- 11328
-text.length$ -- 1859
-text.prefix$ -- 57
+substring$ -- 87943
+swap$ -- 11981
+text.length$ -- 1985
+text.prefix$ -- 61
 top$ -- 1
-type$ -- 1959
+type$ -- 2095
 warning$ -- 0
-while$ -- 7706
+while$ -- 8106
 width$ -- 0
-write$ -- 2472
-(There were 505 error messages)
+write$ -- 2609
+(There were 508 error messages)
