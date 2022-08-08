@@ -384,7 +384,10 @@ Transformer models represent an approach which allows for parallelization by dis
 
 \subsection{Transformer Models}
 In recent years, transformer models have achieved state of the art results for a variety of NLP tasks and represent the latest advancement in deep learning architectures for NLP. 
-Like the architectures described above, transformer models map input sequences to output sequences of the same length. This sequence-to-sequence architecture is also called encoder-decoder architecture (cf. \cite[3]{tunstall_natural_2022}). 
+
+The architecture was first introduced in 2017 by \citeauthor{vaswani_2017}, in their seminal paper `Attention Is All You Need', in which the authors propose a `new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.' (\cite{vaswani_2017})
+
+Transformers thus represent a clear shift from prior model architectures. Like the architectures described above, transformer models map input sequences to output sequences of the same length. This sequence-to-sequence architecture is also called encoder-decoder architecture (cf. \cite[3]{tunstall_natural_2022}). 
 
 But unlike prior approaches, transformers do not follow a sequential pattern for modelling context. Rather, they use a mechanism called \textbf{self-attention} which allows them to represent each word with respect to its current context (cf. \cite[25-26]{vajjala_practical_2020}). 
 
@@ -397,7 +400,7 @@ The computation for each item is carried out independently, which allows to run 
 %- e.g. bank different meaning depending on context (financial institute, furniture)
 %- transformers can model such context and hence have been used heavily in NLP tasks due to this higher representation capacity as compared to other deep networks \cite[25-26]{vajjala_practical_2020}
 
-Attention in transformer models can be conceptualized as `[comparing] an item to a collection of other items in a way that reveals their relevance in the current context.' (\cite[18]{jurafsky_2021_9}). Self-attention then means to compare a given item to other elements within a sequence(cf. \cite[18]{jurafsky_2021_9}).
+Attention in transformer models can be conceptualized as `[comparing] an item to a collection of other items in a way that reveals their relevance in the current context.' (\cite[18]{jurafsky_2021_9}). Self-attention then means to compare a given item to other elements within a sequence (cf. \cite[18]{jurafsky_2021_9}).
 
 In transformer models, each input embedding is considered in three different roles (cf. \cite[19]{jurafsky_2021_9}: 
 
@@ -414,51 +417,43 @@ Figure \ref{fig:self_attention} illustrates the process of calculating the value
   \label{fig:self_attention}
 \end{figure}
 
-
+They way context is conceptualized and modelled in this architecture is thus fundamentally different than in sequential models. By extending the concept of self-attention to multiple heads, transformer models are furthermore able to consider different aspects of relationships between words at the same time. This mechanism is called multi-head attention, and implemented in the form of multiple, parallel self-attention layers which are located at the same depth of the network. Each of these heads learns its own parameters, allowing them to pay attention to different ways in which the words in the input relate to each other (cf. \cite[23]{jurafsky_2021_9}). 
 
 %Transformers thus embody a more sophisticated way of conceptualizing the way words can contribute to the representation of longer inputs. 
 
 %core of an attention-based approach: set of comparisons of relevant items in some context, normalization of those scores to provide a probability distribution, followed by a weighted sum of this distribution
+Transformer models are composed of so-called transformer blocks. All of them have the same input und output dimensions, which allows to stack them on top of each other (cf. \cite[22]{jurafsky_2021_9}). 
 
-made up of stacks of transformer blocks, which are themselves multilayer networks, consisting of simple linear layers, feedforward networks, and self-attention layers
+These transformer blocks are themselves multilayer networks, containing the self-attention layers, simple linear layers, and feedforward networks. As a mechanism to improve training performance, residual connections and layer normalization are implemented in each block, allowing to pass information directly to the next layer, and keeping the output values of each hidden layer in a certain range (cf. \cite[22]{jurafsky_2021_9}). 
 
-limited input length(21)
+The great advantages of transformer models compared to sequential models are thus that they allow for parallelization and that the model context in a more complex, multi-faceted way. 
+However, the way attention is computed makes the process expensive for long inputs, since for every input, each pair of tokens needs to be compared. This is why most models are in practice limited to a certain input length (cf. \cite[21]{jurafsky_2021_9}). 
 
-transformer models consist of transformer blocks, all have same input and output dim so they can be stacked
+Furthermore, since transformer models do not work sequentially, the information about the positional context of each item in the input is lost. To provide this information, transformer models use additional positional embeddings to include this information. These embeddings are learned during training, just like the word embeddings, and encode information about the context for each input item (cf. \cite[23-25]{jurafsky_2021_9}). 
 
-residual connection inside blocks: allows to pass information to higher layer without going through intermediate layer; improves learning (activation function, gradient going backward)
-layer normalization: used to improve training performance, by keeping values of a hidden layer in a certain range that facilitates training (22)
 
-multi-head attention (23)
-takes under consideration different words in a sentence can relate to each other in many different ways simultaneously 
-heads = sets of self-attention layers in parallel layers at the same depth
-each head has its own parameters and thus can learn different aspects from the inputs
+\begin{figure}[H]
+\includegraphics[keepaspectratio]{images/transformer_architecture.png}  
+\caption{Transformer model architecure as introduced by
+\cite{vaswani_2017}}
+\label{fig:transf_arch}
+\end{figure}
 
-positional embeddings(23)
-transformers: not sequential, have no information about the positions of the tokens in the input
-but: positional context is important for language understanding
-thats why transformer models use positional embeddings, additional embeddings encoding positional context information/ word order information (23), e.g. via static positional embeddings (e.g. absolute positions, or use static function to map integer inputs to real-valued vectors in a way that captures relationships between positions)
 
-sequence labeling tasks (27)
+Transformers are usually trained to serve as large language models, on different tasks such as next sentence prediction (NSP) or masked language modeling (MLM). 
+The can also be used for sequence labeling tasks such as NER. This is achieved by first training a language model on large amounts of unlabelled text data, which is called pre-training. Pre-training allows the model to incorporate rich information about language in general, which allows it to easier learn specific tasks, called downstream tasks, on smaller datasets later. This second step is called fine-tuning ((cf. \cite[27-28]{jurafsky_2021_9}). Fine-tuning requires labeled data, but can be achieved with datasets of much smaller size, since the model already learned a lot about a given language during pre-training. 
 
-transformers can be used for sequence labeling tasks, but: not trained directly for it
-instead: pretraining a large language model on a large text corpus
-then: add linear layer or feedforward layer on top which is then fine-tuned on a smaller, manually annotated dataset
-pretraining: useful for incorporating rich information about language
-resulting model makes it much easier to learn from the smaller dataset for e.g. NER
+%zusammenfassung: transformers: non-recurrent networks based on self-attention
+%a self-attention layer maps input sequences to output sequences of the same length, using attention heads that model how the surrounding words are relevant for the processing of the current word
+%a transformer block consists of a single attention layer followed by a feed-forward layer with residual connections and layer normalizations following each 
+%transformer blocks can be stacked to make deeper and more powerful networks (28)
 
-transformers: non-recurrent networks based on self-attention
-
-a self-attention layer maps input sequences to output sequences of the same length, using attention heads that model how the surrounding words are relevant for the processing of the current word
-a transformer block consists of a single attention layer followed by a feed-forward layer with residual connections and layer normalizations following each 
-transformer blocks can be stacked to make deeper and more powerful networks (28)
-
-\subparagraph{Transfer learning for downstream tasks with transformers}
-- large transformers used for smaller downstream tasks via transfer learning
-- transfer learning = technique where the knowledge gained while solving one problem is applied to a different but related problem
-- transformers: pre-training (training of very large transformer models, unsupervised) to predict a part of a sentence given the rest of the content so it can encode the high-level nuances of the language in it
-- models are trained on more than 40GB of textual data, scraped from the whole internet
-- this model is then fine-tuned on NLP downstream tasks, e.g. NER \cite[26]{vajjala_practical_2020}
+%\subparagraph{Transfer learning for downstream tasks with transformers}
+%- large transformers used for smaller downstream tasks via transfer learning
+%- transfer learning = technique where the knowledge gained while solving one problem is applied to a different but related problem
+%- transformers: pre-training (training of very large transformer models, unsupervised) to predict a part of a sentence given the rest of the content so it can encode the high-level nuances of the language in it
+%- models are trained on more than 40GB of textual data, scraped from the whole internet
+%- this model is then fine-tuned on NLP downstream tasks, e.g. NER \cite[26]{vajjala_practical_2020}
  
 
 \section{Summarization}

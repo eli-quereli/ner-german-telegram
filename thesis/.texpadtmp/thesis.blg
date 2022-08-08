@@ -17,7 +17,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated field_info (elt_size=4) to 12840 items from 5000.
+Reallocated field_info (elt_size=4) to 12980 items from 5000.
 Database file #1: thesis-blx.bib
 Database file #2: ../thesis.bib
 You're missing a field name---line 252 of file ../thesis.bib
@@ -1063,45 +1063,45 @@ Name 1 in "Schön, Saskia, and Krause, Sebastian and Mironova, Veselina and Henn
 while executing---line 2815 of file biblatex.bst
 Name 1 in "Schön, Saskia, and Krause, Sebastian and Mironova, Veselina and Hennig, Leonhard and Gabryszak, Aleksandra and Thomas, Philippe" has a comma at the end for entry smartdata_anno
 while executing---line 2815 of file biblatex.bst
-You've used 62 entries,
+You've used 63 entries,
             6399 wiz_defined-function locations,
-            1597 strings with 33185 characters,
-and the built_in function-call counts, 591553 in all, are:
-= -- 47162
-> -- 11801
-< -- 2657
-+ -- 20218
-- -- 6432
-* -- 42163
-:= -- 68635
+            1602 strings with 33428 characters,
+and the built_in function-call counts, 609061 in all, are:
+= -- 48802
+> -- 11935
+< -- 2681
++ -- 20878
+- -- 6495
+* -- 43422
+:= -- 71000
 add.period$ -- 0
-call.type$ -- 62
-change.case$ -- 1368
+call.type$ -- 63
+change.case$ -- 1378
 chr.to.int$ -- 484
-cite$ -- 122
-duplicate$ -- 60753
-empty$ -- 49740
-format.name$ -- 4690
-if$ -- 116257
+cite$ -- 124
+duplicate$ -- 62713
+empty$ -- 51111
+format.name$ -- 4814
+if$ -- 119536
 int.to.chr$ -- 0
-int.to.str$ -- 212
+int.to.str$ -- 214
 missing$ -- 0
-newline$ -- 2670
-num.names$ -- 3440
-pop$ -- 22777
+newline$ -- 2739
+num.names$ -- 3481
+pop$ -- 23258
 preamble$ -- 1
-purify$ -- 1764
+purify$ -- 1790
 quote$ -- 0
-skip$ -- 13364
+skip$ -- 13543
 stack$ -- 0
-substring$ -- 87943
-swap$ -- 11981
-text.length$ -- 1985
-text.prefix$ -- 61
+substring$ -- 91096
+swap$ -- 12206
+text.length$ -- 2016
+text.prefix$ -- 62
 top$ -- 1
-type$ -- 2095
+type$ -- 2129
 warning$ -- 0
-while$ -- 8106
+while$ -- 8412
 width$ -- 0
-write$ -- 2609
+write$ -- 2677
 (There were 508 error messages)
