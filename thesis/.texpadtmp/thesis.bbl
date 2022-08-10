@@ -510,47 +510,6 @@
     \field{year}{1997}
   \endentry
 
-  \entry{chinchor_nancy_message_2003}{misc}{}
-    \name{author}{2}{}{%
-      {{hash=CN}{%
-         family={Chinchor},
-         familyi={C\bibinitperiod},
-         given={Nancy},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=SB}{%
-         family={Sundheim},
-         familyi={S\bibinitperiod},
-         given={Beth},
-         giveni={B\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Linguistic Data Consortium}%
-    }
-    \strng{namehash}{CNSB1}
-    \strng{fullhash}{CNSB1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2003}
-    \field{labeldatesource}{}
-    \field{sortinit}{C}
-    \field{sortinithash}{C}
-    \verb{doi}
-    \verb 10.35111/WBCC-Y063
-    \endverb
-    \field{note}{Artwork Size: 10240 KB Pages: 10240 KB Type: dataset}
-    \field{title}{Message {Understanding} {Conference} ({MUC}) 6}
-    \verb{url}
-    \verb https://catalog.ldc.upenn.edu/LDC2003T13
-    \endverb
-    \field{month}{08}
-    \field{year}{2003}
-    \field{urlday}{27}
-    \field{urlmonth}{06}
-    \field{urlyear}{2022}
-  \endentry
-
   \entry{collobert_2008}{inproceedings}{}
     \name{author}{2}{}{%
       {{hash=CR}{%
@@ -1049,68 +1008,6 @@
     \field{year}{2018}
   \endentry
 
-  \entry{ethnologue_how_2022}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=E}{%
-         family={Ethnologue},
-         familyi={E\bibinitperiod},
-      }}%
-    }
-    \list{language}{1}{%
-      {en}%
-    }
-    \strng{namehash}{E1}
-    \strng{fullhash}{E1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2022}
-    \field{labeldatesource}{}
-    \field{sortinit}{E}
-    \field{sortinithash}{E}
-    \field{abstract}{%
-    7,151 languages are spoken today, but just 23 languages account for more
-  than half the world's population.%
-    }
-    \field{title}{How many languages are there in the world?}
-    \verb{url}
-    \verb https://www.ethnologue.com/guides/how-many-languages
-    \endverb
-    \verb{file}
-    \verb Snapshot:/Users/elisabeth/Zotero/storage/ADWLMGZ4/how-many-languages.
-    \verb html:text/html
-    \endverb
-    \field{journaltitle}{Ethnologue}
-    \field{month}{05}
-    \field{year}{2022}
-    \field{urlday}{19}
-    \field{urlmonth}{06}
-    \field{urlyear}{2022}
-  \endentry
-
-  \entry{spacy_english_md}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=E}{%
-         family={ExplosionAI},
-         familyi={E\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{E2}
-    \strng{fullhash}{E2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2022}
-    \field{extradate}{1}
-    \field{labeldatesource}{}
-    \field{sortinit}{E}
-    \field{sortinithash}{E}
-    \field{note}{(Accessed on 07/23/2022)}
-    \field{title}{English · spaCy Models Documentation}
-    \verb{url}
-    \verb https://spacy.io/models/en#en_core_web_md
-    \endverb
-    \field{year}{2022}
-  \endentry
-
   \entry{spacy_entity_recognizer}{misc}{}
     \name{author}{1}{}{%
       {{hash=E}{%
@@ -1118,12 +1015,12 @@
          familyi={E\bibinitperiod},
       }}%
     }
-    \strng{namehash}{E2}
-    \strng{fullhash}{E2}
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2022}
-    \field{extradate}{2}
+    \field{extradate}{1}
     \field{labeldatesource}{}
     \field{sortinit}{E}
     \field{sortinithash}{E}
@@ -1145,12 +1042,12 @@
     \list{language}{1}{%
       {en}%
     }
-    \strng{namehash}{E2}
-    \strng{fullhash}{E2}
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2022}
-    \field{extradate}{3}
+    \field{extradate}{2}
     \field{labeldatesource}{}
     \field{sortinit}{E}
     \field{sortinithash}{E}
@@ -1179,12 +1076,12 @@
          familyi={E\bibinitperiod},
       }}%
     }
-    \strng{namehash}{E2}
-    \strng{fullhash}{E2}
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2022}
-    \field{extradate}{4}
+    \field{extradate}{3}
     \field{labeldatesource}{}
     \field{sortinit}{E}
     \field{sortinithash}{E}
@@ -1203,12 +1100,12 @@
          familyi={E\bibinitperiod},
       }}%
     }
-    \strng{namehash}{E2}
-    \strng{fullhash}{E2}
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2022}
-    \field{extradate}{5}
+    \field{extradate}{4}
     \field{labeldatesource}{}
     \field{sortinit}{E}
     \field{sortinithash}{E}
@@ -1400,40 +1297,6 @@
     \field{year}{2022}
   \endentry
 
-  \entry{jurafsky_2021_4}{inbook}{}
-    \name{author}{2}{}{%
-      {{hash=JD}{%
-         family={Jurafsky},
-         familyi={J\bibinitperiod},
-         given={Daniel},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=MJH}{%
-         family={Martin},
-         familyi={M\bibinitperiod},
-         given={James\bibnamedelima H},
-         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{JDMJH2}
-    \strng{fullhash}{JDMJH2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2021}
-    \field{extradate}{1}
-    \field{labeldatesource}{}
-    \field{sortinit}{J}
-    \field{sortinithash}{J}
-    \field{chapter}{Naive Bayes and Sentiment Classification}
-    \field{edition}{Third edition draft}
-    \field{title}{Speech and Language Processing. An Introduction to Natura
-  Language Processing, Computational Linguistics, and Speech Recognition}
-    \verb{url}
-    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
-    \endverb
-    \field{year}{2021}
-  \endentry
-
   \entry{jurafsky_2021}{book}{}
     \name{author}{2}{}{%
       {{hash=JD}{%
@@ -1454,7 +1317,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2021}
-    \field{extradate}{2}
+    \field{extradate}{1}
     \field{labeldatesource}{}
     \field{sortinit}{J}
     \field{sortinithash}{J}
@@ -1486,79 +1349,11 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2021}
-    \field{extradate}{3}
+    \field{extradate}{2}
     \field{labeldatesource}{}
     \field{sortinit}{J}
     \field{sortinithash}{J}
     \field{chapter}{Logistic Regression}
-    \field{edition}{Third edition draft}
-    \field{title}{Speech and Language Processing. An Introduction to Natural
-  Language Processing, Computational Linguistics, and Speech Recognition}
-    \verb{url}
-    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
-    \endverb
-    \field{year}{2021}
-  \endentry
-
-  \entry{jurafsky_2021_6}{inbook}{}
-    \name{author}{2}{}{%
-      {{hash=JD}{%
-         family={Jurafsky},
-         familyi={J\bibinitperiod},
-         given={Daniel},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=MJH}{%
-         family={Martin},
-         familyi={M\bibinitperiod},
-         given={James\bibnamedelima H},
-         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{JDMJH2}
-    \strng{fullhash}{JDMJH2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2021}
-    \field{extradate}{4}
-    \field{labeldatesource}{}
-    \field{sortinit}{J}
-    \field{sortinithash}{J}
-    \field{chapter}{Vector Semantics and Embeddings}
-    \field{edition}{Third edition draft}
-    \field{title}{Speech and Language Processing. An Introduction to Natural
-  Language Processing, Computational Linguistics, and Speech Recognition}
-    \verb{url}
-    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
-    \endverb
-    \field{year}{2021}
-  \endentry
-
-  \entry{jurafsky_2021_7}{inbook}{}
-    \name{author}{2}{}{%
-      {{hash=JD}{%
-         family={Jurafsky},
-         familyi={J\bibinitperiod},
-         given={Daniel},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=MJH}{%
-         family={Martin},
-         familyi={M\bibinitperiod},
-         given={James\bibnamedelima H},
-         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{JDMJH2}
-    \strng{fullhash}{JDMJH2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2021}
-    \field{extradate}{5}
-    \field{labeldatesource}{}
-    \field{sortinit}{J}
-    \field{sortinithash}{J}
-    \field{chapter}{Neural Networks and Neural Language Models}
     \field{edition}{Third edition draft}
     \field{title}{Speech and Language Processing. An Introduction to Natural
   Language Processing, Computational Linguistics, and Speech Recognition}
@@ -1588,11 +1383,79 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2021}
-    \field{extradate}{6}
+    \field{extradate}{3}
     \field{labeldatesource}{}
     \field{sortinit}{J}
     \field{sortinithash}{J}
     \field{chapter}{Sequence Labeling for Parts of Speech and Named Entities}
+    \field{edition}{Third edition draft}
+    \field{title}{Speech and Language Processing. An Introduction to Natural
+  Language Processing, Computational Linguistics, and Speech Recognition}
+    \verb{url}
+    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
+    \endverb
+    \field{year}{2021}
+  \endentry
+
+  \entry{jurafsky_2021_7}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=JD}{%
+         family={Jurafsky},
+         familyi={J\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MJH}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={James\bibnamedelima H},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JDMJH2}
+    \strng{fullhash}{JDMJH2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{extradate}{4}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{chapter}{Neural Networks and Neural Language Models}
+    \field{edition}{Third edition draft}
+    \field{title}{Speech and Language Processing. An Introduction to Natural
+  Language Processing, Computational Linguistics, and Speech Recognition}
+    \verb{url}
+    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
+    \endverb
+    \field{year}{2021}
+  \endentry
+
+  \entry{jurafsky_2021_6}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=JD}{%
+         family={Jurafsky},
+         familyi={J\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=MJH}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={James\bibnamedelima H},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JDMJH2}
+    \strng{fullhash}{JDMJH2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{extradate}{5}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{chapter}{Vector Semantics and Embeddings}
     \field{edition}{Third edition draft}
     \field{title}{Speech and Language Processing. An Introduction to Natural
   Language Processing, Computational Linguistics, and Speech Recognition}
@@ -1622,7 +1485,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2021}
-    \field{extradate}{7}
+    \field{extradate}{6}
     \field{labeldatesource}{}
     \field{sortinit}{J}
     \field{sortinithash}{J}
@@ -2440,34 +2303,6 @@
     \field{urlyear}{2022}
   \endentry
 
-  \entry{tjong-kim-sang-2002-introduction}{inproceedings}{}
-    \name{author}{1}{}{%
-      {{hash=TKSEF}{%
-         family={Tjong Kim\bibnamedelima Sang},
-         familyi={T\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim
-  S\bibinitperiod},
-         given={Erik\bibnamedelima F.},
-         giveni={E\bibinitperiod\bibinitdelim F\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{TKSEF1}
-    \strng{fullhash}{TKSEF1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2002}
-    \field{labeldatesource}{}
-    \field{sortinit}{T}
-    \field{sortinithash}{T}
-    \field{booktitle}{{COLING}-02: The 6th Conference on Natural Language
-  Learning 2002 ({C}o{NLL}-2002)}
-    \field{title}{Introduction to the {C}o{NLL}-2002 Shared Task:
-  Language-Independent Named Entity Recognition}
-    \verb{url}
-    \verb https://aclanthology.org/W02-2024
-    \endverb
-    \field{year}{2002}
-  \endentry
-
   \entry{tjong_kim_sang_introduction_2003}{inproceedings}{}
     \name{author}{2}{}{%
       {{hash=TKSEF}{%
@@ -2695,36 +2530,6 @@
     \verb https://arxiv.org/abs/1706.03762
     \endverb
     \field{year}{2017}
-  \endentry
-
-  \entry{teledash_2022}{misc}{}
-    \name{author}{2}{}{%
-      {{hash=WG}{%
-         family={Weichbrodt},
-         familyi={W\bibinitperiod},
-         given={Gregor},
-         giveni={G\bibinitperiod},
-      }}%
-      {{hash=SG}{%
-         family={Stanjek},
-         familyi={S\bibinitperiod},
-         given={Grischa},
-         giveni={G\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{WGSG1}
-    \strng{fullhash}{WGSG1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2022}
-    \field{labeldatesource}{}
-    \field{sortinit}{W}
-    \field{sortinithash}{W}
-    \field{title}{Teledash – analysis and research software for Telegram}
-    \verb{url}
-    \verb https://github.com/democ-de/teledash
-    \endverb
-    \field{year}{2022}
   \endentry
 
   \entry{yadav_survey_2019}{report}{}

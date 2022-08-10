@@ -1,11 +1,67 @@
 \makeglossaries
 
-\newglossaryentry{nlp}{
-  name={Natural Language Processing},
-  description={A strange animal, not to be confused with}
+%TODO glossary: machine learning
+
+\newglossaryentry{ace}{type=\acronymtype,
+name={ACE},
+description={Automatic Content Extraction},
+first={Automatic Content Extraction (ACE)}
 }
 
-\newglossaryentry{nlp_acr}{type=\acronymtype,
+\newglossaryentry{conll}{type=\acronymtype,
+name={CoNLL},
+description={Conference on Computational Natural Language Learning},
+first={Conference on Computational Natural Language Learning (CoNLL)}
+}
+
+\newglossaryentry{darpa}{type=\acronymtype,
+name={DARPA},
+description={Defense Advanced Research Projects Agency},
+first={Defense Advanced Research Projects Agency (DARPA)}
+}
+
+\newglossaryentry{ie_g}{
+  name={Information Extraction},
+  description={The task of extracting information from unstructured or semi-structured machine-readable data, e.g. texts.}
+}
+
+\newglossaryentry{ie}{type=\acronymtype,
+name={IE},
+description={Information Extraction},
+first={Information Extraction (IE) \glsadd{ie_g}}, see=[Glossary:]{ie_g}
+}
+
+\newglossaryentry{muc}{type=\acronymtype,
+name={MUC},
+description={Message Understanding Conference},
+first={Message Understanding Conference (MUC)}
+}
+
+\newglossaryentry{ner_g}{
+  name={Named Entity Recognition},
+  description={The task of extracting named entities from text.}
+}
+
+\newglossaryentry{ner}{type=\acronymtype,
+name={NER},
+description={Named Entity Recognition},
+first={Named Entity Recognition (NER) \glsadd{ner_g}}, see=[Glossary:]{ner_g}
+}
+
+\newglossaryentry{nlp_g}{
+  name={Natural Language Processing},
+  description={Natural Language Processing combines approaches from computer science, linguistics, and artificial intelligence.
+  The main focus is to build systems and computational techniques for the automated processing and analysis of human language.}
+}
+
+\newglossaryentry{nlp}{type=\acronymtype,
 name={NLP},
 description={Natural Language Processing},
-first={Natural Language Processing (NLP) \glsadd{nlp}}, see=[Glossary:]{nlp}}
+first={Natural Language Processing (NLP) \glsadd{nlp_g}}, see=[Glossary:]{nlp_g}
+}
+
+\newglossaryentry{tac_kbp}{type=\acronymtype,
+name={TAC KBP},
+description={Text Analysis Conference Knowledge Base Population},
+first={Text Analysis Conference Knowledge Base Population (TAC KBP)}
+}

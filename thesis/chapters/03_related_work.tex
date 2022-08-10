@@ -1,27 +1,20 @@
-\chapter{Related Work: Important Shared Tasks and Datasets for NER}
+\chapter{Important Shared Tasks and Datasets}
 \label{cha:related_work}
 
-\subsection{Important Shared Tasks and Datasets for German-Language NER}
+After providing a brief introduction to \gls{ner}, I will now present an overview of relevant shared tasks and standard datasets for \gls{ner}, focussing on German-language texts and texts from social media domains. For social media texts, I will also present findings from a small selection of experimental studies since these formed a basis for later shared tasks.  
 
-The NER tasks at the Conference on Computational Natural Language Learning (ConLL) for English and German in 2003 was an important cornerstone for German-language NER (cf. \cite{tjong_kim_sang_introduction_2003}) 
-
-The provided German dataset consists of 909 articles sampled from the newspaper Frankfurter Rundschau (cf. \cite{tjong_kim_sang_introduction_2003}). The task focused on the entity types person (PER), location (LOC), organization (ORG), and miscellaneous (MISC). 
-
+\section{German-Language NER}
+A first important cornerstone for German-language \gls{ner} was the \gls{conll} for English and German-language \gls{ner} in 2003 (cf. \cite{tjong_kim_sang_introduction_2003}). The task focused on the entity types person, location, organization, and miscellaneous. The provided German dataset consists of 909 newspaper articles from the Frankfurter Rundschau (cf.\cite{tjong_kim_sang_introduction_2003}). 
 % Describing the task as language-independent in this context can be understood as developing systems which are not tuned specifically to the characteristics of one language, but can handle input data in different languages, meaning that the language is not known in advance. %TODO beleg
 
-The ConLL 2003 dataset is publicly accessible, but no licensing information is available. Furthermore, given the fact that the corpus only contains newspaper articles, its applicability to other domains might be limited. The annotation of the dataset was carried out at the University of Antwerp (cf. \cite{tjong_kim_sang_introduction_2003}), thus most likely by non-native speakers, which might result in inconsistencies of the labeled data.
+%The ConLL 2003 dataset is publicly accessible, but no licensing information is available. Furthermore, given the fact that the corpus only contains newspaper articles, its applicability to other domains might be limited.
+The dataset was annotated by non-native speakers at the University of Antwerp (cf. \cite{tjong_kim_sang_introduction_2003}) which is assumed to have led to annotation inconsistencies.\footnote{Some authors, e.g. \cite{schweter2020flert} mention a revised edition, but I was not able to find further details or the mentioned resource itself.}
 
-%TODO used to train and evaluate models until today
-In 2014, GermEval, a series of shared tasks focussing on Natural Language Processing for German-language, announced a task for Named Entity Recognition for German-language texts (cf. \cite{benikova-etal-2014-nosta}). 
+In 2014, GermEval, a series of shared tasks on Natural Language Processing for German, announced an \gls{ner} task (cf. \cite{benikova-etal-2014-nosta}). The provided dataset consists of  31,000 sentences sampled from Wikipedia articles and online news, and includes fine-grained annotations for entities of type person, organization, location, and other. The corpus includes nested and derived entities and is thus not readily combinable with other datasets. While the corpus consists of online resources, it does not contain noisy user-generated texts. 
 
-The provided dataset was compiled from German Wikipedia articles and online news. Similar to the ConLL 2003 task, entity types of interest were person (PER), organization (ORG), location (LOC), and other (OTH). 
+The two corpora represent standard datasets for German-language \gls{ner} and are used until today to train and evaluate state of the art NER models. 
 
-The dataset is publicly available under a e CC-BY license.  However, since the GermEval2014 dataset also includes nested and derived entities, it is not readily combinable with other datasets. And even though the corpus was created from online resources, it does not contain noisy user-generated texts, limiting its applicability to other social media texts. 
-
-Up until today, the Germeval 2014 corpus and (to some extent) the ConLL 2003 dataset represent standards for German-language NER and are used to train and evaluate state-of-the art NER models. 
-
-\subsection{Important Experimental Studies on NER on Social Media Texts}
-
+\section{NER on Social Media Texts}
 In 2011, \citeauthor{ritter_2011} conducted an experimental study on named entity recognition in tweets, and used a random sample of 2.400 English-language tweets for this which were annotated with the following ten entity types: PERSON, GEO-LOCATION, COMPANY, PRODUCT,  FACILITY, TV-SHOW, MOVIE, SPORTSTEAM, BAND, and OTHER (cf. \cite{ritter_2011}).  The best participating system in this task achieved an F1 score of 0.66 for these ten types (cf. \cite{ritter_2011}). 
 
 A more detailed look into the results for the standard entity types PERSON, LOCATION, and ORGANIZATION, reveals that the F1 score for the entity type PERSON ranks highest with up to 0.83, followed by LOCATION, and then ORGANIZATION (0.74 and 0.66) for the best participating system. 
@@ -34,8 +27,8 @@ In line with \cite{ritter_2011}, the authors identify unreliable capitalization,
 
 The authors suggest language detection, part-of-speech tagging, and normalization as pre-processing steps to encounter these challenges. Their results indicate however that e.g. normalization only leads to minimal increases, and in some cases even decreases the F1 score (cf. \cite{derczynski_analysis_2015}).
 
-\subsection{Important Shared Tasks and Datasets for NER on Social Media Texts}
-\label{sec:shared_tasks_sm}
+%\subsection{Shared Tasks and Datasets}
+%\label{sec:shared_tasks_sm}
 
 Also in 2015, \citeauthor{baldwin_shared_2015} organized a shared task for Named Entity Recognition on social media data, namely tweets from Twitter in the context of the \textit{Workshop on Noisy User-generated Text} (W-NUT). The task used the corpus created by \cite{ritter_2011}. 
 

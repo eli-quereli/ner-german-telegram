@@ -12,15 +12,15 @@
 \usepackage{pythonhighlight}
 \usepackage{flafter}
 \usepackage{mathrsfs}
+\usepackage{parskip}
 \usepackage{fancyhdr}
 \pagestyle{headings}
-
 \usepackage[nottoc,notlot,notlof]{tocbibind}
 \usepackage[style=authoryear-ibid, backend=bibtex]{biblatex}
 \usepackage{hyperref}
 \addbibresource{thesis.bib}
 \DeclareNameAlias{sortname}{family-given}
-\nocite{*}
+%\nocite{*}
 
 \linespread{1.5}
 
@@ -124,7 +124,7 @@
 %\appendix
 %\addcontentsline{toc}{chapter}{Annotation Guidelines}
 
-%\input{chapters/00_appendix}
+\input{chapters/00_appendix}
 \input{chapters/00_statutory_declaration}
 
 \end{document}

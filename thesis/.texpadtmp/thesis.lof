@@ -1,21 +1,21 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Examples of noisy text in tweets, taken from \blx@tocontentsinit {0}\cite {ritter_2011}\relax }}{17}{figure.caption.4}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Lexical variations of the word `tomorrow' in tweets, taken from \blx@tocontentsinit {0}\cite {ritter_2011}\relax }}{18}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Examples of noisy text in tweets, taken from \blx@tocontentsinit {0}\cite {ritter_2011}\relax }}{14}{figure.caption.3}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Lexical variations of the word `tomorrow' in tweets, taken from \blx@tocontentsinit {0}\cite {ritter_2011}\relax }}{14}{figure.caption.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces An illustration of an HMM for part-of-speech tagging; modelling transition probabilities between POS tags and observation likelihoods for words occuring with these tags. Taken from \blx@tocontentsinit {0}\cite [11]{jurafsky_2021_8}\relax }}{28}{figure.caption.6}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces NER features for an example sentence, taken from \blx@tocontentsinit {0}\cite [19]{jurafsky_2021_8}\relax }}{33}{figure.caption.8}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Calculating the value $y_3$ for the third element $x_3$ in a sequence (using left-to-right-attention); taken from \blx@tocontentsinit {0}\cite [20]{jurafsky_2021_9}\relax }}{40}{figure.caption.9}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Transformer model architecure as introduced by \blx@tocontentsinit {0}\cite {vaswani_2017}\relax }}{42}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces An illustration of an HMM for part-of-speech tagging; modelling transition probabilities between POS tags and observation likelihoods for words occuring with these tags. Taken from \blx@tocontentsinit {0}\cite [11]{jurafsky_2021_8}\relax }}{24}{figure.caption.4}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces NER features for an example sentence, taken from \blx@tocontentsinit {0}\cite [19]{jurafsky_2021_8}\relax }}{28}{figure.caption.6}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Calculating the value $y_3$ for the third element $x_3$ in a sequence (using left-to-right-attention); taken from \blx@tocontentsinit {0}\cite [20]{jurafsky_2021_9}\relax }}{36}{figure.caption.7}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Transformer model architecure as introduced by \blx@tocontentsinit {0}\cite {vaswani_2017}\relax }}{38}{figure.caption.8}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Five most frequent languages\relax }}{58}{figure.caption.14}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Training data after tokenization and encoding\relax }}{74}{figure.caption.24}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Fine-tuning the deepset/gbert-base model: Training and validation loss \relax }}{84}{figure.caption.30}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Fine-tuning the deepset/gbert-base model: F1, precision, recall, and accuracy\relax }}{84}{figure.caption.30}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Tokens ranked by mean loss, German-language BERT model\relax }}{85}{figure.caption.32}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Classes ranked by mean loss, German-language BERT model\relax }}{86}{figure.caption.34}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Confusion matrix, German-language BERT model\relax }}{87}{figure.caption.36}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Five most frequent languages\relax }}{54}{figure.caption.12}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Training data after tokenization and encoding\relax }}{71}{figure.caption.22}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Fine-tuning the deepset/gbert-base model: Training and validation loss \relax }}{81}{figure.caption.28}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Fine-tuning the deepset/gbert-base model: F1, precision, recall, and accuracy\relax }}{81}{figure.caption.28}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Tokens ranked by mean loss, German-language BERT model\relax }}{82}{figure.caption.30}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Classes ranked by mean loss, German-language BERT model\relax }}{83}{figure.caption.32}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Confusion matrix, German-language BERT model\relax }}{84}{figure.caption.34}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
