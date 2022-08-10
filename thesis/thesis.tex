@@ -25,7 +25,13 @@
 \linespread{1.5}
 
 \definecolor{htw}{RGB}{118,185,0}
+
+\usepackage[toc,acronym]{glossaries}
+\makeglossaries
+\loadglsentries{glossary}
+
 \begin{document}
+
 \singlespacing
 
 \title{
@@ -88,18 +94,24 @@
 
 \input{chapters/01_introduction}
 
-\input{chapters/02_theory}
+%\input{chapters/02_theory}
 
+\input{chapters/02_ner_basics}
+
+\input{chapters/03_related_work}
+
+\input{chapters/04_ner_approaches}
 
 \input{chapters/03_exploration}
 
 \input{chapters/03_implementation}
 
-
-
 \input{chapters/05_results}
 
 \input{chapters/06_conclusion}
+
+\printglossary[type=main]
+\printglossary[type=\acronymtype]
 
 \printbibliography
 
@@ -108,10 +120,12 @@
 \appendix
 \addcontentsline{toc}{chapter}{Appendix}
 
-\appendix
-\addcontentsline{toc}{chapter}{Annotation Guidelines}
 
-\input{chapters/00_appendix}
+%\appendix
+%\addcontentsline{toc}{chapter}{Annotation Guidelines}
+
+%\input{chapters/00_appendix}
 \input{chapters/00_statutory_declaration}
+
 \end{document}
 

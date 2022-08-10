@@ -4,7 +4,7 @@
 The following annotation guidelines are a combined adaptation of \cite{benikova-etal-2014-nosta}, \cite{ldc_2005}, \cite{muc7_ner}, and \cite{smartdata_anno}.
 
 
-\section{Named Entity - Basic Definition}
+\section*{Named Entity - Basic Definition}
 
 Names are denominators for a single unique object in the real world. Only full noun phrases are considered as named entities. Pronouns and all other phrases can be ignored. 
 Phrases only partly containing names (e.g. `deutschlandweit), or adjectives referring to entities (`euklidisch') can be ignored.
@@ -21,7 +21,7 @@ Phrases only partly containing names (e.g. `deutschlandweit), or adjectives refe
 
 \noindent Emoticons, user mentions and (parts of) urls should not be tagged as named entities. 
 
-\section{Definition of Different Entity Types}
+\section*{Definition of Different Entity Types}
 For annotation, the the 6 entity types PERSON, LOCATION, ORGANIZATION, DATE, TIME, and ACTION are used. The label set consists of B-tag and 
 I-tag for each entity type, resulting in a total of 12 labels. 
 
@@ -78,9 +78,9 @@ ACTION
 \end{adjustbox}
 \end{table}
 
-\section{Specifications}
+\section*{Specifications}
 
-\subsection{Handling Mixed-language Messages}
+\subsection*{Handling Mixed-language Messages}
 Skip mixed-language in which the actual message is non-German language.\\
 
 \noindent\textbf{Examples:}
@@ -91,12 +91,12 @@ Skip mixed-language in which the actual message is non-German language.\\
 	\item \textit{MASSIMA DIFFUSIONE http://t.me/stopdittatura/1930 Raus auf die Straßen @Demotermine}
 \end{itemize}
 
-\subsection{Handling Incomprehensible Messages}
+\subsection*{Handling Incomprehensible Messages}
 Skip incomprehensible messages.\\
 
 \noindent\textbf{Example:} \textit{``Sterne-Restaurant Walliserkanne . Naudreck . Bersets faule Tricks . Uniarzt panikfrei . Herzmuskel .  Neuer Beitrag \#Walliserkanne Raus auf die Straßen \@Demotermine! Übersicht / Overview''}
 
-\subsection{Handling Short Messages}
+\subsection*{Handling Short Messages}
 Skip short messages which do not include at least two named entities.\\ 
 
 \noindent\textbf{Examples:}
@@ -105,12 +105,12 @@ Skip short messages which do not include at least two named entities.\\
 	\item \textit{``Egal wo ihr diesen , oder die kommenden Samstage seid ! \@RheinCandleLight \@Demotermine''}
 \end{itemize}
 
-\subsection{Handling Punctuation}
+\subsection*{Handling Punctuation}
 Punctutaion should only be included in the tag if they appear in the middle of sequence representing an entity.\\
 
 \noindent\textbf{Example}: \textit{Donnerstag[B-DATE] ,[I-DATE] 17.04.2020[I-DATE]}
 
-\subsubsection{Hashtags}
+\subsubsection*{Hashtags}
 If a hashtag is part of a named entity, it should be included in the tag.\\
 
 \noindent\textbf{Examples:}
@@ -126,9 +126,9 @@ If a hashtag is part of a named entity, it should be included in the tag.\\
 
 \textbf{Example:} \#be[B-LOC]2908[B-DATE]
 	
-\section{Detailed Annotation Instructions for Entity Types}
+\section*{Detailed Annotation Instructions for Entity Types}
 
-\subsection{PERSON}
+\subsection*{PERSON}
 Person names can consist of given name and last name, or only first / only last name. Titles (e.g. Dr.) and forms of address (Herr, Frau) should not be annotated.  
 
 \noindent\textbf{Examples:}
@@ -140,7 +140,7 @@ Person names can consist of given name and last name, or only first / only last 
 	\item \textit{Karl[B-PER]}
 \end{itemize}
 
-\subsection{LOCATION}
+\subsection*{LOCATION}
 Do not label derived location words (e.g. \textit{Kreuzberger Nächte} as location. 
 
 If a a sequence contains a number of tokens representing a location entity (e.g. an address), use the B-tag for the initial token and the I-tag for all succeeding tokens belonging to the same entity, including special characters such as , - . or /. The sequence should be long enough to create a representation of an entity which can be understood without the succeeding tokens.\\
@@ -171,7 +171,7 @@ If a a sequence contains a number of tokens representing a location entity (e.g.
 \end{itemize}
 
 
-\subsection{ORGANIZATION}
+\subsection*{ORGANIZATION}
 If a a sequence contains a number of tokens representing an organization entity, use the B-tag for the initial token and the I-tag for all succeeding tokens belonging to the same entity, including special characters such as , - . or /. The sequence should be long enough to create a representation of an entity which can be understood without the succeeding tokens.\\
 
 \noindent\textbf{Examples:}
@@ -188,7 +188,7 @@ If a a sequence contains a number of tokens representing an organization entity,
 \end{itemize}
 
 
-\subsection{TIME}
+\subsection*{TIME}
 Time expressions can include specific times of day and time codes (usually appearing after URLs. Sequences denoting a time span / duration should be annotated with the B-tag for the initial token and I-tags for the succeeding tokens.\\ 
 
 \noindent\textbf{Examples.}
@@ -200,7 +200,7 @@ Time expressions can include specific times of day and time codes (usually appea
 	\item \textit{15:30[B-TIME] -[I-TIME] 19:30[I-TIME]}
 \end{itemize}
 
-\subsection{DATE}
+\subsection*{DATE}
 Date expressions can be numeric values or strings. Sequences denoting a date spanshould be annotated with the B-tag for the initial token and I-tags for the succeeding tokens.\\ 
 
 \noindent\textbf{Examples:}
@@ -220,7 +220,7 @@ Date expressions can be numeric values or strings. Sequences denoting a date spa
 \end{itemize}
 
 
-\subsection{ACTION}
+\subsection*{ACTION}
 Actions represent unique real-world events or actions. They must not necessarily be named, but be identifiable as unique object in the context in which they are mentioned. Also, the type of action should be expressed.\\
 
 \noindent\textbf{Examples:}

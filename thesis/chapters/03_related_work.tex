@@ -1,0 +1,53 @@
+\chapter{Related Work: Important Shared Tasks and Datasets for NER}
+\label{cha:related_work}
+
+\subsection{Important Shared Tasks and Datasets for German-Language NER}
+
+The NER tasks at the Conference on Computational Natural Language Learning (ConLL) for English and German in 2003 was an important cornerstone for German-language NER (cf. \cite{tjong_kim_sang_introduction_2003}) 
+
+The provided German dataset consists of 909 articles sampled from the newspaper Frankfurter Rundschau (cf. \cite{tjong_kim_sang_introduction_2003}). The task focused on the entity types person (PER), location (LOC), organization (ORG), and miscellaneous (MISC). 
+
+% Describing the task as language-independent in this context can be understood as developing systems which are not tuned specifically to the characteristics of one language, but can handle input data in different languages, meaning that the language is not known in advance. %TODO beleg
+
+The ConLL 2003 dataset is publicly accessible, but no licensing information is available. Furthermore, given the fact that the corpus only contains newspaper articles, its applicability to other domains might be limited. The annotation of the dataset was carried out at the University of Antwerp (cf. \cite{tjong_kim_sang_introduction_2003}), thus most likely by non-native speakers, which might result in inconsistencies of the labeled data.
+
+%TODO used to train and evaluate models until today
+In 2014, GermEval, a series of shared tasks focussing on Natural Language Processing for German-language, announced a task for Named Entity Recognition for German-language texts (cf. \cite{benikova-etal-2014-nosta}). 
+
+The provided dataset was compiled from German Wikipedia articles and online news. Similar to the ConLL 2003 task, entity types of interest were person (PER), organization (ORG), location (LOC), and other (OTH). 
+
+The dataset is publicly available under a e CC-BY license.  However, since the GermEval2014 dataset also includes nested and derived entities, it is not readily combinable with other datasets. And even though the corpus was created from online resources, it does not contain noisy user-generated texts, limiting its applicability to other social media texts. 
+
+Up until today, the Germeval 2014 corpus and (to some extent) the ConLL 2003 dataset represent standards for German-language NER and are used to train and evaluate state-of-the art NER models. 
+
+\subsection{Important Experimental Studies on NER on Social Media Texts}
+
+In 2011, \citeauthor{ritter_2011} conducted an experimental study on named entity recognition in tweets, and used a random sample of 2.400 English-language tweets for this which were annotated with the following ten entity types: PERSON, GEO-LOCATION, COMPANY, PRODUCT,  FACILITY, TV-SHOW, MOVIE, SPORTSTEAM, BAND, and OTHER (cf. \cite{ritter_2011}).  The best participating system in this task achieved an F1 score of 0.66 for these ten types (cf. \cite{ritter_2011}). 
+
+A more detailed look into the results for the standard entity types PERSON, LOCATION, and ORGANIZATION, reveals that the F1 score for the entity type PERSON ranks highest with up to 0.83, followed by LOCATION, and then ORGANIZATION (0.74 and 0.66) for the best participating system. 
+
+In 2015, \citeauthor{derczynski_analysis_2015} investigated the applicability of existing, by then state-of-the-art systems for named entity recognition in tweets. Their results indicate as well that existing machine-learning based approaches do not perform well on noisy user-generated data from microblogs, using three different English-language datasets, including the corpus created by \cite{ritter_2011}.
+
+The evaluated systems achieved F1 scores ranging between 40.27, 51.49 (Ritter dataset), and 77.18 (cf. \cite{derczynski_analysis_2015}). 
+
+In line with \cite{ritter_2011}, the authors identify unreliable capitalization, typographic errors, shortenings, and lack of context due to the shortness of the texts as main challenges in this specific domain. 
+
+The authors suggest language detection, part-of-speech tagging, and normalization as pre-processing steps to encounter these challenges. Their results indicate however that e.g. normalization only leads to minimal increases, and in some cases even decreases the F1 score (cf. \cite{derczynski_analysis_2015}).
+
+\subsection{Important Shared Tasks and Datasets for NER on Social Media Texts}
+\label{sec:shared_tasks_sm}
+
+Also in 2015, \citeauthor{baldwin_shared_2015} organized a shared task for Named Entity Recognition on social media data, namely tweets from Twitter in the context of the \textit{Workshop on Noisy User-generated Text} (W-NUT). The task used the corpus created by \cite{ritter_2011}. 
+
+% which poses peculiar challenges to existing NER systems trained mainly on newswire text, since tweets, unlike edited newswire articles, contain a number of mis- and nonstandard spellings, abbreviations, incomplete sentences, and are often characterized by unreliable capitalization (cf. \cite{baldwin_shared_2015}). 
+
+Among the participating systems, the best F1 score achieved was 56.41, which is $\sim$0.1 lower than the F1 score achieved in the initial study by \cite{ritter_2011}, and $\sim$0.2 lower than the best F1 score achieved at the GermEval 2014 NER task (76.38, cf. \cite{benikova2014germeval}). 
+
+The W-NUT series continued to address the task of NER in subsequent years: 
+In 2016, another shared task on Twitter Named Entity Recognition was organized in the context of the workshop, again relying on the Ritter dataset and focussing on the ten entity types included in it.  
+An important difference compared to 2015 was that some of the participating systems introduced the use of neural network methods for the task of NER (cf. \cite{strauss_results_2016}), including the winning system which achieved an F1 score of 52.41 for the task of segmenting and categorizing entities into 10 types. It should be noted that the F1-scores for all other participating systems were below 50.00 for this task (cf.\cite{strauss_results_2016}). 
+
+The W-NUT shared task in 2017 focused on novel and emerging entity recognition, thus addressing the challenge of newly emerging entities in social media data. The Ritter corpus was used as training data again. The development set consisting of $\sim$ 1.000 documents was composed of manually annotated texts from different online sources such as Reddit, StackExchange, and Twitter, while the test set ($\sim$ 1.300 documents) consisted of manually annotated Youtube comments (cf. \cite{derczynski_results_2017}). The annotation schema mapped the ten entity types of the Ritter corpus to the seven entity types person, location (including GPE, facility), corporation, product, creative-work, and group (representing music bands, sports teams, and non-corporate organisations). The best participating system achieved an F1 score of 41.86. In the following years, the focus of the workshop series shifted to other tasks and domains which might be due to newly emerging research trends, but also due to the lack of relevant progress in terms of performance. 
+Judging from the F1 scores of the respective winning systems, the task of NER in social media texts continued to be a considerable challenge. Furthermore, the ongoing shortage of manually annotated and sufficiently large corpora for this task becomes apparent. This shortage has been tackled by the creation of human-annotated NER corpora such as the Broad Twitter Corpus (cf. \cite{derczynski-etal-2016-broad}, which is unfortunately exclusively English-language. 
+
+However, the results presented so far might also indicate that by then state-of-the-art machine learning systems had reached their limits. The following section traces the evolvement of NER approaches over time and gives insights into the respective potentials and limitations. 
