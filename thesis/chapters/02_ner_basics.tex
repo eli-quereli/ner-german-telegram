@@ -129,34 +129,21 @@ Building language-agnostic solutions is a very complex matter, while building se
 \section{Challenges for NER in User-Generated Texts}
 While the above-mentioned challenges apply in general for all \gls{ner} approaches, the characteristics user-generated texts from online domains further complicate the task for classic machine learning based \gls{ner} approaches. 
 
-This partly stems from the problem of \textbf{domain adaptation}: Most of the existing \gls{ner} systems are trained on a small selection of standard corpora mainly consisting of newswire texts. But social media texts are often \textbf{more informal and noisy} than newspaper articles, they contain misspellings or domain-specific expressions such as hashtags. 
-
-Figure \ref{fig:noisy_texts} illustrates the noisy character of tweets as an example. 
+Social media texts are often \textbf{more informal and noisy} than newspaper articles, they contain misspellings or domain-specific expressions such as hashtags. Figure \ref{fig:noisy_texts} illustrates the noisy character of tweets as an example. 
 %\begin{figure}[H]
 %\includegraphics[keepaspectratio]{images/noisy_texts_ritter.png}  \caption{Examples of noisy text in tweets, taken from \cite{ritter_2011}}
 %  \label{fig:noisy_texts}
 %\end{figure}
 
-Earlier studies found that applying a system trained on newswire corpora to social media texts would result in a drop of performance (cf. \cite{ritter_2011}). 
 %Note that these findings refer to older approaches and the findings do not represent the state of the art for \gls{ner}. However, even state of the art approaches use annotated datasets for fine-tuning, which is why it can be assumed that the fine-tuned model will reflect the domain-specific corpus it was trained on.
 
-\gls{ner} systems differ in terms of how they can (or cannot) take into account the context of a word. Moreover, providing context is also a matter of data: User-generated texts from social media are often of \textbf{shorter length} than e.g. newspaper articles which might result in a lack of context (cf. \cite{ritter_2011}).
+%\gls{ner} systems differ in terms of how they can (or cannot) take into account the context of a word. Moreover, providing context is also a matter of data. 
+
+Moreover, user-generated texts from social media are often of \textbf{shorter length} than e.g. newspaper articles which might result in a lack of context (cf. \cite{ritter_2011}).
 
 The \textbf{wide variety of capitalization styles} are another challenge, like e.g. the use of only lowercase for German texts, or the use of uppercase only in some texts (cf. \cite{ritter_2011}). As \cite{ritter_2011} point out, earlier news-trained NER systems seemed to rely heavily on capitalization which limited their applicability to user-generated social media texts.
 
 Also, these texts usually contain more \textbf{out of vocabulary (OOV) words} than e.g. news articles. This is partly due to misspellings, but also stems from platform specific codes and styles: The frequent occurence of \textbf{special characters} such as \# for hashtags or \@ for user mentions poses challenges because they cannot easily be handled during annotation and training. User-generated text in social media also often includes a lot of \textbf{lexical variations}. \cite{ritter_2011} collected more than fifty variations for the word `tomorrow' from a Twitter corpus, as shown in figure \ref{fig:lex_var}.
-
-Last but not least, social media texts often \textbf{mixed-language texts}, making it harder for language-specific models to accurately determine named entities in them.
-
-%\begin{figure}[H]
-%\includegraphics[keepaspectratio]{images/lexical_variations_ritter.png}  \caption{Lexical variations of the word `tomorrow' in tweets, taken from \cite{ritter_2011}}
-%  \label{fig:lex_var}
-%\end{figure}
-
-%\begin{figure}[H]
-%\includegraphics[keepaspectratio]{images/noisy_texts_ritter.png}  \caption{Examples of noisy text in tweets, taken from \cite{ritter_2011}}
-%  \label{fig:noisy_texts}
-%\end{figure}
 
 \begin{figure}[H]
 	\begin{minipage}[t]{0.5\linewidth}
@@ -171,4 +158,19 @@ Last but not least, social media texts often \textbf{mixed-language texts}, maki
     \label{fig:lex_var}
 	\end{minipage}
 \end{figure}
+
+Last but not least, social media texts often \textbf{mixed-language texts}, making it harder for language-specific models to accurately determine named entities in them.
+
+Given these differences between social media texts and more formal genres, \gls{ner} on social media needs to handle the problem of \textbf{domain adaptation}. Most of the existing \gls{ner} systems are in fact trained on a small selection of standard corpora mainly consisting of newswire texts, and earlier studies found that applying such a system to social media texts resulted in a drop of performance (cf. \cite{ritter_2011}). This might also be true for the application of existing solutions to Telegram messages. 
+
+%\begin{figure}[H]
+%\includegraphics[keepaspectratio]{images/lexical_variations_ritter.png}  \caption{Lexical variations of the word `tomorrow' in tweets, taken from \cite{ritter_2011}}
+%  \label{fig:lex_var}
+%\end{figure}
+
+%\begin{figure}[H]
+%\includegraphics[keepaspectratio]{images/noisy_texts_ritter.png}  \caption{Examples of noisy text in tweets, taken from \cite{ritter_2011}}
+%  \label{fig:noisy_texts}
+%\end{figure}
+
 

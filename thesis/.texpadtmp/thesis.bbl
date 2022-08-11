@@ -444,6 +444,38 @@
     \field{year}{2014}
   \endentry
 
+  \entry{bhoi_2017}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BA}{%
+         family={Bhoi},
+         familyi={B\bibinitperiod},
+         given={Ashutosh},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BRC}{%
+         family={Balabantaray},
+         familyi={B\bibinitperiod},
+         given={Rakesh\bibnamedelima Chandra},
+         giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \strng{namehash}{BABRC1}
+    \strng{fullhash}{BABRC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{pages}{7}
+    \field{title}{Named {Entity} {Recognition} from {Social} {Media} {Text}:
+  {A} {Comparative} {Study}}
+    \field{year}{2017}
+  \endentry
+
   \entry{bert_german_2020}{misc}{}
     \name{author}{3}{}{%
       {{hash=CB}{%
@@ -2190,6 +2222,102 @@
     \field{year}{2018}
   \endentry
 
+  \entry{shahsavari_conspiracy_2020}{article}{}
+    \name{author}{5}{}{%
+      {{hash=SS}{%
+         family={Shahsavari},
+         familyi={S\bibinitperiod},
+         given={Shadi},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=HP}{%
+         family={Holur},
+         familyi={H\bibinitperiod},
+         given={Pavan},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=WT}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Tianyi},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=TTR}{%
+         family={Tangherlini},
+         familyi={T\bibinitperiod},
+         given={Timothy\bibnamedelima R.},
+         giveni={T\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=RV}{%
+         family={Roychowdhury},
+         familyi={R\bibinitperiod},
+         given={Vwani},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SS+2}
+    \strng{fullhash}{SSHPWTTTRRV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{abstract}{%
+    Rumors and conspiracy theories thrive in environments of low confidence and
+  low trust. Consequently, it is not surprising that ones related to the
+  COVID-19 pandemic are proliferating given the lack of scientific consensus on
+  the virus’s spread and containment, or on the long-term social and economic
+  ramifications of the pandemic. Among the stories currently circulating in
+  US-focused social media forums are ones suggesting that the 5G
+  telecommunication network activates the virus, that the pandemic is a hoax
+  perpetrated by a global cabal, that the virus is a bio-weapon released
+  deliberately by the Chinese, or that Bill Gates is using it as cover to
+  launch a broad vaccination program to facilitate a global surveillance
+  regime. While some may be quick to dismiss these stories as having little
+  impact on real-world behavior, recent events including the destruction of
+  cell phone towers, racially fueled attacks against Asian Americans,
+  demonstrations espousing resistance to public health orders, and wide-scale
+  defiance of scientifically sound public mandates such as those to wear masks
+  and practice social distancing, countermand such conclusions. Inspired by
+  narrative theory, we crawl social media sites and news reports and, through
+  the application of automated machine-learning methods, discover the
+  underlying narrative frameworks supporting the generation of rumors and
+  conspiracy theories. We show how the various narrative frameworks fueling
+  these stories rely on the alignment of otherwise disparate domains of
+  knowledge, and consider how they attach to the broader reporting on the
+  pandemic. These alignments and attachments, which can be monitored in near
+  real time, may be useful for identifying areas in the news that are
+  particularly vulnerable to reinterpretation by conspiracy theorists.
+  Understanding the dynamics of storytelling on social media and the narrative
+  frameworks that provide the generative basis for these stories may also be
+  helpful for devising methods to disrupt their spread.%
+    }
+    \verb{doi}
+    \verb 10.1007/s42001-020-00086-5
+    \endverb
+    \field{issn}{2432-2717}
+    \field{number}{2}
+    \field{pages}{279\bibrangedash 317}
+    \field{shorttitle}{Conspiracy in the time of corona}
+    \field{title}{Conspiracy in the time of corona: automatic detection of
+  emerging {COVID}-19 conspiracy theories in social media and the news}
+    \verb{url}
+    \verb https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7591696/
+    \endverb
+    \field{volume}{3}
+    \verb{file}
+    \verb Full Text:/Users/elisabeth/Zotero/storage/9PREDSW8/Shahsavari et al.
+    \verb - 2020 - Conspiracy in the time of corona automatic detect.pdf:applic
+    \verb ation/pdf
+    \endverb
+    \field{journaltitle}{Journal of Computational Social Science}
+    \field{year}{2020}
+    \field{urlday}{15}
+    \field{urlmonth}{05}
+    \field{urlyear}{2022}
+  \endentry
+
   \entry{singh_natural_2008}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=SAK}{%
@@ -2300,6 +2428,87 @@
     \field{year}{2016}
     \field{urlday}{21}
     \field{urlmonth}{07}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{tangherlini_automated_2020}{article}{}
+    \name{author}{5}{}{%
+      {{hash=TTR}{%
+         family={Tangherlini},
+         familyi={T\bibinitperiod},
+         given={Timothy\bibnamedelima R.},
+         giveni={T\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Shahsavari},
+         familyi={S\bibinitperiod},
+         given={Shadi},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Shahbazi},
+         familyi={S\bibinitperiod},
+         given={Behnam},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=EE}{%
+         family={Ebrahimzadeh},
+         familyi={E\bibinitperiod},
+         given={Ehsan},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=RV}{%
+         family={Roychowdhury},
+         familyi={R\bibinitperiod},
+         given={Vwani},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \name{editor}{1}{}{%
+      {{hash=LYR}{%
+         family={Lin},
+         familyi={L\bibinitperiod},
+         given={Yu-Ru},
+         giveni={Y\bibinithyphendelim R\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \strng{namehash}{TTR+1}
+    \strng{fullhash}{TTRSSSBEERV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \verb{doi}
+    \verb 10.1371/journal.pone.0233879
+    \endverb
+    \field{issn}{1932-6203}
+    \field{number}{6}
+    \field{pages}{e0233879}
+    \field{shorttitle}{An automated pipeline for the discovery of conspiracy
+  and conspiracy theory narrative frameworks}
+    \field{title}{An automated pipeline for the discovery of conspiracy and
+  conspiracy theory narrative frameworks: {Bridgegate}, {Pizzagate} and
+  storytelling on the web}
+    \verb{url}
+    \verb https://dx.plos.org/10.1371/journal.pone.0233879
+    \endverb
+    \field{volume}{15}
+    \verb{file}
+    \verb Tangherlini et al. - 2020 - An automated pipeline for the discovery o
+    \verb f conspir.pdf:/Users/elisabeth/Zotero/storage/3UZW8FTS/Tangherlini et
+    \verb  al. - 2020 - An automated pipeline for the discovery of conspir.pdf:
+    \verb application/pdf
+    \endverb
+    \field{journaltitle}{PLOS ONE}
+    \field{month}{06}
+    \field{year}{2020}
+    \field{urlday}{15}
+    \field{urlmonth}{05}
     \field{urlyear}{2022}
   \endentry
 
