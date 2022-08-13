@@ -244,6 +244,13 @@ Furthermore, since transformer models do not work sequentially, the information 
 Transformers are usually trained to serve as large language models, on different tasks such as next sentence prediction (NSP) or masked language modeling (MLM). 
 The can also be used for sequence labeling tasks such as NER. This is achieved by first training a language model on large amounts of unlabelled text data, which is called pre-training. Pre-training allows the model to incorporate rich information about language in general, which allows it to easier learn specific tasks, called downstream tasks, on smaller datasets later. This second step is called fine-tuning ((cf. \cite[27-28]{jurafsky_2021_9}). Fine-tuning requires labeled data, but can be achieved with datasets of much smaller size, since the model already learned a lot about a given language during pre-training. 
 
+% MODELS
+There is a large number of different architectures for transformer models, resulting in an even larger number of available models.\footnote{By the time of writing this thesis, the Hugging Face Hub lists more than 62.000 of pretrained models available for download: \url{https://huggingface.co/models}, accessed on 2022/08/06.}
+
+The three main architectures for transformer models are encoders, decoders, and encoder-decoders. Encoder models are still the most commonly used, both in research and for business applications (cf. \cite[79]{tunstall_natural_2022}), and the models selected for the experiments here as well rely on the encoder architecture.  These general architecture types can be further differentiated into different model architectures such as e.g. DistilBERT or XLM models.\footnote{See \cite[79]{tunstall_natural_2022} for an overview and \cite[57-86]{tunstall_natural_2022} for details on the different architectures.}
+
+Models which have been pretrained on different corpora and can be used e.g. for fine-tuning tasks are called checkpoints.  The term 'model' is thus a general term which can refer to either a a specific architectural model skeleton or a checkpoint of a pretrained model (cf. \cite{huggingface_autoclass}). 
+
 %zusammenfassung: transformers: non-recurrent networks based on self-attention
 %a self-attention layer maps input sequences to output sequences of the same length, using attention heads that model how the surrounding words are relevant for the processing of the current word
 %a transformer block consists of a single attention layer followed by a feed-forward layer with residual connections and layer normalizations following each 

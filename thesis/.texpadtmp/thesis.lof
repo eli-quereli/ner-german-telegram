@@ -8,13 +8,13 @@
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Transformer model architecure as introduced by \blx@tocontentsinit {0}\cite {vaswani_2017}\relax }}{23}{figure.caption.5}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Five most frequent languages\relax }}{37}{figure.caption.8}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Training data after tokenization and encoding\relax }}{52}{figure.caption.18}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Fine-tuning the deepset/gbert-base model: Training and validation loss \relax }}{62}{figure.caption.24}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Fine-tuning the deepset/gbert-base model: F1, precision, recall, and accuracy\relax }}{62}{figure.caption.24}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Tokens ranked by mean loss, German-language BERT model\relax }}{63}{figure.caption.26}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Classes ranked by mean loss, German-language BERT model\relax }}{63}{figure.caption.28}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Confusion matrix, German-language BERT model\relax }}{64}{figure.caption.30}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Message frequencies in Telegram channel `Demotermine'\relax }}{35}{figure.caption.8}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Training data after tokenization and encoding\relax }}{45}{figure.caption.18}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Fine-tuning the deepset/gbert-base model: Training and validation loss \relax }}{51}{figure.caption.24}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Fine-tuning the deepset/gbert-base model: F1, precision, recall, and accuracy\relax }}{51}{figure.caption.24}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Tokens ranked by mean loss, German-language BERT model\relax }}{52}{figure.caption.26}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Classes ranked by mean loss, German-language BERT model\relax }}{53}{figure.caption.28}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Confusion matrix, German-language BERT model\relax }}{54}{figure.caption.30}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

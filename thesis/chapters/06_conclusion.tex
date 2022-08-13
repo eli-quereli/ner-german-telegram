@@ -7,10 +7,20 @@ more data
 
 improved annotation scheme (zb ( ) / nicht taggen, \# splitten), wie umgehen mit hashtags für Demos zB \#b2908
 
+Preventing the special characters in hashtags and user mentions from being split up was intended to serve for creating a realistic social media corpus and allow to include these special characters into the labels assigned during the annotation process. However, evaluation of training results indicate that it might indeed make sense to split up these special characters and simply treat them as separate tokens which are not treated as part of the tagged named entities.
+
+Mixed language messages: It could also be argued that they should be included in the final training data, since they represent realistic social media date and NER systems should be able to handle such kinds of texts as well.
+
+
+Smartdata: no NE action, This results in an underrepresentation of this specific class when merging both datasets and might most probably cause problems during training, since there will not be enough examples for the model to learn, and mentions of actions occuring in the Smartdata corpus do not have a corresponding tag. 
+
+
 entity disambiguation
 
 relationship tagging
 
 future work -> main adaptation on large telegram corpus
+
+
 
 %TODO before training: remove footer 'Raus auf die Straße' from cleaned_text

@@ -27,49 +27,49 @@
 \contentsline {subsection}{\numberline {5.3.3}Results}{31}{subsection.5.3.3}%
 \contentsline {section}{\numberline {5.4}Summarization}{33}{section.5.4}%
 \contentsline {chapter}{\numberline {6}Building a Custom Model for NER in Telegram Channels}{34}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Building a Domain-specific Dataset: The Telegram Corpus}{34}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Exploring the Raw Data}{35}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Preprocessing}{35}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.1}Building the Telegram Corpus}{34}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Raw Data}{35}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Text Cleaning}{35}{subsection.6.1.2}%
 \contentsline {subsection}{\numberline {6.1.3}Sample Selection}{36}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Annotation}{39}{subsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.1.5}Telegram Corpus Statistics}{40}{subsection.6.1.5}%
-\contentsline {section}{\numberline {6.2}Additional Data: The DFKI Smartdata Corpus}{41}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Corpus Description}{41}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Label Mapping}{42}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Adjusted Smartdata Corpus Statistics}{42}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}The Final Corpus}{42}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Overview of Used Models}{44}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}BERT models}{45}{subsection.6.4.1}%
-\contentsline {subsubsection}{dbmdz/bert-base-german-uncased}{45}{section*.13}%
-\contentsline {subsubsection}{deepset/gbert-base}{45}{section*.14}%
-\contentsline {subsection}{\numberline {6.4.2}DistilBERT model}{46}{subsection.6.4.2}%
-\contentsline {subsubsection}{distilbert-base-multilingual-cased}{46}{section*.15}%
-\contentsline {subsection}{\numberline {6.4.3}XLM-Roberta models}{46}{subsection.6.4.3}%
-\contentsline {subsubsection}{xlm-roberta-base}{47}{section*.16}%
-\contentsline {subsubsection}{cardiffnlp/twitter-xlm-roberta-base}{47}{section*.17}%
-\contentsline {section}{\numberline {6.5}Defining a Baseline}{47}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Experimental setup}{48}{section.6.6}%
-\contentsline {section}{\numberline {6.7}Preprocessing: Tokenization and Encoding}{48}{section.6.7}%
-\contentsline {section}{\numberline {6.8}Loading and Configuring a Model}{52}{section.6.8}%
-\contentsline {section}{\numberline {6.9}Defining Training Arguments}{53}{section.6.9}%
-\contentsline {section}{\numberline {6.10}Loading a Data Collator}{55}{section.6.10}%
-\contentsline {section}{\numberline {6.11}Defining Evaluation Metrics}{55}{section.6.11}%
-\contentsline {section}{\numberline {6.12}Training}{57}{section.6.12}%
-\contentsline {section}{\numberline {6.13}Evaluation Results}{57}{section.6.13}%
-\contentsline {section}{\numberline {6.14}Further Evaluation and Error Analysis}{60}{section.6.14}%
-\contentsline {subsubsection}{Token-level errors}{63}{section*.25}%
-\contentsline {subsubsection}{Class-level erros}{63}{section*.27}%
-\contentsline {subsubsection}{Confusion matrix}{64}{section*.29}%
-\contentsline {subsection}{\numberline {6.14.1}Post-processing}{64}{subsection.6.14.1}%
-\contentsline {section}{\numberline {6.15}Summarization}{65}{section.6.15}%
-\contentsline {chapter}{\numberline {7}First Results: Applying the Custom NER Model to Telegram Messages}{66}{chapter.7}%
-\contentsline {subsection}{\numberline {7.0.1}Example messages}{66}{subsection.7.0.1}%
-\contentsline {subsection}{\numberline {7.0.2}Larger sample}{66}{subsection.7.0.2}%
-\contentsline {chapter}{\numberline {8}Conclusion}{68}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Summarization}{68}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Discussion}{68}{section.8.2}%
-\contentsline {chapter}{Glossary}{69}{section*.32}%
-\contentsline {chapter}{Acronyms}{70}{section*.34}%
-\contentsline {chapter}{Bibliography}{77}{chapter*.36}%
-\contentsline {chapter}{Appendix}{77}{chapter*.36}%
-\contentsline {chapter}{\numberline {A}Additional Material}{81}{appendix.A}%
+\contentsline {subsection}{\numberline {6.1.4}Annotation}{37}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Telegram Corpus Statistics}{37}{subsection.6.1.5}%
+\contentsline {section}{\numberline {6.2}The DFKI Smartdata Corpus}{38}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Label Mapping}{39}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Adjusted Smartdata Corpus Statistics}{39}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}The Final Corpus}{40}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Models}{40}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}BERT Models}{40}{subsection.6.4.1}%
+\contentsline {subsubsection}{dbmdz/bert-base-german-uncased}{40}{section*.12}%
+\contentsline {subsubsection}{deepset/gbert-base}{41}{section*.13}%
+\contentsline {subsection}{\numberline {6.4.2}DistilBERT Model}{41}{subsection.6.4.2}%
+\contentsline {subsubsection}{distilbert-base-multilingual-cased}{41}{section*.14}%
+\contentsline {subsection}{\numberline {6.4.3}XLM-Roberta Models}{42}{subsection.6.4.3}%
+\contentsline {subsubsection}{xlm-roberta-base}{42}{section*.15}%
+\contentsline {subsubsection}{cardiffnlp/twitter-xlm-roberta-base}{42}{section*.16}%
+\contentsline {section}{\numberline {6.5}Experimental setup}{42}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Defining a Baseline}{43}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Fine-tuning an NER model}{43}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Preprocessing: Tokenization and Encoding}{43}{subsection.6.7.1}%
+\contentsline {subsubsection}{Label alignment for tokenized inputs}{44}{section*.17}%
+\contentsline {subsection}{\numberline {6.7.2}Loading and Configuring a Model}{45}{subsection.6.7.2}%
+\contentsline {subsection}{\numberline {6.7.3}Defining Training Arguments}{45}{subsection.6.7.3}%
+\contentsline {subsubsection}{Loading a Data Collator}{46}{section*.19}%
+\contentsline {subsection}{\numberline {6.7.4}Defining Evaluation Metrics}{46}{subsection.6.7.4}%
+\contentsline {subsection}{\numberline {6.7.5}Training}{47}{subsection.6.7.5}%
+\contentsline {section}{\numberline {6.8}Results}{47}{section.6.8}%
+\contentsline {section}{\numberline {6.9}Further Evaluation and Error Analysis}{49}{section.6.9}%
+\contentsline {subsubsection}{Token-level errors}{52}{section*.25}%
+\contentsline {subsubsection}{Class-level erros}{53}{section*.27}%
+\contentsline {subsubsection}{Confusion matrix}{54}{section*.29}%
+\contentsline {section}{\numberline {6.10}Summarization}{54}{section.6.10}%
+\contentsline {chapter}{\numberline {7}First Results: Applying the Custom NER Model to Telegram Messages}{55}{chapter.7}%
+\contentsline {subsection}{\numberline {7.0.1}Example messages}{55}{subsection.7.0.1}%
+\contentsline {subsection}{\numberline {7.0.2}Larger sample}{55}{subsection.7.0.2}%
+\contentsline {chapter}{\numberline {8}Conclusion}{57}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Summarization}{57}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Discussion}{57}{section.8.2}%
+\contentsline {chapter}{Glossary}{59}{section*.32}%
+\contentsline {chapter}{Acronyms}{60}{section*.34}%
+\contentsline {chapter}{Bibliography}{66}{chapter*.36}%
+\contentsline {chapter}{Appendix}{66}{chapter*.36}%
+\contentsline {chapter}{\numberline {A}Additional Material}{70}{appendix.A}%
