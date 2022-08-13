@@ -542,125 +542,6 @@
     \field{year}{1997}
   \endentry
 
-  \entry{collobert_2008}{inproceedings}{}
-    \name{author}{2}{}{%
-      {{hash=CR}{%
-         family={Collobert},
-         familyi={C\bibinitperiod},
-         given={Ronan},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=WJ}{%
-         family={Weston},
-         familyi={W\bibinitperiod},
-         given={Jason},
-         giveni={J\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Association for Computing Machinery}%
-    }
-    \strng{namehash}{CRWJ1}
-    \strng{fullhash}{CRWJ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2008}
-    \field{labeldatesource}{}
-    \field{sortinit}{C}
-    \field{sortinithash}{C}
-    \field{booktitle}{Proceedings of the 25th International Conference on
-  Machine Learning}
-    \verb{doi}
-    \verb 10.1145/1390156.1390177
-    \endverb
-    \field{isbn}{9781605582054}
-    \field{pages}{160–167}
-    \field{series}{ICML '08}
-    \field{title}{A Unified Architecture for Natural Language Processing: Deep
-  Neural Networks with Multitask Learning}
-    \verb{url}
-    \verb https://doi.org/10.1145/1390156.1390177
-    \endverb
-    \list{location}{1}{%
-      {Helsinki, Finland}%
-    }
-    \field{year}{2008}
-    \warn{\item Can't use 'location' + 'address'}
-  \endentry
-
-  \entry{collobert_natural_2011}{article}{}
-    \name{author}{6}{}{%
-      {{hash=CR}{%
-         family={Collobert},
-         familyi={C\bibinitperiod},
-         given={Ronan},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=WJ}{%
-         family={Weston},
-         familyi={W\bibinitperiod},
-         given={Jason},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=BL}{%
-         family={Bottou},
-         familyi={B\bibinitperiod},
-         given={Leon},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=KM}{%
-         family={Karlen},
-         familyi={K\bibinitperiod},
-         given={Michael},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=KK}{%
-         family={Kavukcuoglu},
-         familyi={K\bibinitperiod},
-         given={Koray},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=KP}{%
-         family={Kuksa},
-         familyi={K\bibinitperiod},
-         given={Pavel},
-         giveni={P\bibinitperiod},
-      }}%
-    }
-    \list{language}{1}{%
-      {en}%
-    }
-    \strng{namehash}{CR+1}
-    \strng{fullhash}{CRWJBLKMKKKP1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2011}
-    \field{labeldatesource}{}
-    \field{sortinit}{C}
-    \field{sortinithash}{C}
-    \field{abstract}{%
-    We propose a uniﬁed neural network architecture and learning algorithm
-  that can be applied to various natural language processing tasks including
-  part-of-speech tagging, chunking, named entity recognition, and semantic role
-  labeling. This versatility is achieved by trying to avoid task-speciﬁc
-  engineering and therefore disregarding a lot of prior knowledge. Instead of
-  exploiting man-made input features carefully optimized for each task, our
-  system learns internal representations on the basis of vast amounts of mostly
-  unlabeled training data. This work is then used as a basis for building a
-  freely available tagging system with good performance and minimal
-  computational requirements.%
-    }
-    \field{pages}{45}
-    \field{title}{Natural {Language} {Processing} ({Almost}) from {Scratch}}
-    \verb{file}
-    \verb Collobert et al. - Natural Language Processing (Almost) from Scratch.
-    \verb pdf:/Users/elisabeth/Zotero/storage/WASVWVIR/Collobert et al. - Natur
-    \verb al Language Processing (Almost) from Scratch.pdf:application/pdf
-    \endverb
-    \field{journaltitle}{NATURAL LANGUAGE PROCESSING}
-    \field{year}{2011}
-  \endentry
-
   \entry{xlm_roberta}{article}{}
     \name{author}{10}{}{%
       {{hash=CA}{%
@@ -1191,48 +1072,6 @@
     \field{urlyear}{2022}
   \endentry
 
-  \entry{huang_2015}{misc}{}
-    \name{author}{3}{}{%
-      {{hash=HZ}{%
-         family={Huang},
-         familyi={H\bibinitperiod},
-         given={Zhiheng},
-         giveni={Z\bibinitperiod},
-      }}%
-      {{hash=XW}{%
-         family={Xu},
-         familyi={X\bibinitperiod},
-         given={Wei},
-         giveni={W\bibinitperiod},
-      }}%
-      {{hash=YK}{%
-         family={Yu},
-         familyi={Y\bibinitperiod},
-         given={Kai},
-         giveni={K\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {arXiv}%
-    }
-    \strng{namehash}{HZXWYK1}
-    \strng{fullhash}{HZXWYK1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2015}
-    \field{labeldatesource}{}
-    \field{sortinit}{H}
-    \field{sortinithash}{H}
-    \verb{doi}
-    \verb 10.48550/ARXIV.1508.01991
-    \endverb
-    \field{title}{Bidirectional LSTM-CRF Models for Sequence Tagging}
-    \verb{url}
-    \verb https://arxiv.org/abs/1508.01991
-    \endverb
-    \field{year}{2015}
-  \endentry
-
   \entry{huggingface_attention_mask}{misc}{}
     \name{author}{1}{}{%
       {{hash=H}{%
@@ -1361,7 +1200,7 @@
     \field{year}{2021}
   \endentry
 
-  \entry{jurafsky_2021_5}{inbook}{}
+  \entry{jurafsky_2021_9}{inbook}{}
     \name{author}{2}{}{%
       {{hash=JD}{%
          family={Jurafsky},
@@ -1385,7 +1224,7 @@
     \field{labeldatesource}{}
     \field{sortinit}{J}
     \field{sortinithash}{J}
-    \field{chapter}{Logistic Regression}
+    \field{chapter}{Deep Learning Architectures for Sequence Processing}
     \field{edition}{Third edition draft}
     \field{title}{Speech and Language Processing. An Introduction to Natural
   Language Processing, Computational Linguistics, and Speech Recognition}
@@ -1395,7 +1234,7 @@
     \field{year}{2021}
   \endentry
 
-  \entry{jurafsky_2021_8}{inbook}{}
+  \entry{jurafsky_2021_5}{inbook}{}
     \name{author}{2}{}{%
       {{hash=JD}{%
          family={Jurafsky},
@@ -1419,109 +1258,7 @@
     \field{labeldatesource}{}
     \field{sortinit}{J}
     \field{sortinithash}{J}
-    \field{chapter}{Sequence Labeling for Parts of Speech and Named Entities}
-    \field{edition}{Third edition draft}
-    \field{title}{Speech and Language Processing. An Introduction to Natural
-  Language Processing, Computational Linguistics, and Speech Recognition}
-    \verb{url}
-    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
-    \endverb
-    \field{year}{2021}
-  \endentry
-
-  \entry{jurafsky_2021_7}{inbook}{}
-    \name{author}{2}{}{%
-      {{hash=JD}{%
-         family={Jurafsky},
-         familyi={J\bibinitperiod},
-         given={Daniel},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=MJH}{%
-         family={Martin},
-         familyi={M\bibinitperiod},
-         given={James\bibnamedelima H},
-         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{JDMJH2}
-    \strng{fullhash}{JDMJH2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2021}
-    \field{extradate}{4}
-    \field{labeldatesource}{}
-    \field{sortinit}{J}
-    \field{sortinithash}{J}
-    \field{chapter}{Neural Networks and Neural Language Models}
-    \field{edition}{Third edition draft}
-    \field{title}{Speech and Language Processing. An Introduction to Natural
-  Language Processing, Computational Linguistics, and Speech Recognition}
-    \verb{url}
-    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
-    \endverb
-    \field{year}{2021}
-  \endentry
-
-  \entry{jurafsky_2021_6}{inbook}{}
-    \name{author}{2}{}{%
-      {{hash=JD}{%
-         family={Jurafsky},
-         familyi={J\bibinitperiod},
-         given={Daniel},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=MJH}{%
-         family={Martin},
-         familyi={M\bibinitperiod},
-         given={James\bibnamedelima H},
-         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{JDMJH2}
-    \strng{fullhash}{JDMJH2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2021}
-    \field{extradate}{5}
-    \field{labeldatesource}{}
-    \field{sortinit}{J}
-    \field{sortinithash}{J}
-    \field{chapter}{Vector Semantics and Embeddings}
-    \field{edition}{Third edition draft}
-    \field{title}{Speech and Language Processing. An Introduction to Natural
-  Language Processing, Computational Linguistics, and Speech Recognition}
-    \verb{url}
-    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
-    \endverb
-    \field{year}{2021}
-  \endentry
-
-  \entry{jurafsky_2021_9}{inbook}{}
-    \name{author}{2}{}{%
-      {{hash=JD}{%
-         family={Jurafsky},
-         familyi={J\bibinitperiod},
-         given={Daniel},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=MJH}{%
-         family={Martin},
-         familyi={M\bibinitperiod},
-         given={James\bibnamedelima H},
-         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{JDMJH2}
-    \strng{fullhash}{JDMJH2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2021}
-    \field{extradate}{6}
-    \field{labeldatesource}{}
-    \field{sortinit}{J}
-    \field{sortinithash}{J}
-    \field{chapter}{Deep Learning Architectures for Sequence Processing}
+    \field{chapter}{Logistic Regression}
     \field{edition}{Third edition draft}
     \field{title}{Speech and Language Processing. An Introduction to Natural
   Language Processing, Computational Linguistics, and Speech Recognition}
@@ -1642,114 +1379,6 @@
     \field{year}{2020}
     \field{urlday}{19}
     \field{urlmonth}{06}
-    \field{urlyear}{2022}
-  \endentry
-
-  \entry{mikolov_2013}{misc}{}
-    \name{author}{4}{}{%
-      {{hash=MT}{%
-         family={Mikolov},
-         familyi={M\bibinitperiod},
-         given={Tomas},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=CK}{%
-         family={Chen},
-         familyi={C\bibinitperiod},
-         given={Kai},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=CG}{%
-         family={Corrado},
-         familyi={C\bibinitperiod},
-         given={Greg},
-         giveni={G\bibinitperiod},
-      }}%
-      {{hash=DJ}{%
-         family={Dean},
-         familyi={D\bibinitperiod},
-         given={Jeffrey},
-         giveni={J\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {arXiv}%
-    }
-    \keyw{Computation and Language (cs.CL), FOS: Computer and information
-  sciences, FOS: Computer and information sciences}
-    \strng{namehash}{MT+1}
-    \strng{fullhash}{MTCKCGDJ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2013}
-    \field{labeldatesource}{}
-    \field{sortinit}{M}
-    \field{sortinithash}{M}
-    \verb{doi}
-    \verb 10.48550/ARXIV.1301.3781
-    \endverb
-    \field{title}{Efficient Estimation of Word Representations in Vector Space}
-    \verb{url}
-    \verb https://arxiv.org/abs/1301.3781
-    \endverb
-    \field{year}{2013}
-  \endentry
-
-  \entry{nadeau_survey_2007}{article}{}
-    \name{author}{2}{}{%
-      {{hash=ND}{%
-         family={Nadeau},
-         familyi={N\bibinitperiod},
-         given={David},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=SS}{%
-         family={Sekine},
-         familyi={S\bibinitperiod},
-         given={Satoshi},
-         giveni={S\bibinitperiod},
-      }}%
-    }
-    \list{language}{1}{%
-      {en}%
-    }
-    \strng{namehash}{NDSS1}
-    \strng{fullhash}{NDSS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2007}
-    \field{labeldatesource}{}
-    \field{sortinit}{N}
-    \field{sortinithash}{N}
-    \field{abstract}{%
-    This survey covers fifteen years of research in the Named Entity
-  Recognition and Classification (NERC) field, from 1991 to 2006. We report
-  observations about languages, named entity types, domains and textual genres
-  studied in the literature. From the start, NERC systems have been developed
-  using hand-made rules, but now machine learning techniques are widely used.
-  These techniques are surveyed along with other critical aspects of NERC such
-  as features and evaluation methods. Features are word-level, dictionary-level
-  and corpus-level representations of words in a document. Evaluation
-  techniques, ranging from intuitive exact match to very complex matching
-  techniques with adjustable cost of errors, are an indisputable key to
-  progress.%
-    }
-    \verb{doi}
-    \verb 10.1075/li.30.1.03nad
-    \endverb
-    \field{issn}{0378-4169, 1569-9927}
-    \field{number}{1}
-    \field{pages}{3\bibrangedash 26}
-    \field{title}{A survey of named entity recognition and classification}
-    \verb{url}
-    \verb http://www.jbe-platform.com/content/journals/10.1075/li.30.1.03nad
-    \endverb
-    \field{volume}{30}
-    \field{journaltitle}{Lingvisticae Investigationes}
-    \field{month}{08}
-    \field{year}{2007}
-    \field{urlday}{04}
-    \field{urlmonth}{07}
     \field{urlyear}{2022}
   \endentry
 

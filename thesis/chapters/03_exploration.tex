@@ -1,98 +1,102 @@
-\chapter{SpaCy and Flair: A Qualitative Exploration of Existing NER Models}
+\chapter{SpaCy and Flair: A Qualitative Exploration of Existing Solutions}
 \label{cha:exploration}
 
-In order to explore the potentials and limitations of existing German-language models for Named Entity Recognition, two models were selected for a basic qualitative exploration of their results with some sample texts. 
+Most of the existing \gls{ner} models are limited to the four common entity types PERSON, LOCATION, ORGANIZATION, and OTHER/MISC. To the best of my knowledge, there are no existing models supporting the detection of the entity types TIME, DATE, and ACTION. An exception is the English-language spaCy model which supports TIME and DATE recognition. 
 
-While a quantitative evaluation would be the ideal approach, this is not possible since there are no existing (German-language) models which support all the entity types relevant for the NER task as defined here. Precisely, most of the models are limited to the four common entity types PERSON, LOCATION, ORGANIZATION, and OTHER/MISC. To the best of my knowledge, there are no existing models supporting the detection of the entity types TIME, DATE, and ACTION. 
-An exception is the English-language spaCy model which supports TIME and DATE recognition. Against this background, iI will explore the potentials of machine translation to allow for the use of well-resourced English NER models for the recognition of named entities in the selected example texts.
+In order to explore the applicability of existing models for my purpose, I selected some sample messages from a German-language Telegram channel and qualitatively evaluated the results of two German-language \gls{ner} models. 
+Since the English spaCy model supports more entity types, and English models are known to be well-resourced, I used machine translation to translate the sample texts into English and explore the results of the English models as well.\footnote{For implementation details, see \url{https://github.com/eli-quereli/ner-german-telegram/tree/main/src/notebooks/3_exploration/spacy_flair_bert_first_experiments}.}
 
-\section{German-language Named Entity Recognition with spaCy and Flair}
+All tested models were selected from the library spaCy and the framework FLAIR. The models were chosen due to their easy applicability, allowing for fast exploration and analysis, and because both of them support German- and English-language named entity recognition.
+%While a quantitative evaluation would be the ideal approach, this is not possible since there are no existing (German-language) models which support all the entity types relevant for the NER task as defined here. 
+I am aware of the fact that the observations presented here cannot be generalized without quantitative evaluation on a larger sample. 
 
-The models explored in this chapter were selected from the library spaCy and the framework FLAIR. The models were chosen due to their easy applicability, allowing for fast exploration and analysis, and because both of them support German- and English-language named entity recognition. 
+\section{Example Data}
+I randomly selected ten example messages from the mainly German-language Telegram channel `Demotermine' (\textit{Demo dates}). Prior qualitative exploration of sample messages indicated that this channel contains a lot of messages mobilizing for various kinds of protests against the COVID-19 containment measures in Germany. This makes it a suitable source for my purpose.
+
+\section{German-language NER with spaCy and Flair}
+My first analysis focusses on results for German-language sample texts, using the medium-size German-language spaCy model and the standard German-language Flair \gls{ner} model. 
 
 \subsection{The German-language spaCy model}
-spaCy is a free open-source library for Natural Language Processing developed for use in production. The library is extensively documented and thus serves as an easy starting point for beginner, while also claiming to be designed specifically for use in production.
-The library supports more than 66 languages (including German), comes with pre-trained word vectors, and supports a variety of NLP tasks such as part-of-speech tagging, text classification, and named entity recognition (cf. \cite{spacy_facts}). 
-The German spaCy model supports to the common entity types are \verb|LOC|, \verb|MISC|, \verb|ORG|, and \verb|PER| (cf. \cite{spacy_german_md}). 
+spaCy is a free open-source library for \gls{nlp}. The library is extensively documented and thus serves as an easy starting point for beginners, while also claiming to be designed for use in production.
+spaCy supports more than 66 languages (including German) and supports a variety of \gls{nlp} tasks such as part-of-speech tagging, text classification, and \gls{ner} (cf. \cite{spacy_facts}). 
+The medium-size German model supports to the common entity types \verb|LOC|, \verb|MISC|, \verb|ORG|, and \verb|PER| (cf. \cite{spacy_german_md}). 
 
-The central component of the model's NER pipeline is spaCy's Entity Recognizer which `identifies non-overlapping labelled spans of tokens' (\cite{spacy_entity_recognizer}) and uses a transition-based algorithm which assumes that the most relevant information about an entity is close to its first token (cf. \cite{spacy_entity_recognizer}). The underlying model is a neural network state prediction model, spaCy's TransitionBasedParser. Transition-based parsing can be described as `an approach to structured prediction where the task of predicting the structure is mapped to a series of state transitions.' (\cite{spacy_transition_based_parser}). The model is composed of two to three subnetworks which take care of token-vectorization, feature-specific vectorization for each token-feature pair and then computing the state representation from them, and (optionally) a subnetwork which predicts scores from the state representation (otherwise the outputs from the second subnetwork will be used for prediction) (cf. \cite{spacy_transition_based_parser}).
+The central component of the model's \gls{ner} pipeline is spaCy's Entity Recognizer based on transition-based algorithm which assumes that the most relevant information about an entity is close to its first token (cf. \cite{spacy_entity_recognizer}). The underlying TransitionBasedParser is a neural network state prediction model which embodies `an approach to structured prediction where the task of predicting the structure is mapped to a series of state transitions.' (\cite{spacy_transition_based_parser}). 
+%The model is composed of two to three subnetworks which take care of token-vectorization, feature-specific vectorization for each token-feature pair and then computing the state representation from them. By default, the outputs from the second network are used for predictions. Optionally, an additional subnetwork predicts scores from the state representations (cf. \cite{spacy_transition_based_parser}).
 
-The model was trained on the WIKINER corpus, a free, multilingual corpus created from Wikipedia articles which were automatically annotated and thus are silver standard training data (cf. \cite{nothman_learning_2013}). According to the official documentation, the model achieved an F1 score of 0.84 (cf. \cite{spacy_german_md}).
+The model was trained on the WIKINER corpus, a free, multilingual corpus created from Wikipedia articles. The annotations were created automatically (cf. \cite{nothman_learning_2013}). The corpus is thus only silver standard (compared to gold standard corpora based on human annotations). The model achieved an F1 score of 0.84 (cf. \cite{spacy_german_md}).
 
-\subsection{The German-language Standard NER Flair Model}
+\subsection{The German-language Flair Model}
 \label{sec:flair_de}
-The FLAIR framework is an NLP library released in 2018, developed to `facilitate training and distribution of
-state-of-the-art sequence labeling, text classification and language models' (\cite{akbik2019flair}). The framework's aim is to provide an interface to easily use different types of word and document embeddings (cf. \cite{akbik2019flair}).
+The FLAIR framework is an \gls{nlp} library developed to `facilitate training and distribution of
+state-of-the-art sequence labeling, text classification and language models' (\cite{akbik2019flair}). The overall aim is to provide an interface for the easy use of different word and document embeddings (cf. \cite{akbik2019flair}).
 
-The German-language FLAIR model for NER uses a combination of GloVe embeddings (cf. \cite{pennington2014glove} and Flair embeddings to create the word embeddings. The conceptual approach behind the Flair embeddings is described in detail in \cite{akbik2018coling}. It can briefly be characterized as an approach which creates `contextual string embeddings' (\cite{akbik2018coling}) which take into account the context of a given text, resulting in different embeddings for the same word depending on its context in a document (cf. \cite{akbik2018coling}).
-The word embeddings passed to a BiLSTM-CRF sequence labeling model which takes care of the final downstream sequence labeling task (cf. \cite{akbik2018coling}). 
+The German-language Flair model for \gls{ner} uses a combination of GloVe embeddings (cf. \cite{pennington2014glove} and Flair embeddings (cf. \cite{akbik2018coling}) to create word embeddings. Flair embeddings create `contextual string embeddings' (\cite{akbik2018coling}) which generate different embeddings for the same word depending on its context in a document (cf. \cite{akbik2018coling}).
+The word embeddings passed to a \gls{bilstm}-\gls{crf} sequence labeling model for the \gls{ner} downstream task (cf. \cite{akbik2018coling}). 
 
-The German Flair model used here is the German standard 4-class NER model by Flair. The model was trained on the ConLL 2003 corpus, and reached an F1 score of 87.94 according to the model's HuggingFace documentation (cf. \cite{flair_ner_german_standard_model}). 
- 
-\subsection{Example Data}
-For the exploration of the two models, ten example messages were randomly selected from the Telegram channel `Demotermine' (\textit{Demo dates}). 
+I used Flair's German standard 4-class \gls{ner} model, supporting the entity types person, location, organization, and other. It was trained on the \gls{conll} 2003 corpus, reaching an F1 score of 87.94 (cf. \cite{flair_ner_german_standard_model}). 
 
-The channel was selected because a prior qualitative exploration of sample messages indicated that its content consists mainly of information about and mobilization for demonstrations and others forms of protests against the German COVID-19 containment measures and could thus be expected to contain a lot of relevant entities. 
-
-\subsection{Implementation}
-\label{sec:impl_ner_de}
-For exploring the German medium-size spaCy model, a simple code was implemented to predict and print the detected entities: 
-
-\begin{python}
-import spacy
-nlp = spacy.load("de_core_news_md")
-
-def get_entities(texts): 
-    for text in texts:                 
-        doc = nlp(text)
-        if doc.ents:
-            print("Text: ", text, '\n')
-            print("The following NER tags are found: ", 
-            [(ent.text, ent.label_) for ent in doc.ents], 
-            '\n\n')
-get_entities(texts)
-\end{python}
-
-\newpage
-The next code section shows the implementation for the Flair model:
-
-\begin{python}
-from flair.models import SequenceTagger
-from flair.data import Sentence
-
-tagger = SequenceTagger.load("flair/ner-german")
-
-def get_entities(texts):    
-    for text in texts: 
-        # transform example text to Sentence
-        sentence = Sentence(text)
-        # use tagger to predict NER tags in sentence
-        tagger.predict(sentence)
-        print(sentence, '\n')
-        print('The following NER tags are found:')
-        for entity in sentence.get_spans('ner'):
-            print(entity)
-        print('\n\n')
-get_entities(texts)
-\end{python}
-
+%\subsection{Implementation}
+%\label{sec:impl_ner_de}
+%
+%
+%For exploring the German medium-size spaCy model, a simple code was implemented to predict and print the detected entities: 
+%
+%\begin{python}
+%import spacy
+%nlp = spacy.load("de_core_news_md")
+%
+%def get_entities(texts): 
+%    for text in texts:                 
+%        doc = nlp(text)
+%        if doc.ents:
+%            print("Text: ", text, '\n')
+%            print("The following NER tags are found: ", 
+%            [(ent.text, ent.label_) for ent in doc.ents], 
+%            '\n\n')
+%get_entities(texts)
+%\end{python}
+%
+%\newpage
+%The next code section shows the implementation for the Flair model:
+%
+%\begin{python}
+%from flair.models import SequenceTagger
+%from flair.data import Sentence
+%
+%tagger = SequenceTagger.load("flair/ner-german")
+%
+%def get_entities(texts):    
+%    for text in texts: 
+%        # transform example text to Sentence
+%        sentence = Sentence(text)
+%        # use tagger to predict NER tags in sentence
+%        tagger.predict(sentence)
+%        print(sentence, '\n')
+%        print('The following NER tags are found:')
+%        for entity in sentence.get_spans('ner'):
+%            print(entity)
+%        print('\n\n')
+%get_entities(texts)
+%\end{python}
 
 \subsection{Results}
 
-Table \ref{tab:detect_ents_de} shows the results of both models for the example texts. I would like to emphasize that due to the small size of the explored sample, these explorations are rather anecdotal and cannot be generalized without further quantitative evaluation on a larger sample. 
-However, the following observations can be made when looking at the results: 
- 
-The spaCy model produces more false positives overall: It falsely tags the sequences `Endkundgebung' (final rally), `GEHT DEMONSTRIEREN' (go demonstrate), `Dresdner \&', `Videos', `Berliner', `Versammlungsfre' (freedom of assembly, truncated), `Einfach' (simple/simply), `Der Mann mit dem Schild' (the man with the sign), and `Einsatzwägen' (patrol cars) as entities. 
+Table \ref{tab:detect_ents_de} shows the results for both models out of which the following observations can be made: 
+Overall, the spaCy model yields more false positives: It falsely tags the sequences `Endkundgebung' (final rally), `GEHT DEMONSTRIEREN' (go demonstrate), `Dresdner \&', `Videos', `Berliner', `Versammlungsfre' (freedom of assembly, truncated), `Einfach' (simple/simply), `Der Mann mit dem Schild' (the man with the sign), and `Einsatzwägen' (patrol cars). 
 
-The Flair model only falsely tags `FU' and `Demo-Berlin'. The sequence `FU' was originally part of the German word `F\"UR' and apparently was modified by the model's tokenizer which is applied when creating a Sentence object from the input text. The sequence `Demo-Berlin' contains a location, which makes the model's mistake to some extent plausible. 
+The Flair model only falsely tags `FU' and `Demo-Berlin'. The sequence `FU' does not exist in the original text, but is apparently a result of the model's pre-processing. Tagging `FU' as organization is plausible however, as is tagging `Demo-Berlin' as location since the sequence contains `Berlin'. 
 
-It can also be observed that the spaCy model sometimes assigns the wrong tag to a correctly detected entity. This applies for the sequences `Blankenfelde Mahlow' which is not a person as suggested by the model, but a location. 
+%was originally part of the German word `F\"UR' and apparently was modified by the model's tokenizer which is applied when creating a Sentence object from the input text. 
+%The sequence `Demo-Berlin' contains a location, which makes the model's mistake to some extent plausible. 
 
-Regarding false negatives, it can be observed that the sapCy model does not detect `Freiburg' in the first message. On the other hand, it recognizes parts of the sequence `Platz der alten Synagoge` (square of the old synagogue) as a location. The Flair model correctly detects Freiburg, but misses the mentioned square. 
+The spaCy model sometimes correctly detects a named entity, but then assigns the wrong tag to it: `Blankenfelde Mahlow' represents a location, but is tagged as person. 
 
-Even though the sample is too small for generalization, this first exploration casts strong doubts on the claim that spaCy offers production-ready components for NER.
+The spaCy model does not detect `Freiburg' in the first message and thus yields a false negative, while the Flair model correctly detects the location mention. 
 
-It can be hypothesized that both the different model architectures and the different corpora used for training result in the better performance of the Flair model compared to the spaCy model.
+Somewhat surprisingly, spaCy recognizes parts of the sequence `Platz der alten Synagoge` (square of the old synagogue) as a location which is missed by the Flair model. 
+
+Even though the sample is too small for generalization, my observations casts strong doubts on the claim that spaCy offers a production-ready \gls{ner} solution. I assume that the differences in performance result both from the different model architectures and the quality of the respective training corpora. 
 
 \begin{table}[htp]
 \caption{Detected entities for German-language example messages}
@@ -160,97 +164,54 @@ von Versammlungsfre - Sven Liebich 0:23 Raus auf die Straßen  \"Ubersicht / Ove
 
 \section{Exploring the Potentials of Machine Translation for NER}
 
-Even though the spaCy model explored in the previous section provided rather dissatisfying results, its English equivalent has one advantage, since it supports more entity types, including DATE and TIME, meaning that it might be useful for extracting dates and times, as they are relevant for the aim of this thesis. 
-Also, since more training data is available for English-language NLP models, exploring the potentials of machine translation for NER seems worth a try. 
+Even though the German spaCy model performed worse than the German Flair model, its English equivalent comes with one great advantage for my purpose: It supports a greater number of entity types, including DATE and TIME, making it potentially useful for monitoring mobilization for protests. Furthermore, regarding the fact that English models are generally known to be more well-resourced, my aim was to explore the performance of the English variant for both models. 
 
 \subsection{The English-language spaCy Model}
 
-The English-language spacy model supports 18 entity types: (\verb|CARDINAL|, \verb|DATE|, \verb|EVENT|, \verb|FAC|, \verb|GPE|, \verb|LANGUAGE|, \verb|LAW|, \verb|LOC|, \verb|MONEY|, \verb|NORP|, \verb|ORDINAL|, \verb|ORG|, \verb|PERCENT|, \verb|PERSON|, \verb|PRODUCT|, \verb|QUANTITY|, \verb|TIME|, and \verb|WORK_OF_ART|). 
+The English-language spacy model supports a total of 18 entity types, including the standard entity types person, location, organization. For my aim, the entity types time and date are particularly relevant. For a detailed overview of all entity types and their definitons see table \ref{tab:spacy_ents_def} in the appendix. 
 
-Table \ref{tab:spacy_ents_def} shows the definition for each entity type (obtained for each entity via the command \verb|spacy.explain{'<ENTITY>'}|: 
+%(\verb|CARDINAL|, \verb|DATE|, \verb|EVENT|, \verb|FAC|, \verb|GPE|, \verb|LANGUAGE|, \verb|LAW|, \verb|LOC|, \verb|MONEY|, \verb|NORP|, \verb|ORDINAL|, \verb|ORG|, \verb|PERCENT|, \verb|PERSON|, \verb|PRODUCT|, \verb|QUANTITY|, \verb|TIME|, and \verb|WORK_OF_ART|). 
 
-\begin{table}[htp]
-\caption{Overview of spaCy's entity types}
-\label{tab:spacy_ents_def}
-\centering
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{|p{0.25\linewidth}|p{0.75\linewidth}|}
-\hline
-\textbf{Entity type} & \textbf{Definition} \\
-\hline 
-CARDINAL & Numerals that do not fall under another type. \\
-\hline 
-DATE & Absolute or relative dates or periods. \\
-\hline 
-EVENT & Named hurricanes, battles, wars, sports events, etc. \\
-\hline 
-FAC & Buildings, airports, highways, bridges, etc. \\
-\hline 
-GPE & Countries, cities, states. \\
-\hline 
-LANGUAGE & Any named language. \\
-\hline 
-LAW & Named documents made into laws. \\
-\hline 
-LOC & Non-GPE locations, mountain ranges, bodies of water. \\
-\hline 
-MONEY & Monetary values, including unit. \\
-\hline  
-NORP & Nationalities or religious or political groups. \\
-\hline 
-ORDINAL & "first", "second", etc. \\
-\hline 
-ORG & Companies, agencies, institutions, etc. \\
-\hline 
-PERCENT & Percentage, including "\%".  \\
-\hline 
-PERSON & People, including fictional. \\
-\hline 
-PRODUCT & Objects, vehicles, foods, etc. (not services). \\
-\hline 
-QUANTITY & Measurements, as of weight or distance. \\
-\hline 
-TIME & Times smaller than a day \\
-\hline 
-WORK\_OF\_ART & Titles of books, songs, etc.\\
-\hline 
-\end{tabular}
-\end{adjustbox}
-\end{table}
+The underlying architecture is the same as for the German model. 
 
-The training data sources listed in the model's official documentation suggest that the NER training data was the OntoNotes 5 corpus (cf. \cite{ontonotes5}). The model achieved an F1 score of 0.85 for NER. 
+Judging by the listed data sources in the documentation, I assume that \gls{ner} model was trained on the OntoNotes 5 corpus, containing data from various text genres including news, phone conversations, blogs, usenet newsgroups, etc. (cf. \cite{ontonotes5}). The model achieved an F1 score of 0.85. 
 
-\subsection{The English-language Standard NER Flair Model}
-The architecture of the standard English-language Flair model is the same as for the standard German model described in section \ref{sec:flair_de}. It was trained on a corrected version of the CoNLL 2003 corpus and achieved an F1 score of 93.06 (cf. \cite{flair_ner}). 
+\subsection{The English-language Flair Model}
+The English-language Flair model for \gls{ner} supports the same four standard entity types as the German version. Unlike the English spaCy model, it offers no advantages in terms of entity types. 
 
-\subsection{Implementation}
+The architecture of the standard English-language Flair model is the same as for the standard German model described in section \ref{sec:flair_de}. 
 
-To explore the potentials of the medium-size English spaCy model and the Flair English-language standard model, the example texts were translated into English using the DeepL API: 
+The English model was trained on a corrected version of the \gls{conll} 2003 corpus and achieved an F1 score of 93.06 (cf. \cite{flair_ner}). 
 
-\begin{python}
-import deepl
-from src.config import deepl_credentials
-auth_key = deepl_credentials.auth_key
+For implementation, the example messages were first translated using the DeepL API.\footnote{\url{https://www.deepl.com/docs-api}. For implementation details of the translation step, see: \url{https://github.com/eli-quereli/ner-german-telegram/tree/main/src/notebooks/3_exploration/translation}}. The implementation for obtaining the \gls{ner} results from both models followed the same procedure as for the German models.\footnote{For NER implementation, see \url{https://github.com/eli-quereli/ner-german-telegram/tree/main/src/notebooks/3_exploration/spacy_flair_bert_first_experiments}.}
 
-# initialize and authenticate translator
-translator = deepl.Translator(auth_key)
+%To explore the potentials of the medium-size English spaCy model and the Flair English-language standard model, the example texts were translated into English using the DeepL API: 
 
-# method to get translated texts
-def translate(text, translator, target_lang, formality="less"): 
-    result = translator.translate_text(text, target_lang=target_lang)
-    return result.text
-
-# apply translation to cleaned texts
-df['text_EN'] = df.cleaned_text.apply(lambda x: translate(x, translator, 'EN-US'))
-\end{python}
-
-The translated texts were then fed to the English-language spaCy and Flair model, using the same code as described in section \ref{sec:impl_ner_de}.
+%\begin{python}
+%import deepl
+%from src.config import deepl_credentials
+%auth_key = deepl_credentials.auth_key
+%
+%# initialize and authenticate translator
+%translator = deepl.Translator(auth_key)
+%
+%# method to get translated texts
+%def translate(text, translator, target_lang, formality="less"): 
+%    result = translator.translate_text(text, target_lang=target_lang)
+%    return result.text
+%
+%# apply translation to cleaned texts
+%df['text_EN'] = df.cleaned_text.apply(lambda x: translate(x, translator, 'EN-US'))
+%\end{python}
+%
+%The translated texts were then fed to the English-language spaCy and Flair model, using the same code as described in section \ref{sec:impl_ner_de}.
 
 \subsection{Results}
+Table \ref{tab:detect_ents_en} shows the results of both models for the translated texts. 
 
-Table \ref{tab:detect_ents_en} shows the results of both models for the translated example texts. 
+We can observe that the overall performcance of the spaCy model deteriorates compared to the German version: Out of the 25 entity tags, 17 are misclassifications, e.g. the person name `Sven Liebich` as organization, or the location `Humboldthain' as person, to name just a few. Furthermore, it misses named entities which were recognized by its German equivalent, e.g. the person mentions `Haseloff' and `Elijah Tee'. The model also proves largely unsuitable for extracting dates and times: Misclassifying e.g. the date `13.06' or the time mention `16.30' as cardinals, and the postal code `15831' as date. Out of the 11 mentions of times or dates in the example data, it correctly recognizes only the sequence `03/14/2021 14032021' in message no. 3 as date. 
 
-%TODO describe results
+The performance of the English Flair model worsens as well compared to its German equivalent, although not quite as strong as the spaCy model: The model yields more false entity classifications, e.g. of `Raus auf die Straßen Overview' as organization, or `Dresdeners', `Streets Overview', `Stern!' as miscellaneous. Regarding locations, the model now misclassifies the mentions in message no. 3 as miscellaneous, which were at least partly correctly tagged by the German Flair model. Interestingly, it is the only model which partly recognizes the location mention `Straße des 17. Juni'. 
 
 \begin{table}[htp]
 \caption{Detected entities for English-language example messages}
@@ -322,12 +283,9 @@ Table \ref{tab:detect_ents_en} shows the results of both models for the translat
 \end{adjustbox}
 \end{table}
 
-
-
 \section{Summarization}
+My findings indicate that existing solutions are only of limited use for my purpose: The predictions of the spaCy model contain a lot of misclassifications, both for German and English. The Flair model delivers more accurate results, with a decrease in performance for the English data. One reason for this could be that the person or location names are language area specific, and therefore better recognized by models trained on data from their origin language area.
+Most importantly, most of the analyzed models are restricted to the standard entity types person, location, organization, and other/miscellaneous. This makes it impossible to extract e.g. time or date mentions which are of central relevance for monitoring COVID-19 protests. The only model which provides these entity types delivers poor results and misses by far most of the date and time mentions included in the examples.
+Against this background, building a custom \gls{ner} model for the monitoring of COVID-19 protests seems more promising than using existing solutions.
 
-potentials and limitations / observed errors
-- spacy
-- Flair
-explorative evaluation
 

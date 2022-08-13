@@ -1,4 +1,4 @@
-\chapter{Named Entity Recognition: A Brief Introduction}
+\chapter{Named Entity Recognition: An Introduction}
 \label{cha:ner_intro}
 
 \gls{ner} is the task of extracting named entities such as for example names of persons, locations, or organizations from text. The task is situated within the field of \gls{nlp}, and often an an important subtask of \gls{ie}. 
@@ -127,6 +127,7 @@ Building language-agnostic solutions is a very complex matter, while building se
 \textbf{Imbalanced resources for different languages} limit the diversity both of research and applications. In fact, most \gls{nlp} technologies are still designed for English or other European languages (cf. \cite{singh_natural_2008}). Correspondingly, a large number of datasets and libraries exists for these high-resource languages. Low-resource languages are usually significantly `less studied, resource scarce, less computerized' (\cite{magueresse_low-resource_2020}). This imbalance is also reflected in existing datasets for \gls{ner}. 
 
 \section{Challenges for NER in User-Generated Texts}
+\label{sec:challenges_user_generated_texts}
 While the above-mentioned challenges apply in general for all \gls{ner} approaches, the characteristics user-generated texts from online domains further complicate the task for classic machine learning based \gls{ner} approaches. 
 
 Social media texts are often \textbf{more informal and noisy} than newspaper articles, they contain misspellings or domain-specific expressions such as hashtags. Figure \ref{fig:noisy_texts} illustrates the noisy character of tweets as an example. 
@@ -143,7 +144,7 @@ Moreover, user-generated texts from social media are often of \textbf{shorter le
 
 The \textbf{wide variety of capitalization styles} are another challenge, like e.g. the use of only lowercase for German texts, or the use of uppercase only in some texts (cf. \cite{ritter_2011}). As \cite{ritter_2011} point out, earlier news-trained NER systems seemed to rely heavily on capitalization which limited their applicability to user-generated social media texts.
 
-Also, these texts usually contain more \textbf{out of vocabulary (OOV) words} than e.g. news articles. This is partly due to misspellings, but also stems from platform specific codes and styles: The frequent occurence of \textbf{special characters} such as \# for hashtags or \@ for user mentions poses challenges because they cannot easily be handled during annotation and training. User-generated text in social media also often includes a lot of \textbf{lexical variations}. \cite{ritter_2011} collected more than fifty variations for the word `tomorrow' from a Twitter corpus, as shown in figure \ref{fig:lex_var}.
+Also, these texts usually contain more \gls{oov} words than e.g. news articles. This is partly due to misspellings, but also stems from platform specific codes and styles: The frequent occurence of \textbf{special characters} such as \# for hashtags or \@ for user mentions poses challenges because they cannot easily be handled during annotation and training. User-generated text in social media also often includes a lot of \textbf{lexical variations}. \cite{ritter_2011} collected more than fifty variations for the word `tomorrow' from a Twitter corpus, as shown in figure \ref{fig:lex_var}.
 
 \begin{figure}[H]
 	\begin{minipage}[t]{0.5\linewidth}

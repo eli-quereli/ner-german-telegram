@@ -1,185 +1,192 @@
-\chapter{From Rule-Based Methods to Transformers: The Evolvement of NER Approaches}
+%\chapter{From Rule-Based Methods to Transformers: The Evolvement of NER Approaches}
+\chapter{Transformer Models: State of the Art for NER}
 \label{cha:ner_approaches}
 
-This chapter elaborates different approaches for NER, from knowledge- and rule-based methods over classical machine learning-based to deep learning-based approaches including transformers, and briefly discusses the limitations and potentials of the respective approaches. %TODO ausformulieren/überarbeiten
+Since their beginnings in the 1970s, \gls{ner} approaches have evolved mostly in parallel to general advancements in \gls{nlp}: Starting with early rule-based and knowledge-based systems, the field moved to machine-learning based approaches, often involving extensive feature-engineering. Deep-learning based approaches using neural networks and word embeddings then began to replace these architectures, making feature-engineering more and more obsolete. Most recently, transformer models based on self-attention have achieved new state of the art performance for several \gls{nlp} tasks including \gls{ner}. 
 
-\section{Overview of NER approaches}
+%This chapter elaborates different approaches for NER, from knowledge- and rule-based methods over classical machine learning-based to deep learning-based approaches including transformers, and briefly discusses the limitations and potentials of the respective approaches. 
 
-Since it's beginnings in the 1970s, NER approaches have undergone several phases of development, parallel to the advancements in NLP technologies:  Starting with early rule-based and knowledge-based systems, the field moved on to machine-learning approaches, including probabilistic models and log-linear models based on feature-engineering. Later on, neural networks, using word embeddings and only minimal feature-engineering, marked another important step forward in the field. Lately, the introduction of transformer models, achieve new state of the art performance for several NLP tasks, marked another crucial advancement for NER. 
+%\section{Overview of NER approaches}
+%\section{Rule-Based and Knowledge-Based Approaches}
+%The first systems for \gls{ner} relied on handcrafted rules, lexicons, orthographic features and ontologies (cf. \cite{yadav_survey_2019}). 
 
-\subsection{Rule-based and Knowledge-Based Approaches}
-The first systems for NER relied on handcrafted rules, lexicons, orthographic features and ontologies (cf. \cite{yadav_survey_2019}). 
-
-\textbf{Rule-based systems} make use of the fact that the structure and the context of named instances of type person, location, and organization often follow certain rules and can thus be recognized to some extent by using e.g. regular expressions (cf. \cite[230]{zong_information_2021}). Hand-crafted rules can make use of features such as for example capitalization (used in a lot of languages for the beginning of person names), or certain `key words' such as titles for persons (Mr., Mrs. Dr., etc.) (cf. \cite[230]{zong_information_2021}).
-
-However, these approaches are limited even when a large amount of data is considered. This is due to the ambiguity of language, resulting in different meanings for a given word or sequence in different contexts. Also, these approaches are rather static and often struggle with handling newly emerging identities without updating the underlying rules. Furthermore, the generation of rules is labor-intensive and usually requires expert domain knowledge. (cf. \cite[231]{zong_information_2021}). 
-
-\textbf{Knowledge-based approaches} rely on lexicon resources and domain specific knowledge. The performance of these systems heavily depends on the exhaustiveness and completeness of the used lexicon. Here as well, the process can be rather labor-intensive because domain expert knowledge is needed for the construction and maintenance of the knowledge resources (cf.\cite{yadav_survey_2019}). 
-
-
-\subsection{Classic Machine Learning-Based Approaches}
-
-Machine-learning based approaches introduced a critical advancement for the task of NER since they do not require the manual creation of hand-crafted rules or exhaustive lexicons (cf. \cite{nadeau_survey_2007}).
-
-These approaches instead focus on the development of algorithms which are able to perform a given task by automatically learning from a large number of examples, the training data (cf. \cite[14]{vajjala_practical_2020}). 
-
-The process usually involves the creation of a numeric representation of the training data, called features. These features are then processed by the model which is supposed to find patterns in the training data (cf. \cite[15]{vajjala_practical_2020}). The introduction of machine learning models thus allowed for the development of NER approaches based on an automated learning process. 
-
-Machine learning algorithms can roughly be grouped into three paradigms: supervised learning, unsupervised learning, and reinforcement learning. For the sake of brevity, I will focus on examples of supervised learning and not go into further detail about the latter two concepts. 
-
-In supervised learning, the machine learning model learns to make predictions for unseen data from a large number of labeled examples, called training data.  
-The training data usually consists of input-output pairs. For NER, an input example would be a text containing different instances of entities, and the corresponding output would then be corresponding entity tags and spans which determine the type and the boundaries of each named entity in the text example.These outputs are also called labels or ground truth. 
-In order to train a well-performing model which is able to predict the spans and tags for entities in unseen texts, large amounts of labeled data are required (cf. \cite[15]{vajjala_practical_2020}). 
-
-%Given a collection of text data, suppose all person, location, and organization entities are manually labeled, as shown in the examples below. Supervised NER systems attempt to design machine learning methods that learn automatic prediction models based on these correctly labeled training data.\cite[231]{zong_information_2021}
-
-Classic algorithms used for NER are for example Hidden Markov Models (HMM), Maximum Entropy Models (MEM), Support Vector Machines (SVM), Decision Trees, and Conditional Random Fields (CRF) (cf.  \cite{yadav_survey_2019}). 
-
-Generative models like HMMs are modelled in a way that they would be able to generate an example of a given class, while discriminative models like CRFs focus on discriminating between possible classes by focussing on distinct features of each class, without necessarily learning much in general about the class itself (cf. \cite[77]{jurafsky_2021_5}).
-
-I will explore HMMs and CRFs as two examples for classic machine learning based approaches in more detail in the following section. 
-
-\subsection{Hidden Markov Models}
-
-An HMM is a probabilistic model which, when applied for sequence labeling tasks, finds the most likely sequence of labels for a given input sequence of words. It does so by computing a probability distribution over possible label sequences, and then chooses the best (i.e. the most likely) sequence of labels for the given input sequence. (cf. \cite[8]{jurafsky_2021_8}).
-
-HMMs are based on the assumption that there is an underlying structure, called hidden states (e.g. the grammar of a language), which generates the observed states (the actual words appearing in a sentence in a specific order). (cf. \cite[9]{jurafsky_2021_8}) This assumption reflects the fact that when dealing with language, we often cannot directly observe events. For NER, the events we can directly observe are the actual words in a sentence, while the corresponding NE tags need to be inferred from these words, and are thus hidden events. 
-
-HMMs can thus be understood as state machines modelling different states (represented e.g. by NE tags) as nodes, and transitions between these states as edges. (cf. \cite[8]{jurafsky_2021_8}). The transitions between the states are associated with different probabilities, which represents the fact that some tags are more likely to follow a given tag than others.   
-
-For example, if the current token is labeled with an O tag, the probability for the next token's label to be an I tag would be zero (since an entity span always begins with a B tag and can never begin with an I tag), while it could be equally likely that the next token is the beginning of an entity (B tag) or still outside of an entity (O tag). 
-
-HMMs are furthermore based on the Markov assumption, which means that the probability of a particular state $q_i$ depends only on the previous state $q_i-1$, and not on any other previous states (cf. \cite[8]{jurafsky_2021_8}). For NER this means that the context considered for predicting an NE tag for the current token is limited to the tag of the preceding token. 
-
- This means for example that if the current tag is an I tag, the model knows only the previous tag, which is an I tag. But it does not know how many tokens before the entity has started (a token represented by a B tag) and thus cannot take this into consideration for predicting the next tag. 
- 
-%if the current token is labeled with a B tag (indicating the beginning of an entity), it is more likely that the next token is labeled with an I tag (meaning we are still inside the entity span), or an O tag (meaning that the entity consisted of only one word and has ended), than a B tag. 
-
-An HMM thus models a) the probabilities for transitions between hidden states (NE tags), and b) the probabilities for observations (actual words) associated with each of these states. Figure \ref{fig:jur_hmm} illustrates an HMM for part-of-speech tagging which works similar to NER. 
-
-\begin{figure}[H]
-\includegraphics[keepaspectratio]{images/jurafsky_hmm.png}  
-\caption{An illustration of an HMM for part-of-speech tagging; modelling transition probabilities between POS tags and observation likelihoods for words occuring with these tags. Taken from \cite[11]{jurafsky_2021_8}}
-  \label{fig:jur_hmm}
-\end{figure}
-
-The illustration clarifies that the probabilities computed by the HMM tagger are a) based on the assumption that the probability for a word to appear depends only on the word's tag, and b) that the probability for a tag to appear depends only on the tag which appeared directly before the tag (cf. \cite[11]{jurafsky_2021_8}). 
-
-The task of the HMM tagger is thus to find the most likely sequence of tags (hidden states) for a given input sequence of observations (words).  This task of determining hidden variables for a sequence of observations is called decoding (cf. \cite[11]{jurafsky_2021_8}). For decoding in HMMs, the Viterbi algorithm is used to find the state path which assigns the maximum likelihood for a given observation sequence (cf. \cite[12]{jurafsky_2021_8})
-
-Since human language is inherently sequential, the assumption embodied in HMMs that the current word depends on the word occuring before it is makes these models powerful tools for modeling textual data (cf. \cite[21-22]{vajjala_practical_2020}).
- 
-However, a limitation of these models is their restricted capability to integrate arbitrary features, e.g. to take into account capitalization or morphology of words. These kinds of features are important though when dealing with unknown words (cf. \cite[15]{jurafsky_2021_8}), which are likely to appear in most NLP tasks due to the creative and dynamic character of human language. 
-
-In order to incorporate such arbitrary features, discriminative models such as as Conditional Random Fields (CRF) are more suitable than generative models such as HMMs. 
-
-\subsection{Conditional Random Fields}
-CRFs are log-linear models, which means that they rely on logistic regression. Logistic regression is a fundamental algorithm for classification in supervised machine learning, and also closely related with neural networks which I will describe later. Therefore I will now briefly describe the very basics of logistic regression before I go into detail about CRFs. For a detailed explanation of logistic regression see \cite{jurafsky_2021_5}. 
-
-\subsubsection{Logistic Regression}
-Logistic regression is a supervised machine learning algorithm which can be used for classification tasks, which can be either binary (two different classes) or multinomial (multiple classes) (cf. \cite[1]{jurafsky_2021_5}). 
-
-Like other supervised machine learning algorithms, logistic regression requires a training corpus consisting of inputs and outputs, e.g. text and the corresponding labels.
-
-A logistic regression classifier consists of the following components (cf. \cite[2]{jurafsky_2021_5}): 
-\begin{itemize}
-	\item A numerical feature representation for each input in the form of a vector $[x_1, x_2, ..., x_n]$. 
-	\item A classification function, e.g. the softmax function, which takes care of computing the probability for a given input to belong to one of the provided classes. 
-	\item An objective function for learning, e.g. the cross.entropy loss function, which is designed to minimize the error of the model when trained on the provided training examples. 
-	\item And an algorithm which is used to optimize the objective function, e.g. the stochastic gradient descent. \end{itemize}
-
-During the training phase, the model learns a weight for each feature and a bias term b. These parameters are usually randomly initialized at the beginning of the training, and then iteratively adjusted. The adjustment (i.e. learning) is carried out using the loss function which computes the error between the model's prediction and the true label of a given input, and the stochastic gradient descent, which takes care of updating the weights and the bias term so that the loss is minimized. The weights represent how important the respective feature is for the classification decision ((cf. \cite[3]{jurafsky_2021_5})
-
-The task is thus to learn parameters from the training data which allow the model to provide accurate predictions also for unseen data. Thus usually a part of the labeled data is excluded from training, and then used as a test set for evaluating the model. Commonly, this test set is further split up into a test and validation set. This allows to use the validation set for evaluation and hyperparameter optimization during training, and excluding the test split for final evaluation. 
-
-The probability is computed by multiplying each feature $x_i$ with its learned weight $w_i$, then summing up these weighted features, adding the bias term $b$, and then passing the outcome to the classification function to transform the intermediate, real-valued result into a probability ((cf. \cite[2-3]{jurafsky_2021_5}). 
-
-
-Now that we have learned the very basics of logistic regression, we can turn to CRFs again. A CRF is a log-linear model which gets an input (word) sequence $X$ as input, and finds the best output sequence $Y$ by comparing its probability to all all possible tag sequences $\mathscr{Y}$ (cf. \cite[16]{jurafsky_2021_8}). 
-
-While an HMM computes a probability for each tag per time step, CRFs compute log-linear functions over a set of features, called local features, at each time step. 
-For computing the local features, the CRF makes use of the current output token $y_i$, the previous output token $y_i-1$, the entire input string $X$, and the current position $i$ (cf. \cite[16]{jurafsky_2021_8}). 
-Each feature is assigned a weight, and a function $F$ maps the input sequence and the output sequence to a global feature vector $F_k(X,Y)$. 
-These local features are then aggregated and normalized, resulting in a global probability for the whole sequence (cf. \cite[16]{jurafsky_2021_8}). 
-
-The limitation to the previous output token at $i-1$ is a characteristic for linear chain CRFs which are most commonly used for NLP tasks. This restriction allows the use of the Viterbi algorithm for decoding. While general CRFs would allow to consider more context (i.e. more distant tokens), this makes the decoding process more complex, which is why general CRFs are less commonly used for language processing tasks (cf. \cite[16]{jurafsky_2021_8}). 
-
-Since CRFs allow the incorporation of arbitrary features, the task of feature-engineering becomes central for the modelling process. The decision which features are to use is taken by the machine learning engineer, but the population of the features is done automatically using feature templates (cf. \cite[16]{jurafsky_2021_8}). 
-Features for an NE task would of course be the actual word and the corresponding label, e.g. $x_i = Karl$ and $y_i = B-PER$. Furthermore, to handle unknown words, word shape features can be added to create an abstracted representation of the word which maps lower-case letters, upper-case letters, and numbers to x, X, and d, and retains the punctuation of the word, which would be $word\_shape(x_i) = Xxxx$ for our example. Yet another feature could model which part-of-speech the current word represents, which would be proper noun for the given example. 
-Gazetteers are also often used for NER feature-engineering: These are large indices containing millions of location names. The corresponding feature would indicate whether a given word appears in a given gazetteer, making it especially useful for the recognition of named entities of type location (cf. \cite[18]{jurafsky_2021_8}). 
-Other resources can be name lists to indicate whether a given word represents a person's name. 
-
-Figure \ref{fig:jur_features} shows an example sentence with some NER features as they could be used in a CRF. 
-
-\begin{figure}[H]
-\includegraphics[keepaspectratio]{images/jurafsky_features.png}  
-\caption{NER features for an example sentence, taken from \cite[19]{jurafsky_2021_8}}
-  \label{fig:jur_features}
-\end{figure}
-
-The example makes clear that CRFs differ from HMMs not only with regard to the underlying algorithmic paradigm (generative vs. discriminative, probabilistic vs. log-linear models), but also in terms of how rich feature representation can be. However, this richness of features comes at the price of often labor-intensive feature engineering. Furthermore, we can see that these approaches also partly rely on knowledge sources like e.g. gazetteers or name lists, making them dependent on the exhaustiveness of such resources, resulting in limitations for the recognition of newly emerging entities. 
-
-While HMMs were commonly used for NER in the late 1990s, the use CRFs became more and more prominent by the beginning of the 2000s, accompanied by a phase of intense feature engineering and exploration (cf. \cite[24]{jurafsky_2021_8}). 
-These feature-based NER systems however have some disadvantages: First, Feature-engineering is a time-consuming part of system design. Second, inputs in these systems are usually represented as sparse vectors, which limits the possibilities to model semantic word similarity or synonymy. The introduction of embeddings, representing inputs as dense vectors, thus marked another important step forward. In combination with neural networks, they marked the next important step in the evolvement of NER (and of NLP in general). 
-
-\subsection{Neural Networks and Word Embeddings}
-NER systems using deep neural networks have been introduced in the first decade of the 2000s. 
-
-\textbf{Neural networks} consists of a number of small computing units. Usually, these networks consist of multiple layers, which is why they are called deep neural networks. 
-The very basic principle of a neural network is that each of its units takes a vector as an input and produces an output value. For computing this output value, the unit multiplies the input vector by a weight matrix, adds a bias term, and passes the sum of all values to a so called activation function which produces a representation of the given input. This representation can either be the input for the next hidden layer of the network, or be processed by the output layer to compute the final output of the model, e.g. for classification tasks (cf. \cite[128-137]{jurafsky_2021_7}). 
-
-\cite{collobert_2008} presented one of the first neural network architectures for NER. The basic idea was to use a unified neural network architecture to train a general language model, and then fine-tune this model using labeled training data for specific NLP tasks. 
-
-While \citeauthor{collobert_2008} (2008) still involved minimal feature-engineering (via using capitalization for the creation of the feature representations), later approaches replaced these manually constructed feature vectors with word embeddings: In 2011, \citeauthor{collobert_natural_2011} proposed their pioneering approach based on a `unified neural network architecture and learning algorithm that can be applied to various natural language processing tasks including part-of-speech tagging, chunking, named entity recognition, and semantic role labeling.' (\cite{collobert_natural_2011}).  
-The prior paragdim to rely on `man-made features carefully optimized for each task' (\cite{collobert_natural_2011}) was now replaced by the use of `internal representations [learned by the system] on the basis of vast amounts of mostly unlabeled training data.' (\cite{collobert_natural_2011}). 
-
-Word representations are thus no longer based on handcrafted features in this approach. Rather, the inputs were only minimally pre-processed and then fed to a neural network with multiple layers in which word embeddings were created which were then used for task specific fine-tuning.(cf. \cite{collobert_natural_2011}). 
-
-\textbf{Word embeddings} are representations of words in n-dimensional space which are typically learned automatically using large amounts of unlabeled data, for example using the skip-gram model introduced by \cite{mikolov_2013}. Earlier machine approaches for NLP typically treated words as atomic units, and represented them via their index in a vocabulary (cf. \cite{mikolov_2013}), or, depending on the task, via the various handcrafted features as we have seen above, e.g. modelling the information whether a given token is included in a given gazetter as 0 or 1. The results are long, sparse vectors on which the model is trained. 
-However, this form of representation does not easily allow to embody a notion of similarity (or synonymy) between different words. Word embeddings by contrast are short, dense vectors, constructed from large amounts of data, to represent words in a way that captures semantic similarity, resulting in a semantically more expressive representation of words (cf. \cite[17]{jurafsky_2021_6})
-
-The first NER approaches using neural networks and word embeddings relied on static embeddings. Static means that each word in the vocabulary is represented by a fixed embedding, regardless of the different contexts in which it might appear (cf. \cite[18]{jurafsky_2021_6}). While I focused on word embeddings here as an example, it should be noted that neural networks for NER can and have also been trained on embeddings generated on character or subword level (cf. \cite{yadav_survey_2019}). 
-
-The NER approaches from this phase thus differ fundamentally from prior work in the way the inputs are represented. Yet they also differ in terms of the underlying architecture: Making use of neural networks opened up new and more elaborate possibilities for considering the context of a given token. Against this background, neural network architectures such as recurrent neural networks (RNNs) and long short-term emory (LSTM) networks were increasingly used for NER. 
-
-%Starting with Collobert et al. (2011), neural network NER systems with minimal feature engineering have become popular
-%are appealing because they typically do not require domain specific resources like lexicons or ontologies, and are thus poised to be more domain independent.
-%The basic of this approach was to first train a general language model based on word embeddings generated from large amounts of unlabeled training data. This language model was then fine-tuned for the respective NLP task. 
-
-% BiLSTMs with word and character-based embeddings as input followed shortly and became a standard; neural algorithm for NER (Huang et al. 2015, Ma and Hovy 2016, Lample et al. 2016) followed by the more recent use of Transformers and BERT.(\cite[24]{jurafsky_2021_8})
-
-%CRF with word embeddings?
-%``As you can read here, currently python-crfsuite and sklearn-crfsuite don't support array features, like word embeddings.
+%Given the fact that the structure and the context of named instances of type person, location, and organization often follow certain rules, early \gls{ner} systems used handcrafted rules, such as regular expressions. These rules relied e.g. on capitalization (denoting the beginning of person names in many languages), or certain key words such as titles (e.g. Mr., Mrs., or Dr.) (cf. \cite[230]{zong_information_2021}). Other approaches made use of knowledge bases, lexicons, or dictionaries. Their performance heavily depends on the exhaustiveness and completeness of the used resources. 
 %
-%Instead, you can pass every vector component as a feature.
+%A disadvantage of both approaches is that their dependency on predefined patterns and knowledge limits their capability to handle ambiguity and newly emerging entities. Furthermore, they are labor-intensive and costly since the construction and maintenance of rules and knowledge resources requires domain expert knowledge (cf.\cite{yadav_survey_2019}). 
 %
-%if in your text there are many words, which are not in the vocabulary, word embeddings cannot improve much your NER model. Maybe you can use Fasttext (also integrated in Gensim), which can properly handle unseen words.
-%even if it useful, adding vector embeddings for each word can make your training set very big, produce long training time and a very big classifier.'' (https://stackoverflow.com/questions/58736548/how-to-use-word-embedding-as-features-for-crf-sklearn-crfsuite-model-training) 
+%\section{Classic Machine Learning-Based Approaches}
+%Machine learning based algorithms are designed to perform a task by automatically learning from a large number of examples (cf. \cite[14]{vajjala_practical_2020}). The introduction of machine learning models thus allowed for the development of \gls{ner} approaches based on an automated learning process, without the manual creation of hand-crafted rules or exhaustive lexicons (cf. \cite{nadeau_survey_2007}).
+%
+%Machine learning algorithms can be roughly grouped into 
+%supervised, unsupervised, and reinforcement learning. I will focus on supervised learning approaches. 
+%%These approaches instead focus on the development of algorithms which are able to perform a given task by automatically learning from a large number of examples, the training data (cf. \cite[14]{vajjala_practical_2020}). 
+%%Machine learning algorithms can roughly be grouped into three paradigms: supervised learning, unsupervised learning, and reinforcement learning. For the sake of brevity, I will focus on examples of supervised learning and not go into further detail about the latter two concepts. 
+%
+%In supervised learning, the model learns from a large number of labeled examples, called training data.  
+%The training data usually consists of input-output pairs. For \gls{ner}, the input would be text, and the corresponding output would be tags and spans indicating the type and boundaries of each named entity in the text. These outputs are also called labels or ground truth. 
+%The learning process requires the creation of a numeric representation of the training data, called features. These features are then processed by the model which is supposed to find patterns in the training data.
+%The performance of a model is evaluated by its ability to make accurate predictions on unseen data, called the test set. The commonly used evaluation metrics for \gls{ner} models are precision, recall, and F1 as described in section \ref{ssec:evaluation_metrics}. In order to achieve good performance, usually large amounts of labeled data are required (cf. \cite[15]{vajjala_practical_2020}). 
+%%Given a collection of text data, suppose all person, location, and organization entities are manually labeled, as shown in the examples below. Supervised NER systems attempt to design machine learning methods that learn automatic prediction models based on these correctly labeled training data.\cite[231]{zong_information_2021}
+%
+%Classic algorithms used for \gls{ner} are for example \glspl{hmm}, \glspl{mem}, \glspl{svm}, decision trees, and \glspl{crf}(cf.  \cite{yadav_survey_2019}). 
+%
+%In the remaining part of the section, I will describe \glspl{hmm} as an example for generative models, and \glspl{crf} as an example for discriminative models \gls{ner}.   
+%
+%Generative models are modelled in a way that they would be able to generate an example of a given class, while discriminative models focus on discriminating between possible classes via distinct features, without necessarily learning much about the class itself (cf. \cite[76]{jurafsky_2021}).
+%
+%\subsection{Hidden Markov Models}
+%An \gls{hmm} is a probabilistic model which, when used for sequence labeling tasks like \gls{ner}, tries to find the most likely sequence of labels for a given input sequence.
+%%It does so by computing a probability distribution over possible label sequences, and then chooses the best (i.e. the most likely) sequence of labels for the given input sequence. (cf. \cite[8]{jurafsky_2021_8}).
+%\glspl{hmm} are based on the assumption that there is an underlying structure called hidden states, e.g. the grammar of a language, which generates the observed states, e.g. actual words appearing in a specific order in a sentence (cf. \cite[156]{jurafsky_2021}). This assumption reflects the fact that when dealing with language, we often cannot directly observe events: For \gls{ner}, we can directly observe the actual words in a sentence, but need to infer the corresponding tags as hidden events. 
+%
+% \glspl{hmm} are furthermore based on the Markov assumption, which means that the probability of a particular state $q_i$ depends only on the previous state $q_{i-1}$, and not on any other previous states (cf. \cite[155]{jurafsky_2021}). For \gls{ner} this means that the context considered for predicting the current tag is limited to the previous tag. 
+%% This means for example that if the current tag is an I tag, the model knows only the previous tag, which is an I tag. But it does not know how many tokens before the entity has started (a token represented by a B tag) and thus cannot take this into consideration for predicting the next tag. 
+% 
+%%if the current token is labeled with a B tag (indicating the beginning of an entity), it is more likely that the next token is labeled with an I tag (meaning we are still inside the entity span), or an O tag (meaning that the entity consisted of only one word and has ended), than a B tag. 
+%
+%\glspl{hmm} can thus be imagined as state machines modelling different states as nodes, and transitions between these states as edges. (cf. \cite[155]{jurafsky_2021}). 
+%For \gls{ner}, the states represent the different named entity tags. The transitions between the states are associated with different probabilities, which represents the fact that some named entity tags are more likely to follow a given tag than others.
+%%For example, if the current token is labeled with an O tag, the probability for the next token's label to be an I tag would be zero (since an entity span always begins with a B tag and can never begin with an I tag), while it could be equally likely that the next token is the beginning of an entity (B tag) or still outside of an entity (O tag).
+%%An \gls{hmm} thus models a) the probabilities for transitions between hidden states (named entity tags), and b) the probabilities for observations (actual words) associated with each of these states. 
+%Figure \ref{fig:jur_hmm} illustrates an HMM for part-of-speech tagging which works similar to \gls{ner}. 
+%
+%\begin{figure}[H]
+%\includegraphics[keepaspectratio, width=\linewidth]{images/jurafsky_hmm.png}  
+%\caption{An illustration of an HMM for part-of-speech tagging; modelling transition probabilities between POS tags and observation likelihoods for words occuring with these tags. Taken from \cite[158]{jurafsky_2021}}
+%  \label{fig:jur_hmm}
+%\end{figure}
+%
+%%The illustration clarifies that the probabilities computed by the HMM tagger are a) based on the assumption that the probability for a word to appear depends only on the word's tag, and b) that the probability for a tag to appear depends only on the tag which appeared directly before the tag (cf. \cite[11]{jurafsky_2021_8}). 
+%
+%The task of an \gls{hmm} tagger is thus to find the most likely sequence of tags (hidden states) for a given input sequence of observations (words). This task of determining hidden variables for a sequence of observations is called decoding. For decoding in \glspl{hmm}, the Viterbi algorithm is used (cf. \cite[157-162]{jurafsky_2021}).
+%
+%% which finds the most likely state path by assigning the maximum likelihood for a given observation sequence
+%
+%The assumption that the current tag depends on the previous tag reflects the sequential nature of human language. Against this background, an \gls{hmm} can be a powerful algorithm for modeling textual data (cf. \cite[21-22]{vajjala_practical_2020}).
+%
+%However, one disadvantage of \glspl{hmm} is that are limited when it comes to dealing with unknown words for which probabilities could not be learned. Such \gls{oov} words are likely to appear in most \gls{nlp} tasks though due to to the creative and dynamic character of human language, and even more likely to occur in user-generated texts as we have seen in section \ref{sec:challenges_user_generated_texts}. 
+%A way to handle unknown words is taking into account arbitrary features such as capitalization or morphology. For this, discriminative models such as \glspl{crf} are more suitable than \glspl{hmm} (cf. \cite[162]{jurafsky_2021}). 
+%
+%\subsubsection{Excursion: Logistic Regression}
+%\glspl{crf} are log-linear probabilistic models, based on logistic regression. Logistic regression is a fundamental algorithm for classification in supervised machine learning, and also closely related with neural networks discussed later. I will therefore briefly describe the very basics of logistic regression before turning to \glspl{crf}. For a detailed explanation of logistic regression see \cite[76-95]{jurafsky_2021}. 
+%
+%\gls{lr} is a supervised machine learning algorithm which can be used for binary and multinomial classification tasks (cf. \cite[76]{jurafsky_2021}). Like other supervised machine learning algorithms, \gls{lr} requires a training corpus consisting of input-output pairs.
+%
+%An \gls{lr} classifier consists of the following components (cf. \cite[77]{jurafsky_2021}): 
+%\begin{itemize}
+%	\item A numerical, vectorized feature representation for each input, $[x_1, x_2, ..., x_n]$.
+%	\item A classification function, e.g. softmax, computing the probability that a given input belongs to a given class.
+%	\item An objective function such as the cross-entropy loss function used for learning, i.e. minimizing the model's error on the provided examples. 
+%	\item An algorithm for optimizing the objective function, such as stochastic gradient descent 
+%\end{itemize}
+%
+%During training phase, the \gls{lr} model learns weights $[w_1, w_2, ..., w_n]$ for each feature as well as a bias term $b$. The learned weights represent how important the respective feature is for the classification decision. 
+%Weights and bias are usually randomly initialized at the beginning of the training, and then iteratively adjusted to improve the model's predictions. For this, the loss function computes the error between the model's prediction and the true label for a given input. The optimization algorithm updates the weights and the bias so that the loss is minimized (cf. \cite[78]{jurafsky_2021}). 
+%
+%The overall classification process for a given input is carried out by multiplying each feature $x_i$ with its learned weight $w_i$, then summing up these weighted features, adding the bias term $b$, and passing the outcome to the classification function to transform the intermediate, real-valued result into a probability (cf. \cite[76-77]{jurafsky_2021}). 
+%
+%The aim is to let the model learn parameters from the training data which allow it to also make accurate predictions for unseen data. For this, the model needs to learn which features describe the general characteristics of a given class (generalization), instead of learning from noise in the training data which only arbitrarily correlates with a class (overfitting) (cf. \cite[88]{jurafsky_2021}).
+%To evaluate the model's performance on unseen data, a part of the labeled data is excluded from training as a test set. Often, this test set is further divided into a test and a development (or validation) set. The development set is used for evaluation and hyperparameter optimization during training, while preserving the test split for final evaluation (cf. \cite[35]{jurafsky_2021}).
+%Note that the two latter aspects apply to supervised machine learning algorithms in general and are not specific for \gls{lr}. 
+%
+%\subsection{Conditional Random Fields}
+%\glspl{crf} are discriminative models based on logistic regression. Like \glspl{hmm}, they take an input sequence $X$, and predict an output sequence $Y$. 
+%
+%While \glspl{hmm} use the likelihood $P(X|Y)$ and Bayes' rule to compute $P(Y|X)$, \glspl{crf} compute $P(Y|X)$ directly (cf. \cite[162-163]{jurafsky_2021})
+%
+%They compute the probability for an output sequence $Y$ out of all possible tag sequences $\mathscr{Y}$ using the input sequence $X$ (cf. \cite[163]{jurafsky_2021}). 
+%
+%A function $F$ maps the input sequence and the output sequence to a global feature vector $F_k(X,Y)$.
+%
+%While an \gls{hmm} computes a probability for each tag per time step, \glspl{crf} instead compute log-linear functions over a set of local features, using the current output token $y_i$, the previous output token $y_{i-1}$, the entire input string $X$, and the current position $i$ (cf. \cite[16]{jurafsky_2021_8}). These local features are then aggregated and normalized, resulting in a global probability for the whole sequence (cf. \cite[163]{jurafsky_2021}).
+%
+%The limitation to the previous output token at $i-1$ is a characteristic for linear chain \gls{crf} which are most commonly used for \gls{nlp} tasks. This restriction allows the use of the Viterbi algorithm for decoding. While general \glspl{crf} would allow to consider more distant tokens, and therefore more context, this would make increase decoding complexity (cf. \cite[163]{jurafsky_2021}). 
+%
+%One great advantage of \glspl{crf} compared to \glspl{hmm} is that they facilitate the incorporation of arbitrary features. As a result, feature-engineering becomes a central task (cf. \cite[163]{jurafsky_2021}).
+%
+%%The decision which features are to use is taken by the machine learning engineer, but the population of the features is done automatically using feature templates (cf. \cite[163]{jurafsky_2021}). 
+%%Features for an \gls{ner} task would be the actual word and the corresponding label, e.g. $x_i = Karl$ and $y_i = B-PER$. 
+%A common feature to handle unknown words are word shape features, or part-of-speech tags. Gazetteers (large indices containing millions of location names) or person name lists can be used for feature-engineering, to indicate whether a given word appears in them or not (cf. \cite[165]{jurafsky_2021}). 
+%
+%Figure \ref{fig:jur_features} shows an example sentence with some \gls{ner} features as they could be used in a \gls{crf}. 
+%
+%\begin{figure}[H]
+%\includegraphics[keepaspectratio,width=\linewidth]{images/jurafsky_features.png}  
+%\caption{NER features for an example sentence, taken from \cite[166]{jurafsky_2021}}
+%  \label{fig:jur_features}
+%\end{figure}
+%
+%
+%%\glspl{crf} thus differ from \glspl{hmm} not only with regard to the underlying algorithmic paradigm (generative vs. discriminative), but also in terms of how rich feature representation can be. 
+%
+%\glspl{hmm} were commonly used for \gls{ner} in the late 1990s, while \glspl{crf} were increasingly used by the beginning of the 2000s (cf. \cite[170]{jurafsky_2021}). 
+%
+%While \glspl{crf} allow for a more differentiated representation of input, this comes at the price of often labor-intensive feature engineering. Furthermore, the use of gazetteers and name lists reintroduces the dependency on knowledge sources and their exhaustiveness which is a disadvantage regarding newly emerging entities. 
+%Last but not least, the approaches presented so far usually represent input words sparse vectors. This results in limitations for modeling semantic similarity and synonymy (cf. \cite[112]{jurafsky_2021}).
+%The introduction of dense vectors for words called word embeddings, in combination with deep neural networks, marked another crucial step forward in the evolvement of \gls{ner} approaches. 
+%
+%\section{Deep Learning-Based Approaches}
+%\gls{ner} systems using deep neural networks and word embeddings have been introduced in the first decade of the 2000s (cf. \cite{yadav_survey_2019}). 
+%
+%Neural networks are made up of one or more layers consisting of a number of small computing units. Networks with multiple layers are called deep neural networks. Each of the computing units takes an input $x$, multiplies it with a weight $w$, and adds a bias term $b$. Both weight and bias are learned during training. The result is then passed to unit's activation function, resulting in the output value $y$. 
+%%TODO matrix multiplication
+%Each layer contains a number of computational units which are connected with all units of the next hidden layer, or with the output layer. The computed output value can thus either be the input for the next hidden layer of the network, or be processed by the output layer to compute the final output of the model, e.g. for classification tasks (cf. \cite[128-137]{jurafsky_2021}). 
+%
+%Word embeddings are representations of words in n-dimensional space which are typically learned automatically using large amounts of unlabeled data, for example using the skip-gram model introduced by \cite{mikolov_2013}. Earlier machine approaches for \gls{nlp} typically treated words as atomic units, and represented them via their index in a vocabulary (cf. \cite{mikolov_2013}), or, depending on the task, via the various handcrafted features as we have seen above, e.g. modelling the information whether a given token is included in a given gazetter as 0 or 1. The results are long, sparse vectors on which the model is trained. 
+%However, this form of representation does not easily allow to embody a notion of similarity (or synonymy) between different words. Word embeddings by contrast are short, dense vectors, constructed from large amounts of data, to represent words in a way that captures semantic similarity, resulting in a semantically more expressive representation of words (cf. \cite[17]{jurafsky_2021_6})
+%The first \gls{ner} approaches using neural networks and word embeddings relied on static embeddings, which means that each word in the vocabulary is represented by a fixed embedding, regardless of its context (cf. \cite[18]{jurafsky_2021_6}). While I focus on word embeddings here as an example, it should be noted that neural networks for NER can and have also been trained on embeddings generated on character or subword level (cf. \cite{yadav_survey_2019}). 
+%
+%\cite{collobert_2008} presented one of the first neural network architectures for \gls{ner}. Their approach still involved minimal feature-engineering, but was seminal regarding the underlying concept of first training a general language model using a neural network, and then fine-tuning this model for specific \gls{nlp} task using labeled data. 
+%
+% \cite{collobert_natural_2011} replaced the manually constructed feature vectors with word embeddings. 
+% %: `internal representations [learned by the system] on the basis of vast amounts of mostly unlabeled training data.' (\cite{collobert_natural_2011}). 
+% The inputs were only minimally pre-processed and then fed to a neural network with multiple layers in which word embeddings were generated. The resulting model was then used for task specific fine-tuning.(cf. \cite{collobert_natural_2011}). 
+% 
+% % In 2011,  proposed their pioneering approach based on a `unified neural network architecture and learning algorithm that can be applied to various natural language processing tasks including part-of-speech tagging, chunking, named entity recognition, and semantic role labeling.' (\cite{collobert_natural_2011}).  
+%%The prior paragdim to rely on `man-made features carefully optimized for each task' (\cite{collobert_natural_2011}) was now replaced by the use of 
+%
+%%Word representations are thus no longer based on handcrafted features in this approach. Rather, 
+%
+%The \gls{ner} approaches from this phase thus differ fundamentally from prior work in the way the inputs are represented. Yet they also differ in terms of the underlying architecture: Making use of neural networks opened up new and more elaborate possibilities for considering the context of a given token. Against this background, neural network architectures such as recurrent neural networks (RNNs) and long short-term emory (LSTM) networks were increasingly used for NER. 
+%
+%%Starting with Collobert et al. (2011), neural network NER systems with minimal feature engineering have become popular
+%%are appealing because they typically do not require domain specific resources like lexicons or ontologies, and are thus poised to be more domain independent.
+%%The basic of this approach was to first train a general language model based on word embeddings generated from large amounts of unlabeled training data. This language model was then fine-tuned for the respective NLP task. 
+%
+%% BiLSTMs with word and character-based embeddings as input followed shortly and became a standard; neural algorithm for NER (Huang et al. 2015, Ma and Hovy 2016, Lample et al. 2016) followed by the more recent use of Transformers and BERT.(\cite[24]{jurafsky_2021_8})
+%
+%%CRF with word embeddings?
+%%``As you can read here, currently python-crfsuite and sklearn-crfsuite don't support array features, like word embeddings.
+%%
+%%Instead, you can pass every vector component as a feature.
+%%
+%%if in your text there are many words, which are not in the vocabulary, word embeddings cannot improve much your NER model. Maybe you can use Fasttext (also integrated in Gensim), which can properly handle unseen words.
+%%even if it useful, adding vector embeddings for each word can make your training set very big, produce long training time and a very big classifier.'' (https://stackoverflow.com/questions/58736548/how-to-use-word-embedding-as-features-for-crf-sklearn-crfsuite-model-training) 
+%
+%% \subsubsection{Word embeddings}
+%
+%%Studies have shown the importance of such pre-trained word embeddings for neural network based NER systems (Habibi et al., 2017), and similarly for pre-trained character embeddings in character-based languages like Chinese
+%
+%%Modern neural architectures for NER can be broadly classified into categories depending upon their representation of the words in a sentence. For example, representations may be based on words, characters, other sub-word units or any combination of these  \cite{yadav_survey_2019}
+%
+%\subsection{Recurrent Neural Networks}
+%Recurrent neural networks (RNNs) are a specific type of neural networks which are designed to process input from prior layers in the network recursively. 
+%The neural units in RNNs are designed in a way that allows them to `remember' what they have processed so far (cf. \cite[23]{vajjala_practical_2020}). This is accomplished by creating a recurrent link between the current layer and the preceding layer. The input from the preceding layer provides information which can be conceptualized as memory, or context. This context is not limited in terms of length, meaning that the `memory' can go back to the very beginning of the sequence (cf. \cite[4]{jurafsky_2021_9}).  
+%
+%However, in practice the incorporation of distant information is difficult in RNNs. Even though the model has access to the entire preceding context, the encoded information tends to represent the more recent parts of a sequence (cf. \cite[13]{jurafsky_2021_9}). Furthermore, RNNs struggle with challenges during training due to the so-called vanishing gradients problem which I will not explore in detail here. As a consequence, RNNs do not perform well with long input sequences ((cf. \cite[15]{jurafsky_2021_9}). Furthermore it means that in practice, they are not able to represent information distant from the current processing point (cf. \cite[13]{jurafsky_2021_9}. Long short-term memory (LSTM) networks are designed to solve this issue. 
+%
+%\subsection{Long Short-Term Memory Networks}
+%LSTMs are neural networks which handle context by adding different gates to the network. These gates are used to remove information which is no longer needed, and to add information which is likely to be useful for subsequent processing steps and the final decision-making (cf. \cite[15]{jurafsky_2021_9}). Accordingly, these gates are called \textbf{forget gate} and \textbf{add gate}. They are used to create a context vector $c_t$ as an output for each layer of the network. At the end of each LSTM unit exists an \textbf{output gate} which determines which information is used to produce the hidden state $h_t$ as the second output of the layer. 
+%The inputs for each layer are the current input $x$, the previous hidden state $h_t-1$, and the previous context $c_t-1$ (cf. \cite[16]{jurafsky_2021_9}). 
+%The basic concept of LSTMs is thus to take context into account in a more sophisticated way: By forgetting information considered irrelevant, and remembering information considered relevant for the final classification decision. Thus, LSTMs offer a more effective way to process longer inputs, since the information load is reduced by only selectively passing contextual information on to the next layer (cf. \cite[23]{vajjala_practical_2020})
+%LSTMs used for NLP are often bidirectional (Bi-LSTMs) which means that they process information from both the past (e.g. the words occuring before the current word), and the future (the words occuring after it). This is usually done by combining two independent networks, one of which processes the input from left to right, and the other one from right to left (cf. \cite[13]{jurafsky_2021_9}). Such BiLSTMs are furthermore often combined with CRFs, such as in the approach proposed by \cite{huang_2015}, who used this kind of architecture for sequence tagging,  achieving an F1-score of 88.83 and thus slightly outperforming the above-mentioned work of \cite{collobert_natural_2011} (F1=88.67). 
+%Even though LSTM manage to handle more distant information than RNNs, both architectures still suffer from information loss and difficulties in training. Moreover, both follow a sequential design pattern, processing one input after another. This results in limitations when it comes to parallelization, which is important to process larger amounts of data fast and efficiently (cf. [17]\cite{jurafsky_2021_9}. 
+%Transformer models represent an approach which allows for parallelization by dispensing with the concept of recurrency, replacing it with a mechanism called self-attention. 
 
-% \subsubsection{Word embeddings}
+%\subsection{Transformer Models}
+%In recent years, transformer models have achieved state of the art results for a variety of NLP tasks and represent the latest advancement in deep learning architectures for NLP. 
 
-%Studies have shown the importance of such pre-trained word embeddings for neural network based NER systems (Habibi et al., 2017), and similarly for pre-trained character embeddings in character-based languages like Chinese
-
-%Modern neural architectures for NER can be broadly classified into categories depending upon their representation of the words in a sentence. For example, representations may be based on words, characters, other sub-word units or any combination of these  \cite{yadav_survey_2019}
-
-\subsection{Recurrent Neural Networks}
-Recurrent neural networks (RNNs) are a specific type of neural networks which are designed to process input from prior layers in the network recursively. 
-The neural units in RNNs are designed in a way that allows them to `remember' what they have processed so far (cf. \cite[23]{vajjala_practical_2020}). This is accomplished by creating a recurrent link between the current layer and the preceding layer. The input from the preceding layer provides information which can be conceptualized as memory, or context. This context is not limited in terms of length, meaning that the `memory' can go back to the very beginning of the sequence (cf. \cite[4]{jurafsky_2021_9}).  
-
-However, in practice the incorporation of distant information is difficult in RNNs. Even though the model has access to the entire preceding context, the encoded information tends to represent the more recent parts of a sequence (cf. \cite[13]{jurafsky_2021_9}). Furthermore, RNNs struggle with challenges during training due to the so-called vanishing gradients problem which I will not explore in detail here. As a consequence, RNNs do not perform well with long input sequences ((cf. \cite[15]{jurafsky_2021_9}). Furthermore it means that in practice, they are not able to represent information distant from the current processing point (cf. \cite[13]{jurafsky_2021_9}. Long short-term memory (LSTM) networks are designed to solve this issue. 
-
-\subsection{Long Short-Term Memory Networks}
-LSTMs are neural networks which handle context by adding different gates to the network. These gates are used to remove information which is no longer needed, and to add information which is likely to be useful for subsequent processing steps and the final decision-making (cf. \cite[15]{jurafsky_2021_9}). Accordingly, these gates are called \textbf{forget gate} and \textbf{add gate}. They are used to create a context vector $c_t$ as an output for each layer of the network. At the end of each LSTM unit exists an \textbf{output gate} which determines which information is used to produce the hidden state $h_t$ as the second output of the layer. 
-The inputs for each layer are the current input $x$, the previous hidden state $h_t-1$, and the previous context $c_t-1$ (cf. \cite[16]{jurafsky_2021_9}). 
-The basic concept of LSTMs is thus to take context into account in a more sophisticated way: By forgetting information considered irrelevant, and remembering information considered relevant for the final classification decision. Thus, LSTMs offer a more effective way to process longer inputs, since the information load is reduced by only selectively passing contextual information on to the next layer (cf. \cite[23]{vajjala_practical_2020})
-LSTMs used for NLP are often bidirectional (Bi-LSTMs) which means that they process information from both the past (e.g. the words occuring before the current word), and the future (the words occuring after it). This is usually done by combining two independent networks, one of which processes the input from left to right, and the other one from right to left (cf. \cite[13]{jurafsky_2021_9}). Such BiLSTMs are furthermore often combined with CRFs, such as in the approach proposed by \cite{huang_2015}, who used this kind of architecture for sequence tagging,  achieving an F1-score of 88.83 and thus slightly outperforming the above-mentioned work of \cite{collobert_natural_2011} (F1=88.67). 
-Even though LSTM manage to handle more distant information than RNNs, both architectures still suffer from information loss and difficulties in training. Moreover, both follow a sequential design pattern, processing one input after another. This results in limitations when it comes to parallelization, which is important to process larger amounts of data fast and efficiently (cf. [17]\cite{jurafsky_2021_9}. 
-Transformer models represent an approach which allows for parallelization by dispensing with the concept of recurrency, replacing it with a mechanism called self-attention. 
-
-\subsection{Transformer Models}
-In recent years, transformer models have achieved state of the art results for a variety of NLP tasks and represent the latest advancement in deep learning architectures for NLP. 
-
-The architecture was first introduced in 2017 by \citeauthor{vaswani_2017}, in their seminal paper `Attention Is All You Need', in which the authors propose a `new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.' (\cite{vaswani_2017})
+The transformers architecture was first introduced in 2017 by \citeauthor{vaswani_2017}, in their seminal paper `Attention Is All You Need', in which the authors propose a `new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.' (\cite{vaswani_2017})
 
 Transformers thus represent a clear shift from prior model architectures. Like the architectures described above, transformer models map input sequences to output sequences of the same length. This sequence-to-sequence architecture is also called encoder-decoder architecture (cf. \cite[3]{tunstall_natural_2022}). 
 
@@ -250,4 +257,4 @@ The can also be used for sequence labeling tasks such as NER. This is achieved b
 %- this model is then fine-tuned on NLP downstream tasks, e.g. NER \cite[26]{vajjala_practical_2020}
  
 
-\section{Summarization}
+%\section{Summarization}

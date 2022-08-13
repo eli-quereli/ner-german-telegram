@@ -3,20 +3,21 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Detected entities for German-language example messages\relax }}{44}{table.caption.9}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Overview of spaCy's entity types\relax }}{45}{table.caption.10}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Detected entities for English-language example messages\relax }}{47}{table.caption.11}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Detected entities for German-language example messages\relax }}{29}{table.caption.6}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Detected entities for English-language example messages\relax }}{32}{table.caption.7}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Distribution of entities in Telegram corpus\relax }}{54}{table.caption.13}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces Mapping of label schemas\relax }}{57}{table.caption.14}%
-\contentsline {table}{\numberline {6.3}{\ignorespaces Distribution of entities in Smartdata corpus after label mapping\relax }}{58}{table.caption.15}%
-\contentsline {table}{\numberline {6.4}{\ignorespaces Distribution of entities in final corpus\relax }}{58}{table.caption.16}%
-\contentsline {table}{\numberline {6.5}{\ignorespaces Baselines\relax }}{72}{table.caption.23}%
-\contentsline {table}{\numberline {6.6}{\ignorespaces Fine-tuning different models on Telegram corpus\relax }}{72}{table.caption.24}%
-\contentsline {table}{\numberline {6.7}{\ignorespaces Fine-tuning different models on adjusted Smartdata corpus\relax }}{73}{table.caption.25}%
-\contentsline {table}{\numberline {6.8}{\ignorespaces Fine-tuning different models on combined corpus\relax }}{73}{table.caption.26}%
-\contentsline {table}{\numberline {6.9}{\ignorespaces Detailed metrics for two best models\relax }}{74}{table.caption.27}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Distribution of entities in Telegram corpus\relax }}{40}{table.caption.9}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Mapping of label schemas\relax }}{43}{table.caption.10}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Distribution of entities in Smartdata corpus after label mapping\relax }}{44}{table.caption.11}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Distribution of entities in final corpus\relax }}{44}{table.caption.12}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces Baselines\relax }}{58}{table.caption.19}%
+\contentsline {table}{\numberline {6.6}{\ignorespaces Fine-tuning different models on Telegram corpus\relax }}{58}{table.caption.20}%
+\contentsline {table}{\numberline {6.7}{\ignorespaces Fine-tuning different models on adjusted Smartdata corpus\relax }}{59}{table.caption.21}%
+\contentsline {table}{\numberline {6.8}{\ignorespaces Fine-tuning different models on combined corpus\relax }}{59}{table.caption.22}%
+\contentsline {table}{\numberline {6.9}{\ignorespaces Detailed metrics for two best models\relax }}{60}{table.caption.23}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Detected entities for German-language example messages: Flair vs. Custom model\relax }}{81}{table.caption.35}%
+\contentsline {table}{\numberline {7.1}{\ignorespaces Detected entities for German-language example messages: Flair vs. Custom model\relax }}{67}{table.caption.31}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1}{\ignorespaces Definition of Entity types\relax }}{99}{table.caption.48}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{\ignorespaces Overview of entity types of the English spaCy model\relax }}{81}{table.caption.40}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces Definition of entity types for annotation guide\relax }}{84}{table.caption.44}%
