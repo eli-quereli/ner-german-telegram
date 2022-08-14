@@ -1,0 +1,103 @@
+{
+  "builder_name": "germeval_14",
+  "citation": "@inproceedings{benikova-etal-2014-nosta,\n    title = {NoSta-D Named Entity Annotation for German: Guidelines and Dataset},\n    author = {Benikova, Darina  and\n      Biemann, Chris  and\n      Reznicek, Marc},\n    booktitle = {Proceedings of the Ninth International Conference on Language Resources and Evaluation ({LREC}'14)},\n    month = {may},\n    year = {2014},\n    address = {Reykjavik, Iceland},\n    publisher = {European Language Resources Association (ELRA)},\n    url = {http://www.lrec-conf.org/proceedings/lrec2014/pdf/276_Paper.pdf},\n    pages = {2524--2531},\n}\n",
+  "config_name": "germeval_14",
+  "dataset_size": 18026697,
+  "description": "The GermEval 2014 NER Shared Task builds on a new dataset with German Named Entity annotation with the following properties:    - The data was sampled from German Wikipedia and News Corpora as a collection of citations.    - The dataset covers over 31,000 sentences corresponding to over 590,000 tokens.    - The NER annotation uses the NoSta-D guidelines, which extend the T\u00fcbingen Treebank guidelines,      using four main NER categories with sub-structure, and annotating embeddings among NEs      such as [ORG FC Kickers [LOC Darmstadt]].\n",
+  "download_checksums": {
+    "https://drive.google.com/uc?export=download&id=1Jjhbal535VVz2ap4v4r_rN1UEHTdLK5P": {
+      "num_bytes": 7882321,
+      "checksum": null
+    },
+    "https://drive.google.com/uc?export=download&id=1ZfRcQThdtAR5PPRjIDtrVP7BtXSCUBbm": {
+      "num_bytes": 723854,
+      "checksum": null
+    },
+    "https://drive.google.com/uc?export=download&id=1u9mb7kNJHWQCWyweMDRMuTFoOHOfeBTH": {
+      "num_bytes": 1682725,
+      "checksum": null
+    }
+  },
+  "download_size": 10288900,
+  "features": {
+    "tokens": {
+      "feature": {
+        "dtype": "string",
+        "id": null,
+        "_type": "Value"
+      },
+      "length": -1,
+      "id": null,
+      "_type": "Sequence"
+    },
+    "ner_tags": {
+      "feature": {
+        "num_classes": 13,
+        "names": [
+          "O",
+          "B-DATE",
+          "I-DATE",
+          "B-LOC",
+          "I-LOC",
+          "B-ORG",
+          "I-ORG",
+          "B-PER",
+          "I-PER",
+          "B-TIME",
+          "I-TIME",
+          "B-ACTION",
+          "I-ACTION"
+        ],
+        "id": null,
+        "_type": "ClassLabel"
+      },
+      "length": -1,
+      "id": null,
+      "_type": "Sequence"
+    },
+    "ner_tags_str": {
+      "feature": {
+        "dtype": "string",
+        "id": null,
+        "_type": "Value"
+      },
+      "length": -1,
+      "id": null,
+      "_type": "Sequence"
+    }
+  },
+  "homepage": "https://sites.google.com/site/germeval2014ner/",
+  "license": "",
+  "post_processed": null,
+  "post_processing_size": null,
+  "size_in_bytes": 28315597,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 13816605,
+      "num_examples": 24000,
+      "dataset_name": "germeval_14"
+    },
+    "validation": {
+      "name": "validation",
+      "num_bytes": 1266928,
+      "num_examples": 2200,
+      "dataset_name": "germeval_14"
+    },
+    "test": {
+      "name": "test",
+      "num_bytes": 2943164,
+      "num_examples": 5100,
+      "dataset_name": "germeval_14"
+    }
+  },
+  "supervised_keys": null,
+  "task_templates": null,
+  "version": {
+    "version_str": "2.0.0",
+    "description": null,
+    "major": 2,
+    "minor": 0,
+    "patch": 0
+  }
+}
