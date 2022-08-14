@@ -481,15 +481,14 @@ By \verb|NUM_EPOCHS| we define how many times the model will work through the wh
 %    metric_for_best_model=METRIC_FOR_BEST_MODEL)
 %\end{python}
 
-\subsubsection{Loading a Data Collator}
-I also used a data collator which takes care of padding for labels and inputs. It should be noted however that padding was already carried out by the tokenizer. Using a data collator is an alternative to padding via the tokenizer, using both of them together is in fact redundant. 
-
+\subsubsection{Data Collator}
+I also used a data collator which takes care of padding for labels and inputs. Since padding was already carried out during tokenization and encoding, this can be understood as an alternative implementation.
 %\begin{python}
 %data_collator = DataCollatorForTokenClassification(tokenizer)	
 %\end{python}
 
-\subsection{Defining Evaluation Metrics} 
-For evaluation purposes, I defined the method \verb|compute_metrics| which returns the F1 score, precision, recall, and accuracy per training epoch. Analogue to the process of label alignment in section \ref{sec:tokenization_and_encoding}, the model's predictions are aligned using the \verb|label_id| -100 for subtokens to be ignored by the loss function. 
+\subsection{Evaluation Metrics} 
+For evaluation purposes, I defined a method \verb|compute_metrics| which returns the F1 score, precision, recall, and accuracy per training epoch. Analogue to the process of label alignment in section \ref{sec:tokenization_and_encoding}, the model's predictions are aligned using the \verb|label_id| -100 for subtokens to be ignored by the loss function. 
 
 %\begin{minipage}{\linewidth}
 %\begin{python}
@@ -530,7 +529,7 @@ For evaluation purposes, I defined the method \verb|compute_metrics| which retur
 %\end{minipage}
 
 \subsection{Training}
-We can now initialize a \verb|Trainer| and pass the loaded model, the training arguments, the tokenizer, the data collator, the callback, and the encoded data splits for training and validation to it, and then start the training. 
+For training, I initialized a \verb|Trainer| object and passed the loaded model, the training arguments, the tokenizer, the data collator, the callback, and the encoded data splits for training and validation to it. 
 
 %\begin{python}
 %from transformers import Trainer
@@ -540,7 +539,7 @@ We can now initialize a \verb|Trainer| and pass the loaded model, the training a
 %trainer.train()	
 %\end{python}
 
-The \verb|Trainer|'s method \verb|create_model_card()| was used as a convenient way to document the respective training arguments and evaluation results. 
+%I used \verb|Trainer|'s method \verb|create_model_card()| was used training arguments and evaluation results. 
 
 %\begin{python}
 %trainer.create_model_card()	
@@ -554,7 +553,7 @@ Generally we can observe that for all experiments, training was stopped after a 
 
 The defined baseline could not be reached or outperformed in any of my experiments.
 %Table \ref{tab:baselines} provides the baselines for orientation. Table \ref{tab:experiments_tg} contains the results from fine-tuning on the Telegram dataset. 
-Regarding the separate experimental setups, it can be observed that fine-tuning exclusively using the Telegram corpus overall yields the lowest results: None of the F1 scores increases 0.8 and are thus far from the baseline. The DistilBERT model achieves the lowest score with F1=0.6481,  the German-language \textit{deepset/gbert-base} model performs best with F1=0.7482. 
+Regarding the separate experimental setups, it can be observed that fine-tuning exclusively using the Telegram corpus overall yields the lowest results: None of the F1 scores increases 80.0 and are thus far from the baseline. The DistilBERT model achieves the lowest score with F1=64.81,  the German-language \textit{deepset/gbert-base} model performs best with F1=74.82. 
 
 %\begin{table}[htp]
 %\caption{Baselines}
@@ -578,18 +577,18 @@ Regarding the separate experimental setups, it can be observed that fine-tuning 
 \begin{tabular}{|p{0.7\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
 \hline
 \textbf{Model} & \textbf{F1 score} & \textbf{Validation Loss}& \textbf{Epoch}\\ \hline 
-\verb|distilbert-base-multilingual-cased| & 0.6481 & 0.2910 & 1\\ \hline
-\verb|dbmdz/bert-base-german-uncased| & 0.7440 & 0.2285 & 2 \\ \hline
-\verb|deepset/gbert-base| & \textbf{0.7482} & 0.2524 & 2 \\ \hline
-\verb|xlm-roberta-base| & 0.7330 & \textbf{0.2459} & 3 \\ \hline
-\verb|cardiffnlp/twitter-xlm-roberta-base| & 0.7103 & 0.2648 & 3 \\ \hline
+\verb|distilbert-base-multilingual-cased| & 64.81 & 0.2910 & 1\\ \hline
+\verb|dbmdz/bert-base-german-uncased| & 74.40 & 0.2285 & 2 \\ \hline
+\verb|deepset/gbert-base| & \textbf{74.82} & 0.2524 & 2 \\ \hline
+\verb|xlm-roberta-base| & 73.30 & \textbf{0.2459} & 3 \\ \hline
+\verb|cardiffnlp/twitter-xlm-roberta-base| & 71.03 & 0.2648 & 3 \\ \hline
 \end{tabular}
 \end{adjustbox}
 \end{table}
 
 Fine-tuning using only the adjusted Smartdata corpus yields the most promising results, as shown in table \ref{tab:experiments_sm}. 
 
-Overall, the models perform better with most F1-scores exceeding F1=0.8 and therefore getting closer to the baseline. An exception is the dmbdz/bert-base-german-uncased model achieving F1=0.6156. Once again, the \textit{deepset/gbert-base} model performs best with F1=0.8535 which is only $\sim$0.2 below the baseline, which is promising especially when considering that the baseline was achieved by fine-tuning on a much larger corpus. 
+Overall, the models perform better with most F1-scores exceeding F1 of 80.0 and therefore getting closer to the baseline. An exception is the dmbdz/bert-base-german-uncased model achieving F1=61.56. Once again, the \textit{deepset/gbert-base} model performs best with F1=85.35 which is only $\sim$0.2 below the baseline, which is promising especially when considering that the baseline was achieved by fine-tuning on a much larger corpus. 
  
 \begin{table}[htp]
 \caption{Fine-tuning different models on adjusted Smartdata corpus}
@@ -599,11 +598,11 @@ Overall, the models perform better with most F1-scores exceeding F1=0.8 and ther
 \begin{tabular}{|p{0.7\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
 \hline
 \textbf{Model} & \textbf{F1 score} & \textbf{Validation Loss} & \textbf{Epoch}\\ \hline 
-\verb|distilbert-base-multilingual-cased| & 0.8203 & 0.1456 & 2 \\ \hline
-\verb|dbmdz/bert-base-german-uncased| & 0.6156 & 0.2560 & 3 \\ \hline
-\verb|deepset/gbert-base| & \textbf{0.8535} & \textbf{0.1114} & 3\\ \hline
-\verb|xlm-roberta-base| & 0.8264 & 0.1445 & 1 \\ \hline
-\verb|cardiffnlp/twitter-xlm-roberta-base| & 0.8266 & 0.1344 & 3\\ \hline
+\verb|distilbert-base-multilingual-cased| & 82.03 & 0.1456 & 2 \\ \hline
+\verb|dbmdz/bert-base-german-uncased| & 61.56 & 0.2560 & 3 \\ \hline
+\verb|deepset/gbert-base| & \textbf{85.35} & \textbf{0.1114} & 3\\ \hline
+\verb|xlm-roberta-base| & 82.64 & 0.1445 & 1 \\ \hline
+\verb|cardiffnlp/twitter-xlm-roberta-base| & 82.66 & 0.1344 & 3\\ \hline
 \end{tabular}
 \end{adjustbox}
 \end{table}
@@ -618,19 +617,17 @@ The results for fine-tuning on the combined corpus are shown in table \ref{tab:e
 \begin{tabular}{|p{0.7\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
 \hline
 \textbf{Model} & \textbf{F1 score} & \textbf{Validation Loss}& \textbf{Epoch}\\ \hline 
-\verb|distilbert-base-multilingual-cased| & 0.6634 & 0.2543 & 2 \\ \hline
-\verb|dbmdz/bert-base-german-uncased| & 0.7775 & 0.1751 & 1 \\ \hline
-\verb|deepset/gbert-base| & 0.7922 & \textbf{0.1751} & 2 \\ \hline
-\verb|xlm-roberta-base| & \textbf{0.7988} & 0.1842 & 3 \\ \hline
-\verb|cardiffnlp/twitter-xlm-roberta-base| & 0.7768 & 0.2061 & 3 \\ \hline
+\verb|distilbert-base-multilingual-cased| & 66.34 & 0.2543 & 2 \\ \hline
+\verb|dbmdz/bert-base-german-uncased| & 77.75 & 0.1751 & 1 \\ \hline
+\verb|deepset/gbert-base| & 79.22 & \textbf{0.1751} & 2 \\ \hline
+\verb|xlm-roberta-base| & \textbf{79.88} & 0.1842 & 3 \\ \hline
+\verb|cardiffnlp/twitter-xlm-roberta-base| & 77.68 & 0.2061 & 3 \\ \hline
 \end{tabular}
 \end{adjustbox}
 \end{table}
 
-Judging only by the F1-score, the best model on the combined corpus was the \textit{xlm-roberta-base} model with F1=0.7988, followed closely by the \textit{deepset/gbert-base} model with F1=0.7922. Regarding the validation loss, the latter performs better than the XLM-RoBERTa model. Furthermore, the \textit{deepset/gbert-base} model achieves a better precision, as shown in \ref{tab:best_models_metrics}, indicating that its results can be considered more relevant than those of the \textit{xlm-roberta-base} model. Moreover, the \textit{deepset/gbert-base} model performed best in both fine-tuning experiments using the separate datasets. 
+Judging only by the F1-score, the best model on the combined corpus was the \textit{xlm-roberta-base} model with F1=79.88, followed closely by the \textit{deepset/gbert-base} model with F1=79.22. Regarding the validation loss, the latter performs better than the \textit{xlm-roberta-base} model. Furthermore, the \textit{deepset/gbert-base} model achieves a better precision, as shown in \ref{tab:best_models_metrics}, indicating that its results can be considered more relevant than those of the \textit{xlm-roberta-base} model. Against this background, I selected the \textit{deepset/gbert-base} model as preliminary best model for further error analyses.
 
-Against this background, I selected the German BERT-model as best model from my experiments.
-%for application on real-world Telegram data in chapter \ref{cha:application}.
 \begin{table}[htp]
 \caption{Detailed metrics for two best models}
 \label{tab:best_models_metrics}
@@ -640,75 +637,90 @@ Against this background, I selected the German BERT-model as best model from my 
 \hline
 \textbf{Model} & \textbf{F1 score} & \textbf{Precision}& \textbf{Recall} & \textbf{Validation Loss} & \textbf{Epoch}\\ \hline 
 
-\verb|deepset/gbert-base| & 0.7922 & \textbf{0.7816} & 0.8032 & 
+\verb|deepset/gbert-base| & 79.22 & \textbf{78.16} & 80.32 & 
 \textbf{0.1751} & 2 \\ \hline
-\verb|xlm-roberta-base| & \textbf{0.7988} & 0.7682 & \textbf{0.8319} & 0.1842 & 3 \\ \hline
+\verb|xlm-roberta-base| & \textbf{79.88} & 76.82 & \textbf{83.19} & 0.1842 & 3 \\ \hline
 \end{tabular}
 \end{adjustbox}
 \end{table}
 
-\section{Further Evaluation and Error Analysis}
+%
+%\begin{figure}
+%	\begin{minipage}{0.45\linewidth}
+%		\includegraphics[width=\linewidth]{images/evaluation_plot_gbert_1.png}
+%		\caption{Fine-tuning the deepset/gbert-base model: Training and validation loss }
+% 		\label{fig:gbert_loss_1}
+% 	\end{minipage}
+% 	\hfill
+%	\begin{minipage}{0.45\linewidth}
+%\includegraphics[width=\linewidth]{images/evaluation_plot_gbert_2.png}
+%	\caption{Fine-tuning the deepset/gbert-base model: F1, precision, recall, and accuracy}
+%    \label{fig:gbert_loss_2}
+%	\end{minipage}
+%\end{figure}
 
-For further evaluation, the following method can be used which returns a dataframe containing the relevant metrics per epoch: 
 
-\begin{python}
-def get_training_history(trainer):
-    df = pd.DataFrame(trainer.state.log_history)[['epoch','loss' ,'eval_loss', 'eval_f1', 'eval_precision', 'eval_recall', 'eval_accuracy']]
-    df = df.rename(columns={"epoch":"epoch",
-                            "loss": "training_loss", 
-                            "eval_loss": "validation_loss", 
-                            "eval_f1":"f1", 
-                            "eval_precision": "precision",
-                           'eval_recall': 'recall', 
-                            'eval_accuracy': 'accuracy'})
-    df['epoch'] = df["epoch"].apply(lambda x: round(x))
-    df['training_loss'] = df["training_loss"].ffill()
-    df[['validation_loss', 'f1']] = df[['validation_loss', 'f1']].bfill().ffill()
-    df.drop_duplicates()
-    
-    return df
-\end{python}
+\section{Error Analysis}
+%For further evaluation, the following method can be used which returns a dataframe containing the relevant metrics per epoch: 
 
-We can visualize the results by creating some simple line plots with the following code: 
+%\begin{python}
+%def get_training_history(trainer):
+%    df = pd.DataFrame(trainer.state.log_history)[['epoch','loss' ,'eval_loss', 'eval_f1', 'eval_precision', 'eval_recall', 'eval_accuracy']]
+%    df = df.rename(columns={"epoch":"epoch",
+%                            "loss": "training_loss", 
+%                            "eval_loss": "validation_loss", 
+%                            "eval_f1":"f1", 
+%                            "eval_precision": "precision",
+%                           'eval_recall': 'recall', 
+%                            'eval_accuracy': 'accuracy'})
+%    df['epoch'] = df["epoch"].apply(lambda x: round(x))
+%    df['training_loss'] = df["training_loss"].ffill()
+%    df[['validation_loss', 'f1']] = df[['validation_loss', 'f1']].bfill().ffill()
+%    df.drop_duplicates()
+%    
+%    return df
+%\end{python}
+%
+%We can visualize the results by creating some simple line plots with the following code: 
+%
+%\begin{python}
+%eval_df = get_training_history(trainer)
+%
+%# plot train, eval loss
+%sns.set_style("whitegrid")
+%ax = sns.lineplot(data = eval_df[['training_loss', 'validation_loss']])
+%ax.set_xticks(range(len(eval_df)),labels=range(len(eval_df)))
+%plt.show()
+%
+%# plot f1, precision, recall, accuracy
+%sns.set_style("whitegrid")
+%ax = sns.lineplot(data = eval_df[['f1', 'precision', 'recall', 'accuracy']])
+%ax.set_xticks(range(len(eval_df)),labels=range(len(eval_df)))
+%plt.show()
+%\end{python}
 
-\begin{python}
-eval_df = get_training_history(trainer)
-
-# plot train, eval loss
-sns.set_style("whitegrid")
-ax = sns.lineplot(data = eval_df[['training_loss', 'validation_loss']])
-ax.set_xticks(range(len(eval_df)),labels=range(len(eval_df)))
-plt.show()
-
-# plot f1, precision, recall, accuracy
-sns.set_style("whitegrid")
-ax = sns.lineplot(data = eval_df[['f1', 'precision', 'recall', 'accuracy']])
-ax.set_xticks(range(len(eval_df)),labels=range(len(eval_df)))
-plt.show()
-\end{python}
-
-Figure \ref{fig:gbert_loss_1} and \ref{fig:gbert_loss_2} show evaluation metrics for the fine-tuned deepset/gbert-base model. We can make the following observations: 
-
-The loss on the training set intersects with the validation loss between epoch 1 and 2. After that, the training loss continues to decrease, while the validation loss remains relatively constant, and then increases at epoch 5. This can be interpreted as overfitting, as we have already observed when looking at the number of epochs in the results above. 
-
-In the second plot we see that accuracy is continuously high with around 0.95. This is, however, not very informative for an NER model, since we are dealing with a very imbalanced dataset (see section \ref{ssec:evaluation_metrics}. 
-
-We can furthermore observe that recall for this model is in general higher than its precision. This means that the model tends to return less false negatives than false positives. 
-Its predictions are thus better in terms of completeness than in terms of relevance or validity. 
-
-\begin{figure}
-	\begin{minipage}{0.45\linewidth}
-		\includegraphics[width=\linewidth]{images/evaluation_plot_gbert_1.png}
-		\caption{Fine-tuning the deepset/gbert-base model: Training and validation loss }
- 		\label{fig:gbert_loss_1}
- 	\end{minipage}
- 	\hfill
-	\begin{minipage}{0.45\linewidth}
-\includegraphics[width=\linewidth]{images/evaluation_plot_gbert_2.png}
-	\caption{Fine-tuning the deepset/gbert-base model: F1, precision, recall, and accuracy}
-    \label{fig:gbert_loss_2}
-	\end{minipage}
-\end{figure}
+%Figure \ref{fig:gbert_loss_1} and \ref{fig:gbert_loss_2} show evaluation metrics for the fine-tuned deepset/gbert-base model. We can make the following observations: 
+%
+%The loss on the training set intersects with the validation loss between epoch 1 and 2. After that, the training loss continues to decrease, while the validation loss remains relatively constant, and then increases at epoch 5. This can be interpreted as overfitting, as we have already observed when looking at the number of epochs in the results above. 
+%
+%In the second plot we see that accuracy is continuously high with around 0.95. This is, however, not very informative for an NER model, since we are dealing with a very imbalanced dataset (see section \ref{ssec:evaluation_metrics}. 
+%
+%We can furthermore observe that recall for this model is in general higher than its precision. This means that the model tends to return less false negatives than false positives. 
+%Its predictions are thus better in terms of completeness than in terms of relevance or validity. 
+%
+%\begin{figure}
+%	\begin{minipage}{0.45\linewidth}
+%		\includegraphics[width=\linewidth]{images/evaluation_plot_gbert_1.png}
+%		\caption{Fine-tuning the deepset/gbert-base model: Training and validation loss }
+% 		\label{fig:gbert_loss_1}
+% 	\end{minipage}
+% 	\hfill
+%	\begin{minipage}{0.45\linewidth}
+%\includegraphics[width=\linewidth]{images/evaluation_plot_gbert_2.png}
+%	\caption{Fine-tuning the deepset/gbert-base model: F1, precision, recall, and accuracy}
+%    \label{fig:gbert_loss_2}
+%	\end{minipage}
+%\end{figure}
 
 %selected: gbert, best F1 score on both datasets
 %- Loss: 0.1751
@@ -722,74 +734,76 @@ Its predictions are thus better in terms of completeness than in terms of releva
 %- Precision: 0.7682
 %- Recall: 0.8319
 
-\begin{python}
-from torch.nn.functional import cross_entropy
+%\begin{python}
+%from torch.nn.functional import cross_entropy
+%
+%num_labels = 13
+%
+%def forward_pass_with_label(batch):
+%    # Convert dict of lists to list of dicts suitable for data collator
+%    features = [dict(zip(batch, t)) for t in zip(*batch.values())]
+%    # Pad inputs and labels and put all tensors on device
+%    batch = data_collator(features)
+%    input_ids = batch["input_ids"].to(device)
+%    attention_mask = batch["attention_mask"].to(device)
+%    labels = batch["labels"].to(device)
+%    with torch.no_grad():
+%        # Pass data through model  
+%        output = trainer.model(input_ids, attention_mask)
+%        # Logit.size: [batch_size, sequence_length, classes]
+%        # Predict class with largest logit value on classes axis
+%        predicted_label = torch.argmax(output.logits, axis=-1).cpu().numpy()
+%    # Calculate loss per token after flattening batch dimension with view
+%    loss = cross_entropy(output.logits.view(-1, num_labels), 
+%                         labels.view(-1), reduction="none")
+%    # Unflatten batch dimension and convert to numpy array
+%    loss = loss.view(len(input_ids), -1).cpu().numpy()
+%
+%    return {"loss":loss, "predicted_label": predicted_label}
+%
+%valid_set_gbert = eval_encoded
+%valid_set_gbert = valid_set_gbert.map(forward_pass_with_label, batched=True, batch_size=32)
+%df = valid_set_gbert.to_pandas()
+%\end{python}
+%
+%We can now further work with this dataframe to explore the loss on token and class level, and plot a confusion matrix.\footnote{For implementation details see \url{https://github.com/eli-quereli/ner-german-telegram/blob/main/src/notebooks/4.2_training/02_training/model_experiments_combined_datasets/gbert_smartdata_telegram.ipynb}}
+With an F1 score of 79.22, my preliminary best model lags behind the baseline of F1=87.98 by 8.76. Even when considering the smaller training corpus size, the performance of my model cannot be considered state of the art performance for \gls{ner}. 
+Furthermore, even though the combined corpus is of larger size than the Smartdata corpus, results deteriorate when fine-tuning on the combined corpus. These findings demand for an error analysis to identify potential improvements for future experiments. 
 
-num_labels = 13
+\subsubsection{Token-level Errors}
+Figure \ref{fig:highest_loss_tokens_gbert} shows the tokens with the highest total loss on the validation set of the combined corpus for the \textit{deepset/gbert-base} model. 
 
-def forward_pass_with_label(batch):
-    # Convert dict of lists to list of dicts suitable for data collator
-    features = [dict(zip(batch, t)) for t in zip(*batch.values())]
-    # Pad inputs and labels and put all tensors on device
-    batch = data_collator(features)
-    input_ids = batch["input_ids"].to(device)
-    attention_mask = batch["attention_mask"].to(device)
-    labels = batch["labels"].to(device)
-    with torch.no_grad():
-        # Pass data through model  
-        output = trainer.model(input_ids, attention_mask)
-        # Logit.size: [batch_size, sequence_length, classes]
-        # Predict class with largest logit value on classes axis
-        predicted_label = torch.argmax(output.logits, axis=-1).cpu().numpy()
-    # Calculate loss per token after flattening batch dimension with view
-    loss = cross_entropy(output.logits.view(-1, num_labels), 
-                         labels.view(-1), reduction="none")
-    # Unflatten batch dimension and convert to numpy array
-    loss = loss.view(len(input_ids), -1).cpu().numpy()
-
-    return {"loss":loss, "predicted_label": predicted_label}
-
-valid_set_gbert = eval_encoded
-valid_set_gbert = valid_set_gbert.map(forward_pass_with_label, batched=True, batch_size=32)
-df = valid_set_gbert.to_pandas()
-\end{python}
-
-We can now further work with this dataframe to explore the loss on token and class level, and plot a confusion matrix.\footnote{For implementation details see \url{https://github.com/eli-quereli/ner-german-telegram/blob/main/src/notebooks/4.2_training/02_training/model_experiments_combined_datasets/gbert_smartdata_telegram.ipynb}}
-
-\subsubsection{Token-level errors}
+The token \verb|.| has the highest total loss of 118.7. This is not surprising, considering its frequent occurence (count=647) in the validation set. We can see that its mean loss of 0.18 is rather low compared to other listed tokens. The fact that the token \verb|.| is often part of named entities of type date and time, but also often is not a named entity, but a regular character, might also confuse the model. 
+In general we see that a lot of special characters are among the tokens with the highest total loss. It can be assumed that this is partly due to their occurrence inside of named entities. 
+Furthermore, the words \verb|Uhr|, \verb|Protest|, and \verb|Kund| appear.  The word \verb|Uhr| can mostly assumed to occur as part of time mentions. Both annotation schemes include the word as part of time named entities, therefore I cannot be assumed that annotation inconsistencies are the main reason for its high total loss.
+The tokens \verb|Protest|, and \verb|Kund| are part of named entities of type action, which is underrepresented in the dataset, making it plausible that they are often misclassified by the model. They also have by far the highest mean loss of all listed tokens. 
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/highest_loss_tokens_gbert.png}
-\caption{Tokens ranked by mean loss, German-language BERT model}
+\caption{\textit{deepset/gbert-base}: Tokens with highest total loss}
   \label{fig:highest_loss_tokens_gbert}
 \end{figure}
 
 
-Observations
-. token has highest total loss, not surprising since most common token in the list, and also part of named entities (count: 647), whitespace does not appear here (anders als bei roberta)
+\subsubsection{Class-level Errors}
+For a more general level error analysis, I also explored the loss per label on the validation set. Figure \ref{fig:highest_loss_labels_gbert} shows the results, classes are ranked by highest mean loss.
+The labels \verb|I-ACTION| and \verb|B-ACTION| have by far the highest mean loss with 12.17 and 11.95. Their mean loss exceeds those of other classes by a factor of up to 28.5. These findings clearly indicate that the fine-tuning was negatively affected by the underrepresented class action in the training data. Further fine-tuning thus requires handling this problem to allow for an improve of performance. 
+However, the remaining named entity labels are fairly balanced regarding their mean loss, with an upper tier between 1.02 and 0.7 including \verb|B-DATE|, \verb|I-ORG|, \verb|I-LOC|, \verb|I-TIME|, \verb|B-ORG|, and a lower tier between 0.63 and 0.43 including \verb|B-TIME|, \verb|I-DATE|, \verb|B-LOC|, \verb|B-PER|, and \verb|I-PER|. 
+The \verb|O| class has by far the lowest mean loss which is not surprising giving the high number of examples for it in the training data. Once again, we can see that the action class causes the most errors, with \verb|B-ACTION| being predicted as \verb|O| in almost all cases, and  \verb|I-ACTION| in all cases. 
 
-tokens: - \# : Uhr \@ ( ) , / are rarer, but have relatively high mean loss -> appear often together with named entities, are even sometimes part of them, that's why model mixes them up; probably need to revise annotations / annotation guide 
-
-\subsubsection{Class-level erros}
 \begin{figure}[H]
 \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/highest_loss_labels_gbert.png}
-\caption{Classes ranked by mean loss, German-language BERT model}
+\caption{\textit{deepset/gbert-base}: Labels ranked by mean loss}
   \label{fig:highest_loss_labels_gbert}
 \end{figure}
 
-
-- I-ACTION has highest loss, ua because very rare (only 6 occurences) -> need for more data
-- same for B-ACTION (same with roberta-model, label is problematic, maybe drop or label more)
-- I-ORG, I-LOC?
-- lowest loss: O
-- lowest loss labels: B-LOC, B-PER, I-TIME, I-PER, I-DATE
-
-\subsubsection{Confusion matrix}
+\subsubsection{Confusion Matrix}
+The confusion matrix of the model as shown in figure \ref{fig:norm_cm_gbert} is mainly diagonal, indicating that the majority of predicted labels corresponds with the true label for most of the classes. Not surprisingly, the majority class \verb|O| tag is most commonly predicted in case of wrong predictions. Once again, we can observe that the action class causes by far the most errors, with tokens assigned a \verb|B-ACTION| label predicted as \verb|O| in most of the cases, an tokens assigned a \verb|I-ACTION| label in all cases. 
 
 \begin{figure}[H]
-\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/confusion_matrix_gbert.png}
-\caption{Confusion matrix, German-language BERT model}
-  \label{fig:confusion_matrix_gbert}
+\includegraphics[width=0.8\linewidth,keepaspectratio]{images/norm_cm_gbert}
+\caption{\textit{deepset/gbert-base}: Confusion matrix}
+  \label{fig:norm_cm_gbert}
 \end{figure}
 
 %\subsection{Post-processing}
@@ -802,7 +816,10 @@ tokens: - \# : Uhr \@ ( ) , / are rarer, but have relatively high mean loss -> a
 
 %\section{Hyperparameter tuning}
 
-
 %\section{Processing of results}
 
 \section{Summarization}
+My findings confirm the potentials of using transformer models for \gls{ner} fine-tuning for building a custom model for NER in social messengers channels.
+The preliminary best model achieves F1 score of 79.22. Even though it lags behind the baseline of 87.98, its performance for the standard named entity types location, person, and organization, and for the non-standard entity types time and date is promising. 
+However my results also indicate that fine-tuning for non-standard entity types like the class action is a more challenging task. The model's poor performance for this class results from its underrepresentation in the training data. The use of such non-standard entity types thus requires more resources for annotating corpora, or should generally be reconsidered as a requirement. 
+

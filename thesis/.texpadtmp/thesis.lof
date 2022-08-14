@@ -10,11 +10,8 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Message frequencies in Telegram channel `Demotermine'\relax }}{35}{figure.caption.8}%
 \contentsline {figure}{\numberline {6.2}{\ignorespaces Training data after tokenization and encoding\relax }}{45}{figure.caption.18}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Fine-tuning the deepset/gbert-base model: Training and validation loss \relax }}{51}{figure.caption.24}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Fine-tuning the deepset/gbert-base model: F1, precision, recall, and accuracy\relax }}{51}{figure.caption.24}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Tokens ranked by mean loss, German-language BERT model\relax }}{52}{figure.caption.26}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Classes ranked by mean loss, German-language BERT model\relax }}{53}{figure.caption.28}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Confusion matrix, German-language BERT model\relax }}{54}{figure.caption.30}%
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.3}{\ignorespaces \textit {deepset/gbert-base}: Tokens with highest total loss\relax }}{50}{figure.caption.25}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces \textit {deepset/gbert-base}: Labels ranked by mean loss\relax }}{51}{figure.caption.27}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces \textit {deepset/gbert-base}: Confusion matrix\relax }}{51}{figure.caption.29}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
