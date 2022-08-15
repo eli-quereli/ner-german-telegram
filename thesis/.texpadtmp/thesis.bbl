@@ -476,6 +476,58 @@
     \field{year}{2017}
   \endentry
 
+  \entry{bmr_2020}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=B}{%
+         family={{Bundesverband mobile Beratung}},
+         familyi={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{B1}
+    \strng{fullhash}{B1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{note}{(Accessed on 08/15/2022)}
+    \field{title}{2020-05-29\_Einschätzung Corona}
+    \verb{url}
+    \verb https://www.bundesverband-mobile-beratung.de/wp-content/uploads/2020/
+    \verb 05/2020-05-29_Einsch%C3%A4tzung-Corona.pdf
+    \endverb
+    \field{month}{05}
+    \field{year}{2020}
+  \endentry
+
+  \entry{cemas_2022}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=C}{%
+         family={{CeMAS - Center für Monitoring, Analyse und Strategie}},
+         familyi={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{C1}
+    \strng{fullhash}{C1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{note}{(Accessed on 08/15/2022)}
+    \field{title}{Zwischen ``Spaziergängen'' und Aufmärschen: Das
+  Protestpotenzial während der Covid-19-Pandemie}
+    \verb{url}
+    \verb https://cemas.io/publikationen/zwischen-spaziergaengen-und-aufmaersch
+    \verb en-das-protestpotential-waehrend-der-covid-19-pandemie/2022-05-09_Pol
+    \verb icyBriefProtestpotential.pdf
+    \endverb
+    \field{month}{05}
+    \field{year}{2022}
+  \endentry
+
   \entry{bert_german_2020}{misc}{}
     \name{author}{3}{}{%
       {{hash=CB}{%
@@ -1030,6 +1082,62 @@
     \field{year}{2022}
   \endentry
 
+  \entry{fgz_2020}{report}{}
+    \name{author}{1}{}{%
+      {{hash=F}{%
+         family={{Forschungsinstitut Gesellschaftlicher Zusammenhalt}},
+         familyi={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{F1}
+    \strng{fullhash}{F1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{title}{Factsheet: {Proteste} in der {Corona}-{Pandemie}: {Gefahr}
+  für unsere {Demokratie}?}
+    \verb{url}
+    \verb https://www.idz-jena.de/fileadmin/user_upload/Factsheets/Factsheet_Pr
+    \verb oteste_Corona_Gefahr_Demokratie_Institut_f%C3%BCr_Demokratie_und_Zivi
+    \verb lgesellschaft_Forschungsinstitut_Gesellschaftlicher_Zusammenhalt.pdf
+    \endverb
+    \list{institution}{1}{%
+      {FGZ (Forschungsinstitut Gesellschaftlicher Zusammenhalt), Standort
+  Jena}%
+    }
+    \field{type}{techreport}
+    \field{year}{2020}
+  \endentry
+
+  \entry{fns_study}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=F}{%
+         family={{Friedrich Naumann Stiftung}},
+         familyi={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{F2}
+    \strng{fullhash}{F2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{note}{(Accessed on 08/15/2022)}
+    \field{title}{\#Freedomfightsfake: Globale Studie: Desinformationen
+  durchdringen Gesellschaften weltweit}
+    \verb{url}
+    \verb https://www.freiheit.org/de/globale-studie-desinformationen-durchdrin
+    \verb gen-gesellschaften-weltweit
+    \endverb
+    \field{month}{08}
+    \field{year}{2020}
+  \endentry
+
   \entry{grishman_message_1996}{inproceedings}{}
     \name{author}{2}{}{%
       {{hash=GR}{%
@@ -1231,6 +1339,34 @@
     \verb{url}
     \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
     \endverb
+    \field{year}{2021}
+  \endentry
+
+  \entry{klaus_zdf}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=KJ}{%
+         family={Klaus},
+         familyi={K\bibinitperiod},
+         given={Julia},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KJ1}
+    \strng{fullhash}{KJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{note}{(Accessed on 08/15/2022)}
+    \field{title}{``Freie Sachsen'': Extremisten mobilisieren zu Corona-Protest
+  - ZDFheute}
+    \verb{url}
+    \verb https://www.zdf.de/nachrichten/politik/corona-demos-spaziergaenge-fre
+    \verb ie-sachsen-102.html
+    \endverb
+    \field{month}{12}
     \field{year}{2021}
   \endentry
 
@@ -1487,6 +1623,33 @@
     \field{year}{1995}
   \endentry
 
+  \entry{rbb_reichstag}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=r}{%
+         family={rbb24},
+         familyi={r\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{r1}
+    \strng{fullhash}{r1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{note}{(Accessed on 08/15/2022)}
+    \field{title}{Demonstranten stürmen Reichstagstreppe: Entsetzen über
+  Reichstags-Eskalation | rbb24}
+    \verb{url}
+    \verb https://www.rbb24.de/politik/thema/2020/coronavirus/beitraege_neu/202
+    \verb 0/08/berlin-reaktionen-reichsflaggen-absperrungen-durchbrochen-reichs
+    \verb .html
+    \endverb
+    \field{month}{08}
+    \field{year}{2020}
+  \endentry
+
   \entry{ritter_2011}{inproceedings}{}
     \name{author}{4}{}{%
       {{hash=RA}{%
@@ -1547,6 +1710,34 @@
     }
     \field{year}{2011}
     \warn{\item Can't use 'location' + 'address'}
+  \endentry
+
+  \entry{bloomberg}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=RI}{%
+         family={Rogers},
+         familyi={R\bibinitperiod},
+         given={Iain},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RI1}
+    \strng{fullhash}{RI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{note}{(Accessed on 08/15/2022)}
+    \field{title}{Karl Lauterbach: Germany Foils Plot to Kidnap Health Minister
+  - Bloomberg}
+    \verb{url}
+    \verb https://www.bloomberg.com/news/articles/2022-04-14/germany-foils-plot
+    \verb -to-sabotage-democracy-kidnap-health-minister
+    \endverb
+    \field{month}{04}
+    \field{year}{2022}
   \endentry
 
   \entry{schiersch_2018}{inproceedings}{}
@@ -2306,6 +2497,36 @@
     \verb https://arxiv.org/abs/1706.03762
     \endverb
     \field{year}{2017}
+  \endentry
+
+  \entry{teledash_2022}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=WG}{%
+         family={Weichbrodt},
+         familyi={W\bibinitperiod},
+         given={Gregor},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=SG}{%
+         family={Stanjek},
+         familyi={S\bibinitperiod},
+         given={Grischa},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WGSG1}
+    \strng{fullhash}{WGSG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Teledash – analysis and research software for Telegram}
+    \verb{url}
+    \verb https://github.com/democ-de/teledash
+    \endverb
+    \field{year}{2022}
   \endentry
 
   \entry{yadav_survey_2019}{report}{}
