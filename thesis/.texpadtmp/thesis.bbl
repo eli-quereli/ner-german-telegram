@@ -1228,30 +1228,6 @@
     \field{year}{2022}
   \endentry
 
-  \entry{huggingface_autoclass}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=H}{%
-         family={HuggingFace},
-         familyi={H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{H1}
-    \strng{fullhash}{H1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2022}
-    \field{extradate}{3}
-    \field{labeldatesource}{}
-    \field{sortinit}{H}
-    \field{sortinithash}{H}
-    \field{note}{(Accessed on 08/13/2022)}
-    \field{title}{Load pretrained instances with an AutoClass}
-    \verb{url}
-    \verb https://huggingface.co/docs/transformers/autoclass_tutorial
-    \endverb
-    \field{year}{2022}
-  \endentry
-
   \entry{huggingface_tokenizers}{misc}{}
     \name{author}{1}{}{%
       {{hash=H}{%
@@ -1264,7 +1240,7 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2022}
-    \field{extradate}{4}
+    \field{extradate}{3}
     \field{labeldatesource}{}
     \field{sortinit}{H}
     \field{sortinithash}{H}
@@ -1296,44 +1272,9 @@
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{labelyear}{2021}
-    \field{extradate}{1}
     \field{labeldatesource}{}
     \field{sortinit}{J}
     \field{sortinithash}{J}
-    \field{title}{Speech and Language Processing. An Introduction to Natural
-  Language Processing, Computational Linguistics, and Speech Recognition}
-    \verb{url}
-    \verb https://web.stanford.edu/~jurafsky/slp3/ed3book_jan122022.pdf
-    \endverb
-    \field{year}{2021}
-  \endentry
-
-  \entry{jurafsky_2021_9}{inbook}{}
-    \name{author}{2}{}{%
-      {{hash=JD}{%
-         family={Jurafsky},
-         familyi={J\bibinitperiod},
-         given={Daniel},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=MJH}{%
-         family={Martin},
-         familyi={M\bibinitperiod},
-         given={James\bibnamedelima H},
-         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{JDMJH2}
-    \strng{fullhash}{JDMJH2}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{labelyear}{2021}
-    \field{extradate}{2}
-    \field{labeldatesource}{}
-    \field{sortinit}{J}
-    \field{sortinithash}{J}
-    \field{chapter}{Deep Learning Architectures for Sequence Processing}
-    \field{edition}{Third edition draft}
     \field{title}{Speech and Language Processing. An Introduction to Natural
   Language Processing, Computational Linguistics, and Speech Recognition}
     \verb{url}

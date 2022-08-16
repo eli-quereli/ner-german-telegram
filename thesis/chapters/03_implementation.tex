@@ -817,9 +817,95 @@ The confusion matrix of the model as shown in figure \ref{fig:norm_cm_gbert} is 
 %\section{Hyperparameter tuning}
 
 %\section{Processing of results}
+\section{Application of the Custom Model}
+For the application of my custom model, I used Hugging Face's \verb|pipeline()| to extract named entities from the ten example messages used already in chapter \ref{cha:exploration}, and compared the results of the custom model to those of the German-language Flair model. I furthermore extracted named entities from a larger sample of messages from the channel `Demotermine'.\footnote{For implementation details, see \url{https://github.com/eli-quereli/ner-german-telegram/tree/main/src/notebooks/4.2_training/03_results}.}
+
+Since the pipeline returns subtokens, some post-processing of the results was required in order to obtain full words, and to carry out label alignment. The corresponding B- and I-tags were mapped to the general labels \verb|PER|, \verb|LOC|, \verb|ORG|, \verb|TIME|, and \verb|DATE|. I also experimented with parsing date and time mentions using the \verb|ctparse| package.\footnote{\url{https://ctparse.readthedocs.io/en/latest/}}
+
+I would like to point out that this part of my implementation is still work in progress, both regarding the quality of the model and the post-processing steps, especially the parsing of times and dates. 
+
+\subsection{Results for Example Messages}
+Table \ref{tab:detect_ents_custom_vs_flair} shows the results of the German-language Flair model from chapter \ref{cha:exploration} compared to the results of the custom model. 
+We can observe that the custom model successfully detects the non-standard named entity types \verb|DATE| and \verb|TIME| in messages no. 2, 3, 4, 6, 8, and 10, while the Flair model does not support them and hence cannot recognize them. Furthermore, we can see in message no. 3 that the custom model has learned to recognize non-standard location mentions such as `Ausfahrt' or `Berliner Speckgürtel'. This is useful for a more fine-grained monitoring of protest mobilization, and also helps to extract rather informal mobilization information. 
+We can also observe some errors by the model, e.g. the postal code in message no. 3 is correctly recognized as location, which is an improvement compared to the Flair model, but the result is incomplete, missing the last digit. The model also misses the action mention `Demo-Berlin', which is not surprising given the poor performance of the model for this class. 
+
+\begin{table}[htp]
+\caption{Detected entities for German-language example messages: Flair vs. custom model}
+\label{tab:detect_ents_custom_vs_flair}
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{|p{0.04\linewidth}|p{0.6\linewidth}|p{0.3\linewidth}|p{0.35\linewidth}|}
+\hline
+\textbf{No.} & \textbf{Text} & \textbf{flair/ner-german} & \textbf{gbert-base/finetuned} \\
+\hline 
+1 
+& Freiburg Aufzug mit Endkundgebung am Platz der altenSynagoge . Live Musik ! Details 19062021 Raus auf die Straße 
+& Freiburg[LOC] 
+& Freiburg[LOC]\\
+\hline
+2 
+& GEHT DEMONSTRIEREN ! - Message von Elijah Tee an die Dresdner \& anderen Demonstranten in Deutschland Morgen am 13.06. um 16.30 Uhr und bundesweit überall , wo es Mitdenker gibt . - Bilder und Videos hochladen - Diskussion Fahren oder Mitfahren
+& Elijah Tee[PER], Deutschland[LOC] 
+& Elijah Tee[PER], Dresdner[LOC], Deutschland[LOC], 13.06.[DATE], 16.30 Uhr[TIME]\\ 
+\hline
+3 
+& 15831 Blankenfelde Mahlow Berliner Speckgürtel Ausfahrt Lichtenrade am 14.03.2021 14032021 Raus auf die Straße
+& Blankenfelde Mahlow[LOC], Lichtenrade[LOC] 
+& 1583[LOC], Blankenfelde[LOC], Mahlow[LOC], Berliner Speckgürtel[LOC], Ausfahrt[LOC], Lichtenrade[LOC], 14.03.2021[DATE]\\
+\hline
+4 
+& 2021 10 11 Sven Liebich fragt Ministerpräsident Haseloff nach dessen Verständnis 
+von Versammlungsfre - Sven Liebich 0:23 Raus auf die Straßen  \"Ubersicht / Overview 
+& Sven Liebich[PER, Haseloff[PER], Sven Liebich[PER]
+& 20211011[DATE], Sven Liebich[PER], Haseloff[PER], Sven Liebich[PER], 0[TIME]\\ 
+\hline
+5 
+& F\"UR ALLE DEMOKRATEN   GEFAHR : Die Polizei blockiert den Stern !   Deswegen laufen die Menschen vom Ernst-Reuther-Platz nach Südosten zum Breitscheitplatz und dort weiter auf den Kudamm ! ! Schließt euch an : Neue Kantstraße direkt Richtung Osten auf den Breitscheitplatz ! Von der Straße des 17. Juni Richtung Süden zum Kudamm ! 
+& FU[ORG], Ernst-Reuther-Platz[LOC], Breitscheitplatz[LOC], Kudamm[LOC], Kantstraße[LOC], Breitscheitplatz[LOC], Kudamm[LOC]
+& Ernst- Reuther- Platz[LOC], Breitscheitplatz[LOC], Kudamm[LOC], Neue Kantstraße[LOC], Breitscheitplatz[LOC], 17.Juni[DATE], Kudamm[LOC]\\ 
+\hline
+6 
+& Dr. Gunter Frank : Wie Moralismus dazu führt das man Feinde sieht und vernichten will — Antihygienista - Offene Gesellschaft Kurpfalz 15:04 Raus auf die Straßen   \"Ubersicht / Overview 
+& Gunter Frank[PER], Antihygienista[ORG], Offene Gesellschaft Kurpfalz[ORG]
+& Gunter Frank[PER], Antigienista- Offene Gesellschaft[ORG], Kurpfalz[LOC], 15:04[TIME]\\ 
+\hline
+7 
+& Einfach nur Krank solche Politiker ! Was sollen wir mit ihm machen wenn unsere Kinder anhand dieser Impfung nen schaden erleiden ? Wer ist dann dafür verantwortlich , wen schmeißen wir dann in den Knast und nehmen sein ganzes Geld weg , sollen wir das mit dir machen ? Raus auf die Straße 
+& \textit{no entities detected}
+& \textit{no entities detected}\\ 
+\hline
+8 
+& 27.11.2021 Frankfurt Durchsagen von gemischt mit Musik . Super Idee   Für mehr Berichte folgen auf ... Raus auf die Straßen   \"Ubersicht / Overview 
+& Frankfurt[LOC]
+& 27.11.2021[DATE], Frankfurt[LOC]\\ 
+\hline
+9 
+& Demo-Berlin : Der Mann mit dem Schild wurde soeben von der Polizei festgenommen . Circa 7 Einsatzwägen sind vor Ort und umzäunen den Park großräumig . Am Humboldthain gibt es nichts mehr zu gewinnen . \# b2908 Raus auf die Straßen 
+& Demo-Berlin[LOC], Humboldthain[LOC]
+& Berlin[LOC], Humboldthain[LOC]\\ 
+\hline
+10 
+& Anthony Fauci : Definition von `` vollständig geimpft '' könnte geändert werden — Epoch Times Nachrichten 6:59 Raus auf die Straßen   \"Ubersicht / Overview 
+& Anthony Fauci[PER], Epoch Times Nachrichten[ORG]
+& Anthony Fauci[PER], Epoch Times Nachrichten[ORG], 6:59[TIME]
+\\ \hline
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+
+\subsection{Results for Larger Sample}
+
+3,634 messages initially selected as sample for annotation
+includes the 500 annotated messages of which 80\% were used as training data for fine-tuning the custom model. 
+
+applied custom model using the pipeline, evaluate the most common named entities per entity type 
+
+dates and times: compare initial results versus results after parsing
+
+
 
 \section{Summarization}
 My findings confirm the potentials of using transformer models for \gls{ner} fine-tuning for building a custom model for NER in social messengers channels.
-The preliminary best model achieves F1 score of 79.22. Even though it lags behind the baseline of 87.98, its performance for the standard named entity types location, person, and organization, and for the non-standard entity types time and date is promising. 
-However my results also indicate that fine-tuning for non-standard entity types like the class action is a more challenging task. The model's poor performance for this class results from its underrepresentation in the training data. The use of such non-standard entity types thus requires more resources for annotating corpora, or should generally be reconsidered as a requirement. 
-
+The preliminary best model achieves F1 score of 79.22. Even though it lags behind the baseline of 87.98, its performance for the standard named entity types location, person, and organization, and for the non-standard entity types time and date is promising with most of the related classes achieving F1 scores above 0.8, some even above 0.9. 
+However my results also indicate that fine-tuning for non-standard entity types like the class action is a more challenging task. It can be assumed that the model's poor performance for this class results from its underrepresentation in the training data. The use of such non-standard entity types thus requires more resources for annotating corpora, or should generally be reconsidered. 

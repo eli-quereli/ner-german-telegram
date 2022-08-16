@@ -1,80 +1,80 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Named Entity Recognition: An Introduction}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}NER as a Sequence Labeling Task}{6}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Standard Named Entity Types}{6}{section.2.2}%
-\contentsline {section}{\numberline {2.3}The BIO Tagging Scheme}{7}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Evaluation of NER Systems}{7}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}F1, Precision, and Recall}{8}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Accuracy}{9}{subsection.2.4.2}%
-\contentsline {section}{\numberline {2.5}General Challenges for NER}{10}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Challenges for NER in User-Generated Texts}{11}{section.2.6}%
-\contentsline {chapter}{\numberline {3}Related Work}{14}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Shared Tasks on German-Language NER}{14}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Experimental Studies and Shared Tasks on Social Media NER}{15}{section.3.2}%
-\contentsline {chapter}{\numberline {4}Transformer Models}{18}{chapter.4}%
-\contentsline {section}{\numberline {4.1}The Concept of Self-Attention}{19}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Key, Query, and Values}{19}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Multi-Head Attention}{21}{section.4.3}%
+\contentsline {chapter}{\numberline {2}Named Entity Recognition: An Introduction}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}NER as a Sequence Labeling Task}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Standard Named Entity Types}{7}{section.2.2}%
+\contentsline {section}{\numberline {2.3}The BIO Tagging Scheme}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Evaluation of NER Systems}{8}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}F1, Precision, and Recall}{9}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Accuracy}{10}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}General Challenges for NER}{11}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Challenges for NER in User-Generated Texts}{12}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Related Work}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Shared Tasks on German-Language NER}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Experimental Studies and Shared Tasks on Social Media NER}{16}{section.3.2}%
+\contentsline {chapter}{\numberline {4}State of the Art NER with Transformer Models}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Self-Attention}{20}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Key, Query, and Values}{20}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Multi-Head Attention}{22}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Transformer Blocks}{22}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Maximum Input Length}{22}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Positional Embeddings}{22}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Pre-Training and Fine-Tuning of Transformer Models}{24}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Transformer Model Architectures}{24}{section.4.8}%
-\contentsline {chapter}{\numberline {5}SpaCy and Flair: A Qualitative Exploration of Existing Solutions}{26}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Example Data}{27}{section.5.1}%
-\contentsline {section}{\numberline {5.2}German-language NER with spaCy and Flair}{27}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}The German-language spaCy model}{27}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}The German-language Flair Model}{28}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Results}{29}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}Exploring the Potentials of Machine Translation for NER}{31}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}The English-language spaCy Model}{31}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}The English-language Flair Model}{31}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Results}{32}{subsection.5.3.3}%
-\contentsline {section}{\numberline {5.4}Summarization}{34}{section.5.4}%
-\contentsline {chapter}{\numberline {6}Building a Custom Model for NER in Telegram Channels}{35}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Building the Telegram Corpus}{35}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Raw Data}{36}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Text Cleaning}{36}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Sample Selection}{37}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Annotation}{38}{subsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.1.5}Telegram Corpus Statistics}{38}{subsection.6.1.5}%
-\contentsline {section}{\numberline {6.2}The DFKI Smartdata Corpus}{39}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Label Mapping}{40}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Adjusted Smartdata Corpus Statistics}{40}{subsection.6.2.2}%
-\contentsline {section}{\numberline {6.3}The Final Corpus}{41}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Models}{41}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}BERT Models}{41}{subsection.6.4.1}%
-\contentsline {subsubsection}{dbmdz/bert-base-german-uncased}{41}{section*.12}%
-\contentsline {subsubsection}{deepset/gbert-base}{42}{section*.13}%
-\contentsline {subsection}{\numberline {6.4.2}DistilBERT Model}{42}{subsection.6.4.2}%
-\contentsline {subsubsection}{distilbert-base-multilingual-cased}{42}{section*.14}%
-\contentsline {subsection}{\numberline {6.4.3}XLM-Roberta Models}{43}{subsection.6.4.3}%
-\contentsline {subsubsection}{xlm-roberta-base}{43}{section*.15}%
-\contentsline {subsubsection}{cardiffnlp/twitter-xlm-roberta-base}{43}{section*.16}%
-\contentsline {section}{\numberline {6.5}Experimental setup}{43}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Defining a Baseline}{44}{section.6.6}%
-\contentsline {section}{\numberline {6.7}Fine-tuning an NER model}{44}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}Preprocessing: Tokenization and Encoding}{44}{subsection.6.7.1}%
-\contentsline {subsubsection}{Label alignment for tokenized inputs}{45}{section*.17}%
-\contentsline {subsection}{\numberline {6.7.2}Loading and Configuring a Model}{46}{subsection.6.7.2}%
-\contentsline {subsection}{\numberline {6.7.3}Defining Training Arguments}{46}{subsection.6.7.3}%
-\contentsline {subsubsection}{Data Collator}{47}{section*.19}%
-\contentsline {subsection}{\numberline {6.7.4}Evaluation Metrics}{47}{subsection.6.7.4}%
-\contentsline {subsection}{\numberline {6.7.5}Training}{48}{subsection.6.7.5}%
-\contentsline {section}{\numberline {6.8}Results}{48}{section.6.8}%
-\contentsline {section}{\numberline {6.9}Error Analysis}{50}{section.6.9}%
-\contentsline {subsubsection}{Token-level Errors}{50}{section*.24}%
-\contentsline {subsubsection}{Class-level Errors}{51}{section*.26}%
-\contentsline {subsubsection}{Confusion Matrix}{52}{section*.28}%
-\contentsline {section}{\numberline {6.10}Summarization}{53}{section.6.10}%
-\contentsline {chapter}{\numberline {7}First Results: Applying the Custom NER Model to Telegram Messages}{54}{chapter.7}%
-\contentsline {subsection}{\numberline {7.0.1}Example messages}{54}{subsection.7.0.1}%
-\contentsline {subsection}{\numberline {7.0.2}Larger sample}{54}{subsection.7.0.2}%
-\contentsline {chapter}{\numberline {8}Conclusion}{56}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Summarization}{56}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Discussion}{56}{section.8.2}%
-\contentsline {chapter}{Glossary}{58}{section*.31}%
-\contentsline {chapter}{Acronyms}{59}{section*.33}%
+\contentsline {section}{\numberline {4.5}Limited Input Length}{22}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Positional Embeddings}{23}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Model Architectures}{24}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Pre-Training and Fine-Tuning of Transformer Models}{24}{section.4.8}%
+\contentsline {chapter}{\numberline {5}SpaCy and Flair: A Qualitative Exploration of Existing Solutions}{25}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Example Data}{26}{section.5.1}%
+\contentsline {section}{\numberline {5.2}German-language NER with spaCy and Flair}{26}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}The German-language spaCy model}{26}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}The German-language Flair Model}{27}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Results}{28}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Exploring the Potentials of Machine Translation for NER}{30}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}The English-language spaCy Model}{30}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}The English-language Flair Model}{30}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Results}{31}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Summarization}{33}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Building a Custom Model for NER in Telegram Channels}{34}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Building the Telegram Corpus}{34}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Raw Data}{35}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Text Cleaning}{35}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Sample Selection}{36}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Annotation}{37}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Telegram Corpus Statistics}{37}{subsection.6.1.5}%
+\contentsline {section}{\numberline {6.2}The DFKI Smartdata Corpus}{38}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Label Mapping}{39}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Adjusted Smartdata Corpus Statistics}{39}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}The Final Corpus}{40}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Models}{40}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}BERT Models}{40}{subsection.6.4.1}%
+\contentsline {subsubsection}{dbmdz/bert-base-german-uncased}{40}{section*.12}%
+\contentsline {subsubsection}{deepset/gbert-base}{41}{section*.13}%
+\contentsline {subsection}{\numberline {6.4.2}DistilBERT Model}{41}{subsection.6.4.2}%
+\contentsline {subsubsection}{distilbert-base-multilingual-cased}{41}{section*.14}%
+\contentsline {subsection}{\numberline {6.4.3}XLM-Roberta Models}{42}{subsection.6.4.3}%
+\contentsline {subsubsection}{xlm-roberta-base}{42}{section*.15}%
+\contentsline {subsubsection}{cardiffnlp/twitter-xlm-roberta-base}{42}{section*.16}%
+\contentsline {section}{\numberline {6.5}Experimental setup}{42}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Defining a Baseline}{43}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Fine-tuning an NER model}{43}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Preprocessing: Tokenization and Encoding}{43}{subsection.6.7.1}%
+\contentsline {subsubsection}{Label alignment for tokenized inputs}{44}{section*.17}%
+\contentsline {subsection}{\numberline {6.7.2}Loading and Configuring a Model}{45}{subsection.6.7.2}%
+\contentsline {subsection}{\numberline {6.7.3}Defining Training Arguments}{45}{subsection.6.7.3}%
+\contentsline {subsubsection}{Data Collator}{46}{section*.19}%
+\contentsline {subsection}{\numberline {6.7.4}Evaluation Metrics}{46}{subsection.6.7.4}%
+\contentsline {subsection}{\numberline {6.7.5}Training}{47}{subsection.6.7.5}%
+\contentsline {section}{\numberline {6.8}Results}{47}{section.6.8}%
+\contentsline {section}{\numberline {6.9}Error Analysis}{49}{section.6.9}%
+\contentsline {subsubsection}{Token-level Errors}{49}{section*.24}%
+\contentsline {subsubsection}{Class-level Errors}{50}{section*.26}%
+\contentsline {subsubsection}{Confusion Matrix}{51}{section*.28}%
+\contentsline {section}{\numberline {6.10}Application of the Custom Model}{52}{section.6.10}%
+\contentsline {subsection}{\numberline {6.10.1}Results for Example Messages}{52}{subsection.6.10.1}%
+\contentsline {subsection}{\numberline {6.10.2}Results for Larger Sample}{53}{subsection.6.10.2}%
+\contentsline {section}{\numberline {6.11}Summarization}{53}{section.6.11}%
+\contentsline {chapter}{\numberline {7}Conclusion}{55}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Summarization}{55}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Discussion}{55}{section.7.2}%
+\contentsline {chapter}{Glossary}{57}{section*.31}%
+\contentsline {chapter}{Acronyms}{58}{section*.33}%
 \contentsline {chapter}{Bibliography}{66}{chapter*.35}%
 \contentsline {chapter}{Appendix}{66}{chapter*.35}%
 \contentsline {chapter}{\numberline {A}Additional Material}{70}{appendix.A}%
