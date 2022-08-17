@@ -284,6 +284,9 @@ The performance of the English Flair model worsens as well compared to its Germa
 \end{table}
 
 \section{Summarization}
-My findings indicate that existing solutions are only of limited use for my purpose: The predictions of the spaCy model contain a lot of misclassifications, both for German and English. The Flair model delivers more accurate results, with a decrease in performance for the English data. One reason for this could be that the person or location names are language area specific, and therefore better recognized by models trained on data from their origin language area.
+I selected ten example messages from the Telegram channel `Demotermine', containing mobilization messages for protests against the COVID-19 measures in Germany. I applied two existing \gls{ner} models, the German-language spaCy model and the German-language Flair model for \gls{ner} and explored the named entities recognized by them. 
+I then translated the example messages to English, and applied the English-language equivalents of the two models to them to explore the potentials of machine translation for my purpose. 
+
+My findings indicate that the existing solutions are only of limited use for my purpose: The predictions of the spaCy model contain a lot of misclassifications, both for German and English. The Flair model delivers more accurate results, with a decrease in performance for the English data. One reason for this could be that the person or location names are language area specific, and therefore better recognized by models trained on data from their origin language area.
 Most importantly, most of the analyzed models are restricted to the standard entity types person, location, organization, and other/miscellaneous. This makes it impossible to extract e.g. time or date mentions which are of central relevance for monitoring COVID-19 protests. The only model which provides these entity types delivers poor results and misses by far most of the date and time mentions included in the examples.
 Against this background, the remaining part of my thesis explores the potentials and limitations of building  a custom solution. 

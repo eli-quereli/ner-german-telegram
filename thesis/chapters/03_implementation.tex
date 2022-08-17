@@ -546,7 +546,7 @@ For training, I initialized a \verb|Trainer| object and passed the loaded model,
 %\end{python}
 %
 
-\section{Results}
+\section{Evaluation Results}
 The following section explores the results of fine-tuning the selected models on the two datasets separately, and on the final combined dataset. Recall the baseline is defined as F1=87.98. 
 
 Generally we can observe that for all experiments, training was stopped after a maximum of three epochs, in some cases already after one epoch, indicating that the validation loss starts to increase rather soon in all experiments.  This is not surprising given the rather small size of the provided data sets, which easily leads overfitting. 
@@ -824,7 +824,7 @@ Since the pipeline returns subtokens, some post-processing of the results was re
 
 I would like to point out that this part of my implementation is still work in progress, both regarding the quality of the model and the post-processing steps, especially the parsing of times and dates. 
 
-\subsection{Results for Example Messages}
+\subsection{Example Messages}
 Table \ref{tab:detect_ents_custom_vs_flair} shows the results of the German-language Flair model from chapter \ref{cha:exploration} compared to the results of the custom model. 
 We can observe that the custom model successfully detects the non-standard named entity types \verb|DATE| and \verb|TIME| in messages no. 2, 3, 4, 6, 8, and 10, while the Flair model does not support them and hence cannot recognize them. Furthermore, we can see in message no. 3 that the custom model has learned to recognize non-standard location mentions such as `Ausfahrt' or `Berliner Speckgürtel'. This is useful for a more fine-grained monitoring of protest mobilization, and also helps to extract rather informal mobilization information. 
 We can also observe some errors by the model, e.g. the postal code in message no. 3 is correctly recognized as location, which is an improvement compared to the Flair model, but the result is incomplete, missing the last digit. The model also misses the action mention `Demo-Berlin', which is not surprising given the poor performance of the model for this class. 
@@ -894,7 +894,7 @@ von Versammlungsfre - Sven Liebich 0:23 Raus auf die Straßen  \"Ubersicht / Ove
 \end{table}
 
 
-\subsection{Results for Larger Sample}
+\subsection{Larger Sample}
 
 3,634 messages initially selected as sample for annotation
 includes the 500 annotated messages of which 80\% were used as training data for fine-tuning the custom model. 
@@ -904,8 +904,71 @@ applied custom model using the pipeline, evaluate the most common named entities
 dates and times: compare initial results versus results after parsing
 
 
+\begin{table}[htp]
+\caption{Application of custom model: Detected named entities in larger sample of Telegram messages}
+\label{tab:experiments_tg}
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{|p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|p{0.2\linewidth}|}
+\hline
+\textbf{LOC} & \textbf{PER} & \textbf{ORG}& \textbf{DATE} & \textbf{TIME} & \textbf{ACTION}\\ \hline 
+13,656 & 1,513 & 1,926 &  2,453 & 3,973 & 0 \\ \hline
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+%\begin{minipage}[t]{0.6\textwidth}
+%The preliminary best model achieves F1 score of 79.22. Even though it lags behind the baseline of 87.98, its performance for the standard named entity types location, person, and organization, and for the non-standard entity types time and date is promising with most of the related classes achieving F1 scores above 0.8, some even above 0.9
+%\end{minipage}\hfill
+%\begin{minipage}[t]{0.7\textwidth}
+%  %\centering\raisebox{\dimexpr \topskip-\height}{%
+%\includegraphics[width=0.5\textwidth,keepaspectratio]{images/person_ents.png}%}
+%\end{minipage}
+
+\begin{table}[htp]
+\caption{Application of custom model: Detected named entities in larger sample of Telegram messages}
+\centering
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{p{1\linewidth}}
+\hline
+\begin{center} 
+\includegraphics[width=0.55\textwidth,keepaspectratio]{images/person_ents.png} 
+ \end{center}
+\\
+\begin{center} 
+\includegraphics[width=0.55\textwidth,keepaspectratio]{images/location_ents.png} 
+ \end{center}\\
+ \begin{center} 
+\includegraphics[width=0.55\textwidth,keepaspectratio]{images/org_ents.png} 
+\end{center}
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+
+%\begin{figure}[htp]
+%    \centering
+%    \begin{minipage}{0.5\textwidth}
+%        \centering
+%        \includegraphics[width=1\textwidth]{images/location_ents.png} 
+%        \captionApplication of custom model: Results for entity type location}
+%    \end{minipage}\hfill
+%    \begin{minipage}{0.5\textwidth}
+%        \centering
+%        \includegraphics[width=1\textwidth]{images/org_ents.png} 
+%        \caption{Application of custom model: Results for entity type organization}
+%    \end{minipage}
+%\end{figure}
+
 
 \section{Summarization}
+In this chapter I described my efforts to train a custom \gls{ner} model for extracting named entities of type person, location, organization, date, time, and action from German-language Telegram messages. 
+I describe my efforts of building a Telegram corpus by selecting sample messages and annotating them using a newly developed annotation scheme. I used additional training data from the Smartdata corpus, adjusting its tag set to make it fit the Telegram corpus. 
+I ran a number of experiments to evaluate the model of five different pretrained transformer models, first on each corpus separately, and then on the combined corpus. For the preliminary best model, a fine-tuned version of the German-language BERT model \textit{deepset/gbert-base}, I conducted further error analysis and evaluation on token and class level. 
+Finally, I apply this model to the ten example messages used in chapter \ref{cha:exploration}, and to a larger sample of Telegram messages.
+
 My findings confirm the potentials of using transformer models for \gls{ner} fine-tuning for building a custom model for NER in social messengers channels.
 The preliminary best model achieves F1 score of 79.22. Even though it lags behind the baseline of 87.98, its performance for the standard named entity types location, person, and organization, and for the non-standard entity types time and date is promising with most of the related classes achieving F1 scores above 0.8, some even above 0.9. 
-However my results also indicate that fine-tuning for non-standard entity types like the class action is a more challenging task. It can be assumed that the model's poor performance for this class results from its underrepresentation in the training data. The use of such non-standard entity types thus requires more resources for annotating corpora, or should generally be reconsidered. 
+However my results also indicate that fine-tuning for non-standard entity types like the class action is a more challenging task. My preliminary best model almost completely fails to detect entities of this type. It can be assumed that the model's poor performance for this class results from its underrepresentation in the training data. The use of such non-standard entity types thus requires more resources for annotating corpora, or should generally be reconsidered. 
+Nonetheless, my model represents an improvement over the existing solutions explored in the previous chapter, since its application demonstrates that it allows for the detection of date and time mentions, representing non-standard entity types not supported by most existing \gls{ner} models. 
+

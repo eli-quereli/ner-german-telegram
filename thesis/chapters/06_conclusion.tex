@@ -1,26 +1,39 @@
 \chapter{Conclusion}
 \label{cha:conclusion}
+
+The aim of my thesis was to explore the potentials and limitations of \gls{ner} for analyzing and monitoring online mobilization for protests in the context of the COVID-19 pandemic in Germany. The focus was on German-language messages from Telegram channels. I chose to extend the standard named entity types person, location, and organization by the three additional types date, time, and action since I consider them as particularly relevant for my concern. 
+
 \section{Summarization}
+As a theoretical and conceptual basis, I provided an introduction to the task of \gls{ner} (chapter \ref{cha:ner_intro}) and present prior research on both German-language \gls{ner} in noisy user-generated texts from social media, discussing the general challenges for \gls{ner} and the specific challenges for \gls{ner} in social media texts (chapter \ref{cha:related_work}).
+My findings show that most existing approaches to \gls{ner} focus on the standard entity types person, location, organization, and other/miscellaneous. Furthermore, like for many other \gls{nlp} tasks, there is a focus on English-language data. While there are standard \gls{ner} datasets for German-language texts, these most commonly consist of newswire data. \gls{ner} corpora consisting of more informal texts such as tweets are commonly restricted to English-language texts. 
+
+I then turned to state of the art approaches for \gls{ner}: fine-tuning of transformer models, and provided a high level description of the key concepts of transformer models (chapter \ref{cha:ner_approaches}).
+
+In a next step, I explored the applicability of existing \gls{ner} models for my task by qualitatively analyzing their results in ten example messages from a Telegram channel (chapter \ref{cha:exploration}). My qualitative analysis confirms that existing \gls{ner} solutions widely unsuitable for my concern. The tested German-language Flair model yields promising results, but is restricted to the standard entity types and thus does not allow to extract date, time, or action mentions.
+
+Finding that none of the analyzed models covers the named entity types required for my task, I then turned to building a custom \gls{ner} model using fine-tuning of transformer models (chapter \ref{cha:implementation}). 
+For this, I created a manually annotated Telegram corpus, and extended it by an adjusted version of the Smartdata corpus.  I evaluated a selection of five pre-trained transformer models, including both German-language and multilingual ones, by fine-tuning them on the Telegram and Smartdata corpus separately, and on a combined corpus. I evaluate my models using their F1 score as standard metric for \gls{ner}. My preliminary best model achieves an F1 score of 79.22 on the combined corpus. I conducted further evaluation and error analysis for this model, focussing on token and class level errors. 
+Finally, I applied my custom model to the previously used example messages, and compare its results to those of the Flair model analyzed in chapter \ref{cha:exploration}. I also apply the model to a larger sample to demonstrate its possible use for automatically analyzing data from Telegram channels. 
+My results show that building a custom \gls{ner} models covering non-standard entity types is a challenging task. While the model achieves moderate to good performance for the standard entity types person, location, and organization, and also can be fine-tuned successfully to detect date and time mentions, it fails at recognizing entities of type action. This failure is most probably due to the underrepresentation of this class. Annotations for this class only exists in the smaller Telegram corpus, which results in heavily imbalanced training data. However, regarding the other classes, my experiments confirm that transformer models can be successfully fine-tuned to specific \gls{nlp} tasks such as \gls{ner}, even when only rather small amounts of labeled data are provided.
+With my thesis, I contribute to research about German-language \gls{ner} in informal online domains such as messenger services, and provide first insights into the applicability of \gls{ner} for monitoring efforts of journalists and non-governmental organizations. I furthermore developed a comprehensive annotation guide as a basis for future annotation efforts of Telegram messages and similar content.
+
 \section{Discussion}
+My results confirm that fine-tuning of transformer models is a promising approach for building \gls{ner} applications covering non-standard entity types in informal text genres. Most of the fine-tuned models significantly outperform systems using classic machine learning based approaches presented at past shared tasks on \gls{ner} in user-generated texts. However, none of them achieves state of the art results for the standard 4-class \gls{ner} task. These findings demand for further discussion. 
 
-more data
+First and foremost, I assume that more data is required to obtain state of the art results for my task. The custom Telegram corpus consists of no more than 500 messages. Extending it by the Smartdata corpus resulted in a total of 3,098 documents, which is admittedly still rather small, especially when compared to the standard \gls{ner} datasets commonly used for training and evaluating state of the art \gls{ner} models. 
+Furthermore, the entity type action is heavily underrepresented in my corpus since it was only annotated in the Telegram subset. The Smartdata corpus does not offer a corresponding label. I assume that this is among the main reasons for the poor performance of the model for this class. Not only is the model provided to few examples, but possible mentions of type action will be labeled as non-entity in the Smartdata corpus, which represents by far the larger proportion of the training data. 
 
-improved annotation scheme (zb ( ) / nicht taggen, \# splitten), wie umgehen mit hashtags für Demos zB \#b2908
+Another factor which might have negatively affected training might be the differences between the data included in the two corpora: While they both cover texts from online resources including mentions of events, they differ in terms of style and content. The fact that scores of the models for the combined corpus decreased compared to their performance on the Smartdata corpus only might indicate that the two corpora are too different for merging. While mixed-domain corpora can be of advantage for building flexible models, in this case the two subsets might also simply be too imbalanced in terms of size. Obtaining a larger sample of annotated Telegram messages could encounter this imbalance. 
+Furthermore, the exclusion of mixed-language messages from the training data could be questioned. Since such mixed-language messages represent realistic social media data from messenger services, it could be argued that they should be included in the training data.
 
-Preventing the special characters in hashtags and user mentions from being split up was intended to serve for creating a realistic social media corpus and allow to include these special characters into the labels assigned during the annotation process. However, evaluation of training results indicate that it might indeed make sense to split up these special characters and simply treat them as separate tokens which are not treated as part of the tagged named entities.
+After conducting an error analysis of my preliminary best model, I would also reconsider my annotation scheme and the pre-processing for annotation. For example, the high error on special characters might indicate that they should not be included in entity spans, and that the annotation should be updated accordingly. 
+Handling of hashtags should also be reconsidered: While I tried to include date and location mentions encoded in hashtags (e.g. \#b2908), this might confuse the model. I would thus recommend to not include hashtags as named entities, but rather apply separate methods for extracting information from them. 
 
-Mixed language messages: It could also be argued that they should be included in the final training data, since they represent realistic social media date and NER systems should be able to handle such kinds of texts as well.
+\section{Future Work}
+My results obtained by the preliminary best model give a first impression which kind of information can be extracted from Telegram messages. However, using this information for proper analyses and monitoring would require further post-processing. 
+In this context, parsing of date and time information would be one important step. Representations of dates and times cover a great variety of styles in user-generated texts, making this subtask more challenging than for more formal texts e.g. from news articles. 
+Furthermore, entity disambiguation should be carried out in order to map different representations of an entity to the same key. Once again, the informal nature of user-generated texts, including incomplete mentions and a wide variety of styles, e.g. regarding capitalization, should be considered for this task. 
+The extraction of relationships between extracted entities would be a valuable contribution. The mere occurrence of e.g. a date is only of limited use for monitoring mobilization efforts. being able to relate such a date mention to a location and time might be of crucial importance for monitoring purposes. 
+Regarding the use of \gls{ner} in production, implementing a search function for the obtained results, as well as improved visualization, e.g. as a map containing locations, associated with date, time or person and organization mentions would be further valuable contributions. 
 
-
-Smartdata: no NE action, This results in an underrepresentation of this specific class when merging both datasets and might most probably cause problems during training, since there will not be enough examples for the model to learn, and mentions of actions occuring in the Smartdata corpus do not have a corresponding tag. 
-
-
-entity disambiguation
-
-relationship tagging
-
-future work -> main adaptation on large telegram corpus
-
-
-
-%TODO before training: remove footer 'Raus auf die Straße' from cleaned_text
+I generally consider efforts to make \gls{nlp} approaches such as \gls{ner} available for journalists and non-governmental an important and beneficial task. Given the ongoing successful online mobilization strategies of far-right activists in Germany, tools for automated the analysis of large amounts of text data from online platforms is urgently needed and should be made available to those who are working day by day to raise awareness on the violent potential in these networks. 
