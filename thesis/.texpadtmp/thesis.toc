@@ -74,8 +74,7 @@
 \contentsline {section}{\numberline {7.1}Summarization}{57}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Discussion}{59}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Future Work}{60}{section.7.3}%
-\contentsline {chapter}{Glossary}{62}{section*.33}%
-\contentsline {chapter}{Acronyms}{63}{section*.35}%
-\contentsline {chapter}{Bibliography}{71}{chapter*.37}%
-\contentsline {chapter}{Appendix}{71}{chapter*.37}%
-\contentsline {chapter}{\numberline {A}Additional Material}{75}{appendix.A}%
+\contentsline {chapter}{Acronyms}{62}{section*.33}%
+\contentsline {chapter}{Bibliography}{70}{chapter*.35}%
+\contentsline {chapter}{Appendix}{70}{chapter*.35}%
+\contentsline {chapter}{\numberline {A}Additional Material}{74}{appendix.A}%
