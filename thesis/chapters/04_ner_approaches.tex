@@ -216,7 +216,7 @@ The attention mechanism of transformer models consider each input in three diffe
 Figure \ref{fig:self_attention} illustrates the process of calculating the value for the third element in a sequence including the key, query, and value vectors for the current item $x_3$ and the preceding items $x_1$ and $x_2$. We can see that after generating these vectors, they key-query comparisons are carried out, which are then passed to the softmax function. The resulting values are then multiplied by the value vector, and summed up to obtain the output vector $y_3$. 
 
 \begin{figure}[H]
-\includegraphics[width=0.8\linewidth,keepaspectratio]{images/self_attention.png}  \caption{Calculating the value $y_3$ for the third element $x_3$ in a sequence, using left-to-right-attention; taken from \cite[194]{jurafsky_2021}}
+\includegraphics[width=0.8\linewidth,keepaspectratio]{images/self_attention.png}  \caption{Transformers: Key, query, value implementation in left-to-right attention, taken from \cite[194]{jurafsky_2021}}
   \label{fig:self_attention}
 \end{figure}
 

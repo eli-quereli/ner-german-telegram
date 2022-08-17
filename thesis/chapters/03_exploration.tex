@@ -99,7 +99,7 @@ Somewhat surprisingly, spaCy recognizes parts of the sequence `Platz der alten S
 Even though the sample is too small for generalization, my observations casts strong doubts on the claim that spaCy offers a production-ready \gls{ner} solution. I assume that the differences in performance result both from the different model architectures and the quality of the respective training corpora. 
 
 \begin{table}[htp]
-\caption{Detected entities for German-language example messages}
+\caption{spaCy vs. Flair: Detected entities for German-language example messages}
 \label{tab:detect_ents_de}
 \centering
 \begin{adjustbox}{max width=\textwidth}
@@ -214,7 +214,7 @@ We can observe that the overall performcance of the spaCy model deteriorates com
 The performance of the English Flair model worsens as well compared to its German equivalent, although not quite as strong as the spaCy model: The model yields more false entity classifications, e.g. of `Raus auf die Straßen Overview' as organization, or `Dresdeners', `Streets Overview', `Stern!' as miscellaneous. Regarding locations, the model now misclassifies the mentions in message no. 3 as miscellaneous, which were at least partly correctly tagged by the German Flair model. Interestingly, it is the only model which partly recognizes the location mention `Straße des 17. Juni'. 
 
 \begin{table}[htp]
-\caption{Detected entities for English-language example messages}
+\caption{spacy vs. Flair: Detected entities for English-language example messages}
 \label{tab:detect_ents_en}
 \centering
 \begin{adjustbox}{max width=\textwidth}

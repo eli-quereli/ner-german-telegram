@@ -3,8 +3,8 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Detected entities for German-language example messages\relax }}{29}{table.caption.6}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Detected entities for English-language example messages\relax }}{32}{table.caption.7}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces spaCy vs. Flair: Detected entities for German-language example messages\relax }}{29}{table.caption.6}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces spacy vs. Flair: Detected entities for English-language example messages\relax }}{32}{table.caption.7}%
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {6.1}{\ignorespaces Distribution of entities in Telegram corpus\relax }}{38}{table.caption.9}%
 \contentsline {table}{\numberline {6.2}{\ignorespaces Distribution of entities in Smartdata corpus after label mapping\relax }}{39}{table.caption.10}%
@@ -13,11 +13,10 @@
 \contentsline {table}{\numberline {6.5}{\ignorespaces Fine-tuning different models on adjusted Smartdata corpus\relax }}{48}{table.caption.21}%
 \contentsline {table}{\numberline {6.6}{\ignorespaces Fine-tuning different models on combined corpus\relax }}{48}{table.caption.22}%
 \contentsline {table}{\numberline {6.7}{\ignorespaces Detailed metrics for two best models\relax }}{49}{table.caption.23}%
-\contentsline {table}{\numberline {6.8}{\ignorespaces Detected entities for German-language example messages: Flair vs. custom model\relax }}{54}{table.caption.30}%
-\contentsline {table}{\numberline {6.9}{\ignorespaces Application of custom model: Detected named entities in larger sample of Telegram messages\relax }}{55}{table.caption.31}%
-\contentsline {table}{\numberline {6.10}{\ignorespaces Application of custom model: Detected named entities in larger sample of Telegram messages\relax }}{56}{table.caption.32}%
+\contentsline {table}{\numberline {6.8}{\ignorespaces Flair vs. custom model: Detected entities for German-language example messages\relax }}{53}{table.caption.30}%
+\contentsline {table}{\numberline {6.9}{\ignorespaces Custom model: Detected entities in larger sample\relax }}{54}{table.caption.31}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Overview of entity types of the English spaCy model\relax }}{74}{table.caption.39}%
-\contentsline {table}{\numberline {A.2}{\ignorespaces Mapping of label schemas\relax }}{75}{table.caption.40}%
-\contentsline {table}{\numberline {A.3}{\ignorespaces Definition of entity types for annotation guide\relax }}{78}{table.caption.44}%
+\contentsline {table}{\numberline {A.1}{\ignorespaces Overview of entity types of the English spaCy model\relax }}{75}{table.caption.39}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces Mapping of label schemas\relax }}{76}{table.caption.40}%
+\contentsline {table}{\numberline {A.3}{\ignorespaces Definition of entity types for annotation guide\relax }}{79}{table.caption.44}%

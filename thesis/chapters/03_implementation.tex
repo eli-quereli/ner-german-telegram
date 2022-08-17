@@ -780,7 +780,7 @@ The tokens \verb|Protest|, and \verb|Kund| are part of named entities of type ac
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/highest_loss_tokens_gbert.png}
-\caption{\textit{deepset/gbert-base}: Tokens with highest total loss}
+\caption{Fine-tuned \textit{deepset/gbert-base}: Tokens with highest total loss}
   \label{fig:highest_loss_tokens_gbert}
 \end{figure}
 
@@ -793,7 +793,7 @@ The \verb|O| class has by far the lowest mean loss which is not surprising givin
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/highest_loss_labels_gbert.png}
-\caption{\textit{deepset/gbert-base}: Labels ranked by mean loss}
+\caption{Fine-tuned \textit{deepset/gbert-base}: Labels ranked by mean loss}
   \label{fig:highest_loss_labels_gbert}
 \end{figure}
 
@@ -802,7 +802,7 @@ The confusion matrix of the model as shown in figure \ref{fig:norm_cm_gbert} is 
 
 \begin{figure}[H]
 \includegraphics[width=0.8\linewidth,keepaspectratio]{images/norm_cm_gbert}
-\caption{\textit{deepset/gbert-base}: Confusion matrix}
+\caption{Fine-tuned \textit{deepset/gbert-base}: Confusion matrix}
   \label{fig:norm_cm_gbert}
 \end{figure}
 
@@ -820,9 +820,9 @@ The confusion matrix of the model as shown in figure \ref{fig:norm_cm_gbert} is 
 \section{Application of the Custom Model}
 For the application of my custom model, I used Hugging Face's \verb|pipeline()| to extract named entities from the ten example messages used already in chapter \ref{cha:exploration}, and compared the results of the custom model to those of the German-language Flair model. I furthermore extracted named entities from a larger sample of messages from the channel `Demotermine'.\footnote{For implementation details, see \url{https://github.com/eli-quereli/ner-german-telegram/tree/main/src/notebooks/4.2_training/03_results}.}
 
-Since the pipeline returns subtokens, some post-processing of the results was required in order to obtain full words, and to carry out label alignment. The corresponding B- and I-tags were mapped to the general labels \verb|PER|, \verb|LOC|, \verb|ORG|, \verb|TIME|, and \verb|DATE|. I also experimented with parsing date and time mentions using the \verb|ctparse| package.\footnote{\url{https://ctparse.readthedocs.io/en/latest/}}
+Since the pipeline returns subtokens, some post-processing of the results was required in order to obtain full words, and to carry out label alignment. The corresponding B- and I-tags were mapped to the general labels \verb|PER|, \verb|LOC|, \verb|ORG|, \verb|TIME|, and \verb|DATE|. %I also experimented with parsing date and time mentions using the \verb|ctparse| package.\footnote{\url{https://ctparse.readthedocs.io/en/latest/}}
 
-I would like to point out that this part of my implementation is still work in progress, both regarding the quality of the model and the post-processing steps, especially the parsing of times and dates. 
+I would like to point out that this part of my implementation is still work in progress, both regarding the quality of the model and the post-processing steps. % especially the parsing of times and dates. 
 
 \subsection{Example Messages}
 Table \ref{tab:detect_ents_custom_vs_flair} shows the results of the German-language Flair model from chapter \ref{cha:exploration} compared to the results of the custom model. 
@@ -830,7 +830,7 @@ We can observe that the custom model successfully detects the non-standard named
 We can also observe some errors by the model, e.g. the postal code in message no. 3 is correctly recognized as location, which is an improvement compared to the Flair model, but the result is incomplete, missing the last digit. The model also misses the action mention `Demo-Berlin', which is not surprising given the poor performance of the model for this class. 
 
 \begin{table}[htp]
-\caption{Detected entities for German-language example messages: Flair vs. custom model}
+\caption{Flair vs. custom model: Detected entities for German-language example messages}
 \label{tab:detect_ents_custom_vs_flair}
 \centering
 \begin{adjustbox}{max width=\textwidth}
@@ -895,27 +895,34 @@ von Versammlungsfre - Sven Liebich 0:23 Raus auf die Straßen  \"Ubersicht / Ove
 
 
 \subsection{Larger Sample}
-
-3,634 messages initially selected as sample for annotation
-includes the 500 annotated messages of which 80\% were used as training data for fine-tuning the custom model. 
-
-applied custom model using the pipeline, evaluate the most common named entities per entity type 
-
-dates and times: compare initial results versus results after parsing
-
+In a second step, I applied the custom model to the 3,634 Telegram messages which I had initially selected as sample for annotation. Note that these included the 500 annotated messages of which 80\% were used as training data for fine-tuning the custom model.
+Once again I used the pipeline to obtain the model's results and post-processed them. The model recognized a total of 23,521 named entities in the larger sample, distribute as shown in table \ref{tab:detected_ents_large_sample}. By far the most named entities were locations, followed by time and date mentions. Person names occur least frequently in the results. 
 
 \begin{table}[htp]
-\caption{Application of custom model: Detected named entities in larger sample of Telegram messages}
-\label{tab:experiments_tg}
+\caption{Custom model: Detected entities in larger sample}
+\label{tab:detected_ents_large_sample}
 \centering
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{|p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|p{0.2\linewidth}|}
+\begin{tabular}{|p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|p{0.15\linewidth}|}
 \hline
 \textbf{LOC} & \textbf{PER} & \textbf{ORG}& \textbf{DATE} & \textbf{TIME} & \textbf{ACTION}\\ \hline 
 13,656 & 1,513 & 1,926 &  2,453 & 3,973 & 0 \\ \hline
 \end{tabular}
 \end{adjustbox}
 \end{table}
+
+Figure \ref{fig:wc_ents} visualizes the results as word cloud for the 100 most frequent words per entity type, for the types person, location, organization, date, and time.
+For the entity type person, we can observe that the results contain references to German politicians, e.g. `Scholz', `Kretschmer', `Merkel', `Spahn'; but also names of known activists from the movement against the COVID-19 movement such as `Karl Hilz', `Sven Liebich', `Markus Haintz' or `Ralf Ludwig'. This entity type could thus serve to monitor which politicians are frequently mentioned (and possibly targeted) by the movement, but also to analyze prominent actors in the movement itself. 
+The recognized location entities contain represent different levels including nation mentions such as `DE', `Schweiz', or `\"Osterreich', federal states such as `Hessen', regions (`Baden'), and a number of cities, mostly located in Germany. This entity type could be used to compare regional focusses of the movement over time. It could for example be hypothesized that the focus of mobilization shifted from Berlin to other areas after the ban of the large `Querdenken' demonstrations in Germany's capital city. 
+Organization mentions indicate that there is a focus on different social media platforms in the analyzed messages. This is probably due to the re-occuring calls to follow certain accounts or watch videos on these platforms. We can also observe that Germany's two largest political parties are mentioned. Further analyzing messages containing these named entities might yield new insights about the attitude of the movement towards the political establishment. 
+Date mentions include both numerical expressions and strings, mostly days of the week. Normalizing and parsing such expressions could be a task for future work, which would allow to use these instances for  analyzing seasonal fluctuations. The time mentions finally mostly consist of numerical expressions which should facilitate the parsing task. We can observe a focus on early evening and afternoon types, which might indicate that protest organizers focus on times of day which outside of regular working schedules. 
+
+\begin{figure}[htp]
+\centering
+\caption{Custom model: Visualization of detected named entities in larger sample}
+\includegraphics[width=1.05\linewidth,keepaspectratio]{images/detected_entities_larger_sample.png}
+\label{fig:wc_ents}
+\end{figure}
 
 %\begin{minipage}[t]{0.6\textwidth}
 %The preliminary best model achieves F1 score of 79.22. Even though it lags behind the baseline of 87.98, its performance for the standard named entity types location, person, and organization, and for the non-standard entity types time and date is promising with most of the related classes achieving F1 scores above 0.8, some even above 0.9
@@ -925,25 +932,25 @@ dates and times: compare initial results versus results after parsing
 %\includegraphics[width=0.5\textwidth,keepaspectratio]{images/person_ents.png}%}
 %\end{minipage}
 
-\begin{table}[htp]
-\caption{Application of custom model: Detected named entities in larger sample of Telegram messages}
-\centering
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{p{1\linewidth}}
-\hline
-\begin{center} 
-\includegraphics[width=0.55\textwidth,keepaspectratio]{images/person_ents.png} 
- \end{center}
-\\
-\begin{center} 
-\includegraphics[width=0.55\textwidth,keepaspectratio]{images/location_ents.png} 
- \end{center}\\
- \begin{center} 
-\includegraphics[width=0.55\textwidth,keepaspectratio]{images/org_ents.png} 
-\end{center}
-\end{tabular}
-\end{adjustbox}
-\end{table}
+%\begin{table}[htp]
+%\caption{Application of custom model: Detected named entities in larger sample of Telegram messages}
+%\centering
+%\begin{adjustbox}{max width=\textwidth}
+%\begin{tabular}{p{1\linewidth}}
+%\hline
+%\begin{center} 
+%\includegraphics[width=0.55\textwidth,keepaspectratio]{images/person_ents.png} 
+% \end{center}
+%\\
+%\begin{center} 
+%\includegraphics[width=0.55\textwidth,keepaspectratio]{images/location_ents.png} 
+% \end{center}\\
+% \begin{center} 
+%\includegraphics[width=0.55\textwidth,keepaspectratio]{images/org_ents.png} 
+%\end{center}
+%\end{tabular}
+%\end{adjustbox}
+%\end{table}
 
 
 %\begin{figure}[htp]
