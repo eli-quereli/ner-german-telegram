@@ -2,7 +2,7 @@
 \label{cha:implementation}
 
 As we have seen in the previous chapter, existing solutions are not applicable for my purpose. Hence I decided to train a custom \gls{ner} model \gls{ner} model for extracting the entity types person, location, organization, time, date, and action from Telegram messages. 
-For this, I fine-tuned a selection of pretrained transformer models using the Hugging Face Transformers library.\footnote{\url{https://huggingface.co/docs/transformers/}}. Since fine-tuning for \gls{ner} requires labeled data, I created a detailed annotation scheme and annotated a small-size Telegram corpus of 500 messages. As additional data, I used the Smartdata corpus, a dataset consisting of 2.598 documents created for event extraction in online texts. 
+For this, I fine-tuned a selection of pretrained transformer models using the Hugging Face Transformers library.\footnote{\url{https://huggingface.co/docs/transformers/}}. Since fine-tuning for \gls{ner} requires labeled data, I created a detailed annotation scheme and used it for annotating a small-size Telegram corpus of 500 messages. As additional data, I used the Smartdata corpus, a dataset consisting of 2,598 documents created for event extraction in online texts. 
 I evaluated five different models on the two datasets separately, and on the combined corpus. Finally, I selected the best model regarding a combined assessment of its F1, precision and recall scores.
 
 \section{Building the Telegram Corpus}
@@ -10,14 +10,9 @@ I evaluated five different models on the two datasets separately, and on the com
 
 The small-size Telegram corpus was created from the same channel I used for my exploration of existing models in chapter \ref{cha:exploration}: The channel `Demotermine', disseminating mainly messages mobilizing for protests against COVID-19 measures in German language. 
 
-%The channel was chosen because a prior qualitative exploration in the context of the research prject `Digitaler Hass'\footnote{https://www.digitalerhass.de/} revealed that its content consists mainly of information about and mobilization for demonstrations and others forms of protests against the German COVID-19 containment measures. The extended channel name `Demo-Termine \& Kontakte, Gleichgesinnte treffen - Demokalender, Spaziergänge, Mahnwachen, Meditation *Rücktritt Bundesregierung!' (Demo dates \& contacts, meet like-minded - Demo calendar, walks, vigils, meditation *resignation federal government!) also reflects this focus. The channel is thus a promising source of text data containing a lot of entities relevant for the aim of this thesis.
-
-% channel-info: ``Wir Demokraten wollen miteinander in Kontakt bleiben @DemotermineChat und uns im Bedarfsfall möglichst schnell austauschen, Beweise in Wort, Bild und Ton sichern, damit sie nicht unterschlagen werden können @LivestreamsFuerDich! @Terminverteiler\_Bot'
-
 \subsection{Raw Data}
-The raw data covers a time period from March 3rd, 2018 when the channel was created, until December 19th, 2021. By the beginning of June 2022, the channel had around 52.900 subscribers. 
+The raw data covers a time period from March 3rd, 2018 when the channel was created, until December 19th, 2021, the last day of data collection. By the beginning of June 2022, the channel had around 52.900 subscribers. 
 
-%The dates of the collected messages range between March 3rd, 2018 and December 19th, 2021 (last day included in the data collection process). 
 The channel thus existed long before the COVID-19 pandemic. However, an analysis of message frequencies over time clearly shows the channel gained significant momentum in spring 2020, at the beginning of the pandemic in Germany (see figure \ref{fig:message_count}).
 
 \begin{figure}[H]
@@ -26,144 +21,31 @@ The channel thus existed long before the COVID-19 pandemic. However, an analysis
   \label{fig:message_count}
 \end{figure}
 
-% qualitative exploration of data:  - origin of channel?
-%early messages (before pandemic): 
-%- AfD, anti-immigration, Kandel, Gelbwesten
-%- racist and antisemitic
-%- against `mass immigration'
-%- focus on violence by immigrants
-%- lying press
-%- remembrance of German victims in WWII (`Bombenopfer'), self-victimization
-%- pegida
-%- landwirte gegen die politik der grünen
-%- Julian Assange
-%- against compulsary vaccinations (not COVID), Robert F. Kennedy jr.
-%- GEGEN REPRESSION UND GROSSEN AUSTAUSCH
-%- gegen USA (zB Ramstein airbase, drohnen, militärtransporte durch DE)
-%- Dresden Gedenken, Rheinwiesenlager
-
-%``2019-09-01 11:01:38
-%Wir sehen uns auf der Straße ! Demos sind die ideale Gelegenheit , seinen Unmut gegen die herrschende Politik , die kein Interesse mehr am Volk hat ( zum Ausdruck zu bringen . Hier lernt man vor allem Gleichgesinnte kennen , kann sich untereinander austauschen . Das Ziel bleibt , die Rechtsstaatlichkeit in der Bananenrepublik wiederherzustellen . Dazu gehört , dass in diesem Kanal keine Propaganda von Klima-Nazis ( Buntfaschisten und steuerfinanzierten Gefährdern der freiheitlich-demokratischen Grundordnung ( z.B. geteilt wird . Natürlich lehnen unsere Demoteilnehmer Nazi-Methoden der Terror-SA-Nachfolgeorganisation Antifa entschieden ab wie die durch Zwangsgebühren erpresste faschistische Propaganda von ARD und ZDF des Beitragsservice . Geteilt werden hier auch Demoankündigungen gegen die von Faschisten installierten Atomwaffen und durchgeführten Drohnenkriege von deutschem Boden aus . Grundsätzlich ist jede Form der Zionisierung , die die durch Migration massiv verstärkte Islamisierung zur Folge hat , abzulehnen . Hilfe an Hungernde hat grundsätzlich Vorrang gegenüber der faschistischen Deportation von wohlgenährten , jungen Männern nach und später vielleicht wieder Auschwitz . Menschen , die in Küstennähe ins Wasser gefallen sind , sind grundsätzlich zu retten und dort wieder an das nächste sichere Ufer an Land zu bringen , um ihr Leben und das von Nachahmern faschistischer Ideologien zu retten . Unsere Teilnehmer stehen zum Menschen- nach Artikel 5 im Grundgesetz . für das 5G-Netz und die des Regenwaldes zugunsten faschistischer , weltherrschaftlicher Ziele sind ebenso abzulehnen wie der faschistische Lobbyismus zum Impfzwang . Überall da , wo die feige , vermummte Antifa sein müsste , statt Faschisten die Rosetten zu lecken , sind wir da ! Soziale Ausgrenzung , Verbreitung von Hass und Hetze gegen Andersdenkende durch Stasi-Nazi-Faschisten nach Gleichmacher-Gleichschaltungs-Gleichschritt-Hitler-Vorbild liegt uns ebenso fern wie die Anwendung von Gewalt zugunsten der Diener des Faschismus in Parteien , Kirchen , Gewerkschaften , Stiftungen und EU-Reichs-Propagandamedien ARD und ZDF , die vor allem die stark wachsende Verarmung der Bevölkerung im reichen Fascho-Deutschland zur Folge hat , wogegen sich die auch Aktivisten wenden . Bei den Demos wollen wir überall und flächendeckend vor allem den Druck gegenüber der herrschenden Kaste aufbauen , den Menschen , die sich noch in der Wohlfühlblase und im Arschkriechermodus befinden zeigen , dass wir dennoch da sind ! Zu uns passende Demos bitte mitteilen . Bildet Fahrgemeinschaften , denn zusammen sind wir stark . Vernetzt euch , trefft einander . Das geht nirgendwo besser als auf der Straße . Dort erfährt man auch von weiteren ( geschlossenen ) und außerhalb der Demos .''
-
 \subsection{Text Cleaning}
 Text cleaning was restricted to an absolute minimum to make the corpus reflect a realistic sample of user-generated texts. Besides the removal of newline characters, compound hashtags were split up into separate hashtags (e.g. transforming \#food\#delicious into \#food \#delicious). 
 
 \textit{@user\_mentions} and \textit{\#hashtags} were included as whole sequences, same as sequences containing in-word hyphens. URLs and emojis were included as well. The capitalization of words was retained. For tokenization, the tokenizer of the German medium-size spaCy model was applied with a customized token match pattern.\footnote{For implementation details, see \url{https://github.com/eli-quereli/ner-german-telegram/blob/main/src/notebooks/preprocessing/v02_preprocessing.ipynb}.} 
 Text cleaning resulted in empty rows for some documents. After removing these emtpy rows and text duplicates, 27,627 messages remained for sample selection. 
-%The following code parts were applied to all rows in the dataset, storing the results in a separate \verb|cleaned_text| column:
 
-%\begin{python}
-%import re
-%import spacy
-%from spacy.tokenizer import _get_regex_pattern
-%
-%def preprocess_text(s, nlp):
-%    # remove newlines
-%    s = ' '.join(s.split())
-%    # split up compound hashtags, e.g. #food#delicious
-%    s = re.sub(r'#', r' #', s)
-%    doc = nlp(s)
-%    # tokenize keeping all tokens, no removal of emojis
-%    words = [token.text for token in doc]
-%    # join tokens back together
-%    result = " ".join(words)
-%    #replace duplicate whitespaces
-%    result = re.sub(r'  ', '', result)
-%    return result
-%\end{python}
-
-%\begin{python}
-%from datetime import datetime
-%
-%ts_before = datetime.now()
-%df['cleaned_text'] = df['text'].apply(lambda x: preprocess_text(x, nlp) if len(x)> 0 else None)
-%ts_after = datetime.now()
-%print(f"Took {ts_after - ts_before}")
-%print(len(df), "rows remaining.")	
-%\end{python}
-%
-%
-%\begin{verbatim}
-%Output:
-%Took 0:03:43.779192
-%27627 rows remaining.
-%\end{verbatim}
-
-%some general and some Telegram- / channel-specific cleaning and preprocessing steps - removal of user mentions, might refer to named entities, e.g. telegram channels run by / named after persons
-%- but: explorations of models showed that this confuses models; also: mentions can easily be extracted from text via regex via the \@ at the beginning, and are unambiguous, 100\% accuracy can be achieved using regular expressions
-%- removal of urls: might contain strings containing named entities, confuse models
-%- removal of sensitive information (bank account details in the form of IBANs), be able to make labeled data publicly available
-%- normalization of unicode strings
-%- removal of emojis
-%- keep umlauts (German language)
-%- removal of footer texts ('Raus auf die Straßen')
 
 \subsection{Sample Selection}
 The following steps were carried out for sample selection:\footnote{For implementation details, see \url{https://github.com/eli-quereli/ner-german-telegram/tree/main/src/notebooks/data_selection}.} 
-To be able to focus on German-language messages, I used the \verb|langdetect| package \verb|langdetect| to all messages. Results show that German content is clearly the predominant language with $\sim83\%$ (22.803 messages), followed by English ($\sim3.8\%$, 3.823 messages), and then French, Italian, and Dutch with less than 1\% each. Language detection was sometimes flawed for mixed-language texts. These were removed manually when encountered in the annotation process.  
-%\begin{figure}[H]
-%\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/languages.png}
-%\caption{Five most frequent languages}
-%  \label{fig:language_count}
-%\end{figure}
+To be able to focus on German-language messages, I used the \verb|langdetect| package \verb|langdetect| to all messages. Results show that German content is clearly the predominant language with $\sim83\%$ (22.803 messages), followed by English ($\sim3.8\%$, 3.823 messages), and then French, Italian, and Dutch with less than 1\% each. Language detection was sometimes flawed for mixed-language texts. Mixed-language messages were removed manually in the annotation process.  
+
 After constraining the dataset to German-language texts, 22,803 messages remained, out of which texts with minimum length of 100 characters were selected, resulting in 14,605 remaining messages.
-%An exploration of the text length of all German-language messages shows that the messages have a median text length of 207 characters, and 75\% of the messages have a text length of up to 400 characters. The minimum text length is 5 characters, the longest text consists of 4458 characters. 
-%\begin{figure}[H]
-%\includegraphics[keepaspectratio]{images/text_length_descr.png}
-%\caption{Descriptive statistiscs for text length of all German-language messages in dataset}
-%  \label{fig:text_length_descr}
-%\end{figure}
-%Considering these insights, only messages consisting of at least 100 characters were selected (20.105 messages remaining). 
-Out of these, I selected twenty percent as a random sample, resulting in 4,021 messages. Since earlier findings in the context of our research project `Digitaler Hass'  revealed that Telegram channels often contain a rather high number of very similar messages, I removed such similar messages based on Levenshtein distance with a treshold of 0.8, resulting in 3,095 remaining messages.
 
-%\begin{python}
-%import Levenshtein as lev
-%import pandas as pd
-%from datetime import datetime
-%from itertools import combinations
-%
-%
-%	def get_levenshtein_results(df, column='cleaned_text'):
-%    lev_df = pd.DataFrame() 
-%    new_df = pd.DataFrame(combinations(df[column],2), columns=["text_1", "text_2"]) 
-%    new_df["lev_score"] = new_df.apply(lambda x: lev.ratio(x[0],x[1]), axis=1) 
-%    lev_df = pd.concat([lev_df, new_df], axis=0).reset_index(drop=True)
-%    return lev_df
-%
-%    
-%def get_message_ids(df, column='message_id'):
-%    lev_df_ids = pd.DataFrame() 
-%    new_df_ids = pd.DataFrame(combinations(df[column],2), columns=["message_id_1", "message_id_2"]) 
-%    lev_df_ids = pd.concat([lev_df_ids, new_df_ids], axis=0).reset_index(drop=True)
-%    ts_after = datetime.now()
-%    return lev_df_ids
-%
-%
-%def combine_levenshtein_results_with_message_ids(lev_df, lev_df_ids):
-%    levs = pd.DataFrame()
-%    levs = pd.concat([lev_df,lev_df_ids], axis=1)
-%    ts_after = datetime.now()
-%    return levs
-%
-%
-%def remove_similar_messages(lev_ids_df, sample_df, treshold): 
-%    second_ids = lev_ids_df[lev_ids_df['lev_score'] >= treshold].message_id_2.tolist()
-%    ids_to_drop = list(set(second_ids))
-%    result_df = sample_df[~sample_df.message_id.isin(ids_to_drop)]
-%    return result_df
-%\end{python}
+Out of these, I selected twenty percent as a random sample, resulting in 4,021 messages. Since earlier findings in the context of the research project `Digitaler Hass' had revealed that Telegram channels often contain a rather high number of very similar messages, I removed such similar messages based on Levenshtein distance with a treshold of 0.8, resulting in 3,095 remaining messages.
 
-%A treshold of 0.8 was defined. If the Levensthein score between for a pair of messages was greater than or equal to this treshold, the second message was removed from the sample. 
-While defining a minimum length for the sample seems reasonable, because the selected texts are likely to be comprehensible and contain a relevant number of entities, this constraint does not reflect the fact that social media texts are often of very short length. In fact, almost 50\% of the messages were shorter than 100 characters. To create a realistic sample, I included some of these short texts as well, using the same procedure as described above, except for the sampling size which was 50\% instead of 20\%. After random sampling and removing similar messagess, 540 short messages remained and were added to the first sample. 
+While defining a minimum length for the sample messages seems reasonable because the selected texts are then more likely to be comprehensible and contain a relevant number of entities, this constraint does not reflect the fact that social media texts are often of very short length. In fact, almost 50\% of the messages were shorter than 100 characters. To create a realistic sample, I included some of these short texts as well, using the same procedure as described above, except for the sampling size which was 50\% instead of 20\%. After random sampling and removing similar messagess, 540 short messages remained and were added to the first sample, resulting in a total sample of 3,599 messages.
 
 \subsection{Annotation}
-Data annotation turned out to be one the most challenging tasks of my project. First of all, existing annotation schemes for NER vary greatly in terms of the detailedness and precision of provided definition, the considered entity types, their granularity, and last but not least in how they handle social media-specific phenomena like user mentions, urls, or hashtags.\footnote{An extremely tentative example is the annotation guide for the \gls{wnut} 2015 shared task on \gls{ner} in tweets: \url{https://docs.google.com/document/d/12hI-2A3vATMWRdsKkzDPHu5oT74_tG0-PPQ7VN0IRaw/edit}.}
+Data annotation turned out to be one the most challenging tasks of my project. First of all, existing annotation schemes for \gls{ner} vary greatly in terms of the detailedness and precision of provided definition, the considered entity types, their granularity, and last but not least in how they handle social media-specific phenomena like user mentions, urls, or hashtags.\footnote{An extremely tentative example is the annotation guide for the \gls{wnut} 2015 shared task on \gls{ner} in tweets: \url{https://docs.google.com/document/d/12hI-2A3vATMWRdsKkzDPHu5oT74_tG0-PPQ7VN0IRaw/edit}.}
 
-I decided to create my own annotation scheme including entity type definitions, detailed instructions and a number examples to ensure consistent annotations also for ambiguous cases. The full annotation schema and guide can be found in the appendix (\ref{cha:annotation_guide}). The tag set covers the six entity types person, location, organization, time, date and action and follows the BIO tagging scheme (see section \ref{sec:bio_tagging}). 
-I used Labelstudio\footnote{https://labelstud.io/} for annotation. The O-tag was assigned automatically to all tokens left unlabeled.\footnote{For implementation details, see \url{https://github.com/eli-quereli/ner-german-telegram/blob/main/src/notebooks/4.2_training/01_prepare_datasets/prepare_telegram_annotation_results.ipynb}}
+I decided to create my own annotation scheme including entity type definitions, detailed instructions and a number examples to ensure consistent annotations also for ambiguous cases. The full annotation schema and guide can be found in the appendix (\ref{cha:annotation_guide}). The tag set covers the six entity types person, location, organization, time, date and action and follows the BIO tagging scheme (see section \ref{ssec:bio_tagging}). 
+I used the open source tool Labelstudio for annotation \footnote{https://labelstud.io/}. The \verb|O| tag was assigned automatically to all tokens left unlabeled at the end of the annotation process.\footnote{For implementation details, see \url{https://github.com/eli-quereli/ner-german-telegram/blob/main/src/notebooks/4.2_training/01_prepare_datasets/prepare_telegram_annotation_results.ipynb}}
 
 \subsection{Telegram Corpus Statistics}
-Due to limited time and resources, I did not annotate the whole sample. The final annotated corpus consists of 500 documents including 2,509 annotated named entities. 
+Due to limited time and resources, I did not annotate the whole sample of 3,599 messages. The final annotated corpus consists of 500 documents including 2,509 annotated named entities. 
 Table \ref{tab:tg_corpus_stats} shows the distribution of the different entity types after the train-test-validation split. Locations are by far the most often mentioned entity types ($\sim$51\%), followed by dates ($\sim$17\%), and action mentions ($\sim$12\%). Person names occur least frequently. 
 
 \begin{table}[h]
@@ -183,14 +65,13 @@ Table \ref{tab:tg_corpus_stats} shows the distribution of the different entity t
 \end{table}
 
 \section{The DFKI Smartdata Corpus}
-Compared to other \gls{ner} datasets, the Telegram corpus is of very small of size. The GermEval 2014 corpus for example consists of 31,300 sentences containing more than 41.000 named entities (cf. \cite{benikova2014germeval}. 
+Compared to other \gls{ner} datasets, the Telegram corpus is of very small of size. The GermEval 2014 corpus for example consists of 31,300 sentences containing more than 41.000 named entities (cf. \cite{benikova2014germeval}). 
 However, creating a larger corpus would have required more resources for annotation. I therefore extended my dataset by adapting the Smartdata corpus (\cite{schiersch_2018}) for my task. 
 
-%\subsection{Corpus Description}
 The Smartdata corpus consists of 2,598 German-language manually annotated documents which were sampled from online resources covering three genres: newswire texts, Twitter, and traffic reports via RSS feeds from radio stations, police and railway companies. The dataset contains a total of 22,075 named entities and is available under a permissive CC-BY 4.0 license (cf. \cite{schiersch_2018}). 
 
-Even though still relatively small-sized compared to standard \gls{ner} datasets, the corpus is useful for my purpose for two reasons: 
-The corpus is designed for the recognition of events and therefore considers time and date mentions as named entities. Second, it was created from online documents and is thus more similar to the Telegram corpus than standard newswire corpora for \gls{ner}. 
+Even though still relatively small-sized compared to standard \gls{ner} datasets, the corpus is very useful for my purpose for two reasons: 
+First, it is designed for the recognition of events and therefore considers time and date mentions as named entities. Second, it was created from online documents and is thus more similar to the Telegram corpus than standard newswire corpora for \gls{ner}. 
 
 However, the tag set of the corpus is not readily combinable with the Telegram corpus, since the Smartdata corpus is based on a (partially) fine-grained annotation scheme, tagging organization mentions as organization or organization-company, and location mentions as either location, location-city, location-street, location-route, or location-stop. Furthermore, the dataset contains a number of entity types irrelevant for my task such as duration, distance, disaster type, or trigger events, while the entity type action from the Telegram corpus is missing. Last but not least, given the fact that the two corpora were annotated separately, annotation inconsistencies are likely to exist and negatively affect model training. 
 
@@ -223,7 +104,7 @@ Combining the Telegram corpus and the adjusted Smartdata corpus resulted in a to
 
 %In order to use both datasets for training a custom transformer model, I created datasets compatible with Hugging Face Transformers for both datasets separately.\footnote{For implementation details see: \url{https://github.com/eli-quereli/ner-german-telegram/tree/main/src/notebooks/4.2\_training/01\_prepare_datasets}.} For combined training, I concatenated the respective training and validation splits, shuffling the training data before training.  
 
-Locations make up for almost half of all entities ($\sim$48\%) in the combined corpus, followed by organizations ($\sim$24\%), and date mentions ($\sim$13\%). Less frequently mentioned are persons ($\sim$8\%), and times ($\sim$5\%). Action mentions make up for less than 2\%, resulting from the absence of this entity type in the Smartdata corpus. The dataset is thus heavily imbalanced which is known to negatively affect training.
+Locations make up for almost half of all entities ($\sim$48\%) in the combined corpus, followed by organizations ($\sim$24\%), and date mentions ($\sim$13\%). Less frequently mentioned are persons ($\sim$8\%), and times ($\sim$5\%). Action mentions make up for less than 2\%, resulting from the absence of this entity type in the Smartdata corpus. 
 
 \begin{table}[ht]
 \caption{Distribution of entities in the final corpus}
@@ -245,10 +126,10 @@ Locations make up for almost half of all entities ($\sim$48\%) in the combined c
 I fine-tuned five different pretrained transformer models from the three different encoder model architectures BERT, DistilBERT, and XLM-R. The models differ not only in terms of their architecture, but also regarding size, sources, and languages of the corpora used for pre-training. 
 
 \subsection{BERT Models}
-BERT models are language models pretrained on the tasks of masked language modeling and next sentence prediction (cf. \cite{devlin_2018}). I selected two German-language BERT models for fine-tuning: 
+BERT models are language models pretrained on the tasks of \gls{mlm} and \gls{nsp} (cf. \cite{devlin_2018}). I selected two German-language BERT models for fine-tuning: 
 
 \subsubsection{dbmdz/bert-base-german-uncased}
-This model is a German-language model pretrained on 16GB of data taken from Wikipedia, but also large online corpora created via web crawlers. I used the uncased version of the model, meaning that the model does not consider capitalization of words, since capitalization in user-generated text data is often unreliable (see section\ref{sec:challenges_user_generated_texts}). 
+This model is a German-language model pretrained on 16GB of data taken from Wikipedia, but also large online corpora created via web crawlers. I used the uncased version of the model (meaning that the model does not consider capitalization of words), since capitalization in user-generated text data is often unreliable (see section \ref{sec:challenges_user_generated_texts}). 
 The cased version of the model was evaluated for \gls{ner} fine-tuning on the \gls{conll} 2003 and GermEval2014 datasets, achieving F1 scores of 84.52 and 86.89.\footnote{See \url{https://github.com/stefan-it/fine-tuned-berts-seq}, accessed on 2022/06/08.} 
 
 Model card: \url{https://huggingface.co/dbmdz/bert-base-german-uncased}
@@ -263,15 +144,15 @@ Model card: \url{https://huggingface.co/deepset/gbert-base}
 DistilBERT models are distilled version of BERT models, which allow faster training and require less memory, while achieving accuracy close to regular BERT models (cf. \cite[80]{tunstall_natural_2022}).
 
 \subsubsection{distilbert-base-multilingual-cased}
-This model is a distilled version of a multilingual BERT model, pretrained on a masked language modeling task using a concatenation of Wikipedia in 104 languages. It is reported to be twice as fast as its BERT counterpart.\footnote{\url{https://huggingface.co/distilbert-base-multilingual-cased}, accessed on 2022/06/08.} The model is cased and thus considers capitalization. Evaluation results for \gls{ner} fine-tuning are not provided. 
+This model is a distilled version of a multilingual BERT model, pretrained on a \gls{mlm} task using a concatenation of Wikipedia in 104 languages. It is reported to be twice as fast as its BERT counterpart.\footnote{\url{https://huggingface.co/distilbert-base-multilingual-cased}, accessed on 2022/06/08.} The model is cased and thus considers capitalization. Evaluation results for \gls{ner} fine-tuning are not provided. 
 
 Model card: \url{https://huggingface.co/distilbert-base-multilingual-cased}
 
 \subsection{XLM-Roberta Models}
-RoBERTa models modify the pretraining scheme of BERT models by dropping the task of next sentence prediction, and are trained longer and with more training data. This has shown to improve results compared to original BERT models (cf. \cite[80]{tunstall_natural_2022}). XLMs are cross-lingual language models. Their pretraining includes inputs from multiple languages, and extends the masked language modeling task to translation language modeling (cf. \cite[80]{tunstall_natural_2022}). XLM-Roberta models combine these two approaches by performing multilingual pretraining with large amounts of training data (cf. \cite[80]{tunstall_natural_2022}).
+RoBERTa models modify the pretraining scheme of BERT models by dropping the task of \gls{nsp}, and are trained longer and with more training data. This has shown to improve results compared to original BERT models (cf. \cite[80]{tunstall_natural_2022}). XLMs are cross-lingual language models. Their pretraining includes inputs from multiple languages, and extends the \gls{mlm} task to translation language modeling (cf. \cite[80]{tunstall_natural_2022}). XLM-Roberta models combine these two approaches by performing multilingual pretraining with large amounts of training data (cf. \cite[80]{tunstall_natural_2022}).
 
 \subsubsection{xlm-roberta-base}
-This model was pretrained on 2.5TB of webcrawled data covering more than 100 languages (cf. \cite{xlm_roberta}. It was evaluated for \gls{ner} fine-tuning on the \gls{conll} 2002 and \gls{conll} 2003 datasets, achieving an F1-score of 84.60 for German when fine-tuned on each language set separately (cf. \cite{xlm_roberta}).
+This model was pretrained on 2.5TB of webcrawled data covering more than 100 languages (cf. \cite{xlm_roberta}). It was evaluated for \gls{ner} fine-tuning on the \gls{conll} 2002 and \gls{conll} 2003 datasets, achieving an F1-score of 84.60 for German when fine-tuned on each language set separately (cf. \cite{xlm_roberta}).
 
 Model card: \url{https://huggingface.co/xlm-roberta-base} 
 
@@ -291,7 +172,7 @@ Defining an appropriate baseline for my task is difficult due to a various reaso
 
 % Furthermore, the evaluation results differ for the different model architectures used, making it questionable whether it is suitable to evaluate e.g. a BERT-based model against a the F1-score of an XLM-R-based model. 
 
-The shared tasks on social media \gls{ner} described in \ref{sec:shared_tasks_sm} are roughly comparable to my setup in terms of corpus size, genre, and number of classes. However, all systems used in them represent outdated approaches to \gls{ner}. This fundamentally limits the comparability of their results with my findings. 
+The shared tasks on social media \gls{ner} described in section \ref{sec:shared_tasks_sm} are roughly comparable to my setup in terms of corpus size, genre, and number of classes. However, all systems used in them represent outdated approaches to \gls{ner}. This fundamentally limits the comparability of their results with my findings. 
 
 I decided to focus on state of the art results. Hence I will use the F1 score of the \verb|deepset/gbert-base| model fine-tuned on the GermEval 2014 corpus. My baseline is thus F1=87.98.
 
@@ -318,90 +199,22 @@ The following implementation steps for \gls{ner} fine-tuning were adapted from \
 
 \subsection{Preprocessing: Tokenization and Encoding}
 \label{sec:tokenization_and_encoding}
-%Like other neural networks (or any other machine learning models in general), transformer models cannot process raw strings, but require tokenized and encoded (i.e. vectorized) representations of textual data as input (cf. \cite[29]{tunstall_natural_2022}). This is done in the first part of the pipeline via a tokenizer. 
-%Tokenization basically refers to the act of breaking down a string into single units. There are different tokenization strategies ranging from character-based over subword-based to word-based tokenization (cf. \cite[29]{tunstall_natural_2022}). 
 
 Tokenizers for transformer models takes care of several pre-processing steps including normalization, pretokenization, subword tokenization, and post-processing (cf. \cite[94-95]{tunstall_natural_2022}).  
-Transformer models rely on subword tokenization, combining character- und word-based tokenization by splitting up words rarely occurring in the training data  into smaller units and retaining frequent words as a whole. This allows to handle complex words and misspellings, but at the same time keep the input length at a processable size (cf. \cite[33]{tunstall_natural_2022}). 
-During pretraining, different algorithms such as WordPiece, Byte-Pair Encoding (BPE), or SentencePiece are applied to the training data, allowing the model to learn which words should be split up further (cf. \cite{huggingface_tokenizers}). 
-Tokenizers for my experiments were loaded via the \verb|from_pretrained()| method of the \verb|AutoTokenizer| class.
 
-%\begin{python}
-%from transformers import AutoTokenizer
-%model_name = 'deepset/gbert-base'
-%tokenizer = AutoTokenizer.from_pretrained(model_name) 
-%\end{python}
+Transformer models rely on subword tokenization, combining character- und word-based tokenization by splitting up words rarely occurring in the training data  into smaller units and retaining frequent words as a whole. This allows to handle complex words and misspellings, but at the same time keep the input length at a processable size (cf. \cite[33]{tunstall_natural_2022}). 
+During pretraining, different algorithms such as WordPiece, Byte-Pair Encoding (BPE), or SentencePiece are applied to the training data, allowing the model to learn which words should be split up further (cf. \cite{huggingface_tokenizers}). This requires to select a tokenizer for fine-tuning which matches the tokenization learned during pretraining. Tokenizers for my experiments were thus loaded via the \verb|from_pretrained()| method of the \verb|AutoTokenizer| class.
 
 \subsubsection{Label alignment for tokenized inputs}
-While the tokenizer splits up the input strings into subwords, the named entity tags in the training corpus are usually assigned to entire words. Therefore we need to take care of aligning the tags with their corresponding subtokens. 
+While the tokenizer splits up the input strings into subwords, the named entity tags in the training corpus are usually assigned to entire words. Therefore, labels need to be aligned with their corresponding subtokens. This can be achieved using the unique \verb|word_id| assigned to each word in the input, which is also assigned to all subtokens of a word. 
 
-Every word in the input is assigned a unique \verb|word_id|. This \verb|word_id| also assigned to all corresponding subtokens. We can therefore use this id for label alignment. Subword tokenization also needs to be considered for later evaluation, since the loss function of the model needs to know how to handle subtokens. My implementation follows \citeauthor{tunstall_natural_2022} and only considers the first subtoken of a word for calculating the loss. This can be implemented by assigning the value -100 as \verb|label_id| to all subtokens which have the same \verb|word_id| as their predecessor. This tells the cross entropy loss function to ignore these subtokens, hence only the model's prediction for the first subtoken of a word will be considered (cf. \cite[104]{tunstall_natural_2022}).  
+Subword tokenization also needs to be considered for later evaluation, since the loss function of the model needs to know how to handle subtokens. My implementation follows \citeauthor{tunstall_natural_2022} and only considers the first subtoken of a word for calculating the loss. This can be implemented by assigning the value -100 as \verb|label_id| to all subtokens which have the same \verb|word_id| as their predecessor. This tells the cross entropy loss function to ignore these subtokens, hence only the model's prediction for the first subtoken of a word will be considered (cf. \cite[104]{tunstall_natural_2022}).  
+
 I used \verb|is_split_into_words=True| to tell the tokenizer that the input data is already tokenized. Shorter inputs were padded, longer inputs were truncated to the maximum length of the respective model. 
 
-%\begin{minipage}{\textwidth}
-%\begin{python}
-%def tokenize_and_align_labels(examples):
-%    tokenized_inputs = tokenizer(
-%        examples['tokens'], 
-%        padding='max_length',
-%        truncation=True, 
-%        is_split_into_words=True
-%    )    
-%    labels = []
-%    
-%    for idx, label in enumerate(examples['ner_tags']):
-%        word_ids = tokenized_inputs.word_ids(batch_index=idx)
-%        previous_word_idx = None
-%        label_ids = []
-%        for word_idx in word_ids:
-%            if word_idx is None or word_idx==previous_word_idx:
-%                label_ids.append(-100)
-%            else: 
-%                label_ids.append(label[word_idx])
-%            previous_word_idx = word_idx
-%        labels.append(label_ids)
-%    tokenized_inputs['labels'] = labels
-%    return tokenized_inputs
-%\end{python}
-%\end{minipage}
+After preprocessing and encoding, the dataset includes numerical \verb|input_ids|, representing the input tokens, and numerical \verb|labels|, representing the corresponding named entity tags, as shown in figure \ref{fig:encoded_ds}. The tokenizer has also returned an \verb|attention_mask| for each input document, telling which token should be attended and which not (cf. \cite{huggingface_attention_mask}). Furthermore, the tokenizer created \verb|token_type_ids|. These are not relevant for my task, but used for tasks in which an input contains two sequences, e.g. for question answering or tasks involving sentence pairs such as next sentence prediction. In these cases,  the \verb|token_type_ids| tell the model to which of the two sequences a token belongs (cf. \cite{huggingface_token_type_ids}). 
 
-
-%We can see above that besides the input tokens, some additional arguments are passed to the tokenizer. These arguments tell the tokenizer that the input texts is already split into separate tokens via \verb|is_split_into_words=True|. Furthermore, since transformer models operate with fixed-size vector representations of inputs (called tensors), the tokenizer needs to be told how to handle inputs of different length. Truncation deals with long inputs by truncating them to the maximum length accepted by a given model (e.g. 512 tokens for BERT models). 
-%Padding on the other hand deals with shorter input sequences by adding a special padding token until the defined length (here: maximum length accepted by the model) is reached (cf. \cite{huggingface_pad_trunc}). 
-
-%I used the \verb|map()| method of the Hugging Face Datasets library for encoding the respective dataset. In this step, unnecessary columns are also removed. We encode both the training and the validation split since we need the validation set in its encoded form for evaluating the training results:  
-%
-%\begin{python}
-%def encode_dataset(corpus, columns_to_remove=['ner_tags', 'tokens', 'ner_tags_str']):
-%    return corpus.map(tokenize_and_align_labels, 
-%                      batched=True,
-%                      remove_columns=columns_to_remove)
-%\end{python} 
-%
-%We can now load the prepared Telegram corpus and the adjusted Smartdata corpus from disk. 
-
-%\begin{python}
-%smartdata = load_from_disk('/home/eli/data/data_prepared_for_tf/smartdata/')
-%telegram = load_from_disk('/home/eli/data/data_prepared_for_tf/telegram_train_test_valid/')
-%\end{python}
-
-%For fine-tuning with separate datasets, we can simply use the \verb|encode_dataset()| method. For fine-tuning with the combined datasets, we first need to concatenate the respective training and validation splits, and then encode them. Note that the training split is being shuffled before training to randomly rearrange its values, thus ensuring that there is no unintended ordering in the data which might affect the model training). 
-
-%\begin{python}
-%train_ds = concatenate_datasets([smartdata['train'], telegram['train']])
-%train_ds = train_ds.shuffle(seed=42)
-%
-%eval_ds = concatenate_datasets([smartdata['validation'], telegram['validation']])
-%\end{python}
-%
-%Finally, we can tokenize and encode both splits: 
-%\begin{python}
-%train_encoded = encode_dataset(train_ds)
-%eval_encoded = encode_dataset(eval_ds)	
-%\end{python}
-
-After preprocessing and encoding, the dataset includes numerical \verb|input_ids|, representing the input tokens, and numerical \verb|labels|, representing the corresponding named entity tags, as shown in figure \ref{fig:encoded_ds}. The tokenizer has also returned an \verb|attention_mask| for each input document, telling which token should be attended and which not (cf. \cite{huggingface_attention_mask}). 
-Furthermore, the tokenizer created \verb|token_type_ids|. These are not relevant for my task, but used for tasks in which an input contains two sequences, e.g. for question answering or tasks involving sentence pairs such as next sentence prediction. In these cases,  the \verb|token_type_ids| tell the model to which of the two sequences a token belongs (cf. \cite{huggingface_token_type_ids}). We now have encoded our textual input, consisting of tokens and labels, into a numerical input which can be processed by the model. 
+This encoded, numerical representation of the textual input, consisting of tokens and labels, can now be processed by the model. 
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/encoded_ds.png}
@@ -410,17 +223,7 @@ Furthermore, the tokenizer created \verb|token_type_ids|. These are not relevant
 \end{figure}
 
 \subsection{Loading and Configuring a Model}
-As a next step, we need to load the model and adjust its configuration to make it fit our dataset. We do this by loading the \verb|AutoConfig| of the pretrained model and handing over the number of labels (\verb|num_labels|)in our dataset as well as the mapping between numerical and textual labels, defined as (\verb|id2label|) and (\verb|label2id|). Since \gls{ner} fine-tuning is about classification of single tokens for \gls{ner}, we choose a model for token classification. 
-
-%\begin{python}
-%from transformers import AutoConfig
-%model_config = AutoConfig.from_pretrained(model_name, num_labels=tags.num_classes, id2label=index2tag, label2id=tag2index)
-%\end{python}
-
-%\begin{python}
-%from transformers import AutoModelForTokenClassification
-%model = AutoModelForTokenClassification.from_pretrained(model_name, config=model_config)
-%\end{python} 
+The next step consists of loading a model and adjusting its configuration to make it fit the dataset. This can be done by loading the \verb|AutoConfig| of the pretrained model and handing over the number of labels (\verb|num_labels|) in the dataset, as well as the mapping between numerical and textual labels, defined as (\verb|id2label|) and (\verb|label2id|). Since \gls{ner} fine-tuning is about classification of single tokens for \gls{ner}, I choose a model for token classification.  
 
 \subsection{Defining Training Arguments}
 The following training arguments were defined for all models and datasets (some arguments for logging and saving the model are omitted): 
@@ -442,109 +245,14 @@ By \verb|NUM_EPOCHS| we define how many times the model will work through the wh
 
 \verb|WEIGHT_DECAY| is used as one out of many regularization technique to prevent overfitting. I also defined a \verb|CALLBACK| to implement early stopping during training. Callbacks can be used to customize the training behaviour of transformer models and take decisions during training. Here, the decision is to stop if the provided \verb|METRIC_FOR_BEST_MODEL| deteriorates the third time in a row, defined via \verb|early_stopping_patience=3|. I used the model's loss on the validation set as reference metric for early stopping and loading the best model at the end of the training process. 
 
-%Training will then be stopped, and the last best model, defined via the loss on the validation set (\verb|metric_for_best_model|) will be loaded. The remaining parameters define logging and evaluation details. 
-%To obtain comparable results, all experiments were trained with the same training arguments.  
-
-%\begin{python}
-%from transformers import EarlyStoppingCallback
-%BATCH_SIZE = 2
-%LOGGING_STRATEGY='epoch'
-%OUTPUT_DIR = f'../../../../../models/{model_name}-{dataset_name}-{NUM_EPOCHS}_epochs' # only for first experiments
-%OVERWRITE_OUTPUT_DIR = True 
-%LOG_LEVEL = 'error'
-%EVALUATION_STRATEGY = 'epoch'
-%SAVE_STRATEGY ='epoch'
-%WEIGHT_DECAY = 0.01 # The weight decay to apply (if not zero) to all layers except all bias and LayerNorm weights in AdamW optimizer.
-%CALLBACK = EarlyStoppingCallback(early_stopping_patience=3)
-%LOAD_BEST_MODEL_AT_END = True,
-%METRIC_FOR_BEST_MODEL='eval_loss'
-%\end{python}
-
-%Using these training arguments, we can create a \verb|TrainingArguments| object. 
-
-%\begin{python}
-%from transformers import TrainingArguments
-%
-%training_args = TrainingArguments(
-%    output_dir=OUTPUT_DIR, 
-%    overwrite_output_dir=OVERWRITE_OUTPUT_DIR, 
-%    log_level=LOG_LEVEL, 
-%    num_train_epochs=NUM_EPOCHS,
-%    per_device_train_batch_size=BATCH_SIZE,
-%    per_device_eval_batch_size=BATCH_SIZE, 
-%    evaluation_strategy=EVALUATION_STRATEGY,
-%    save_strategy=SAVE_STRATEGY,
-%    weight_decay=WEIGHT_DECAY,
-%    logging_strategy=LOGGING_STRATEGY,
-%    disable_tqdm=False,
-%    load_best_model_at_end=LOAD_BEST_MODEL_AT_END,
-%    metric_for_best_model=METRIC_FOR_BEST_MODEL)
-%\end{python}
-
 \subsubsection{Data Collator}
 I also used a data collator which takes care of padding for labels and inputs. Since padding was already carried out during tokenization and encoding, this can be understood as an alternative implementation.
-%\begin{python}
-%data_collator = DataCollatorForTokenClassification(tokenizer)	
-%\end{python}
 
 \subsection{Evaluation Metrics} 
-For evaluation purposes, I defined a method \verb|compute_metrics| which returns the F1 score, precision, recall, and accuracy per training epoch. Analogue to the process of label alignment in section \ref{sec:tokenization_and_encoding}, the model's predictions are aligned using the \verb|label_id| -100 for subtokens to be ignored by the loss function. 
-
-%\begin{minipage}{\linewidth}
-%\begin{python}
-%from seqeval.metrics import f1_score, precision_score, recall_score, accuracy_score
-%
-%def align_predictions(predictions, label_ids):
-%    preds = np.argmax(predictions, axis=2)
-%    batch_size, seq_len = preds.shape
-%    labels_list, preds_list = [], []
-%    
-%    for batch_idx in range(batch_size):
-%        example_labels, example_preds = [], []
-%        
-%        for seq_idx in range(seq_len):
-%            # Ignore label IDs = -100
-%            if label_ids[batch_idx, seq_idx] != -100:
-%                example_labels.append(index2tag[label_ids[batch_idx][seq_idx]])
-%                example_preds.append(index2tag[preds[batch_idx][seq_idx]])
-%        labels_list.append(example_labels)
-%        preds_list.append(example_preds)
-%        
-%    return preds_list, labels_list 
-%    
-%def compute_metrics(eval_pred):
-%    y_pred, y_true = align_predictions(eval_pred.predictions, 
-%                                       eval_pred.label_ids)
-%    
-%    f1 = f1_score(y_true, y_pred)
-%    precision = precision_score(y_true, y_pred)
-%    recall = recall_score(y_true, y_pred)
-%    accuracy = accuracy_score(y_true, y_pred)
-%    
-%    return {'f1': f1, 
-%            'precision': precision,
-%            'recall': recall,
-%            'accuracy': accuracy}
-%\end{python}
-%\end{minipage}
+For evaluation purposes, I defined a method \verb|compute_metrics| which returns the F1 score, precision, recall, and accuracy per training epoch. Analogue to the process of label alignment in section \ref{sec:tokenization_and_encoding}, the model's predictions are aligned, using the \verb|label_id| -100 for subtokens to be ignored by the loss function. 
 
 \subsection{Training}
 For training, I initialized a \verb|Trainer| object and passed the loaded model, the training arguments, the tokenizer, the data collator, the callback, and the encoded data splits for training and validation to it. 
-
-%\begin{python}
-%from transformers import Trainer
-%
-%trainer = Trainer(model=model, args=training_args, data_collator=data_collator, compute_metrics=compute_metrics, train_dataset=ds_encoded['train'], eval_dataset=ds_encoded['test'], tokenizer=tokenizer, callbacks=[CALLBACK])	
-%
-%trainer.train()	
-%\end{python}
-
-%I used \verb|Trainer|'s method \verb|create_model_card()| was used training arguments and evaluation results. 
-
-%\begin{python}
-%trainer.create_model_card()	
-%\end{python}
-%
 
 \section{Evaluation Results}
 The following section explores the results of fine-tuning the selected models on the two datasets separately, and on the final combined dataset. Recall the baseline is defined as F1=87.98. 
@@ -552,36 +260,22 @@ The following section explores the results of fine-tuning the selected models on
 Generally we can observe that for all experiments, training was stopped after a maximum of three epochs, in some cases already after one epoch, indicating that the validation loss starts to increase rather soon in all experiments.  This is not surprising given the rather small size of the provided data sets, which easily leads overfitting. 
 
 The defined baseline could not be reached or outperformed in any of my experiments.
-%Table \ref{tab:baselines} provides the baselines for orientation. Table \ref{tab:experiments_tg} contains the results from fine-tuning on the Telegram dataset. 
-Regarding the separate experimental setups, it can be observed that fine-tuning exclusively using the Telegram corpus overall yields the lowest results: None of the F1 scores increases 80.0 and are thus far from the baseline. The DistilBERT model achieves the lowest score with F1=64.81,  the German-language \textit{deepset/gbert-base} model performs best with F1=74.82. 
 
-%\begin{table}[htp]
-%\caption{Baselines}
-%\label{tab:baselines}
-%\centering
-%\begin{adjustbox}{max width=\textwidth}
-%\begin{tabular}{|p{0.05\linewidth}|p{0.5\linewidth}|p{0.2\linewidth}|}
-%\hline
-%\textbf{No.} & \textbf{Model} & \textbf{F1 score}\\ \hline 
-%1 & deepset/gbert-base (\cite{bert_german_2020}) & 87.98\\ \hline
-%2 & ousia (\cite{yamada-etal-2015-enhancing}) & 56.41 \\ \hline
-%\end{tabular}
-%\end{adjustbox}
-%\end{table}
+Regarding the separate experimental setups, it can be observed that fine-tuning exclusively using the Telegram corpus overall yields the lowest results: None of the F1 scores increases 80.0. The DistilBERT model achieves the lowest score with F1=64.81,  the German-language \textit{deepset/gbert-base} model performs best with F1=74.82. 
 
 \begin{table}[htp]
 \caption{Fine-tuning different models on Telegram corpus}
 \label{tab:experiments_tg}
 \centering
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{|p{0.7\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
-\hline
-\textbf{Model} & \textbf{F1 score} & \textbf{Validation Loss}& \textbf{Epoch}\\ \hline 
-\verb|distilbert-base-multilingual-cased| & 64.81 & 0.2910 & 1\\ \hline
-\verb|dbmdz/bert-base-german-uncased| & 74.40 & 0.2285 & 2 \\ \hline
-\verb|deepset/gbert-base| & \textbf{74.82} & 0.2524 & 2 \\ \hline
-\verb|xlm-roberta-base| & 73.30 & \textbf{0.2459} & 3 \\ \hline
-\verb|cardiffnlp/twitter-xlm-roberta-base| & 71.03 & 0.2648 & 3 \\ \hline
+\begin{tabular}{|p{0.7\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
+\hline 
+\textbf{Model} & \textbf{Baseline} &\textbf{F1 score} & \textbf{Validation Loss}& \textbf{Epoch}\\ \hline 
+\verb|distilbert-base-multilingual-cased| & 87.98 & 64.81 & 0.2910 & 1\\ \hline
+\verb|dbmdz/bert-base-german-uncased| & 87.98 & 74.40 & 0.2285 & 2 \\ \hline
+\verb|deepset/gbert-base| & 87.98 & \textbf{74.82} & 0.2524 & 2 \\ \hline
+\verb|xlm-roberta-base| & 87.98 & 73.30 & \textbf{0.2459} & 3 \\ \hline
+\verb|cardiffnlp/twitter-xlm-roberta-base| &  87.98 & 71.03 & 0.2648 & 3 \\ \hline
 \end{tabular}
 \end{adjustbox}
 \end{table}
@@ -595,14 +289,14 @@ Overall, the models perform better with most F1-scores exceeding F1 of 80.0 and 
 \label{tab:experiments_sm}
 \centering
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{|p{0.7\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
+\begin{tabular}{|p{0.7\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
 \hline
-\textbf{Model} & \textbf{F1 score} & \textbf{Validation Loss} & \textbf{Epoch}\\ \hline 
-\verb|distilbert-base-multilingual-cased| & 82.03 & 0.1456 & 2 \\ \hline
-\verb|dbmdz/bert-base-german-uncased| & 61.56 & 0.2560 & 3 \\ \hline
-\verb|deepset/gbert-base| & \textbf{85.35} & \textbf{0.1114} & 3\\ \hline
-\verb|xlm-roberta-base| & 82.64 & 0.1445 & 1 \\ \hline
-\verb|cardiffnlp/twitter-xlm-roberta-base| & 82.66 & 0.1344 & 3\\ \hline
+\textbf{Model} & \textbf{Baseline} & \textbf{F1 score} & \textbf{Validation Loss} & \textbf{Epoch}\\ \hline 
+\verb|distilbert-base-multilingual-cased|& 87.98 & 82.03 & 0.1456 & 2 \\ \hline
+\verb|dbmdz/bert-base-german-uncased| & 87.98 & 61.56 & 0.2560 & 3 \\ \hline
+\verb|deepset/gbert-base| & 87.98 & \textbf{85.35} & \textbf{0.1114} & 3\\ \hline
+\verb|xlm-roberta-base| & 87.98 & 82.64 & 0.1445 & 1 \\ \hline
+\verb|cardiffnlp/twitter-xlm-roberta-base|& 87.98 & 82.66 & 0.1344 & 3\\ \hline
 \end{tabular}
 \end{adjustbox}
 \end{table}
@@ -614,159 +308,38 @@ The results for fine-tuning on the combined corpus are shown in table \ref{tab:e
 \label{tab:experiments_sm_tg}
 \centering
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{|p{0.7\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
+\begin{tabular}{|p{0.7\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
 \hline
-\textbf{Model} & \textbf{F1 score} & \textbf{Validation Loss}& \textbf{Epoch}\\ \hline 
-\verb|distilbert-base-multilingual-cased| & 66.34 & 0.2543 & 2 \\ \hline
-\verb|dbmdz/bert-base-german-uncased| & 77.75 & 0.1751 & 1 \\ \hline
-\verb|deepset/gbert-base| & 79.22 & \textbf{0.1751} & 2 \\ \hline
-\verb|xlm-roberta-base| & \textbf{79.88} & 0.1842 & 3 \\ \hline
-\verb|cardiffnlp/twitter-xlm-roberta-base| & 77.68 & 0.2061 & 3 \\ \hline
+\textbf{Model} & \textbf{Baseline} & \textbf{F1 score} & \textbf{Validation Loss}& \textbf{Epoch}\\ \hline 
+\verb|distilbert-base-multilingual-cased| & 87.98 & 66.34 & 0.2543 & 2 \\ \hline
+\verb|dbmdz/bert-base-german-uncased| & 87.98 & 77.75 & 0.1751 & 1 \\ \hline
+\verb|deepset/gbert-base|& 87.98 & 79.22 & \textbf{0.1751} & 2 \\ \hline
+\verb|xlm-roberta-base|& 87.98 & \textbf{79.88} & 0.1842 & 3 \\ \hline
+\verb|cardiffnlp/twitter-xlm-roberta-base|& 87.98 & 77.68 & 0.2061 & 3 \\ \hline
 \end{tabular}
 \end{adjustbox}
 \end{table}
 
-Judging only by the F1-score, the best model on the combined corpus was the \textit{xlm-roberta-base} model with F1=79.88, followed closely by the \textit{deepset/gbert-base} model with F1=79.22. Regarding the validation loss, the latter performs better than the \textit{xlm-roberta-base} model. Furthermore, the \textit{deepset/gbert-base} model achieves a better precision, as shown in \ref{tab:best_models_metrics}, indicating that its results can be considered more relevant than those of the \textit{xlm-roberta-base} model. Against this background, I selected the \textit{deepset/gbert-base} model as preliminary best model for further error analyses.
+Judging only by the F1-score, the best model on the combined corpus was the \textit{xlm-roberta-base} model with F1=79.88, followed closely by the \textit{deepset/gbert-base} model with F1=79.22. Regarding the validation loss, the latter performs better than the \textit{xlm-roberta-base} model. Furthermore, the \textit{deepset/gbert-base} model achieves a better precision, as shown in \ref{tab:best_models_metrics}. This indicates that it is more likely to miss entities (lower sensitivity), but that it is better at correctly classifying the recognized entities (higher relevance). Against this background, I selected the \textit{deepset/gbert-base} model as preliminary best model for further error analyses.
 
 \begin{table}[htp]
 \caption{Detailed metrics for two best models}
 \label{tab:best_models_metrics}
 \centering
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{|p{0.6\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
+\begin{tabular}{|p{0.6\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}|}
 \hline
-\textbf{Model} & \textbf{F1 score} & \textbf{Precision}& \textbf{Recall} & \textbf{Validation Loss} & \textbf{Epoch}\\ \hline 
+\textbf{Model} & \textbf{Baseline} & \textbf{F1 score} & \textbf{Precision}& \textbf{Recall} & \textbf{Validation Loss} & \textbf{Epoch}\\ \hline 
 
-\verb|deepset/gbert-base| & 79.22 & \textbf{78.16} & 80.32 & 
+\verb|deepset/gbert-base|& 87.98 & 79.22 & \textbf{78.16} & 80.32 & 
 \textbf{0.1751} & 2 \\ \hline
-\verb|xlm-roberta-base| & \textbf{79.88} & 76.82 & \textbf{83.19} & 0.1842 & 3 \\ \hline
+\verb|xlm-roberta-base| & 87.98& \textbf{79.88} & 76.82 & \textbf{83.19} & 0.1842 & 3 \\ \hline
 \end{tabular}
 \end{adjustbox}
 \end{table}
 
-%
-%\begin{figure}
-%	\begin{minipage}{0.45\linewidth}
-%		\includegraphics[width=\linewidth]{images/evaluation_plot_gbert_1.png}
-%		\caption{Fine-tuning the deepset/gbert-base model: Training and validation loss }
-% 		\label{fig:gbert_loss_1}
-% 	\end{minipage}
-% 	\hfill
-%	\begin{minipage}{0.45\linewidth}
-%\includegraphics[width=\linewidth]{images/evaluation_plot_gbert_2.png}
-%	\caption{Fine-tuning the deepset/gbert-base model: F1, precision, recall, and accuracy}
-%    \label{fig:gbert_loss_2}
-%	\end{minipage}
-%\end{figure}
-
 
 \section{Error Analysis}
-%For further evaluation, the following method can be used which returns a dataframe containing the relevant metrics per epoch: 
-
-%\begin{python}
-%def get_training_history(trainer):
-%    df = pd.DataFrame(trainer.state.log_history)[['epoch','loss' ,'eval_loss', 'eval_f1', 'eval_precision', 'eval_recall', 'eval_accuracy']]
-%    df = df.rename(columns={"epoch":"epoch",
-%                            "loss": "training_loss", 
-%                            "eval_loss": "validation_loss", 
-%                            "eval_f1":"f1", 
-%                            "eval_precision": "precision",
-%                           'eval_recall': 'recall', 
-%                            'eval_accuracy': 'accuracy'})
-%    df['epoch'] = df["epoch"].apply(lambda x: round(x))
-%    df['training_loss'] = df["training_loss"].ffill()
-%    df[['validation_loss', 'f1']] = df[['validation_loss', 'f1']].bfill().ffill()
-%    df.drop_duplicates()
-%    
-%    return df
-%\end{python}
-%
-%We can visualize the results by creating some simple line plots with the following code: 
-%
-%\begin{python}
-%eval_df = get_training_history(trainer)
-%
-%# plot train, eval loss
-%sns.set_style("whitegrid")
-%ax = sns.lineplot(data = eval_df[['training_loss', 'validation_loss']])
-%ax.set_xticks(range(len(eval_df)),labels=range(len(eval_df)))
-%plt.show()
-%
-%# plot f1, precision, recall, accuracy
-%sns.set_style("whitegrid")
-%ax = sns.lineplot(data = eval_df[['f1', 'precision', 'recall', 'accuracy']])
-%ax.set_xticks(range(len(eval_df)),labels=range(len(eval_df)))
-%plt.show()
-%\end{python}
-
-%Figure \ref{fig:gbert_loss_1} and \ref{fig:gbert_loss_2} show evaluation metrics for the fine-tuned deepset/gbert-base model. We can make the following observations: 
-%
-%The loss on the training set intersects with the validation loss between epoch 1 and 2. After that, the training loss continues to decrease, while the validation loss remains relatively constant, and then increases at epoch 5. This can be interpreted as overfitting, as we have already observed when looking at the number of epochs in the results above. 
-%
-%In the second plot we see that accuracy is continuously high with around 0.95. This is, however, not very informative for an NER model, since we are dealing with a very imbalanced dataset (see section \ref{ssec:evaluation_metrics}. 
-%
-%We can furthermore observe that recall for this model is in general higher than its precision. This means that the model tends to return less false negatives than false positives. 
-%Its predictions are thus better in terms of completeness than in terms of relevance or validity. 
-%
-%\begin{figure}
-%	\begin{minipage}{0.45\linewidth}
-%		\includegraphics[width=\linewidth]{images/evaluation_plot_gbert_1.png}
-%		\caption{Fine-tuning the deepset/gbert-base model: Training and validation loss }
-% 		\label{fig:gbert_loss_1}
-% 	\end{minipage}
-% 	\hfill
-%	\begin{minipage}{0.45\linewidth}
-%\includegraphics[width=\linewidth]{images/evaluation_plot_gbert_2.png}
-%	\caption{Fine-tuning the deepset/gbert-base model: F1, precision, recall, and accuracy}
-%    \label{fig:gbert_loss_2}
-%	\end{minipage}
-%\end{figure}
-
-%selected: gbert, best F1 score on both datasets
-%- Loss: 0.1751
-%- F1: 0.7922
-%- Precision: 0.7816
-%- Recall: 0.8032
-%
-%XLM Roberta: 
-%- Loss: 0.1842
-%- F1: 0.7988
-%- Precision: 0.7682
-%- Recall: 0.8319
-
-%\begin{python}
-%from torch.nn.functional import cross_entropy
-%
-%num_labels = 13
-%
-%def forward_pass_with_label(batch):
-%    # Convert dict of lists to list of dicts suitable for data collator
-%    features = [dict(zip(batch, t)) for t in zip(*batch.values())]
-%    # Pad inputs and labels and put all tensors on device
-%    batch = data_collator(features)
-%    input_ids = batch["input_ids"].to(device)
-%    attention_mask = batch["attention_mask"].to(device)
-%    labels = batch["labels"].to(device)
-%    with torch.no_grad():
-%        # Pass data through model  
-%        output = trainer.model(input_ids, attention_mask)
-%        # Logit.size: [batch_size, sequence_length, classes]
-%        # Predict class with largest logit value on classes axis
-%        predicted_label = torch.argmax(output.logits, axis=-1).cpu().numpy()
-%    # Calculate loss per token after flattening batch dimension with view
-%    loss = cross_entropy(output.logits.view(-1, num_labels), 
-%                         labels.view(-1), reduction="none")
-%    # Unflatten batch dimension and convert to numpy array
-%    loss = loss.view(len(input_ids), -1).cpu().numpy()
-%
-%    return {"loss":loss, "predicted_label": predicted_label}
-%
-%valid_set_gbert = eval_encoded
-%valid_set_gbert = valid_set_gbert.map(forward_pass_with_label, batched=True, batch_size=32)
-%df = valid_set_gbert.to_pandas()
-%\end{python}
-%
-%We can now further work with this dataframe to explore the loss on token and class level, and plot a confusion matrix.\footnote{For implementation details see \url{https://github.com/eli-quereli/ner-german-telegram/blob/main/src/notebooks/4.2_training/02_training/model_experiments_combined_datasets/gbert_smartdata_telegram.ipynb}}
 With an F1 score of 79.22, my preliminary best model lags behind the baseline of F1=87.98 by 8.76. Even when considering the smaller training corpus size, the performance of my model cannot be considered state of the art performance for \gls{ner}. 
 Furthermore, even though the combined corpus is of larger size than the Smartdata corpus, results deteriorate when fine-tuning on the combined corpus. These findings demand for an error analysis to identify potential improvements for future experiments. 
 
@@ -775,8 +348,8 @@ Figure \ref{fig:highest_loss_tokens_gbert} shows the tokens with the highest tot
 
 The token \verb|.| has the highest total loss of 118.7. This is not surprising, considering its frequent occurence (count=647) in the validation set. We can see that its mean loss of 0.18 is rather low compared to other listed tokens. The fact that the token \verb|.| is often part of named entities of type date and time, but also often is not a named entity, but a regular character, might also confuse the model. 
 In general we see that a lot of special characters are among the tokens with the highest total loss. It can be assumed that this is partly due to their occurrence inside of named entities. 
-Furthermore, the words \verb|Uhr|, \verb|Protest|, and \verb|Kund| appear.  The word \verb|Uhr| can mostly assumed to occur as part of time mentions. Both annotation schemes include the word as part of time named entities, therefore I cannot be assumed that annotation inconsistencies are the main reason for its high total loss.
-The tokens \verb|Protest|, and \verb|Kund| are part of named entities of type action, which is underrepresented in the dataset, making it plausible that they are often misclassified by the model. They also have by far the highest mean loss of all listed tokens. 
+Furthermore, the tokens `Uhr', `Protest', and `Kund' appear. The word `Uhr' can mostly assumed to occur as part of time mentions. Both annotation schemes include the word as part of time named entities, therefore I cannot be assumed that annotation inconsistencies are the main reason for its high total loss.
+The tokens `Protest' and `Kund' can assumed to be part of named entities of type action in most cases, such as `Protestmarsch' or `Kundgebung'. Since this class is heavily underrepresented in the dataset, it seems plausible that these tokens are often misclassified by the model. They also have by far the highest mean loss of all listed tokens. 
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{images/highest_loss_tokens_gbert.png}
@@ -798,7 +371,7 @@ The \verb|O| class has by far the lowest mean loss which is not surprising givin
 \end{figure}
 
 \subsubsection{Confusion Matrix}
-The confusion matrix of the model as shown in figure \ref{fig:norm_cm_gbert} is mainly diagonal, indicating that the majority of predicted labels corresponds with the true label for most of the classes. Not surprisingly, the majority class \verb|O| tag is most commonly predicted in case of wrong predictions. Once again, we can observe that the action class causes by far the most errors, with tokens assigned a \verb|B-ACTION| label predicted as \verb|O| in most of the cases, an tokens assigned a \verb|I-ACTION| label in all cases. 
+The confusion matrix of the model as shown in figure \ref{fig:norm_cm_gbert} is mainly diagonal, indicating that in most cases the predicted label corresponds with the true label. Not surprisingly, I case of wrong predictions the majority class \verb|O| is the most common predicted label. Once again, we can observe that the action class causes by far the most errors, with tokens assigned a \verb|B-ACTION| label predicted as \verb|O| in most of the cases, and tokens assigned a \verb|I-ACTION| predicted as \verb|O| label in \textit{all} cases. 
 
 \begin{figure}[H]
 \includegraphics[width=0.8\linewidth,keepaspectratio]{images/norm_cm_gbert}
@@ -806,28 +379,15 @@ The confusion matrix of the model as shown in figure \ref{fig:norm_cm_gbert} is 
   \label{fig:norm_cm_gbert}
 \end{figure}
 
-%\subsection{Post-processing}
-%The values we get as output from our model don’t necessarily make sense by themselves
-%
-%Those are not probabilities but logits, the raw, unnormalized scores outputted by the last layer of the model. To be converted to probabilities, they need to go through a SoftMax layer (all  Transformers models output the logits, as the loss function for training will generally fuse the last activation function, such as SoftMax, with the actual loss function, such as cross entropy)
-%
-%To get the labels corresponding to each position, we can inspect the id2label attribute of the model config
-
-
-%\section{Hyperparameter tuning}
-
-%\section{Processing of results}
 \section{Application of the Custom Model}
-For the application of my custom model, I used Hugging Face's \verb|pipeline()| to extract named entities from the ten example messages used already in chapter \ref{cha:exploration}, and compared the results of the custom model to those of the German-language Flair model. I furthermore extracted named entities from a larger sample of messages from the channel `Demotermine'.\footnote{For implementation details, see \url{https://github.com/eli-quereli/ner-german-telegram/tree/main/src/notebooks/4.2_training/03_results}.}
+For the application of my custom model, I used Hugging Face's \verb|pipeline()| to extract named entities from the ten example messages already used in chapter \ref{cha:exploration}. I compared the results of my custom model to those of the German-language Flair model. I furthermore extracted named entities from a larger sample of messages from the channel `Demotermine'.\footnote{For implementation details, see \url{https://github.com/eli-quereli/ner-german-telegram/tree/main/src/notebooks/4.2_training/03_results}.}
 
-Since the pipeline returns subtokens, some post-processing of the results was required in order to obtain full words, and to carry out label alignment. The corresponding B- and I-tags were mapped to the general labels \verb|PER|, \verb|LOC|, \verb|ORG|, \verb|TIME|, and \verb|DATE|. %I also experimented with parsing date and time mentions using the \verb|ctparse| package.\footnote{\url{https://ctparse.readthedocs.io/en/latest/}}
-
-I would like to point out that this part of my implementation is still work in progress, both regarding the quality of the model and the post-processing steps. % especially the parsing of times and dates. 
+Since the pipeline returns subtokens, some post-processing of the results was required in order to obtain full words, and to carry out label alignment. The corresponding B- and I-tags were mapped to the general labels \verb|PER|, \verb|LOC|, \verb|ORG|, \verb|TIME|, and \verb|DATE|.
 
 \subsection{Example Messages}
 Table \ref{tab:detect_ents_custom_vs_flair} shows the results of the German-language Flair model from chapter \ref{cha:exploration} compared to the results of the custom model. 
-We can observe that the custom model successfully detects the non-standard named entity types \verb|DATE| and \verb|TIME| in messages no. 2, 3, 4, 6, 8, and 10, while the Flair model does not support them and hence cannot recognize them. Furthermore, we can see in message no. 3 that the custom model has learned to recognize non-standard location mentions such as `Ausfahrt' or `Berliner Speckgürtel'. This is useful for a more fine-grained monitoring of protest mobilization, and also helps to extract rather informal mobilization information. 
-We can also observe some errors by the model, e.g. the postal code in message no. 3 is correctly recognized as location, which is an improvement compared to the Flair model, but the result is incomplete, missing the last digit. The model also misses the action mention `Demo-Berlin', which is not surprising given the poor performance of the model for this class. 
+We can observe that the custom model successfully detects the non-standard named entity types \verb|DATE| and \verb|TIME| in messages no. 2, 3, 4, 6, 8, and 10, while the Flair model does not support them and hence cannot recognize them. Furthermore, we can see in message no. 3 that the custom model has learned to recognize non-standard location mentions such as `Ausfahrt' or `Berliner Speckgürtel'. This is useful for a more fine-grained monitoring of protest mobilization, and also helps to extract rather informal location mentions. 
+We can also observe some errors made by the model: For example, the postal code in message no. 3 is correctly recognized as location (which is an improvement compared to the Flair model), but the result is incomplete, missing the last digit. The model also misses the action mention `Demo-Berlin', which is not surprising given the poor performance of the model for this class. 
 
 \begin{table}[htp]
 \caption{Flair vs. custom model: Detected entities for German-language example messages}
@@ -912,10 +472,10 @@ Once again I used the pipeline to obtain the model's results and post-processed 
 \end{table}
 
 Figure \ref{fig:wc_ents} visualizes the results as word cloud for the 100 most frequent words per entity type, for the types person, location, organization, date, and time.
-For the entity type person, we can observe that the results contain references to German politicians, e.g. `Scholz', `Kretschmer', `Merkel', `Spahn'; but also names of known activists from the movement against the COVID-19 movement such as `Karl Hilz', `Sven Liebich', `Markus Haintz' or `Ralf Ludwig'. This entity type could thus serve to monitor which politicians are frequently mentioned (and possibly targeted) by the movement, but also to analyze prominent actors in the movement itself. 
-The recognized location entities contain represent different levels including nation mentions such as `DE', `Schweiz', or `\"Osterreich', federal states such as `Hessen', regions (`Baden'), and a number of cities, mostly located in Germany. This entity type could be used to compare regional focusses of the movement over time. It could for example be hypothesized that the focus of mobilization shifted from Berlin to other areas after the ban of the large `Querdenken' demonstrations in Germany's capital city. 
-Organization mentions indicate that there is a focus on different social media platforms in the analyzed messages. This is probably due to the re-occuring calls to follow certain accounts or watch videos on these platforms. We can also observe that Germany's two largest political parties are mentioned. Further analyzing messages containing these named entities might yield new insights about the attitude of the movement towards the political establishment. 
-Date mentions include both numerical expressions and strings, mostly days of the week. Normalizing and parsing such expressions could be a task for future work, which would allow to use these instances for  analyzing seasonal fluctuations. The time mentions finally mostly consist of numerical expressions which should facilitate the parsing task. We can observe a focus on early evening and afternoon types, which might indicate that protest organizers focus on times of day which outside of regular working schedules. 
+For the entity type person, we can observe that the results contain references to German politicians, e.g. `Scholz', `Kretschmer', `Merkel', `Spahn'; but also names of known activists from the movement such as `Karl Hilz', `Sven Liebich', `Markus Haintz' or `Ralf Ludwig'. This entity type could thus serve to monitor which politicians are frequently mentioned (and possibly targeted) by the movement, but also to analyze prominent actors in the movement itself. 
+The recognized location entities cover different granularity levels including nation mentions such as `DE', `Schweiz', or `\"Osterreich', federal states such as `Hessen', regions (`Baden'), and a number of cities, mostly located in Germany. This entity type could be used for example to compare regional focusses of the movement over time, e.g. to analyze if there was a shift from Berlin to other areas after the ban of the large `Querdenken' demonstrations in Germany's capital city. 
+Organization mentions indicate that there is a focus on different social media platforms in the analyzed messages. This is probably due to the re-occurring calls to follow certain accounts or watch videos on these platforms. We can also observe that Germany's two largest political parties are mentioned. Further analyzing messages containing these named entities might yield new insights about the attitude of the movement towards the political establishment, and about the platforms used for mobilization. 
+Date mentions include both numerical expressions and strings, mostly days of the week. Normalizing and parsing such expressions is an important task for future work, which would allow to use these instances for analyzing seasonal fluctuations. The time mentions finally consist mostly of numerical expressions. We can observe a focus on early evenings and afternoons, which might indicate that protest organizers focus on times of day outside regular working hours. 
 
 \begin{figure}[htp]
 \centering
@@ -924,58 +484,15 @@ Date mentions include both numerical expressions and strings, mostly days of the
 \label{fig:wc_ents}
 \end{figure}
 
-%\begin{minipage}[t]{0.6\textwidth}
-%The preliminary best model achieves F1 score of 79.22. Even though it lags behind the baseline of 87.98, its performance for the standard named entity types location, person, and organization, and for the non-standard entity types time and date is promising with most of the related classes achieving F1 scores above 0.8, some even above 0.9
-%\end{minipage}\hfill
-%\begin{minipage}[t]{0.7\textwidth}
-%  %\centering\raisebox{\dimexpr \topskip-\height}{%
-%\includegraphics[width=0.5\textwidth,keepaspectratio]{images/person_ents.png}%}
-%\end{minipage}
-
-%\begin{table}[htp]
-%\caption{Application of custom model: Detected named entities in larger sample of Telegram messages}
-%\centering
-%\begin{adjustbox}{max width=\textwidth}
-%\begin{tabular}{p{1\linewidth}}
-%\hline
-%\begin{center} 
-%\includegraphics[width=0.55\textwidth,keepaspectratio]{images/person_ents.png} 
-% \end{center}
-%\\
-%\begin{center} 
-%\includegraphics[width=0.55\textwidth,keepaspectratio]{images/location_ents.png} 
-% \end{center}\\
-% \begin{center} 
-%\includegraphics[width=0.55\textwidth,keepaspectratio]{images/org_ents.png} 
-%\end{center}
-%\end{tabular}
-%\end{adjustbox}
-%\end{table}
-
-
-%\begin{figure}[htp]
-%    \centering
-%    \begin{minipage}{0.5\textwidth}
-%        \centering
-%        \includegraphics[width=1\textwidth]{images/location_ents.png} 
-%        \captionApplication of custom model: Results for entity type location}
-%    \end{minipage}\hfill
-%    \begin{minipage}{0.5\textwidth}
-%        \centering
-%        \includegraphics[width=1\textwidth]{images/org_ents.png} 
-%        \caption{Application of custom model: Results for entity type organization}
-%    \end{minipage}
-%\end{figure}
-
 
 \section{Summarization}
 In this chapter I described my efforts to train a custom \gls{ner} model for extracting named entities of type person, location, organization, date, time, and action from German-language Telegram messages. 
-I describe my efforts of building a Telegram corpus by selecting sample messages and annotating them using a newly developed annotation scheme. I used additional training data from the Smartdata corpus, adjusting its tag set to make it fit the Telegram corpus. 
-I ran a number of experiments to evaluate the model of five different pretrained transformer models, first on each corpus separately, and then on the combined corpus. For the preliminary best model, a fine-tuned version of the German-language BERT model \textit{deepset/gbert-base}, I conducted further error analysis and evaluation on token and class level. 
+For this, I built a Telegram corpus by selecting sample messages and annotating them using a newly developed annotation scheme. I used additional training data from the Smartdata corpus, adjusting its tag set to make it fit the Telegram corpus. 
+I then ran a number of experiments to evaluate the model of five different pretrained transformer models, first on each corpus separately, and then on the combined corpus. For the preliminary best model, a fine-tuned version of the German-language BERT model \textit{deepset/gbert-base}, I conducted further error analysis and evaluation on token and class level. 
 Finally, I apply this model to the ten example messages used in chapter \ref{cha:exploration}, and to a larger sample of Telegram messages.
 
-My findings confirm the potentials of using transformer models for \gls{ner} fine-tuning for building a custom model for NER in social messengers channels.
-The preliminary best model achieves F1 score of 79.22. Even though it lags behind the baseline of 87.98, its performance for the standard named entity types location, person, and organization, and for the non-standard entity types time and date is promising with most of the related classes achieving F1 scores above 0.8, some even above 0.9. 
-However my results also indicate that fine-tuning for non-standard entity types like the class action is a more challenging task. My preliminary best model almost completely fails to detect entities of this type. It can be assumed that the model's poor performance for this class results from its underrepresentation in the training data. The use of such non-standard entity types thus requires more resources for annotating corpora, or should generally be reconsidered. 
+My findings confirm the potentials of fine-tuning transformer models for building a custom model for \gls{ner} in Telegram channels. 
+The preliminary best model achieves F1 score of 79.22. Even though it lags behind the baseline of 87.98, its scores for the standard named entity types location, person, and organization, and for the non-standard entity types time and date are promising with most of the related classes achieving F1 scores above 0.8, some even above 0.9. 
+However, my results also indicate that fine-tuning for non-standard entity types is a challenging task. My preliminary best model almost completely fails to detect entities of type action. It can be assumed that the model's poor performance for this class results from its underrepresentation in the training data. The use of such non-standard entity types thus requires more resources for annotating corpora, or should generally be reconsidered as a requirement for an \gls{ner} application.
 Nonetheless, my model represents an improvement over the existing solutions explored in the previous chapter, since its application demonstrates that it allows for the detection of date and time mentions, representing non-standard entity types not supported by most existing \gls{ner} models. 
 

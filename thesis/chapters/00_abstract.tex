@@ -1,25 +1,4 @@
 \chapter*{Abstract}
 
-This thesis investigates the potentials and limitations of \gls{ner} approaches for the automated analysis of German-language text data from the messenger service Telegram. I will focus on the standard named entity types person, location, and organization, and the non-standard entity types time, date, and action. The thematic focus is on the mobilization for protests against the COVID-19 measures in Germany. 
-%The rise of conspiracy theories in the context of the COVID-19 pandemic not only reinforced antisemitic and racist discrimination against certain communities, but also generated an increasingly toxic and violent attitude towards political decision-makers and scientific experts.
-%The past months have once again shown the importance of investigative work by critical journalists and non-governmental organizations to critically monitor the corresponding mobilization strategies on Telegram. A central challenge here is the large amounts of user-generated data from often very dynamic contexts, which are usually analyzed manually. Here, approaches from the field of natural language processing can offer a valuable addition. 
-
-% The messenger service Telegram continues to play a key role in mobilizing the movement, not least because of the operators' refusal to cooperate with authorities. Moreover, the service allows for the creation of large channels to quickly disseminate information to a high number of users. 
-%Against this background, this thesis aims to evaluate the applicability of Named Entity Recognition for the investigation of the COVID-19 protest movement in German-language Telegram channels, 
-
-% In the course of my analysis, I develop an annotation guide that is used to annotate a dataset. This dataset then serves as the basis for evaluating existing models for NER. In a further step, I then fine-tune one of the previously evaluated models using the annotated dataset as well as other publicly available German-language datasets. The optimized model is finally evaluated according to established metrics on the dataset annotated specifically for this work. 
-My thesis provides an introduction to the task of \gls{ner} and to prior work in the context of shared tasks for German-language and social media \gls{ner}. It explores the applicability of two existing \gls{ner} models provided by the spaCy library and the Flair framework. I furthermore extensively explore the potentials and limitations of building a custom solution for my concern by fine-tuning pretrained transformer models, including the task of creating an annotated Telegram corpus for \gls{ner} including non-standard entity types. 
-My work contributes to the development of German-language \gls{ner} in user-generated texts from messenger services, exploring the potentials of state of the art approaches for this purpose. 
-
-%.  in general by applying this approach to a specific text genre and domain, and provides first insights for developing an NER tool for researchers and non-governmental organizations in the future. 
-
-%This thesis implements Named Entity Recognition for German-language text messages from the messenger service Telegram, focussing on a Telegram channel mobilizing for protests against COVID-19 containment measures in Germany. 
-
-% The primary goal is to explore the potentials and limitations of two existing German-language models for Named Entity Recognition, namely \textit{spacy} and \textit{flair}, for the detection of entities of the common entity types \textsc{PERSON}, \textsc{LOCATION}, and \textsc{ORGANIZATION}.
-
-% Furthermore, the recognition of an additional custom entity type \textsc{ACTION} will be explored with the help of manually labeled data used for training custom models. Text parts containing \textsc{DATE} and \textsc{TIME} information are extracted via the \textit{ctparse} module, and 
-
-% Additionally, I will explore the potentials of Machine Translation (MT) for the improvement of German-language NER models. 
-% conspiracy theories, targeting of politicians
-
-% This thesis contributes to the task of German-language NER in general by applying it to a specific domain and text genre. Furthermore, it  aim is to provide a tool for both researchers and civil society for monitoring and analyzing large amount of text data from social media/messengers.
+This thesis investigates the potentials and limitations of \gls{ner} for the automated analysis of German-language text data from the messenger service Telegram, for the standard named entity types person, location, and organization, and the non-standard entity types time, date, and action. The thematic focus is on the mobilization for protests against the COVID-19 measures in Germany. 
+My thesis provides an introduction to the task of \gls{ner} and to prior work in the context of shared tasks for German-language and social media \gls{ner}. It explores the applicability of two existing \gls{ner} models provided by the spaCy library and the Flair framework. I furthermore extensively explore the potentials and limitations of building a custom solution for my concern by fine-tuning pretrained transformer models, including the creation of an annotated Telegram corpus. My work contributes to the development of German-language \gls{ner} in user-generated texts from messenger services by exploring the potentials of state of the art approaches for the extraction of standard and non-standard entity types. 

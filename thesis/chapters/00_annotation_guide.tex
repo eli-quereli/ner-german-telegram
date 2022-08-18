@@ -6,10 +6,10 @@ The following annotation guidelines are a combined adaptation of \cite{benikova-
 
 \section*{Named Entity - Basic Definition}
 
-Names are denominators for a single unique object in the real world. Only full noun phrases are considered as named entities. Pronouns and all other phrases can be ignored. 
+Names are denominators for a single unique object in the real world. Only noun phrases are considered as named entities. Pronouns and all other phrases can be ignored. 
 Phrases only partly containing names (e.g. `deutschlandweit), or adjectives referring to entities (`euklidisch') can be ignored.
 
-\noindent Only one entity type per token should be annotated. In case of multiple options (e.g. `Charité' could be referred to as organization or as location, same for `Landtag' or `Bundestag'), the context of usage should be considered for the final classification. 
+\noindent Only one entity type per token span should be annotated. In case of multiple options (e.g. `Charité' could be referred to as organization or as location, same for `Landtag' or `Bundestag'), the context of usage should be considered for the final classification. 
 
 \noindent Named entities can consist of more than one token. The inital token of an entity should be tagged with the B-label of the corresponding entity type. The following tokens belonging to the same entity should be labelled with the I-label of the same type. For 
 
@@ -22,20 +22,9 @@ Phrases only partly containing names (e.g. `deutschlandweit), or adjectives refe
 \noindent Emoticons, user mentions and (parts of) urls should not be tagged as named entities. 
 
 \section*{Definition of Different Entity Types}
-For annotation, the the 6 entity types PERSON, LOCATION, ORGANIZATION, DATE, TIME, and ACTION are used. The label set consists of B-tag and 
-I-tag for each entity type, resulting in a total of 12 labels. 
+For annotation, the six entity types person, location, organization, date, time, and action are used. The label set consists of B-tag and  I-tag for each entity type, resulting in a total of twelve labels. 
 
 Table \ref{tab:entity_types} shows the core definitions and examples for the annotated entity types. 
-
-%Person (PER) - An entity of type person refers to a named, single individual. Person entities are limited to humans. Fictional persons can be included, as long as they’re referred to by name (e.g. Harry Potter). 
-%Organization (ORG) - An organization refers to a named corporate, governmental, or other organizational entity. Organization entities can be corporations, agencies, institutions, newspapers, tv/radio channels, other media platforms, political parties, non-governmental organizations, and other groups of people who are to some extent organized formally or informally.
-%Location (LOC) - Location entities are names of politically or geographically defined locations. This incluseds countries, provinces, regions, cities, districts, addresses including streets, squares, and postal codes, (named) buildings, shopping centers, parking lots, or restaurants.
-%Date (DATE): Date entities are absolute or relative date expression. 
-%Time (TIME): Time entities are absolute time expressions, including times of day and time codes (e.g. for video urls). 
-%Action (ACTION): Action entities refer to a specific instance of an action or event undertaken to express political beliefs, e.g. demonstrations, vigils, motorcades, walks in public. 
-
-
-% TODO in intro verschieben  hier wird klar wie der shift von protest forms is: Achtung Demonstration wird Abgesagt ! Wir haben als Orga Team beschlossen , das wir keine Demos mehr anmelden werden ! Wir sagen klar Nein zu den Auflagen die uns vorgegeben werden . Deshalb , neuer Termin , wir fahren nach Plauen ! Lasst uns die Freie Sachsen und den Bürgermeisterkandidaten Thomas Kaden unterstützen ! 11062021 Raus auf die Straße
 
 \begin{table}[]
 \caption{Definition of entity types for annotation guide}
@@ -48,8 +37,8 @@ Table \ref{tab:entity_types} shows the core definitions and examples for the ann
 \hline 
 
 PER 
-& Named, single individual, limited to humans. Fictional persons can be included, as long as they’re referred to by name. 
-& Karl Lauterbach, Merkel, Harry Potter, Kretscher, Karl Hilz, Markus
+& Named, single individuals, limited to humans. Fictional persons can be included, as long as they’re referred to by name. 
+& Karl Lauterbach, Merkel, Harry Potter, Kretschmer, Karl Hilz, Markus
 \\
 \hline
 LOC 
@@ -129,7 +118,7 @@ If a hashtag is part of a named entity, it should be included in the tag.\\
 \section*{Detailed Annotation Instructions for Entity Types}
 
 \subsection*{PERSON}
-Person names can consist of given name and last name, or only first / only last name. Titles (e.g. Dr.) and forms of address (Herr, Frau) should not be annotated.  
+Person names can consist of given name and last name, or only first/last name. Titles (e.g. Dr.) and forms of address (Herr, Frau) should not be annotated.  
 
 \noindent\textbf{Examples:}
 \begin{itemize}
